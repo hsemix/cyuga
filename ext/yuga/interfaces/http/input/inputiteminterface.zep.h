@@ -1,0 +1,38 @@
+
+extern zend_class_entry *yuga_interfaces_http_input_inputiteminterface_ce;
+
+ZEPHIR_INIT_CLASS(Yuga_Interfaces_Http_Input_InputItemInterface);
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_interfaces_http_input_inputiteminterface_getindex, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_interfaces_http_input_inputiteminterface_setindex, 0, 0, 1)
+	ZEND_ARG_INFO(0, index)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_interfaces_http_input_inputiteminterface_getname, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_interfaces_http_input_inputiteminterface_setname, 0, 0, 1)
+	ZEND_ARG_INFO(0, name)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_interfaces_http_input_inputiteminterface_getvalue, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+#if PHP_VERSION_ID >= 80000
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_yuga_interfaces_http_input_inputiteminterface___tostring, 0, 0, IS_STRING, 0)
+#else
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_interfaces_http_input_inputiteminterface___tostring, 0, 0, 0)
+#endif
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(yuga_interfaces_http_input_inputiteminterface_method_entry) {
+	PHP_ABSTRACT_ME(Yuga_Interfaces_Http_Input_InputItemInterface, getIndex, arginfo_yuga_interfaces_http_input_inputiteminterface_getindex)
+	PHP_ABSTRACT_ME(Yuga_Interfaces_Http_Input_InputItemInterface, setIndex, arginfo_yuga_interfaces_http_input_inputiteminterface_setindex)
+	PHP_ABSTRACT_ME(Yuga_Interfaces_Http_Input_InputItemInterface, getName, arginfo_yuga_interfaces_http_input_inputiteminterface_getname)
+	PHP_ABSTRACT_ME(Yuga_Interfaces_Http_Input_InputItemInterface, setName, arginfo_yuga_interfaces_http_input_inputiteminterface_setname)
+	PHP_ABSTRACT_ME(Yuga_Interfaces_Http_Input_InputItemInterface, getValue, arginfo_yuga_interfaces_http_input_inputiteminterface_getvalue)
+	PHP_ABSTRACT_ME(Yuga_Interfaces_Http_Input_InputItemInterface, __toString, arginfo_yuga_interfaces_http_input_inputiteminterface___tostring)
+	PHP_FE_END
+};

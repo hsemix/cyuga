@@ -1,0 +1,108 @@
+-include yuga.dep
+yuga.lo: /var/www/html/yuga-zephir/yuga/ext/yuga.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga.c -o yuga.lo  -MMD -MF yuga.dep -MT yuga.lo
+-include kernel/main.dep
+kernel/main.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/main.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/main.c -o kernel/main.lo  -MMD -MF kernel/main.dep -MT kernel/main.lo
+-include kernel/memory.dep
+kernel/memory.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/memory.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/memory.c -o kernel/memory.lo  -MMD -MF kernel/memory.dep -MT kernel/memory.lo
+-include kernel/exception.dep
+kernel/exception.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/exception.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/exception.c -o kernel/exception.lo  -MMD -MF kernel/exception.dep -MT kernel/exception.lo
+-include kernel/debug.dep
+kernel/debug.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/debug.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/debug.c -o kernel/debug.lo  -MMD -MF kernel/debug.dep -MT kernel/debug.lo
+-include kernel/backtrace.dep
+kernel/backtrace.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/backtrace.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/backtrace.c -o kernel/backtrace.lo  -MMD -MF kernel/backtrace.dep -MT kernel/backtrace.lo
+-include kernel/object.dep
+kernel/object.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/object.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/object.c -o kernel/object.lo  -MMD -MF kernel/object.dep -MT kernel/object.lo
+-include kernel/array.dep
+kernel/array.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/array.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/array.c -o kernel/array.lo  -MMD -MF kernel/array.dep -MT kernel/array.lo
+-include kernel/string.dep
+kernel/string.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/string.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/string.c -o kernel/string.lo  -MMD -MF kernel/string.dep -MT kernel/string.lo
+-include kernel/fcall.dep
+kernel/fcall.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/fcall.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/fcall.c -o kernel/fcall.lo  -MMD -MF kernel/fcall.dep -MT kernel/fcall.lo
+-include kernel/require.dep
+kernel/require.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/require.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/require.c -o kernel/require.lo  -MMD -MF kernel/require.dep -MT kernel/require.lo
+-include kernel/file.dep
+kernel/file.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/file.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/file.c -o kernel/file.lo  -MMD -MF kernel/file.dep -MT kernel/file.lo
+-include kernel/operators.dep
+kernel/operators.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/operators.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/operators.c -o kernel/operators.lo  -MMD -MF kernel/operators.dep -MT kernel/operators.lo
+-include kernel/math.dep
+kernel/math.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/math.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/math.c -o kernel/math.lo  -MMD -MF kernel/math.dep -MT kernel/math.lo
+-include kernel/concat.dep
+kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c -o kernel/concat.lo  -MMD -MF kernel/concat.dep -MT kernel/concat.lo
+-include kernel/variables.dep
+kernel/variables.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/variables.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/variables.c -o kernel/variables.lo  -MMD -MF kernel/variables.dep -MT kernel/variables.lo
+-include kernel/filter.dep
+kernel/filter.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/filter.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/filter.c -o kernel/filter.lo  -MMD -MF kernel/filter.dep -MT kernel/filter.lo
+-include kernel/iterator.dep
+kernel/iterator.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/iterator.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/iterator.c -o kernel/iterator.lo  -MMD -MF kernel/iterator.dep -MT kernel/iterator.lo
+-include kernel/time.dep
+kernel/time.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/time.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/time.c -o kernel/time.lo  -MMD -MF kernel/time.dep -MT kernel/time.lo
+-include kernel/exit.dep
+kernel/exit.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/exit.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/exit.c -o kernel/exit.lo  -MMD -MF kernel/exit.dep -MT kernel/exit.lo
+-include yuga/interfaces/http/input/inputiteminterface.dep
+yuga/interfaces/http/input/inputiteminterface.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.c -o yuga/interfaces/http/input/inputiteminterface.lo  -MMD -MF yuga/interfaces/http/input/inputiteminterface.dep -MT yuga/interfaces/http/input/inputiteminterface.lo
+-include yuga/container/container.dep
+yuga/container/container.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/container/container.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/container/container.zep.c -o yuga/container/container.lo  -MMD -MF yuga/container/container.dep -MT yuga/container/container.lo
+-include yuga/interfaces/application/application.dep
+yuga/interfaces/application/application.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/application.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/application.zep.c -o yuga/interfaces/application/application.lo  -MMD -MF yuga/interfaces/application/application.dep -MT yuga/interfaces/application/application.lo
+-include yuga/application/application.dep
+yuga/application/application.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/application/application.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/application/application.zep.c -o yuga/application/application.lo  -MMD -MF yuga/application/application.dep -MT yuga/application/application.lo
+-include yuga/container/support/classnotinstantiableexception.dep
+yuga/container/support/classnotinstantiableexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.c -o yuga/container/support/classnotinstantiableexception.lo  -MMD -MF yuga/container/support/classnotinstantiableexception.dep -MT yuga/container/support/classnotinstantiableexception.lo
+-include yuga/http/input/input.dep
+yuga/http/input/input.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/input.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/input.zep.c -o yuga/http/input/input.lo  -MMD -MF yuga/http/input/input.dep -MT yuga/http/input/input.lo
+-include yuga/http/input/inputfile.dep
+yuga/http/input/inputfile.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/inputfile.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/inputfile.zep.c -o yuga/http/input/inputfile.lo  -MMD -MF yuga/http/input/inputfile.dep -MT yuga/http/input/inputfile.lo
+-include yuga/http/input/inputitem.dep
+yuga/http/input/inputitem.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/inputitem.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/inputitem.zep.c -o yuga/http/input/inputitem.lo  -MMD -MF yuga/http/input/inputitem.dep -MT yuga/http/input/inputitem.lo
+-include yuga/http/redirect.dep
+yuga/http/redirect.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/redirect.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/redirect.zep.c -o yuga/http/redirect.lo  -MMD -MF yuga/http/redirect.dep -MT yuga/http/redirect.lo
+-include yuga/http/request.dep
+yuga/http/request.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/request.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/request.zep.c -o yuga/http/request.lo  -MMD -MF yuga/http/request.dep -MT yuga/http/request.lo
+-include yuga/http/response.dep
+yuga/http/response.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/response.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/response.zep.c -o yuga/http/response.lo  -MMD -MF yuga/http/response.dep -MT yuga/http/response.lo
+-include yuga/support/str.dep
+yuga/support/str.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/support/str.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/support/str.zep.c -o yuga/support/str.lo  -MMD -MF yuga/support/str.dep -MT yuga/support/str.lo
+-include yuga/0__closure.dep
+yuga/0__closure.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/0__closure.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/0__closure.zep.c -o yuga/0__closure.lo  -MMD -MF yuga/0__closure.dep -MT yuga/0__closure.lo
+-include yuga/1__closure.dep
+yuga/1__closure.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/1__closure.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/1__closure.zep.c -o yuga/1__closure.lo  -MMD -MF yuga/1__closure.dep -MT yuga/1__closure.lo
+$(phplibdir)/yuga.la: ./yuga.la
+	$(LIBTOOL) --mode=install cp ./yuga.la $(phplibdir)
+
+./yuga.la: $(shared_objects_yuga) $(YUGA_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) -shared $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS)  -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_yuga) $(YUGA_SHARED_LIBADD)
+

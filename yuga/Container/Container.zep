@@ -1,0 +1,407 @@
+namespace Yuga\Container;
+
+use Closure;
+use ArrayAccess;
+use ReflectionClass;
+use ReflectionMethod;
+use ReflectionFunction;
+use ReflectionNamedType;
+use ReflectionParameter;
+use InvalidArgumentException;
+use Yuga\Container\Support\ClassNotInstantiableException;
+
+class Container implements ArrayAccess
+{
+    protected bindings = [];
+
+    protected instances = [];
+
+    private static thisInstances = [];
+    /**
+     * An array of the types that have been resolved.
+     *
+     * @var array
+     */
+    protected resolved = [];
+
+
+    public function offsetGet(key)
+    {
+        // return this->make(key);
+    }
+
+    public function offsetSet(key, value)
+    {
+        // this->bind(key, value);
+    }
+
+    public function offsetExists(key)
+    {
+        return array_key_exists(key, this->bindings);
+    }
+
+    public function offsetUnset(key)
+    {
+        unset(this->bindings[key]);
+    }
+
+    // public function bind(key, value, singleton = false)
+    // {
+    //     let key = ltrim(key, "\\");
+
+    //     if value instanceof Closure {
+    //         if (singleton) {
+    //             let this->instances[key] = value(this);
+    //         }
+    //         let this->bindings[key] = value(this);
+    //     } else {
+    //         let this->bindings[key] = compact('value', 'singleton');
+    //     }
+        
+    // }
+
+    // /**
+    //  * Determine if the given abstractVar type has been bound.
+    //  *
+    //  * @param  string  abstractVar
+    //  * @return bool
+    //  */
+    // public function bound(abstractVar)
+    // {
+    //     return isset(this->bindings[abstractVar]) || isset(this->instances[abstractVar]);
+    // }
+
+    // /**
+    //  * Determine if the given abstractVar type has been resolved.
+    //  *
+    //  * @param  string  abstractVar
+    //  * @return bool
+    //  */
+    // public function resolved(abstractVar)
+    // {
+    //     return isset(this->resolved[abstractVar]) || isset(this->instances[abstractVar]);
+    // }
+
+    // public function has(key)
+    // {
+    //     if (array_key_exists(key, this->instances) || array_key_exists(key, this->bindings)) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
+
+    // public function singleton(key, value)
+    // {
+    //     return this->bind(key, value, true);
+    // }
+
+    // public function getBinding(key)
+    // {
+    //     let key = ltrim(key, "\\");
+    //     if !array_key_exists(key, this->bindings) {
+    //         return null;
+    //     } else if array_key_exists(key, this->instances) {
+    //         return this->instances[key];
+    //     } else if(this->bindings[key] instanceof Closure) {
+    //         return this->bindings[key];
+    //     } else {
+    //         return this->bindings[key]['value'];
+    //     }
+    // }
+
+    // public function getBindings()
+    // {
+    //     return array_keys(this->bindings);
+    // }
+
+    // public function make(key)
+    // {
+    //     return this->getBinding(key);
+    // }
+
+    // public function get(key)
+    // {
+    //     if array_key_exists(key, this->instances) {
+    //         return this->getBinding(key);
+    //     } else if this->bindings[key] instanceof Closure {        
+    //         return this->getBinding(key);
+    //     } else if is_string(this->bindings[key]) && strpos(this->bindings[key], '/') !== false {
+    //         return this->getBinding(key);
+    //     } else if is_object(this->bindings[key]) {
+    //         return this->make(key);
+    //     } else {
+    //         return this->resolve(key);
+    //     }
+        
+    // }
+
+    // public function getSingletons()
+    // {
+    //     return this->instances;
+    // }
+
+    // protected function isSingleton(key)
+    // {
+    //     binding = this->getBinding(key);
+    //     if (binding === null)
+    //         return false;
+        
+    //     return true;
+    // }
+
+    // protected function singletonResolved(key)
+    // {
+    //     return array_key_exists(key, this->instances);
+    // }
+
+    // protected function getSingletonInstance(key)
+    // {
+    //     return this->singletonResolved(key) ? this->instances[key] : null;
+    // }
+
+    // protected function prepareObject(key, objectVar)
+    // {
+    //     if (this->isSingleton(key)) {
+    //         this->instances[key] = objectVar;
+    //     }
+
+    //     return objectVar;
+    // }
+
+    // public function resolve(key, array arguments = [])
+    // {
+        
+    //     classVar = this->getBinding(key);
+    //     if (classVar === null) {
+    //         classVar = key;
+    //     }
+
+    //     if (this->isSingleton(key) && this->singletonResolved(key)) {
+    //         return this->getSingletonInstance(key);
+    //     }
+        
+    //     let objectVar = this->buildObject(classVar, arguments);
+    //     return this->prepareObject(key, objectVar);
+    // }
+
+
+    // public function inSingletons(classVar)
+    // {
+    //     foreach (array_values(this->getSingletons()) as instance) {
+    //         if get_class(instance) == classVar {
+    //             return instance;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    // protected function buildDependencies(arguments, dependencies, className)
+    // {
+        
+    //     foreach (dependencies as dependency) {
+
+    //         name = dependency->getName();
+            
+    //         type = dependency->getType();
+
+    //         if (dependency->isOptional()) continue;    
+            
+    //         if (dependency->getType() === null) continue;
+
+    //         if (type->isBuiltIn()) continue;
+
+    //         if !type continue;
+
+    //         if type instanceof ReflectionUnionType {
+    //             throw new Exception('Failed to resolve class "' . dependency . '" because of a union type');
+    //         }
+
+    //         if type && type instanceof ReflectionNamedType {
+
+    //             if get_class(this) === type->getName() {
+    //                 arguments[] = this;
+    //                 continue;
+    //             }
+    //             // make instance of this class :
+    //             paramInstance = this->resolve(type->getName());
+
+    //             // push to dependencies array
+    //             arguments[]  = paramInstance;
+
+    //         } else {
+
+    //             name = dependency->getName(); // get the name of param
+
+    //             // check this param value exist in parameters
+    //             if (array_key_exists(name, arguments)) { // if exist
+
+    //                 // push  value to dependencies sequencially
+    //                 dependencies[] = arguments[name];
+
+    //             } else { // if not exist
+
+    //                 if (!dependency->isOptional()) { // check if not optional
+    //                     throw new Exception("Class {name} cannot be Instantiated");
+    //                 }
+
+    //             }
+
+    //         }
+
+    //     }
+
+    //     return arguments;
+    // }
+
+    // protected function buildObject(classVar, array arguments = [])
+    // {
+        
+    //     let className = is_array(classVar) ? classVar['value'] : classVar;
+        
+    //     reflector = new ReflectionClass(className);
+        
+    //     if (!reflector->isInstantiable()) {
+    //         throw new ClassNotInstantiableException("Class {className} cannot be Instantiated");
+    //     }
+
+       
+        
+    //     if (!is_null(reflector->getConstructor())) {
+    //         constructor = reflector->getConstructor();
+    //         dependencies = constructor->getParameters();
+
+    //         arguments = this->buildDependencies(arguments, dependencies, $class); 
+    //         objectVar = reflector->newInstanceArgs(arguments);    
+            
+    //     } else {
+    //         objectVar = new reflector->name;
+    //     }
+        
+    //     return objectVar;
+    // }
+
+    // /**
+    //  * Call the given Closure / class@method and inject its dependencies.
+    //  *
+    //  * @param  callable|string  callback
+    //  * @param  array  parameters
+    //  * @param  string|null  defaultMethod
+    //  * @return mixed
+    //  */
+    // public function call(callback, array parameters = [], defaultMethod = null)
+    // {
+    //     if (this->isCallableWithAtSign(callback) || defaultMethod) {
+    //         return this->callClass(callback, parameters, defaultMethod);
+    //     }
+
+    //     dependencies = this->getMethodDependencies(callback, parameters);
+
+    //     return call_user_func_array(callback, dependencies);
+    // }
+
+    // /**
+    //  * Call a string reference to a class using Class@method syntax.
+    //  *
+    //  * @param  string  target
+    //  * @param  array  parameters
+    //  * @param  string|null  defaultMethod
+    //  * @return mixed
+    //  */
+    // protected function callClass(target, array parameters = [], defaultMethod = null)
+    // {
+    //     segments = explode('@', target);
+
+    //     // If the listener has an @ sign, we will assume it is being used to delimit
+    //     // the class name from the handle method name. This allows for handlers
+    //     // to run multiple handler methods in a single class for convenience.
+    //     method = (count(segments) == 2) ? segments[1] : defaultMethod;
+
+    //     if (is_null(method)) {
+    //         throw new InvalidArgumentException('Method not provided.');
+    //     }
+
+    //     return this->call([this->buildObject(segments[0]), method], parameters);
+    // }
+
+    // /**
+    //  * Determine if the given string is in Class@method syntax.
+    //  *
+    //  * @param  mixed  callback
+    //  * @return bool
+    //  */
+    // protected function isCallableWithAtSign(callback)
+    // {
+    //     if (!is_string(callback)) {
+    //         return false;
+    //     }
+
+    //     return strpos(callback, '@') !== false;
+    // }
+
+    //  /**
+    //  * Get all dependencies for a given method.
+    //  *
+    //  * @param  callable|string  callback
+    //  * @param  array  parameters
+    //  * @return array
+    //  */
+    // protected function getMethodDependencies(callback, array parameters = [])
+    // {
+    //     dependencies = [];
+
+    //     //  
+        
+    //     let reflector = this->getCallReflector(callback);
+
+    //     foreach (reflector->getParameters() as key => parameter) {
+    //         this->addDependencyForCallParameter(parameter, parameters, dependencies);
+    //     }
+
+    //     return array_merge(dependencies, parameters);
+    // }
+
+    // /**
+    //  * Get the proper reflection instance for the given callback.
+    //  *
+    //  * @param  callable|string  callback
+    //  * @return \ReflectionFunctionAbstract
+    //  */
+    // protected function getCallReflector(callback)
+    // {
+    //     if (is_string(callback) && strpos(callback, '::') !== false) {
+    //         callback = explode('::', callback);
+    //     }
+
+    //     if (is_array(callback)) {
+    //         return new ReflectionMethod(callback[0], callback[1]);
+    //     }
+
+    //     return new ReflectionFunction(callback);
+    // }
+
+    // /**
+    //  * Get the dependency for the given call parameter.
+    //  *
+    //  * @param  \ReflectionParameter  $parameter
+    //  * @param  array  parameters
+    //  * @param  array  dependencies
+    //  * @return mixed
+    //  */
+    // protected function addDependencyForCallParameter(ReflectionParameter $parameter, array &parameters, &dependencies)
+    // {
+    //     if (array_key_exists($parameter->name, parameters)) {
+    //         dependencies[] = parameters[$parameter->name];
+
+    //         unset(parameters[$parameter->name]);
+    //     } else if ($parameter->getType()) {
+    //         $class = $parameter->getType() ? $parameter->getType()->getName() : null;
+
+    //         if (!$parameter->isOptional()) {
+    //             if (!\is_null($class))
+    //                 dependencies[] = this->buildObject($class);
+    //         }
+    //     } else if ($parameter->isDefaultValueAvailable()) {
+    //         dependencies[] = $parameter->getDefaultValue();
+    //     }
+    // }
+}

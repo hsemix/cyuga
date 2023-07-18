@@ -1,0 +1,4 @@
+.zephir/
+ext/.libs/
+compile-errors.log
+compile.log

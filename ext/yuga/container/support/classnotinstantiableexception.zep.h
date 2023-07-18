@@ -1,0 +1,5 @@
+
+extern zend_class_entry *yuga_container_support_classnotinstantiableexception_ce;
+
+ZEPHIR_INIT_CLASS(Yuga_Container_Support_ClassNotInstantiableException);
+

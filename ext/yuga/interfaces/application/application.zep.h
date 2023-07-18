@@ -1,0 +1,5 @@
+
+extern zend_class_entry *yuga_interfaces_application_application_ce;
+
+ZEPHIR_INIT_CLASS(Yuga_Interfaces_Application_Application);
+
