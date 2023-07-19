@@ -352,7 +352,7 @@ PHP_METHOD(Yuga_Http_Request, getBearerToken)
 		ZEPHIR_INIT_VAR(&_4$$3);
 		ZVAL_STRING(&_4$$3, "Access Token Not Found");
 		ZVAL_LONG(&_5$$3, 401);
-		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 3, &_4$$3, &_5$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 2, &_4$$3, &_5$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_3$$3, "yuga/Http/Request.zep", 93);
 		ZEPHIR_MM_RESTORE();

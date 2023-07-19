@@ -119,4 +119,6 @@ yuga/application/application.lo: \
  /usr/include/php/20210902/Zend/zend.h \
  /usr/include/php/20210902/Zend/zend_constants.h kernel/exception.h \
  kernel/object.h kernel/globals.h kernel/memory.h php_ext.h php_yuga.h \
- kernel/operators.h kernel/array.h
+ kernel/operators.h kernel/concat.h kernel/fcall.h \
+ kernel/fcall_internal.h /usr/include/php/20210902/Zend/zend_hash.h \
+ kernel/array.h

@@ -142,10 +142,10 @@ PHP_METHOD(Yuga_Container_Container, offsetUnset)
 
 PHP_METHOD(Yuga_Container_Container, bind)
 {
-	zval _3$$4, _5$$3;
+	zval _3$$4, _5$$3, _6$$5;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *key = NULL, key_sub, *value, value_sub, *singleton = NULL, singleton_sub, __$false, _0, _1, _2$$4, _4$$3, _6$$5, _7$$5, _8$$5;
+	zval *key = NULL, key_sub, *value, value_sub, *singleton = NULL, singleton_sub, __$false, _0, _1, _2$$4, _4$$3;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&key_sub);
@@ -156,11 +156,9 @@ PHP_METHOD(Yuga_Container_Container, bind)
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2$$4);
 	ZVAL_UNDEF(&_4$$3);
-	ZVAL_UNDEF(&_6$$5);
-	ZVAL_UNDEF(&_7$$5);
-	ZVAL_UNDEF(&_8$$5);
 	ZVAL_UNDEF(&_3$$4);
 	ZVAL_UNDEF(&_5$$3);
+	ZVAL_UNDEF(&_6$$5);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(2, 3)
@@ -205,12 +203,10 @@ PHP_METHOD(Yuga_Container_Container, bind)
 		zephir_update_property_array(this_ptr, SL("bindings"), key, &_4$$3);
 	} else {
 		ZEPHIR_INIT_VAR(&_6$$5);
-		ZVAL_STRING(&_6$$5, "value");
-		ZEPHIR_INIT_VAR(&_7$$5);
-		ZVAL_STRING(&_7$$5, "singleton");
-		ZEPHIR_CALL_FUNCTION(&_8$$5, "compact", NULL, 1, &_6$$5, &_7$$5);
-		zephir_check_call_status();
-		zephir_update_property_array(this_ptr, SL("bindings"), key, &_8$$5);
+		zephir_create_array(&_6$$5, 2, 0);
+		zephir_array_update_string(&_6$$5, SL("value"), value, PH_COPY | PH_SEPARATE);
+		zephir_array_update_string(&_6$$5, SL("singleton"), singleton, PH_COPY | PH_SEPARATE);
+		zephir_update_property_array(this_ptr, SL("bindings"), key, &_6$$5);
 	}
 	ZEPHIR_MM_RESTORE();
 }
@@ -734,7 +730,7 @@ PHP_METHOD(Yuga_Container_Container, inSingletons)
 
 	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getsingletons", NULL, 0);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_1, "array_values", NULL, 2, &_0);
+	ZEPHIR_CALL_FUNCTION(&_1, "array_values", NULL, 1, &_0);
 	zephir_check_call_status();
 	zephir_is_iterable(&_1, 0, "yuga/Container/Container.zep", 198);
 	if (Z_TYPE_P(&_1) == IS_ARRAY) {
@@ -865,7 +861,7 @@ PHP_METHOD(Yuga_Container_Container, buildDependencies)
 				object_init_ex(&_6$$8, zend_ce_exception);
 				ZEPHIR_INIT_NVAR(&_7$$8);
 				ZEPHIR_CONCAT_SVS(&_7$$8, "Failed to resolve class '", &dependency, "' because of a union type");
-				ZEPHIR_CALL_METHOD(NULL, &_6$$8, "__construct", &_8, 3, &_7$$8);
+				ZEPHIR_CALL_METHOD(NULL, &_6$$8, "__construct", &_8, 2, &_7$$8);
 				zephir_check_call_status();
 				zephir_throw_exception_debug(&_6$$8, "yuga/Container/Container.zep", 227);
 				ZEPHIR_MM_RESTORE();
@@ -903,7 +899,7 @@ PHP_METHOD(Yuga_Container_Container, buildDependencies)
 						object_init_ex(&_18$$14, zend_ce_exception);
 						ZEPHIR_INIT_NVAR(&_19$$14);
 						ZEPHIR_CONCAT_SVS(&_19$$14, "Class ", &name$$3, " cannot be Instantiated");
-						ZEPHIR_CALL_METHOD(NULL, &_18$$14, "__construct", &_8, 3, &_19$$14);
+						ZEPHIR_CALL_METHOD(NULL, &_18$$14, "__construct", &_8, 2, &_19$$14);
 						zephir_check_call_status();
 						zephir_throw_exception_debug(&_18$$14, "yuga/Container/Container.zep", 255);
 						ZEPHIR_MM_RESTORE();
@@ -950,7 +946,7 @@ PHP_METHOD(Yuga_Container_Container, buildDependencies)
 					object_init_ex(&_24$$20, zend_ce_exception);
 					ZEPHIR_INIT_NVAR(&_25$$20);
 					ZEPHIR_CONCAT_SVS(&_25$$20, "Failed to resolve class '", &dependency, "' because of a union type");
-					ZEPHIR_CALL_METHOD(NULL, &_24$$20, "__construct", &_8, 3, &_25$$20);
+					ZEPHIR_CALL_METHOD(NULL, &_24$$20, "__construct", &_8, 2, &_25$$20);
 					zephir_check_call_status();
 					zephir_throw_exception_debug(&_24$$20, "yuga/Container/Container.zep", 227);
 					ZEPHIR_MM_RESTORE();
@@ -988,7 +984,7 @@ PHP_METHOD(Yuga_Container_Container, buildDependencies)
 							object_init_ex(&_34$$26, zend_ce_exception);
 							ZEPHIR_INIT_NVAR(&_35$$26);
 							ZEPHIR_CONCAT_SVS(&_35$$26, "Class ", &name$$15, " cannot be Instantiated");
-							ZEPHIR_CALL_METHOD(NULL, &_34$$26, "__construct", &_8, 3, &_35$$26);
+							ZEPHIR_CALL_METHOD(NULL, &_34$$26, "__construct", &_8, 2, &_35$$26);
 							zephir_check_call_status();
 							zephir_throw_exception_debug(&_34$$26, "yuga/Container/Container.zep", 255);
 							ZEPHIR_MM_RESTORE();
@@ -1055,32 +1051,32 @@ PHP_METHOD(Yuga_Container_Container, buildObject)
 	}
 	ZEPHIR_INIT_VAR(&reflector);
 	object_init_ex(&reflector, zephir_get_internal_ce(SL("reflectionclass")));
-	ZEPHIR_CALL_METHOD(NULL, &reflector, "__construct", NULL, 4, &className);
+	ZEPHIR_CALL_METHOD(NULL, &reflector, "__construct", NULL, 3, &className);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&_0, &reflector, "isinstantiable", NULL, 5);
+	ZEPHIR_CALL_METHOD(&_0, &reflector, "isinstantiable", NULL, 4);
 	zephir_check_call_status();
 	if (!(zephir_is_true(&_0))) {
 		ZEPHIR_INIT_VAR(&_1$$5);
 		object_init_ex(&_1$$5, yuga_container_support_classnotinstantiableexception_ce);
 		ZEPHIR_INIT_VAR(&_2$$5);
 		ZEPHIR_CONCAT_SVS(&_2$$5, "Class ", &className, " cannot be Instantiated");
-		ZEPHIR_CALL_METHOD(NULL, &_1$$5, "__construct", NULL, 3, &_2$$5);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$5, "__construct", NULL, 2, &_2$$5);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_1$$5, "yuga/Container/Container.zep", 279);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}
-	ZEPHIR_CALL_METHOD(&_3, &reflector, "getconstructor", NULL, 6);
+	ZEPHIR_CALL_METHOD(&_3, &reflector, "getconstructor", NULL, 5);
 	zephir_check_call_status();
 	if (!(Z_TYPE_P(&_3) == IS_NULL)) {
-		ZEPHIR_CALL_METHOD(&constructor$$6, &reflector, "getconstructor", NULL, 6);
+		ZEPHIR_CALL_METHOD(&constructor$$6, &reflector, "getconstructor", NULL, 5);
 		zephir_check_call_status();
 		ZEPHIR_CALL_METHOD(&dependencies$$6, &constructor$$6, "getparameters", NULL, 0);
 		zephir_check_call_status();
 		ZEPHIR_CALL_METHOD(&_4$$6, this_ptr, "builddependencies", NULL, 0, &arguments, &dependencies$$6, classValue);
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(&arguments, &_4$$6);
-		ZEPHIR_CALL_METHOD(&objectValue, &reflector, "newinstanceargs", NULL, 7, &arguments);
+		ZEPHIR_CALL_METHOD(&objectValue, &reflector, "newinstanceargs", NULL, 6, &arguments);
 		zephir_check_call_status();
 	} else {
 		ZEPHIR_INIT_VAR(&newObject);
@@ -1420,12 +1416,12 @@ PHP_METHOD(Yuga_Container_Container, getCallReflector)
 		object_init_ex(return_value, zephir_get_internal_ce(SL("reflectionmethod")));
 		zephir_array_fetch_long(&_4$$4, callback, 0, PH_NOISY | PH_READONLY, "yuga/Container/Container.zep", 396);
 		zephir_array_fetch_long(&_5$$4, callback, 1, PH_NOISY | PH_READONLY, "yuga/Container/Container.zep", 396);
-		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 8, &_4$$4, &_5$$4);
+		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 7, &_4$$4, &_5$$4);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
 	object_init_ex(return_value, zephir_get_internal_ce(SL("reflectionfunction")));
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 9, callback);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 8, callback);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -1505,7 +1501,7 @@ PHP_METHOD(Yuga_Container_Container, addDependencyForCallParameter)
 		ZEPHIR_CALL_METHOD(&_8$$4, parameter, "isoptional", NULL, 0);
 		zephir_check_call_status();
 		if (!(zephir_is_true(&_8$$4))) {
-			ZEPHIR_CALL_FUNCTION(&_9$$5, "\is_null", NULL, 10, &classValue$$4);
+			ZEPHIR_CALL_FUNCTION(&_9$$5, "\is_null", NULL, 9, &classValue$$4);
 			zephir_check_call_status();
 			if (!(zephir_is_true(&_9$$5))) {
 				ZEPHIR_CALL_METHOD(&_10$$6, this_ptr, "buildobject", NULL, 0, &classValue$$4);

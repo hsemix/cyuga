@@ -56,7 +56,7 @@ class Container implements ArrayAccess
             }
             let this->bindings[key] = call_user_func_array(value, [this]);
         } else {
-            let this->bindings[key] = compact("value", "singleton");
+            let this->bindings[key] = ["value" : value, "singleton" : singleton];
         }
         
     }
