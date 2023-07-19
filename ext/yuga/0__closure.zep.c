@@ -68,7 +68,7 @@ PHP_METHOD(yuga_0__closure, __invoke)
 
 	ZEPHIR_OBS_VAR(&path);
 	zephir_array_fetch(&path, &original, property, PH_NOISY, "yuga/Http/Input/Input.zep", 158);
-	ZEPHIR_CALL_FUNCTION(&fileValues, "array_values", NULL, 25, &index);
+	ZEPHIR_CALL_FUNCTION(&fileValues, "array_values", NULL, 2, &index);
 	zephir_check_call_status();
 	zephir_is_iterable(&fileValues, 0, "yuga/Http/Input/Input.zep", 166);
 	if (Z_TYPE_P(&fileValues) == IS_ARRAY) {

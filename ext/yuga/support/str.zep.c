@@ -72,7 +72,7 @@ PHP_METHOD(Yuga_Support_Str, contains)
 			ZVAL_COPY(&needle, _1);
 			_3$$3 = !ZEPHIR_IS_STRING_IDENTICAL(&needle, "");
 			if (_3$$3) {
-				ZEPHIR_CALL_FUNCTION(&_4$$3, "mb_strpos", &_5, 24, haystack, &needle);
+				ZEPHIR_CALL_FUNCTION(&_4$$3, "mb_strpos", &_5, 33, haystack, &needle);
 				zephir_check_call_status();
 				_3$$3 = !ZEPHIR_IS_FALSE_IDENTICAL(&_4$$3);
 			}
@@ -93,7 +93,7 @@ PHP_METHOD(Yuga_Support_Str, contains)
 			zephir_check_call_status();
 				_6$$5 = !ZEPHIR_IS_STRING_IDENTICAL(&needle, "");
 				if (_6$$5) {
-					ZEPHIR_CALL_FUNCTION(&_7$$5, "mb_strpos", &_5, 24, haystack, &needle);
+					ZEPHIR_CALL_FUNCTION(&_7$$5, "mb_strpos", &_5, 33, haystack, &needle);
 					zephir_check_call_status();
 					_6$$5 = !ZEPHIR_IS_FALSE_IDENTICAL(&_7$$5);
 				}
@@ -158,14 +158,14 @@ PHP_METHOD(Yuga_Support_Str, startsWith)
 		{
 			ZEPHIR_INIT_NVAR(&needle);
 			ZVAL_COPY(&needle, _1);
-			_3$$3 = !ZEPHIR_IS_STRING_IDENTICAL(&needle, "");
+			_3$$3 = !ZEPHIR_IS_STRING(&needle, "");
 			if (_3$$3) {
 				ZVAL_LONG(&_4$$3, 0);
 				ZVAL_LONG(&_5$$3, zephir_fast_strlen_ev(&needle));
 				ZEPHIR_INIT_NVAR(&_6$$3);
 				zephir_substr(&_6$$3, haystack, 0 , zephir_get_intval(&_5$$3), 0);
 				zephir_cast_to_string(&_7$$3, &needle);
-				_3$$3 = ZEPHIR_IS_IDENTICAL(&_6$$3, &_7$$3);
+				_3$$3 = ZEPHIR_IS_EQUAL(&_6$$3, &_7$$3);
 			}
 			if (_3$$3) {
 				RETURN_MM_BOOL(1);
@@ -182,14 +182,14 @@ PHP_METHOD(Yuga_Support_Str, startsWith)
 			}
 			ZEPHIR_CALL_METHOD(&needle, &_0, "current", NULL, 0);
 			zephir_check_call_status();
-				_8$$5 = !ZEPHIR_IS_STRING_IDENTICAL(&needle, "");
+				_8$$5 = !ZEPHIR_IS_STRING(&needle, "");
 				if (_8$$5) {
 					ZVAL_LONG(&_9$$5, 0);
 					ZVAL_LONG(&_10$$5, zephir_fast_strlen_ev(&needle));
 					ZEPHIR_INIT_NVAR(&_11$$5);
 					zephir_substr(&_11$$5, haystack, 0 , zephir_get_intval(&_10$$5), 0);
 					zephir_cast_to_string(&_12$$5, &needle);
-					_8$$5 = ZEPHIR_IS_IDENTICAL(&_11$$5, &_12$$5);
+					_8$$5 = ZEPHIR_IS_EQUAL(&_11$$5, &_12$$5);
 				}
 				if (_8$$5) {
 					RETURN_MM_BOOL(1);
@@ -237,7 +237,7 @@ PHP_METHOD(Yuga_Support_Str, endsWith)
 		ZVAL_LONG(&_1, -zephir_fast_strlen_ev(&needle));
 		ZEPHIR_INIT_VAR(&_2);
 		zephir_substr(&_2, &haystack, zephir_get_intval(&_1), 0, ZEPHIR_SUBSTR_NO_LENGTH);
-		_0 = ZEPHIR_IS_IDENTICAL(&_2, &needle);
+		_0 = ZEPHIR_IS_EQUAL(&_2, &needle);
 	}
 	RETURN_MM_BOOL(_0);
 }

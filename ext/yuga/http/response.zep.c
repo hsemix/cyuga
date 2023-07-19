@@ -44,7 +44,7 @@ PHP_METHOD(Yuga_Http_Response, __construct)
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(2, 2)
 		Z_PARAM_OBJECT_OF_CLASS(request, zephir_get_internal_ce(SL("yuga\\http\\request")))
-		Z_PARAM_OBJECT_OF_CLASS(redirect, yuga_http_redirect_ce)
+		Z_PARAM_OBJECT_OF_CLASS(redirect, zephir_get_internal_ce(SL("yuga\\http\\redirect")))
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 
@@ -82,7 +82,7 @@ PHP_METHOD(Yuga_Http_Response, httpCode)
 	zephir_fetch_params(1, 1, 0, &code);
 
 
-	ZEPHIR_CALL_FUNCTION(NULL, "http_response_code", NULL, 14, code);
+	ZEPHIR_CALL_FUNCTION(NULL, "http_response_code", NULL, 24, code);
 	zephir_check_call_status();
 	RETURN_THIS();
 }
@@ -371,7 +371,7 @@ PHP_METHOD(Yuga_Http_Response, cache)
 	zephir_array_fast_append(&_0, &_1);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "D, d M Y H:i:s");
-	ZEPHIR_CALL_FUNCTION(&_2, "gmdate", NULL, 21, &_1, lastModified);
+	ZEPHIR_CALL_FUNCTION(&_2, "gmdate", NULL, 30, &_1, lastModified);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_3);
 	ZEPHIR_CONCAT_SVS(&_3, "Last-Modified: ", &_2, " GMT");
@@ -399,7 +399,7 @@ PHP_METHOD(Yuga_Http_Response, cache)
 	if (!(_7)) {
 		_8 = Z_TYPE_P(&httpModified) != IS_NULL;
 		if (_8) {
-			ZEPHIR_CALL_FUNCTION(&_9, "strtotime", NULL, 22, &httpModified);
+			ZEPHIR_CALL_FUNCTION(&_9, "strtotime", NULL, 31, &httpModified);
 			zephir_check_call_status();
 			_8 = ZEPHIR_IS_IDENTICAL(&_9, lastModified);
 		}
@@ -468,7 +468,7 @@ PHP_METHOD(Yuga_Http_Response, json)
 
 	_0 = (zephir_is_instance_of(value, SL("JsonSerializable"))) == 0;
 	if (_0) {
-		ZEPHIR_CALL_FUNCTION(&_1, "\is_array", NULL, 23, value);
+		ZEPHIR_CALL_FUNCTION(&_1, "\is_array", NULL, 32, value);
 		zephir_check_call_status();
 		_0 = ZEPHIR_IS_FALSE_IDENTICAL(&_1);
 	}
@@ -516,7 +516,7 @@ PHP_METHOD(Yuga_Http_Response, header)
 	zephir_fetch_params(1, 1, 0, &value);
 
 
-	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 15, value);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 25, value);
 	zephir_check_call_status();
 	RETURN_THIS();
 }
