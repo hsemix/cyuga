@@ -142,9 +142,10 @@ PHP_METHOD(Yuga_Container_Container, offsetUnset)
 
 PHP_METHOD(Yuga_Container_Container, bind)
 {
+	zval _3$$4, _5$$3;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *key = NULL, key_sub, *value, value_sub, *singleton = NULL, singleton_sub, __$false, _0, _1, _2$$4, _3$$3, _4$$5, _5$$5, _6$$5;
+	zval *key = NULL, key_sub, *value, value_sub, *singleton = NULL, singleton_sub, __$false, _0, _1, _2$$4, _4$$3, _6$$5, _7$$5, _8$$5;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&key_sub);
@@ -154,10 +155,12 @@ PHP_METHOD(Yuga_Container_Container, bind)
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2$$4);
-	ZVAL_UNDEF(&_3$$3);
-	ZVAL_UNDEF(&_4$$5);
-	ZVAL_UNDEF(&_5$$5);
+	ZVAL_UNDEF(&_4$$3);
 	ZVAL_UNDEF(&_6$$5);
+	ZVAL_UNDEF(&_7$$5);
+	ZVAL_UNDEF(&_8$$5);
+	ZVAL_UNDEF(&_3$$4);
+	ZVAL_UNDEF(&_5$$3);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(2, 3)
@@ -185,21 +188,29 @@ PHP_METHOD(Yuga_Container_Container, bind)
 	ZEPHIR_CPY_WRT(key, &_0);
 	if (zephir_is_instance_of(value, SL("Closure"))) {
 		if (zephir_is_true(singleton)) {
-			ZEPHIR_CALL_FUNCTION(&_2$$4, "value", NULL, 0, this_ptr);
+			ZEPHIR_INIT_VAR(&_2$$4);
+			ZEPHIR_INIT_VAR(&_3$$4);
+			zephir_create_array(&_3$$4, 1, 0);
+			zephir_array_fast_append(&_3$$4, this_ptr);
+			ZEPHIR_CALL_USER_FUNC_ARRAY(&_2$$4, value, &_3$$4);
 			zephir_check_call_status();
 			zephir_update_property_array(this_ptr, SL("instances"), key, &_2$$4);
 		}
-		ZEPHIR_CALL_FUNCTION(&_3$$3, "value", NULL, 0, this_ptr);
+		ZEPHIR_INIT_VAR(&_4$$3);
+		ZEPHIR_INIT_VAR(&_5$$3);
+		zephir_create_array(&_5$$3, 1, 0);
+		zephir_array_fast_append(&_5$$3, this_ptr);
+		ZEPHIR_CALL_USER_FUNC_ARRAY(&_4$$3, value, &_5$$3);
 		zephir_check_call_status();
-		zephir_update_property_array(this_ptr, SL("bindings"), key, &_3$$3);
+		zephir_update_property_array(this_ptr, SL("bindings"), key, &_4$$3);
 	} else {
-		ZEPHIR_INIT_VAR(&_4$$5);
-		ZVAL_STRING(&_4$$5, "value");
-		ZEPHIR_INIT_VAR(&_5$$5);
-		ZVAL_STRING(&_5$$5, "singleton");
-		ZEPHIR_CALL_FUNCTION(&_6$$5, "compact", NULL, 1, &_4$$5, &_5$$5);
+		ZEPHIR_INIT_VAR(&_6$$5);
+		ZVAL_STRING(&_6$$5, "value");
+		ZEPHIR_INIT_VAR(&_7$$5);
+		ZVAL_STRING(&_7$$5, "singleton");
+		ZEPHIR_CALL_FUNCTION(&_8$$5, "compact", NULL, 1, &_6$$5, &_7$$5);
 		zephir_check_call_status();
-		zephir_update_property_array(this_ptr, SL("bindings"), key, &_6$$5);
+		zephir_update_property_array(this_ptr, SL("bindings"), key, &_8$$5);
 	}
 	ZEPHIR_MM_RESTORE();
 }

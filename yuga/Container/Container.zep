@@ -52,9 +52,9 @@ class Container implements ArrayAccess
 
         if value instanceof Closure {
             if (singleton) {
-                let this->instances[key] = value(this);
+                let this->instances[key] = call_user_func_array(value, [this]);
             }
-            let this->bindings[key] = value(this);
+            let this->bindings[key] = call_user_func_array(value, [this]);
         } else {
             let this->bindings[key] = compact("value", "singleton");
         }
