@@ -1,0 +1,5 @@
+
+extern zend_class_entry *yuga_events_exceptions_eventexception_ce;
+
+ZEPHIR_INIT_CLASS(Yuga_Events_Exceptions_EventException);
+

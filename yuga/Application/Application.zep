@@ -2,7 +2,9 @@ namespace Yuga\Application;
 
 use Yuga\Support\Str;
 use Yuga\Container\Container;
+use Yuga\Interfaces\Providers\ServiceProviderInterface;
 use Yuga\Interfaces\Application\Application as IApplication;
+use Yuga\Providers\TestProvider;
 
 class Application extends Container implements IApplication
 {
@@ -72,14 +74,14 @@ class Application extends Container implements IApplication
     /**
      * composer vendor directory
      */
-     protected vendorDir;
+    protected vendorDir;
 
-     /**
-      * The prefixes of absolute cache paths for use during normalization.
-      *
-      * @var string[]
-      */
-     protected absoluteCachePathPrefixes = ["/", "\\"];
+    /**
+    * The prefixes of absolute cache paths for use during normalization.
+    *
+    * @var string[]
+    */
+    protected absoluteCachePathPrefixes = ["/", "\\"];
     
     public function __construct(root = null)
     {
@@ -253,8 +255,8 @@ class Application extends Container implements IApplication
         if (this->debuggerStarted) {
             // this['events']->dispatch('on:yuga-tracy');
         }
-        this->registerBaseBindings($this);
-        // this->registerDefaultProviders();
+        this->registerBaseBindings(this);
+        this->registerDefaultProviders();
         // this['events']->dispatch('on:app-start');
         
         // if (!$this->runningInConsole()) {
@@ -262,5 +264,158 @@ class Application extends Container implements IApplication
         // }
 
         return this;
+    }
+
+    /**
+     * Get the debug mode if set
+     * 
+     * @param null
+     * 
+     * @return bool
+     */
+    public function getDebugEnabled()
+    {
+        return this->debugEnabled;
+    }
+
+    /**
+     * Set the default application's encryption methode
+     * 
+     * @param string method
+     * 
+     * @return \Yuga\Application\Application this
+     */
+    public function setEncryptionMethod(method)
+    {
+        let this->encryptionMethod = method;
+
+        return this;
+    }
+
+    /**
+     * Get the Encryption method
+     * 
+     * @param null
+     * 
+     * @return string
+     */
+    public function getEncryptionMethod()
+    {
+        return this->encryptionMethod;
+    }
+
+    /**
+     * Register those providers that need to be loaded before any other providers
+     * 
+     * @return void
+     */
+    protected function registerConfigProviders()
+    {
+        // this->registerProvider(new EventServiceProvider(this));
+    }
+
+    /**
+     * Register all of the base service providers.
+     *
+     * @return void
+     */
+    protected function registerDefaultProviders()
+    {
+        this->registerProvider(new TestProvider(this));
+        // this->registerProvider(new ElegantServiceProvider(this));
+
+        // this->registerProvider(new LogServiceProvider(this));
+
+        // this->registerProvider(new RouteServiceProvider(this));
+        
+        // if (this->runningInConsole()) {
+        //     this->registerProvider(new YugaServiceProvider(this));
+        // }
+        
+    }
+
+    /**
+     * Set the application request for the console environment.
+     *
+     * @return void
+     */
+    public function setRequestForYugaConsole()
+    {
+        // var url = this["config"]->get("app.url", "http://localhost");
+
+        // var parameters = [url, "GET", [], [], [], _SERVER];
+
+        // this->refreshRequest(self::onRequest("create", parameters));
+    }
+
+    // /**
+    //  * Refresh the bound request instance in the container.
+    //  *
+    //  * @param  \Yuga\Http\Request  request
+    //  * @return void
+    //  */
+    // protected function refreshRequest(<Request> request)
+    // {
+    //     return this->singleton("request", request);
+    // }
+
+    /**
+     * Call a method on the default request class.
+     *
+     * @param  string  method
+     * @param  array  parameters
+     * @return mixed
+     */
+    public static function onRequest(method, parameters = [])
+    {
+        return forward_static_call_array([new Request, method], parameters);
+    }
+
+    /**
+     * @param \Yuga\Interfaces\Providers\IServiceProvider provider
+     * 
+     * @return \Yuga\Application\Application this
+     */
+    public function registerProvider(<ServiceProviderInterface> provider)
+    {
+        
+        if (!this->providerLoaded(provider)) {
+            if (method_exists(provider, "register")) {
+                provider->register(this);
+                this->bootProvider(provider);
+            }
+            let this->loadedProviders[] = get_class(provider);
+            return this;
+        }
+        
+    }
+
+    public function getProviders()
+    {
+        return this->loadedProviders;
+    }
+
+    /**
+     * @param \Yuga\Interfaces\Providers\ServiceProviderInterface provider
+     * 
+     * @return mixed
+     */
+    protected function bootProvider(<ServiceProviderInterface> provider)
+    {
+        if (method_exists(provider, "boot")) {
+            return this->call([provider, "boot"]);
+        }
+    }
+
+    /**
+     * Determine whether a service provider has been loaded or not
+     * 
+     * @param ServiceProviderInterface provider
+     * 
+     * @return bool
+     */
+    protected function providerLoaded(<ServiceProviderInterface> provider)
+    {
+        return array_key_exists(get_class(provider), this->loadedProviders);
     }
 }

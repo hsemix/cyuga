@@ -11,9 +11,9 @@
 #include "kernel/globals.h"
 
 #define PHP_YUGA_NAME        "yuga"
-#define PHP_YUGA_VERSION     "0.0.1"
+#define PHP_YUGA_VERSION     "6.0.0"
 #define PHP_YUGA_EXTNAME     "yuga"
-#define PHP_YUGA_AUTHOR      "Phalcon Team"
+#define PHP_YUGA_AUTHOR      "Hamid Semitala <semix.hamidouh@gmail.com>"
 #define PHP_YUGA_ZEPVERSION  "0.17.0-$Id$"
 #define PHP_YUGA_DESCRIPTION ""
 

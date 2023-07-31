@@ -441,7 +441,7 @@ PHP_METHOD(Yuga_Application_Application, runningInConsole)
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_FUNCTION(&_0, "php_sapi_name", NULL, 10);
+	ZEPHIR_CALL_FUNCTION(&_0, "php_sapi_name", NULL, 8);
 	zephir_check_call_status();
 	RETURN_MM_BOOL(ZEPHIR_IS_STRING(&_0, "cli"));
 }
@@ -550,7 +550,311 @@ PHP_METHOD(Yuga_Application_Application, run)
 	}
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerbasebindings", NULL, 0, this_ptr);
 	zephir_check_call_status();
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerdefaultproviders", NULL, 0);
+	zephir_check_call_status();
 	RETURN_THIS();
+}
+
+/**
+ * Get the debug mode if set
+ * 
+ * @param null
+ * 
+ * @return bool
+ */
+PHP_METHOD(Yuga_Application_Application, getDebugEnabled)
+{
+	zval *this_ptr = getThis();
+
+
+
+	RETURN_MEMBER(getThis(), "debugEnabled");
+}
+
+/**
+ * Set the default application's encryption methode
+ * 
+ * @param string method
+ * 
+ * @return \Yuga\Application\Application this
+ */
+PHP_METHOD(Yuga_Application_Application, setEncryptionMethod)
+{
+	zval *method, method_sub;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&method_sub);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_ZVAL(method)
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	zephir_fetch_params_without_memory_grow(1, 0, &method);
+
+
+	zephir_update_property_zval(this_ptr, ZEND_STRL("encryptionMethod"), method);
+	RETURN_THISW();
+}
+
+/**
+ * Get the Encryption method
+ * 
+ * @param null
+ * 
+ * @return string
+ */
+PHP_METHOD(Yuga_Application_Application, getEncryptionMethod)
+{
+	zval *this_ptr = getThis();
+
+
+
+	RETURN_MEMBER(getThis(), "encryptionMethod");
+}
+
+/**
+ * Register those providers that need to be loaded before any other providers
+ * 
+ * @return void
+ */
+PHP_METHOD(Yuga_Application_Application, registerConfigProviders)
+{
+	zval *this_ptr = getThis();
+
+
+
+}
+
+/**
+ * Register all of the base service providers.
+ *
+ * @return void
+ */
+PHP_METHOD(Yuga_Application_Application, registerDefaultProviders)
+{
+	zval _0;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&_0);
+
+
+	ZEPHIR_MM_GROW();
+
+	ZEPHIR_INIT_VAR(&_0);
+	object_init_ex(&_0, yuga_providers_testprovider_ce);
+	if (zephir_has_constructor(&_0)) {
+		ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 0, this_ptr);
+		zephir_check_call_status();
+	}
+
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerprovider", NULL, 0, &_0);
+	zephir_check_call_status();
+	ZEPHIR_MM_RESTORE();
+}
+
+/**
+ * Set the application request for the console environment.
+ *
+ * @return void
+ */
+PHP_METHOD(Yuga_Application_Application, setRequestForYugaConsole)
+{
+	zval *this_ptr = getThis();
+
+
+
+}
+
+/**
+ * Call a method on the default request class.
+ *
+ * @param  string  method
+ * @param  array  parameters
+ * @return mixed
+ */
+PHP_METHOD(Yuga_Application_Application, onRequest)
+{
+	zend_class_entry *_2 = NULL;
+	zval _0;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *method, method_sub, *parameters = NULL, parameters_sub, _1;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&method_sub);
+	ZVAL_UNDEF(&parameters_sub);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_0);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(1, 2)
+		Z_PARAM_ZVAL(method)
+		Z_PARAM_OPTIONAL
+		Z_PARAM_ZVAL(parameters)
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 1, &method, &parameters);
+	if (!parameters) {
+		parameters = &parameters_sub;
+		ZEPHIR_INIT_VAR(parameters);
+		array_init(parameters);
+	}
+
+
+	ZEPHIR_INIT_VAR(&_0);
+	zephir_create_array(&_0, 2, 0);
+	ZEPHIR_INIT_VAR(&_1);
+	if (!_2) {
+	_2 = zephir_fetch_class_str_ex(SL("Yuga\\Application\\Request"), ZEND_FETCH_CLASS_AUTO);
+	}
+	object_init_ex(&_1, _2);
+	if (zephir_has_constructor(&_1)) {
+		ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 0);
+		zephir_check_call_status();
+	}
+
+	zephir_array_fast_append(&_0, &_1);
+	zephir_array_fast_append(&_0, method);
+	ZEPHIR_RETURN_CALL_FUNCTION("forward_static_call_array", NULL, 9, &_0, parameters);
+	zephir_check_call_status();
+	RETURN_MM();
+}
+
+/**
+ * @param \Yuga\Interfaces\Providers\IServiceProvider provider
+ * 
+ * @return \Yuga\Application\Application this
+ */
+PHP_METHOD(Yuga_Application_Application, registerProvider)
+{
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *provider, provider_sub, _0, _1$$3;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&provider_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1$$3);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_OBJECT_OF_CLASS(provider, zephir_get_internal_ce(SL("yuga\\interfaces\\providers\\serviceproviderinterface")))
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &provider);
+
+
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "providerloaded", NULL, 0, provider);
+	zephir_check_call_status();
+	if (!zephir_is_true(&_0)) {
+		if ((zephir_method_exists_ex(provider, ZEND_STRL("register")) == SUCCESS)) {
+			ZEPHIR_CALL_METHOD(NULL, provider, "register", NULL, 0, this_ptr);
+			zephir_check_call_status();
+			ZEPHIR_CALL_METHOD(NULL, this_ptr, "bootprovider", NULL, 0, provider);
+			zephir_check_call_status();
+		}
+		ZEPHIR_INIT_VAR(&_1$$3);
+		zephir_get_class(&_1$$3, provider, 0);
+		zephir_update_property_array_append(this_ptr, SL("loadedProviders"), &_1$$3);
+		RETURN_THIS();
+	}
+	ZEPHIR_MM_RESTORE();
+}
+
+PHP_METHOD(Yuga_Application_Application, getProviders)
+{
+	zval *this_ptr = getThis();
+
+
+
+	RETURN_MEMBER(getThis(), "loadedProviders");
+}
+
+/**
+ * @param \Yuga\Interfaces\Providers\ServiceProviderInterface provider
+ * 
+ * @return mixed
+ */
+PHP_METHOD(Yuga_Application_Application, bootProvider)
+{
+	zval _0$$3;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *provider, provider_sub, _1$$3;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&provider_sub);
+	ZVAL_UNDEF(&_1$$3);
+	ZVAL_UNDEF(&_0$$3);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_OBJECT_OF_CLASS(provider, zephir_get_internal_ce(SL("yuga\\interfaces\\providers\\serviceproviderinterface")))
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &provider);
+
+
+	if ((zephir_method_exists_ex(provider, ZEND_STRL("boot")) == SUCCESS)) {
+		ZEPHIR_INIT_VAR(&_0$$3);
+		zephir_create_array(&_0$$3, 2, 0);
+		zephir_array_fast_append(&_0$$3, provider);
+		ZEPHIR_INIT_VAR(&_1$$3);
+		ZVAL_STRING(&_1$$3, "boot");
+		zephir_array_fast_append(&_0$$3, &_1$$3);
+		ZEPHIR_RETURN_CALL_METHOD(this_ptr, "call", NULL, 0, &_0$$3);
+		zephir_check_call_status();
+		RETURN_MM();
+	}
+	ZEPHIR_MM_RESTORE();
+}
+
+/**
+ * Determine whether a service provider has been loaded or not
+ * 
+ * @param ServiceProviderInterface provider
+ * 
+ * @return bool
+ */
+PHP_METHOD(Yuga_Application_Application, providerLoaded)
+{
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zval *provider, provider_sub, _0, _1;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&provider_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_OBJECT_OF_CLASS(provider, zephir_get_internal_ce(SL("yuga\\interfaces\\providers\\serviceproviderinterface")))
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &provider);
+
+
+	ZEPHIR_INIT_VAR(&_0);
+	zephir_get_class(&_0, provider, 0);
+	zephir_read_property(&_1, this_ptr, ZEND_STRL("loadedProviders"), PH_NOISY_CC | PH_READONLY);
+	RETURN_MM_BOOL(zephir_array_key_exists(&_1, &_0));
 }
 
 zend_object *zephir_init_properties_Yuga_Application_Application(zend_class_entry *class_type)

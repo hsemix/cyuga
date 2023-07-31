@@ -8,6 +8,7 @@ use ReflectionMethod;
 use ReflectionFunction;
 use ReflectionNamedType;
 use ReflectionParameter;
+use ReflectionUnionType;
 use InvalidArgumentException;
 use Yuga\Container\Support\ClassNotInstantiableException;
 
@@ -99,15 +100,27 @@ class Container implements ArrayAccess
     public function getBinding(var key)
     {
         let key = ltrim(key, "\\");
-        if !array_key_exists(key, this->bindings) {
+
+        if this->has(key) == false {
             return null;
-        } elseif array_key_exists(key, this->instances) {
-            return this->instances[key];
-        } elseif(this->bindings[key] instanceof Closure) {
-            return this->bindings[key];
-        } else {
-            return this->bindings[key]["value"];
         }
+
+        if array_key_exists(key, this->instances) {
+            return this->instances[key];
+        }
+        
+        if array_key_exists(key, this->bindings) {
+
+            if this->bindings[key] instanceof Closure {
+                return this->bindings[key];
+            }
+    
+            if (isset(this->bindings[key]["value"])) {
+                return this->bindings[key]["value"];
+            }
+            return this->bindings[key];
+        }
+
     }
 
     public function getBindings()
@@ -122,11 +135,12 @@ class Container implements ArrayAccess
 
     public function get(key)
     {
+        // return this->getBinding(key);
         if array_key_exists(key, this->instances) {
             return this->getBinding(key);
         } elseif this->bindings[key] instanceof Closure {        
             return this->getBinding(key);
-        } elseif is_string(this->bindings[key]) && strpos(this->bindings[key], '/') != false {
+        } elseif is_string(this->bindings[key]) && strpos(this->bindings[key], "/") != false {
             return this->getBinding(key);
         } elseif is_object(this->bindings[key]) {
             return this->make(key);
@@ -172,18 +186,21 @@ class Container implements ArrayAccess
 
     public function resolve(key, array arguments = [])
     {
-        
-        var classVar = this->getBinding(key);
-        if (classVar == null) {
-            let classVar = key;
+        // return arguments;
+        var classValue = this->getBinding(key);
+        if (classValue == null) {
+            let classValue = key;
         }
 
         if (this->isSingleton(key) && this->singletonResolved(key)) {
             return this->getSingletonInstance(key);
         }
         
-        var objectVar = this->buildObject(classVar, arguments);
-        return this->prepareObject(key, objectVar);
+        // return arguments;
+        var objectValue = this->buildObject(classValue, arguments);
+
+        // return objectValue;
+        return this->prepareObject(key, objectValue);
     }
 
 
@@ -200,22 +217,25 @@ class Container implements ArrayAccess
 
     protected function buildDependencies(arguments, dependencies, className)
     {
-        var dependency;
+        var dependency, name;
+        array newDependencies = [];
+
+        // return arguments;
         for dependency in dependencies {
 
-            var name = dependency->getName();
+            let name = dependency->getName();
             
             var type = dependency->getType();
 
-            if (dependency->isOptional()) {
+            if dependency->isOptional() {
                 continue; 
             }    
             
-            if (dependency->getType() == null) {
+            if dependency->getType() == null {
                 continue;
             }
 
-            if (type->isBuiltIn()) {
+            if type->isBuiltIn() {
                 continue;
             }
 
@@ -229,16 +249,22 @@ class Container implements ArrayAccess
 
             if type && type instanceof ReflectionNamedType {
 
-                if get_class(this) === type->getName() {
+                // return type->getName();
+                if get_class(this) == type->getName() {
                     let arguments[] = this;
                     continue;
                 }
-                // make instance of this class :
-                var paramInstance = this->resolve(type->getName());
 
-                // push to dependencies array
-                let arguments[]  = paramInstance;
+                if class_exists(type->getName()) {
+                    // make instance of this class :
+                    var paramInstance = this->resolve(type->getName());
+                    // push to dependencies array
 
+                    let arguments[name]  = paramInstance;
+
+                    let newDependencies[name] = arguments[name];
+                }
+                
             } else {
 
                 let name = dependency->getName(); // get the name of param
@@ -247,7 +273,7 @@ class Container implements ArrayAccess
                 if (array_key_exists(name, arguments)) { // if exist
 
                     // push  value to dependencies sequencially
-                    let dependencies[] = arguments[name];
+                    let newDependencies[name] = arguments[name];
 
                 } else { // if not exist
 
@@ -267,6 +293,7 @@ class Container implements ArrayAccess
     protected function buildObject(classValue, array arguments = [])
     {
         var objectValue, className, reflector, newObject;
+        
         if is_array(classValue) {
             let className = classValue["value"];
         } else {
@@ -284,11 +311,16 @@ class Container implements ArrayAccess
             var dependencies = constructor->getParameters();
 
             let arguments = this->buildDependencies(arguments, dependencies, classValue); 
-            let objectValue = reflector->newInstanceArgs(arguments);    
             
+            let objectValue = create_instance_params(
+                reflector->name,
+                arguments
+            );
+
+            return objectValue;
+           
         } else {
-            let newObject = new reflector;
-            let objectValue = newObject->name;
+            let objectValue = create_instance(reflector->name);
         }
         
         return objectValue;
@@ -305,6 +337,7 @@ class Container implements ArrayAccess
     public function call(callback, array parameters = [], defaultMethod = null)
     {
         var dependencies;
+
         if (this->isCallableWithAtSign(callback) || defaultMethod) {
             return this->callClass(callback, parameters, defaultMethod);
         }
@@ -374,7 +407,7 @@ class Container implements ArrayAccess
         var reflector = this->getCallReflector(callback);
 
         for key, parameter in reflector->getParameters() {
-            this->addDependencyForCallParameter(parameter, parameters, dependencies);
+            let dependencies = this->addDependencyForCallParameter(parameter, parameters, dependencies);
         }
 
         return array_merge(dependencies, parameters);
@@ -409,20 +442,20 @@ class Container implements ArrayAccess
      */
     protected function addDependencyForCallParameter(<ReflectionParameter> parameter, array parameters, dependencies)
     {
-        if array_key_exists($parameter->name, parameters) {
+        if array_key_exists(parameter->name, parameters) {
             let dependencies[] = parameters[$parameter->name];
 
             unset(parameters[parameter->name]);
         } elseif parameter->getType() {
-            var classValue = $parameter->getType() ? $parameter->getType()->getName() : null;
+            var classValue = parameter->getType() ? parameter->getType()->getName() : null;
 
             if !parameter->isOptional() {
-                if !\is_null(classValue) {
+                if !is_null(classValue) {
                     let dependencies[] = this->buildObject(classValue);
                 } 
             }
         } elseif parameter->isDefaultValueAvailable() {
-            let dependencies[] = $parameter->getDefaultValue();
+            let dependencies[] = parameter->getDefaultValue();
         }
 
         return dependencies;

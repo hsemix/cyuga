@@ -60,8 +60,8 @@
     "namespace": "yuga",
     "name": "yuga",
     "description": "",
-    "author": "Phalcon Team",
-    "version": "0.0.1",
+    "author": "Hamid Semitala <semix.hamidouh@gmail.com>",
+    "version": "6.0.0",
     "verbose": false,
     "requires": {
         "extensions": []

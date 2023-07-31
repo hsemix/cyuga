@@ -93,16 +93,22 @@ yuga/application/application.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../ext.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/interfaces/http/input/inputiteminterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/interfaces/providers/serviceproviderinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/interfaces/application/application.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/container/support/classnotinstantiableexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/events/dispatcher/dispatcher.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/events/exceptions/eventexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/input/inputfile.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/input/inputitem.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/response.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/interfaces/events/dispatcher.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/providers/testprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/0__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/1__closure.zep.h \
