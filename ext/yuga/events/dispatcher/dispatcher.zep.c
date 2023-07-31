@@ -184,12 +184,16 @@ PHP_METHOD(Yuga_Events_Dispatcher_Dispatcher, getParams)
  */
 PHP_METHOD(Yuga_Events_Dispatcher_Dispatcher, getParam)
 {
-	zval *name, name_sub, *defaultValue = NULL, defaultValue_sub, __$null;
+	zval *name, name_sub, *defaultValue = NULL, defaultValue_sub, __$null, _0, _1$$3, _2$$4, _3$$4;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&name_sub);
 	ZVAL_UNDEF(&defaultValue_sub);
 	ZVAL_NULL(&__$null);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1$$3);
+	ZVAL_UNDEF(&_2$$4);
+	ZVAL_UNDEF(&_3$$4);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 2)
@@ -207,6 +211,19 @@ PHP_METHOD(Yuga_Events_Dispatcher_Dispatcher, getParam)
 	}
 
 
+	zephir_read_property(&_0, this_ptr, ZEND_STRL("params"), PH_NOISY_CC | PH_READONLY);
+	if (Z_TYPE_P(&_0) == IS_ARRAY) {
+		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("params"), PH_NOISY_CC | PH_READONLY);
+		if (zephir_array_isset(&_1$$3, name)) {
+			zephir_read_property(&_2$$4, this_ptr, ZEND_STRL("params"), PH_NOISY_CC | PH_READONLY);
+			zephir_array_fetch(&_3$$4, &_2$$4, name, PH_NOISY | PH_READONLY, "yuga/Events/Dispatcher/Dispatcher.zep", 100);
+			RETURN_CTORW(&_3$$4);
+		}
+		RETVAL_ZVAL(defaultValue, 1, 0);
+		return;
+	}
+	RETVAL_ZVAL(defaultValue, 1, 0);
+	return;
 }
 
 /**
@@ -380,7 +397,7 @@ PHP_METHOD(Yuga_Events_Dispatcher_Dispatcher, getAttribute)
 
 
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch(&_1, &_0, name, PH_NOISY | PH_READONLY, "yuga/Events/Dispatcher/Dispatcher.zep", 162);
+	zephir_array_fetch(&_1, &_0, name, PH_NOISY | PH_READONLY, "yuga/Events/Dispatcher/Dispatcher.zep", 165);
 	RETURN_CTORW(&_1);
 }
 
@@ -417,7 +434,7 @@ PHP_METHOD(Yuga_Events_Dispatcher_Dispatcher, setAttributes)
 	}
 
 
-	zephir_is_iterable(&attributes, 0, "yuga/Events/Dispatcher/Dispatcher.zep", 173);
+	zephir_is_iterable(&attributes, 0, "yuga/Events/Dispatcher/Dispatcher.zep", 176);
 	if (Z_TYPE_P(&attributes) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&attributes), _2, _3, _0)
 		{

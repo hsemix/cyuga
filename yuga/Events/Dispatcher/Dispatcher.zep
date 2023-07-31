@@ -93,13 +93,16 @@ class Dispatcher
      */
     public function getParam(name, defaultValue = null)
     {
-        // if (is_array(this->params)) {
-        //     // Check in params that are arrays or implement array access
-        //     return this->params[name] ?? default;
-        // } else {
-        //     // Wrong type, return default value
-        //     return default;
-        // }
+        if is_array(this->params) {
+            // Check in params that are arrays or implement array access
+
+            if isset(this->params[name]) {
+                return this->params[name];
+            }
+            return defaultValue;
+        }
+        
+        return defaultValue; 
     }
 
     /**
