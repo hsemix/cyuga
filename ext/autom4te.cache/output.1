@@ -4533,16 +4533,17 @@ if test "$PHP_YUGA" = "yes"; then
 	
 printf "%s\n" "@%:@define HAVE_YUGA 1" >>confdefs.h
 
-	yuga_sources="yuga.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c yuga/interfaces/http/input/inputiteminterface.zep.c
-	yuga/interfaces/providers/serviceproviderinterface.zep.c
+	yuga_sources="yuga.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c yuga/interfaces/providers/serviceproviderinterface.zep.c
+	yuga/interfaces/http/input/inputiteminterface.zep.c
+	yuga/providers/serviceprovider.zep.c
 	yuga/container/container.zep.c
 	yuga/interfaces/application/application.zep.c
 	yuga/interfaces/events/dispatcherinterface.zep.c
-	yuga/providers/serviceprovider.zep.c
 	yuga/application/application.zep.c
 	yuga/container/support/classnotinstantiableexception.zep.c
 	yuga/events/dispatcher/dispatcher.zep.c
 	yuga/events/event.zep.c
+	yuga/events/eventserviceprovider.zep.c
 	yuga/events/exceptions/eventexception.zep.c
 	yuga/http/input/input.zep.c
 	yuga/http/input/inputfile.zep.c

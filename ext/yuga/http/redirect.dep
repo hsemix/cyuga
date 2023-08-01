@@ -92,16 +92,17 @@ yuga/http/redirect.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../kernel/globals.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../ext.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/interfaces/http/input/inputiteminterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/interfaces/events/dispatcherinterface.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/events/dispatcher/dispatcher.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/events/event.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/events/eventserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/events/exceptions/eventexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/http/input/inputfile.zep.h \

@@ -109,14 +109,14 @@ PHP_METHOD(Yuga_Http_Input_Input, parseInputs)
 
 	if (zephir_fast_count_int(&_GET) > 0) {
 		ZVAL_LONG(&_1$$3, 522);
-		ZEPHIR_CALL_FUNCTION(&_2$$3, "filter_var_array", &_3, 17, &_GET, &_1$$3);
+		ZEPHIR_CALL_FUNCTION(&_2$$3, "filter_var_array", &_3, 18, &_GET, &_1$$3);
 		zephir_check_call_status();
 		ZEPHIR_CALL_METHOD(&_0$$3, this_ptr, "handlegetpost", &_4, 0, &_2$$3);
 		zephir_check_call_status();
 		zephir_update_property_zval(this_ptr, ZEND_STRL("get"), &_0$$3);
 	}
 	ZVAL_LONG(&_5, 522);
-	ZEPHIR_CALL_FUNCTION(&postValues, "filter_var_array", &_3, 17, &_POST, &_5);
+	ZEPHIR_CALL_FUNCTION(&postValues, "filter_var_array", &_3, 18, &_POST, &_5);
 	zephir_check_call_status();
 	zephir_read_property(&_5, this_ptr, ZEND_STRL("request"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_CALL_METHOD(&_6, &_5, "getmethod", NULL, 0);
@@ -132,7 +132,7 @@ PHP_METHOD(Yuga_Http_Input_Input, parseInputs)
 	ZEPHIR_INIT_NVAR(&_8);
 	ZVAL_STRING(&_8, "delete");
 	zephir_array_fast_append(&_7, &_8);
-	ZEPHIR_CALL_FUNCTION(&_9, "in_array", NULL, 18, &_6, &_7, &__$false);
+	ZEPHIR_CALL_FUNCTION(&_9, "in_array", NULL, 19, &_6, &_7, &__$false);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_TRUE_IDENTICAL(&_9)) {
 		ZEPHIR_INIT_VAR(&_10$$4);
@@ -140,7 +140,7 @@ PHP_METHOD(Yuga_Http_Input_Input, parseInputs)
 		ZVAL_STRING(&_11$$4, "php://input");
 		zephir_file_get_contents(&_10$$4, &_11$$4);
 		ZEPHIR_MAKE_REF(&postValues);
-		ZEPHIR_CALL_FUNCTION(NULL, "parse_str", NULL, 19, &_10$$4, &postValues);
+		ZEPHIR_CALL_FUNCTION(NULL, "parse_str", NULL, 20, &_10$$4, &postValues);
 		ZEPHIR_UNREF(&postValues);
 		zephir_check_call_status();
 	}
@@ -530,12 +530,12 @@ PHP_METHOD(Yuga_Http_Input_Input, handleGetPost)
 			if (Z_TYPE_P(&value) == IS_ARRAY == 0) {
 				ZEPHIR_INIT_NVAR(&_4$$4);
 				object_init_ex(&_4$$4, yuga_http_input_inputitem_ce);
-				ZEPHIR_CALL_METHOD(NULL, &_4$$4, "__construct", &_5, 20, &key, &value);
+				ZEPHIR_CALL_METHOD(NULL, &_4$$4, "__construct", &_5, 21, &key, &value);
 				zephir_check_call_status();
 				zephir_array_update_zval(&list, &key, &_4$$4, PH_COPY | PH_SEPARATE);
 				continue;
 			}
-			ZEPHIR_CALL_METHOD(&output$$3, this_ptr, "handlegetpost", &_6, 21, &value);
+			ZEPHIR_CALL_METHOD(&output$$3, this_ptr, "handlegetpost", &_6, 22, &value);
 			zephir_check_call_status();
 			zephir_array_update_zval(&list, &key, &output$$3, PH_COPY | PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
@@ -555,12 +555,12 @@ PHP_METHOD(Yuga_Http_Input_Input, handleGetPost)
 				if (Z_TYPE_P(&value) == IS_ARRAY == 0) {
 					ZEPHIR_INIT_NVAR(&_7$$6);
 					object_init_ex(&_7$$6, yuga_http_input_inputitem_ce);
-					ZEPHIR_CALL_METHOD(NULL, &_7$$6, "__construct", &_5, 20, &key, &value);
+					ZEPHIR_CALL_METHOD(NULL, &_7$$6, "__construct", &_5, 21, &key, &value);
 					zephir_check_call_status();
 					zephir_array_update_zval(&list, &key, &_7$$6, PH_COPY | PH_SEPARATE);
 					continue;
 				}
-				ZEPHIR_CALL_METHOD(&output$$5, this_ptr, "handlegetpost", &_6, 21, &value);
+				ZEPHIR_CALL_METHOD(&output$$5, this_ptr, "handlegetpost", &_6, 22, &value);
 				zephir_check_call_status();
 				zephir_array_update_zval(&list, &key, &output$$5, PH_COPY | PH_SEPARATE);
 			ZEPHIR_CALL_METHOD(NULL, &arrayList, "next", NULL, 0);
@@ -669,7 +669,7 @@ PHP_METHOD(Yuga_Http_Input_Input, findPost)
 		zephir_json_decode(&_2$$3, &stringVar, zephir_get_intval(&__$true) );
 		zephir_get_arrval(&_3$$3, &_2$$3);
 		ZVAL_LONG(&_4$$3, 522);
-		ZEPHIR_CALL_FUNCTION(&_5$$3, "filter_var_array", NULL, 17, &_3$$3, &_4$$3);
+		ZEPHIR_CALL_FUNCTION(&_5$$3, "filter_var_array", NULL, 18, &_3$$3, &_4$$3);
 		zephir_check_call_status();
 		ZEPHIR_INIT_NVAR(&input);
 		zephir_fast_array_merge(&input, &_1$$3, &_5$$3);
@@ -1088,9 +1088,9 @@ PHP_METHOD(Yuga_Http_Input_Input, all)
 	}
 	ZEPHIR_INIT_VAR(&_12);
 	if (!ZEPHIR_IS_NULL(&filter)) {
-		ZEPHIR_CALL_FUNCTION(&_13, "array_flip", NULL, 22, &filter);
+		ZEPHIR_CALL_FUNCTION(&_13, "array_flip", NULL, 23, &filter);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&_12, "array_intersect_key", NULL, 23, &output, &_13);
+		ZEPHIR_CALL_FUNCTION(&_12, "array_intersect_key", NULL, 24, &output, &_13);
 		zephir_check_call_status();
 	} else {
 		zephir_read_property(&_14, this_ptr, ZEND_STRL("get"), PH_NOISY_CC | PH_READONLY);

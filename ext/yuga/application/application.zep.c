@@ -650,7 +650,6 @@ PHP_METHOD(Yuga_Application_Application, getEncryptionMethod)
  */
 PHP_METHOD(Yuga_Application_Application, registerConfigProviders)
 {
-	zend_class_entry *_1 = NULL;
 	zval _0;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
@@ -662,15 +661,9 @@ PHP_METHOD(Yuga_Application_Application, registerConfigProviders)
 	ZEPHIR_MM_GROW();
 
 	ZEPHIR_INIT_VAR(&_0);
-	if (!_1) {
-	_1 = zephir_fetch_class_str_ex(SL("Yuga\\Events\\EventServiceProvider"), ZEND_FETCH_CLASS_AUTO);
-	}
-	object_init_ex(&_0, _1);
-	if (zephir_has_constructor(&_0)) {
-		ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 0, this_ptr);
-		zephir_check_call_status();
-	}
-
+	object_init_ex(&_0, yuga_events_eventserviceprovider_ce);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 9, this_ptr);
+	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerprovider", NULL, 0, &_0);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
@@ -760,11 +753,11 @@ PHP_METHOD(Yuga_Application_Application, onRequest)
 	zephir_create_array(&_0, 2, 0);
 	ZEPHIR_INIT_VAR(&_1);
 	object_init_ex(&_1, yuga_http_request_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 9);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 10);
 	zephir_check_call_status();
 	zephir_array_fast_append(&_0, &_1);
 	zephir_array_fast_append(&_0, method);
-	ZEPHIR_RETURN_CALL_FUNCTION("forward_static_call_array", NULL, 10, &_0, parameters);
+	ZEPHIR_RETURN_CALL_FUNCTION("forward_static_call_array", NULL, 11, &_0, parameters);
 	zephir_check_call_status();
 	RETURN_MM();
 }

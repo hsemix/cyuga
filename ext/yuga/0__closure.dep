@@ -92,16 +92,17 @@ yuga/0__closure.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../kernel/globals.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../ext.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/http/input/inputiteminterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/events/dispatcherinterface.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/dispatcher/dispatcher.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/event.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/eventserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/exceptions/eventexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/input/inputfile.zep.h \

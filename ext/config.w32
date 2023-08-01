@@ -10,16 +10,16 @@ if (PHP_YUGA != "no") {
     AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
   }
   
-  ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/http/input", "inputiteminterface.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/providers", "serviceproviderinterface.zep.c", "yuga");
+  ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/providers", "serviceproviderinterface.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/http/input", "inputiteminterface.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/providers", "serviceprovider.zep.c testprovider.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/container", "container.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/application", "application.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/events", "dispatcherinterface.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga/providers", "serviceprovider.zep.c testprovider.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/application", "application.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/container/support", "classnotinstantiableexception.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/events/dispatcher", "dispatcher.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga/events", "event.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/events", "event.zep.c eventserviceprovider.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/events/exceptions", "eventexception.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/http/input", "input.zep.c inputfile.zep.c inputitem.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/http", "redirect.zep.c request.zep.c response.zep.c", "yuga");

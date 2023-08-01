@@ -9,7 +9,7 @@ CONFIGURE_OPTIONS = '--enable-yuga'
 SHLIB_SUFFIX_NAME = so
 SHLIB_DL_SUFFIX_NAME = so
 AWK = gawk
-shared_objects_yuga = yuga.lo kernel/main.lo kernel/memory.lo kernel/exception.lo kernel/debug.lo kernel/backtrace.lo kernel/object.lo kernel/array.lo kernel/string.lo kernel/fcall.lo kernel/require.lo kernel/file.lo kernel/operators.lo kernel/math.lo kernel/concat.lo kernel/variables.lo kernel/filter.lo kernel/iterator.lo kernel/time.lo kernel/exit.lo yuga/interfaces/http/input/inputiteminterface.lo yuga/interfaces/providers/serviceproviderinterface.lo yuga/container/container.lo yuga/interfaces/application/application.lo yuga/interfaces/events/dispatcherinterface.lo yuga/providers/serviceprovider.lo yuga/application/application.lo yuga/container/support/classnotinstantiableexception.lo yuga/events/dispatcher/dispatcher.lo yuga/events/event.lo yuga/events/exceptions/eventexception.lo yuga/http/input/input.lo yuga/http/input/inputfile.lo yuga/http/input/inputitem.lo yuga/http/redirect.lo yuga/http/request.lo yuga/http/response.lo yuga/providers/testprovider.lo yuga/support/str.lo yuga/0__closure.lo yuga/1__closure.lo
+shared_objects_yuga = yuga.lo kernel/main.lo kernel/memory.lo kernel/exception.lo kernel/debug.lo kernel/backtrace.lo kernel/object.lo kernel/array.lo kernel/string.lo kernel/fcall.lo kernel/require.lo kernel/file.lo kernel/operators.lo kernel/math.lo kernel/concat.lo kernel/variables.lo kernel/filter.lo kernel/iterator.lo kernel/time.lo kernel/exit.lo yuga/interfaces/providers/serviceproviderinterface.lo yuga/interfaces/http/input/inputiteminterface.lo yuga/providers/serviceprovider.lo yuga/container/container.lo yuga/interfaces/application/application.lo yuga/interfaces/events/dispatcherinterface.lo yuga/application/application.lo yuga/container/support/classnotinstantiableexception.lo yuga/events/dispatcher/dispatcher.lo yuga/events/event.lo yuga/events/eventserviceprovider.lo yuga/events/exceptions/eventexception.lo yuga/http/input/input.lo yuga/http/input/inputfile.lo yuga/http/input/inputitem.lo yuga/http/redirect.lo yuga/http/request.lo yuga/http/response.lo yuga/providers/testprovider.lo yuga/support/str.lo yuga/0__closure.lo yuga/1__closure.lo
 PHP_PECL_EXTENSION = yuga
 YUGA_SHARED_LIBADD =
 PHP_MODULES = $(phplibdir)/yuga.la
@@ -264,12 +264,15 @@ kernel/time.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/time.c
 -include kernel/exit.dep
 kernel/exit.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/exit.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/kernel/exit.c -o kernel/exit.lo  -MMD -MF kernel/exit.dep -MT kernel/exit.lo
--include yuga/interfaces/http/input/inputiteminterface.dep
-yuga/interfaces/http/input/inputiteminterface.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.c
-	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.c -o yuga/interfaces/http/input/inputiteminterface.lo  -MMD -MF yuga/interfaces/http/input/inputiteminterface.dep -MT yuga/interfaces/http/input/inputiteminterface.lo
 -include yuga/interfaces/providers/serviceproviderinterface.dep
 yuga/interfaces/providers/serviceproviderinterface.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/serviceproviderinterface.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/serviceproviderinterface.zep.c -o yuga/interfaces/providers/serviceproviderinterface.lo  -MMD -MF yuga/interfaces/providers/serviceproviderinterface.dep -MT yuga/interfaces/providers/serviceproviderinterface.lo
+-include yuga/interfaces/http/input/inputiteminterface.dep
+yuga/interfaces/http/input/inputiteminterface.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.c -o yuga/interfaces/http/input/inputiteminterface.lo  -MMD -MF yuga/interfaces/http/input/inputiteminterface.dep -MT yuga/interfaces/http/input/inputiteminterface.lo
+-include yuga/providers/serviceprovider.dep
+yuga/providers/serviceprovider.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/providers/serviceprovider.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/providers/serviceprovider.zep.c -o yuga/providers/serviceprovider.lo  -MMD -MF yuga/providers/serviceprovider.dep -MT yuga/providers/serviceprovider.lo
 -include yuga/container/container.dep
 yuga/container/container.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/container/container.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/container/container.zep.c -o yuga/container/container.lo  -MMD -MF yuga/container/container.dep -MT yuga/container/container.lo
@@ -279,9 +282,6 @@ yuga/interfaces/application/application.lo: /var/www/html/yuga-zephir/yuga/ext/y
 -include yuga/interfaces/events/dispatcherinterface.dep
 yuga/interfaces/events/dispatcherinterface.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/events/dispatcherinterface.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/events/dispatcherinterface.zep.c -o yuga/interfaces/events/dispatcherinterface.lo  -MMD -MF yuga/interfaces/events/dispatcherinterface.dep -MT yuga/interfaces/events/dispatcherinterface.lo
--include yuga/providers/serviceprovider.dep
-yuga/providers/serviceprovider.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/providers/serviceprovider.zep.c
-	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/providers/serviceprovider.zep.c -o yuga/providers/serviceprovider.lo  -MMD -MF yuga/providers/serviceprovider.dep -MT yuga/providers/serviceprovider.lo
 -include yuga/application/application.dep
 yuga/application/application.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/application/application.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/application/application.zep.c -o yuga/application/application.lo  -MMD -MF yuga/application/application.dep -MT yuga/application/application.lo
@@ -294,6 +294,9 @@ yuga/events/dispatcher/dispatcher.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/ev
 -include yuga/events/event.dep
 yuga/events/event.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/events/event.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/events/event.zep.c -o yuga/events/event.lo  -MMD -MF yuga/events/event.dep -MT yuga/events/event.lo
+-include yuga/events/eventserviceprovider.dep
+yuga/events/eventserviceprovider.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/events/eventserviceprovider.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/events/eventserviceprovider.zep.c -o yuga/events/eventserviceprovider.lo  -MMD -MF yuga/events/eventserviceprovider.dep -MT yuga/events/eventserviceprovider.lo
 -include yuga/events/exceptions/eventexception.dep
 yuga/events/exceptions/eventexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/events/exceptions/eventexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/events/exceptions/eventexception.zep.c -o yuga/events/exceptions/eventexception.lo  -MMD -MF yuga/events/exceptions/eventexception.dep -MT yuga/events/exceptions/eventexception.lo

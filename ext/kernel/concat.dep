@@ -85,14 +85,15 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  /usr/include/php/20210902/Zend/zend_constants.h \
  /usr/include/php/20210902/main/php_reentrancy.h php_ext.h php_yuga.h \
  kernel/globals.h /usr/include/php/20210902/ext/standard/php_string.h \
- ext.h yuga.h yuga/interfaces/http/input/inputiteminterface.zep.h \
- yuga/interfaces/providers/serviceproviderinterface.zep.h \
- yuga/container/container.zep.h \
+ ext.h yuga.h yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ yuga/interfaces/http/input/inputiteminterface.zep.h \
+ yuga/providers/serviceprovider.zep.h yuga/container/container.zep.h \
  yuga/interfaces/application/application.zep.h \
  yuga/interfaces/events/dispatcherinterface.zep.h \
- yuga/providers/serviceprovider.zep.h yuga/application/application.zep.h \
+ yuga/application/application.zep.h \
  yuga/container/support/classnotinstantiableexception.zep.h \
  yuga/events/dispatcher/dispatcher.zep.h yuga/events/event.zep.h \
+ yuga/events/eventserviceprovider.zep.h \
  yuga/events/exceptions/eventexception.zep.h yuga/http/input/input.zep.h \
  yuga/http/input/inputfile.zep.h yuga/http/input/inputitem.zep.h \
  yuga/http/redirect.zep.h yuga/http/request.zep.h \
