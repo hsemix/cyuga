@@ -130,7 +130,7 @@ PHP_METHOD(Yuga_Application_Application, __construct)
 /**
  * Get the base path of the Laravel installation.
  *
- * @param  string  $path
+ * @param  string  path
  * @return string
  */
 PHP_METHOD(Yuga_Application_Application, basePath)
@@ -175,7 +175,7 @@ PHP_METHOD(Yuga_Application_Application, basePath)
 /**
  * Get the path to the boot directory.
  *
- * @param  string  $path
+ * @param  string  path
  * @return string
  */
 PHP_METHOD(Yuga_Application_Application, bootPath)
@@ -523,6 +523,32 @@ PHP_METHOD(Yuga_Application_Application, registerBaseBindings)
 }
 
 /**
+ * Register the Service providers
+ *
+ * @return void
+ */
+PHP_METHOD(Yuga_Application_Application, registerConfig)
+{
+	zval _0;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&_0);
+
+
+	ZEPHIR_MM_GROW();
+
+	zephir_read_static_property_ce(&_0, yuga_application_application_ce, SL("app"), PH_NOISY_CC | PH_READONLY);
+	if (!zephir_is_true(&_0)) {
+		zephir_update_static_property_ce(yuga_application_application_ce, ZEND_STRL("app"), this_ptr);
+	}
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerconfigproviders", NULL, 0);
+	zephir_check_call_status();
+	ZEPHIR_MM_RESTORE();
+}
+
+/**
  * Run the Yuga application
  */
 PHP_METHOD(Yuga_Application_Application, run)
@@ -544,6 +570,8 @@ PHP_METHOD(Yuga_Application_Application, run)
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "Yuga\\Support\\Config");
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "singleton", NULL, 0, &_0, &_1);
+	zephir_check_call_status();
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerconfig", NULL, 0);
 	zephir_check_call_status();
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("debuggerStarted"), PH_NOISY_CC | PH_READONLY);
 	if (zephir_is_true(&_2)) {
@@ -622,10 +650,30 @@ PHP_METHOD(Yuga_Application_Application, getEncryptionMethod)
  */
 PHP_METHOD(Yuga_Application_Application, registerConfigProviders)
 {
+	zend_class_entry *_1 = NULL;
+	zval _0;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
 
+	ZVAL_UNDEF(&_0);
 
 
+	ZEPHIR_MM_GROW();
+
+	ZEPHIR_INIT_VAR(&_0);
+	if (!_1) {
+	_1 = zephir_fetch_class_str_ex(SL("Yuga\\Events\\EventServiceProvider"), ZEND_FETCH_CLASS_AUTO);
+	}
+	object_init_ex(&_0, _1);
+	if (zephir_has_constructor(&_0)) {
+		ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 0, this_ptr);
+		zephir_check_call_status();
+	}
+
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerprovider", NULL, 0, &_0);
+	zephir_check_call_status();
+	ZEPHIR_MM_RESTORE();
 }
 
 /**
@@ -679,7 +727,6 @@ PHP_METHOD(Yuga_Application_Application, setRequestForYugaConsole)
  */
 PHP_METHOD(Yuga_Application_Application, onRequest)
 {
-	zend_class_entry *_2 = NULL;
 	zval _0;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
@@ -712,18 +759,12 @@ PHP_METHOD(Yuga_Application_Application, onRequest)
 	ZEPHIR_INIT_VAR(&_0);
 	zephir_create_array(&_0, 2, 0);
 	ZEPHIR_INIT_VAR(&_1);
-	if (!_2) {
-	_2 = zephir_fetch_class_str_ex(SL("Yuga\\Application\\Request"), ZEND_FETCH_CLASS_AUTO);
-	}
-	object_init_ex(&_1, _2);
-	if (zephir_has_constructor(&_1)) {
-		ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 0);
-		zephir_check_call_status();
-	}
-
+	object_init_ex(&_1, yuga_http_request_ce);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 9);
+	zephir_check_call_status();
 	zephir_array_fast_append(&_0, &_1);
 	zephir_array_fast_append(&_0, method);
-	ZEPHIR_RETURN_CALL_FUNCTION("forward_static_call_array", NULL, 9, &_0, parameters);
+	ZEPHIR_RETURN_CALL_FUNCTION("forward_static_call_array", NULL, 10, &_0, parameters);
 	zephir_check_call_status();
 	RETURN_MM();
 }

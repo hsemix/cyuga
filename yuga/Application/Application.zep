@@ -1,10 +1,13 @@
 namespace Yuga\Application;
 
 use Yuga\Support\Str;
+use Yuga\Http\Request;
 use Yuga\Container\Container;
+use Yuga\Events\EventServiceProvider;
 use Yuga\Interfaces\Providers\ServiceProviderInterface;
 use Yuga\Interfaces\Application\Application as IApplication;
 use Yuga\Providers\TestProvider;
+
 
 class Application extends Container implements IApplication
 {
@@ -92,7 +95,7 @@ class Application extends Container implements IApplication
     /**
      * Get the base path of the Laravel installation.
      *
-     * @param  string  $path
+     * @param  string  path
      * @return string
      */
     public function basePath(path = "")
@@ -108,7 +111,7 @@ class Application extends Container implements IApplication
     /**
      * Get the path to the boot directory.
      *
-     * @param  string  $path
+     * @param  string  path
      * @return string
      */
     public function bootPath(path = "")
@@ -239,6 +242,49 @@ class Application extends Container implements IApplication
     }
 
     /**
+     * Register the Service providers
+     *
+     * @return void
+     */
+    protected function registerConfig()
+    {
+        
+        if (!self::app) {
+            let self::app = this;
+        }
+        // providers = this->config->load('config.ServiceProviders');
+        this->registerConfigProviders();
+        
+        // foreach (this->config->getAll() as name => provider) {
+        //     if (class_exists(provider)) {
+        //         this->singleton(name, provider);
+        //         provider = this->resolve(name);
+        //         this->registerProvider(provider);
+        //     }
+        // }
+        
+        
+        // if (env('ROUTER_BOOTED', false)) {
+        //     if (env('ENABLE_MVP_ROUTES', false)) {
+                
+        //         Route::group(['middleware' => 'web', 'namespace' => 'App\Controllers', 'exceptionHandler' => NotFoundHttpExceptionHandler::class], function () {
+        //             routePrefix = '/' . trim(env('PREFIX_MVP_ROUTE', '/'), '/') . '/';
+        //             routePrefix = (routePrefix == '//') ? '/' : routePrefix;
+        //             controller = env('MVP_CONTROLLER', 'Controller');
+        //             if (env('MATCH_ROUTES_TO_CONTROLLERS', false)) {
+        //                 trigger_error("MVP ROUTING and IMPLICIT ROUTING can not co-exist", E_USER_WARNING);
+        //             }
+
+        //             Route::csrfVerifier(new WebMiddleware);
+        //             Route::all(routePrefix . '{slug?}', controller . '@show')->where(['slug' => '(.*)']);
+        //         });
+                
+        //     }
+        // }
+        
+    }
+
+    /**
      * Run the Yuga application
      */
     public function run()
@@ -251,7 +297,7 @@ class Application extends Container implements IApplication
         //     this->setDebugEnabled(env('DEBUG_MODE', false)); 
         //     this->initTracy();  
         // }
-        // this->registerConfig();
+        this->registerConfig();
         if (this->debuggerStarted) {
             // this['events']->dispatch('on:yuga-tracy');
         }
@@ -259,8 +305,8 @@ class Application extends Container implements IApplication
         this->registerDefaultProviders();
         // this['events']->dispatch('on:app-start');
         
-        // if (!$this->runningInConsole()) {
-        //     $this->make('session')->delete('errors');
+        // if (!this->runningInConsole()) {
+        //     this->make('session')->delete('errors');
         // }
 
         return this;
@@ -311,7 +357,7 @@ class Application extends Container implements IApplication
      */
     protected function registerConfigProviders()
     {
-        // this->registerProvider(new EventServiceProvider(this));
+        this->registerProvider(new EventServiceProvider(this));
     }
 
     /**

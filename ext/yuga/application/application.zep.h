@@ -16,6 +16,7 @@ PHP_METHOD(Yuga_Application_Application, getVendorDir);
 PHP_METHOD(Yuga_Application_Application, runningInConsole);
 PHP_METHOD(Yuga_Application_Application, getInstance);
 PHP_METHOD(Yuga_Application_Application, registerBaseBindings);
+PHP_METHOD(Yuga_Application_Application, registerConfig);
 PHP_METHOD(Yuga_Application_Application, run);
 PHP_METHOD(Yuga_Application_Application, getDebugEnabled);
 PHP_METHOD(Yuga_Application_Application, setEncryptionMethod);
@@ -75,6 +76,9 @@ ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_application_application_registerbasebindings, 0, 0, 1)
 	ZEND_ARG_INFO(0, container)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_application_application_registerconfig, 0, 0, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_application_application_run, 0, 0, 0)
@@ -160,6 +164,11 @@ ZEPHIR_INIT_FUNCS(yuga_application_application_method_entry) {
 	PHP_ME(Yuga_Application_Application, getInstance, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 #endif
 	PHP_ME(Yuga_Application_Application, registerBaseBindings, arginfo_yuga_application_application_registerbasebindings, ZEND_ACC_PROTECTED)
+#if PHP_VERSION_ID >= 80000
+	PHP_ME(Yuga_Application_Application, registerConfig, arginfo_yuga_application_application_registerconfig, ZEND_ACC_PROTECTED)
+#else
+	PHP_ME(Yuga_Application_Application, registerConfig, NULL, ZEND_ACC_PROTECTED)
+#endif
 #if PHP_VERSION_ID >= 80000
 	PHP_ME(Yuga_Application_Application, run, arginfo_yuga_application_application_run, ZEND_ACC_PUBLIC)
 #else

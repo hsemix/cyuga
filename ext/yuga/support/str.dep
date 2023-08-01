@@ -96,10 +96,12 @@ yuga/support/str.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/interfaces/providers/serviceproviderinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/interfaces/application/application.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/events/dispatcher/dispatcher.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/events/exceptions/eventexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/http/input/inputfile.zep.h \
@@ -107,7 +109,6 @@ yuga/support/str.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/http/response.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/interfaces/events/dispatcher.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/providers/testprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../yuga/0__closure.zep.h \

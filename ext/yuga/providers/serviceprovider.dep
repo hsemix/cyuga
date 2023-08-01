@@ -96,10 +96,12 @@ yuga/providers/serviceprovider.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/interfaces/providers/serviceproviderinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/interfaces/application/application.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/events/dispatcher/dispatcher.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/events/exceptions/eventexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/input/inputfile.zep.h \
@@ -107,7 +109,6 @@ yuga/providers/serviceprovider.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/response.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/interfaces/events/dispatcher.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/providers/testprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/0__closure.zep.h \
