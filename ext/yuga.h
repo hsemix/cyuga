@@ -12,6 +12,7 @@
 #include "yuga/interfaces/events/dispatcherinterface.zep.h"
 #include "yuga/application/application.zep.h"
 #include "yuga/container/support/classnotinstantiableexception.zep.h"
+#include "yuga/eventhandlers/handlerinterface.zep.h"
 #include "yuga/events/dispatcher/dispatcher.zep.h"
 #include "yuga/events/event.zep.h"
 #include "yuga/events/eventserviceprovider.zep.h"

@@ -100,6 +100,7 @@ yuga/container/container.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/container/support/classnotinstantiableexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/events/dispatcher/dispatcher.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/events/eventserviceprovider.zep.h \

@@ -17,6 +17,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/interfaces/events/dispatcherinterface.zep.c
 	yuga/application/application.zep.c
 	yuga/container/support/classnotinstantiableexception.zep.c
+	yuga/eventhandlers/handlerinterface.zep.c
 	yuga/events/dispatcher/dispatcher.zep.c
 	yuga/events/event.zep.c
 	yuga/events/eventserviceprovider.zep.c
@@ -33,7 +34,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/1__closure.zep.c "
 	PHP_NEW_EXTENSION(yuga, $yuga_sources, $ext_shared,, )
 	PHP_ADD_BUILD_DIR([$ext_builddir/kernel/])
-	for dir in "yuga yuga/application yuga/container yuga/container/support yuga/events yuga/events/dispatcher yuga/events/exceptions yuga/http yuga/http/input yuga/interfaces/application yuga/interfaces/events yuga/interfaces/http/input yuga/interfaces/providers yuga/providers yuga/support"; do
+	for dir in "yuga yuga/application yuga/container yuga/container/support yuga/eventhandlers yuga/events yuga/events/dispatcher yuga/events/exceptions yuga/http yuga/http/input yuga/interfaces/application yuga/interfaces/events yuga/interfaces/http/input yuga/interfaces/providers yuga/providers yuga/support"; do
 		PHP_ADD_BUILD_DIR([$ext_builddir/$dir])
 	done
 	PHP_SUBST(YUGA_SHARED_LIBADD)

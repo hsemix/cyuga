@@ -92,6 +92,7 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/interfaces/events/dispatcherinterface.zep.h \
  yuga/application/application.zep.h \
  yuga/container/support/classnotinstantiableexception.zep.h \
+ yuga/eventhandlers/handlerinterface.zep.h \
  yuga/events/dispatcher/dispatcher.zep.h yuga/events/event.zep.h \
  yuga/events/eventserviceprovider.zep.h \
  yuga/events/exceptions/eventexception.zep.h yuga/http/input/input.zep.h \

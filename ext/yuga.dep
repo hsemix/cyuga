@@ -97,6 +97,7 @@ yuga.lo: /var/www/html/yuga-zephir/yuga/ext/yuga.c \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/dispatcher/dispatcher.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/eventserviceprovider.zep.h \

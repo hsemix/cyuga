@@ -18,6 +18,7 @@ if (PHP_YUGA != "no") {
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/events", "dispatcherinterface.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/application", "application.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/container/support", "classnotinstantiableexception.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/eventhandlers", "handlerinterface.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/events/dispatcher", "dispatcher.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/events", "event.zep.c eventserviceprovider.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/events/exceptions", "eventexception.zep.c", "yuga");

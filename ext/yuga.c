@@ -27,6 +27,7 @@ zend_class_entry *yuga_interfaces_providers_serviceproviderinterface_ce;
 zend_class_entry *yuga_interfaces_http_input_inputiteminterface_ce;
 zend_class_entry *yuga_interfaces_application_application_ce;
 zend_class_entry *yuga_interfaces_events_dispatcherinterface_ce;
+zend_class_entry *yuga_eventhandlers_handlerinterface_ce;
 zend_class_entry *yuga_providers_serviceprovider_ce;
 zend_class_entry *yuga_container_container_ce;
 zend_class_entry *yuga_0__closure_ce;
@@ -60,6 +61,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Interfaces_Http_Input_InputItemInterface);
 	ZEPHIR_INIT(Yuga_Interfaces_Application_Application);
 	ZEPHIR_INIT(Yuga_Interfaces_Events_DispatcherInterface);
+	ZEPHIR_INIT(Yuga_EventHandlers_HandlerInterface);
 	ZEPHIR_INIT(Yuga_Providers_ServiceProvider);
 	ZEPHIR_INIT(Yuga_Container_Container);
 	ZEPHIR_INIT(Yuga_Application_Application);

@@ -808,7 +808,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 						ZVAL_STRING(&_5$$7, "handle");
 						zephir_array_fast_append(&_4$$7, &_5$$7);
 						ZEPHIR_CPY_WRT(&eventListener$$4, &_4$$7);
-						if (zephir_is_instance_of(&listener, SL("Yuga\\EventHandlers\\HandlerInterface"))) {
+						if (zephir_instance_of_ev(&listener, yuga_eventhandlers_handlerinterface_ce)) {
 							ZEPHIR_CALL_FUNCTION(&_6$$8, "array_values", &_7, 1, &params);
 							zephir_check_call_status();
 							if (!ZEPHIR_IS_IDENTICAL(&_6$$8, &params)) {
@@ -856,7 +856,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 							ZVAL_STRING(&_13$$14, "handle");
 							zephir_array_fast_append(&_12$$14, &_13$$14);
 							ZEPHIR_CPY_WRT(&eventListener$$11, &_12$$14);
-							if (zephir_is_instance_of(&listener, SL("Yuga\\EventHandlers\\HandlerInterface"))) {
+							if (zephir_instance_of_ev(&listener, yuga_eventhandlers_handlerinterface_ce)) {
 								ZEPHIR_CALL_FUNCTION(&_14$$15, "array_values", &_7, 1, &params);
 								zephir_check_call_status();
 								if (!ZEPHIR_IS_IDENTICAL(&_14$$15, &params)) {
@@ -915,7 +915,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 							ZVAL_STRING(&_21$$22, "handle");
 							zephir_array_fast_append(&_20$$22, &_21$$22);
 							ZEPHIR_CPY_WRT(&eventListener$$19, &_20$$22);
-							if (zephir_is_instance_of(&listener, SL("Yuga\\EventHandlers\\HandlerInterface"))) {
+							if (zephir_instance_of_ev(&listener, yuga_eventhandlers_handlerinterface_ce)) {
 								ZEPHIR_CALL_FUNCTION(&_22$$23, "array_values", &_7, 1, &params);
 								zephir_check_call_status();
 								if (!ZEPHIR_IS_IDENTICAL(&_22$$23, &params)) {
@@ -963,7 +963,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 								ZVAL_STRING(&_27$$29, "handle");
 								zephir_array_fast_append(&_26$$29, &_27$$29);
 								ZEPHIR_CPY_WRT(&eventListener$$26, &_26$$29);
-								if (zephir_is_instance_of(&listener, SL("Yuga\\EventHandlers\\HandlerInterface"))) {
+								if (zephir_instance_of_ev(&listener, yuga_eventhandlers_handlerinterface_ce)) {
 									ZEPHIR_CALL_FUNCTION(&_28$$30, "array_values", &_7, 1, &params);
 									zephir_check_call_status();
 									if (!ZEPHIR_IS_IDENTICAL(&_28$$30, &params)) {
