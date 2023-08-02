@@ -353,16 +353,16 @@ PHP_METHOD(Yuga_Application_Application, getCachedPackagesPath)
 PHP_METHOD(Yuga_Application_Application, normalizeCachePath)
 {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zephir_fcall_cache_entry *_1 = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *key, key_sub, *defaultValue, defaultValue_sub, env, _0, _2;
+	zephir_fcall_cache_entry *_0 = NULL, *_2 = NULL;
+	zval *key, key_sub, *defaultValue, defaultValue_sub, env, _1, _3;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&key_sub);
 	ZVAL_UNDEF(&defaultValue_sub);
 	ZVAL_UNDEF(&env);
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_3);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(2, 2)
@@ -376,17 +376,17 @@ PHP_METHOD(Yuga_Application_Application, normalizeCachePath)
 	zephir_fetch_params(1, 2, 0, &key, &defaultValue);
 
 
-	ZEPHIR_CALL_FUNCTION(&env, "env", NULL, 0, key);
+	ZEPHIR_CALL_CE_STATIC(&env, yuga_support_helpers_ce, "env", &_0, 0, key);
 	zephir_check_call_status();
 	if (Z_TYPE_P(&env) == IS_NULL) {
 		ZEPHIR_RETURN_CALL_METHOD(this_ptr, "bootpath", NULL, 0, defaultValue);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
-	zephir_read_property(&_2, this_ptr, ZEND_STRL("absoluteCachePathPrefixes"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_CE_STATIC(&_0, yuga_support_str_ce, "startswith", &_1, 0, &env, &_2);
+	zephir_read_property(&_3, this_ptr, ZEND_STRL("absoluteCachePathPrefixes"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_CALL_CE_STATIC(&_1, yuga_support_str_ce, "startswith", &_2, 0, &env, &_3);
 	zephir_check_call_status();
-	if (zephir_is_true(&_0)) {
+	if (zephir_is_true(&_1)) {
 		RETURN_CCTOR(&env);
 	}
 	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "basepath", NULL, 0, &env);
@@ -553,7 +553,7 @@ PHP_METHOD(Yuga_Application_Application, registerConfig)
  */
 PHP_METHOD(Yuga_Application_Application, run)
 {
-	zval _0, _1, _2;
+	zval _0, _1, _2, _3;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
@@ -561,6 +561,7 @@ PHP_METHOD(Yuga_Application_Application, run)
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
 
 
 	ZEPHIR_MM_GROW();
@@ -579,6 +580,11 @@ PHP_METHOD(Yuga_Application_Application, run)
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerbasebindings", NULL, 0, this_ptr);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerdefaultproviders", NULL, 0);
+	zephir_check_call_status();
+	zephir_array_fetch_string(&_3, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 307);
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "on:app-start");
+	ZEPHIR_CALL_METHOD(NULL, &_3, "trigger", NULL, 0, &_0);
 	zephir_check_call_status();
 	RETURN_THIS();
 }

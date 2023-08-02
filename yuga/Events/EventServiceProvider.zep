@@ -14,15 +14,14 @@ class EventServiceProvider extends ServiceProvider
      * @var array events
      */
     protected events = [
-        // 'on:app-start'      => \Yuga\EventHandlers\ApplicationStart::class,
-        // 'on:app-stop'       => \Yuga\EventHandlers\ApplicationStop::class,
-        // 'on:authenticate'   => \Yuga\EventHandlers\Auth\UserLoggedIn::class,
-        // 'on:signup'         => \Yuga\EventHandlers\Auth\UserRegistered::class,
-        // 'on:signout'        => \Yuga\EventHandlers\Auth\UserLoggedOut::class,
-        // 'on:hax-render'     => \Yuga\EventHandlers\Hax\Rendered::class,
-        // 'on:hax-instance'   => \Yuga\EventHandlers\Hax\HaxInstance::class,
-        // 'on:hax-extension'  => \Yuga\EventHandlers\Hax\HaxExtension::class,
-        // 'on:yuga-tracy'     => \Yuga\EventHandlers\Tracy\TracyPanel::class,
+        "on:app-start"      : "\\Yuga\\EventHandlers\\ApplicationStart",
+        "on:app-stop"       : "\\Yuga\\EventHandlers\\ApplicationStop"
+        // "on:authenticate"   : "\Yuga\EventHandlers\Auth\UserLoggedIn",
+        // "on:signup"         : "\Yuga\EventHandlers\Auth\UserRegistered",
+        // "on:signout"        : "\Yuga\EventHandlers\Auth\UserLoggedOut",
+        // "on:hax-render"     : "\Yuga\EventHandlers\Hax\Rendered",
+        // "on:hax-instance"   : "\Yuga\EventHandlers\Hax\HaxInstance",
+        // "on:hax-extension"  : "\Yuga\EventHandlers\Hax\HaxExtension"
     ];
 
     /**

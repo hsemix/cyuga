@@ -91,6 +91,6 @@ ZEPHIR_INIT_FUNCS(yuga_events_event_method_entry) {
 	PHP_ME(Yuga_Events_Event, dispatch, arginfo_yuga_events_event_dispatch, ZEND_ACC_PUBLIC)
 	PHP_ME(Yuga_Events_Event, trigger, arginfo_yuga_events_event_trigger, ZEND_ACC_PUBLIC)
 	PHP_ME(Yuga_Events_Event, getParameters, arginfo_yuga_events_event_getparameters, ZEND_ACC_PROTECTED)
-	PHP_ME(Yuga_Events_Event, fire, arginfo_yuga_events_event_fire, ZEND_ACC_PROTECTED)
+	PHP_ME(Yuga_Events_Event, fire, arginfo_yuga_events_event_fire, ZEND_ACC_PUBLIC)
 	PHP_FE_END
 };

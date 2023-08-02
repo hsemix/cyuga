@@ -93,14 +93,20 @@ yuga/0__closure.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../ext.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/events/dispatcherinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/app.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/application/application.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/autoloader.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/container/support/classnotinstantiableexception.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/eventhandlers/handlerinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/cookie/cookie.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/csrftoken.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/eventhandlers/applicationstart.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/eventhandlers/applicationstop.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/dispatcher/dispatcher.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/eventserviceprovider.zep.h \
@@ -112,6 +118,7 @@ yuga/0__closure.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/response.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/providers/testprovider.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/0__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/1__closure.zep.h \

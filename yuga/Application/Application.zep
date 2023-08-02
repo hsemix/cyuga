@@ -2,6 +2,7 @@ namespace Yuga\Application;
 
 use Yuga\Support\Str;
 use Yuga\Http\Request;
+use Yuga\Support\Helpers;
 use Yuga\Container\Container;
 use Yuga\Events\EventServiceProvider;
 use Yuga\Interfaces\Providers\ServiceProviderInterface;
@@ -176,7 +177,7 @@ class Application extends Container implements IApplication
      */
     protected function normalizeCachePath(key, defaultValue)
     {
-        var env = env(key);
+        var env = Helpers::env(key);
         if is_null(env) {
             return this->bootPath(defaultValue);
         }
@@ -303,7 +304,7 @@ class Application extends Container implements IApplication
         }
         this->registerBaseBindings(this);
         this->registerDefaultProviders();
-        // this['events']->dispatch('on:app-start');
+        this["events"]->trigger("on:app-start");
         
         // if (!this->runningInConsole()) {
         //     this->make('session')->delete('errors');

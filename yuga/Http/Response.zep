@@ -1,5 +1,6 @@
 namespace Yuga\Http;
 
+use Yuga\Support\Helpers;
 use InvalidArgumentException;
 
 class Response
@@ -47,7 +48,7 @@ class Response
 
     public function viewResponse(args = null, data = null)
     {
-        return view(args, data);
+        return Helpers::view(args, data);
     }
 
     public function jsonResponse(value, options = 0, code = 200, dept = 512)

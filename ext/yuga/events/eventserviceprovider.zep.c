@@ -186,7 +186,7 @@ PHP_METHOD(Yuga_Events_EventServiceProvider, loadEvents)
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("events"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&handlers);
 	zephir_fast_array_merge(&handlers, &_0, &otherApplicationEvents);
-	zephir_is_iterable(&handlers, 0, "yuga/Events/EventServiceProvider.zep", 88);
+	zephir_is_iterable(&handlers, 0, "yuga/Events/EventServiceProvider.zep", 87);
 	if (Z_TYPE_P(&handlers) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&handlers), _3, _4, _1)
 		{
@@ -199,7 +199,7 @@ PHP_METHOD(Yuga_Events_EventServiceProvider, loadEvents)
 			ZEPHIR_INIT_NVAR(&handles);
 			ZVAL_COPY(&handles, _1);
 			if (Z_TYPE_P(&handles) == IS_ARRAY) {
-				zephir_is_iterable(&handles, 0, "yuga/Events/EventServiceProvider.zep", 84);
+				zephir_is_iterable(&handles, 0, "yuga/Events/EventServiceProvider.zep", 83);
 				if (Z_TYPE_P(&handles) == IS_ARRAY) {
 					ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&handles), _5$$4)
 					{
@@ -209,12 +209,12 @@ PHP_METHOD(Yuga_Events_EventServiceProvider, loadEvents)
 							ZEPHIR_INIT_NVAR(&_7$$6);
 							zephir_create_array(&_7$$6, 2, 0);
 							zephir_read_property(&_8$$6, this_ptr, ZEND_STRL("app"), PH_NOISY_CC | PH_READONLY);
-							zephir_array_fetch_long(&_10$$6, &handle$$4, 0, PH_NOISY | PH_READONLY, "yuga/Events/EventServiceProvider.zep", 79);
+							zephir_array_fetch_long(&_10$$6, &handle$$4, 0, PH_NOISY | PH_READONLY, "yuga/Events/EventServiceProvider.zep", 78);
 							ZEPHIR_CALL_METHOD(&_9$$6, &_8$$6, "resolve", NULL, 0, &_10$$6);
 							zephir_check_call_status();
 							zephir_array_fast_append(&_7$$6, &_9$$6);
 							ZEPHIR_OBS_NVAR(&_11$$6);
-							zephir_array_fetch_long(&_11$$6, &handle$$4, 1, PH_NOISY, "yuga/Events/EventServiceProvider.zep", 79);
+							zephir_array_fetch_long(&_11$$6, &handle$$4, 1, PH_NOISY, "yuga/Events/EventServiceProvider.zep", 78);
 							zephir_array_fast_append(&_7$$6, &_11$$6);
 							ZEPHIR_CALL_METHOD(NULL, dispatcher, "attach", &_12, 0, &event, &_7$$6);
 							zephir_check_call_status();
@@ -241,12 +241,12 @@ PHP_METHOD(Yuga_Events_EventServiceProvider, loadEvents)
 								ZEPHIR_INIT_NVAR(&_16$$9);
 								zephir_create_array(&_16$$9, 2, 0);
 								zephir_read_property(&_17$$9, this_ptr, ZEND_STRL("app"), PH_NOISY_CC | PH_READONLY);
-								zephir_array_fetch_long(&_19$$9, &handle$$4, 0, PH_NOISY | PH_READONLY, "yuga/Events/EventServiceProvider.zep", 79);
+								zephir_array_fetch_long(&_19$$9, &handle$$4, 0, PH_NOISY | PH_READONLY, "yuga/Events/EventServiceProvider.zep", 78);
 								ZEPHIR_CALL_METHOD(&_18$$9, &_17$$9, "resolve", NULL, 0, &_19$$9);
 								zephir_check_call_status();
 								zephir_array_fast_append(&_16$$9, &_18$$9);
 								ZEPHIR_OBS_NVAR(&_20$$9);
-								zephir_array_fetch_long(&_20$$9, &handle$$4, 1, PH_NOISY, "yuga/Events/EventServiceProvider.zep", 79);
+								zephir_array_fetch_long(&_20$$9, &handle$$4, 1, PH_NOISY, "yuga/Events/EventServiceProvider.zep", 78);
 								zephir_array_fast_append(&_16$$9, &_20$$9);
 								ZEPHIR_CALL_METHOD(NULL, dispatcher, "attach", &_21, 0, &event, &_16$$9);
 								zephir_check_call_status();
@@ -284,7 +284,7 @@ PHP_METHOD(Yuga_Events_EventServiceProvider, loadEvents)
 			ZEPHIR_CALL_METHOD(&handles, &handlers, "current", NULL, 0);
 			zephir_check_call_status();
 				if (Z_TYPE_P(&handles) == IS_ARRAY) {
-					zephir_is_iterable(&handles, 0, "yuga/Events/EventServiceProvider.zep", 84);
+					zephir_is_iterable(&handles, 0, "yuga/Events/EventServiceProvider.zep", 83);
 					if (Z_TYPE_P(&handles) == IS_ARRAY) {
 						ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&handles), _28$$13)
 						{
@@ -294,12 +294,12 @@ PHP_METHOD(Yuga_Events_EventServiceProvider, loadEvents)
 								ZEPHIR_INIT_NVAR(&_30$$15);
 								zephir_create_array(&_30$$15, 2, 0);
 								zephir_read_property(&_31$$15, this_ptr, ZEND_STRL("app"), PH_NOISY_CC | PH_READONLY);
-								zephir_array_fetch_long(&_33$$15, &handle$$13, 0, PH_NOISY | PH_READONLY, "yuga/Events/EventServiceProvider.zep", 79);
+								zephir_array_fetch_long(&_33$$15, &handle$$13, 0, PH_NOISY | PH_READONLY, "yuga/Events/EventServiceProvider.zep", 78);
 								ZEPHIR_CALL_METHOD(&_32$$15, &_31$$15, "resolve", NULL, 0, &_33$$15);
 								zephir_check_call_status();
 								zephir_array_fast_append(&_30$$15, &_32$$15);
 								ZEPHIR_OBS_NVAR(&_34$$15);
-								zephir_array_fetch_long(&_34$$15, &handle$$13, 1, PH_NOISY, "yuga/Events/EventServiceProvider.zep", 79);
+								zephir_array_fetch_long(&_34$$15, &handle$$13, 1, PH_NOISY, "yuga/Events/EventServiceProvider.zep", 78);
 								zephir_array_fast_append(&_30$$15, &_34$$15);
 								ZEPHIR_CALL_METHOD(NULL, dispatcher, "attach", &_35, 0, &event, &_30$$15);
 								zephir_check_call_status();
@@ -326,12 +326,12 @@ PHP_METHOD(Yuga_Events_EventServiceProvider, loadEvents)
 									ZEPHIR_INIT_NVAR(&_39$$18);
 									zephir_create_array(&_39$$18, 2, 0);
 									zephir_read_property(&_40$$18, this_ptr, ZEND_STRL("app"), PH_NOISY_CC | PH_READONLY);
-									zephir_array_fetch_long(&_42$$18, &handle$$13, 0, PH_NOISY | PH_READONLY, "yuga/Events/EventServiceProvider.zep", 79);
+									zephir_array_fetch_long(&_42$$18, &handle$$13, 0, PH_NOISY | PH_READONLY, "yuga/Events/EventServiceProvider.zep", 78);
 									ZEPHIR_CALL_METHOD(&_41$$18, &_40$$18, "resolve", NULL, 0, &_42$$18);
 									zephir_check_call_status();
 									zephir_array_fast_append(&_39$$18, &_41$$18);
 									ZEPHIR_OBS_NVAR(&_43$$18);
-									zephir_array_fetch_long(&_43$$18, &handle$$13, 1, PH_NOISY, "yuga/Events/EventServiceProvider.zep", 79);
+									zephir_array_fetch_long(&_43$$18, &handle$$13, 1, PH_NOISY, "yuga/Events/EventServiceProvider.zep", 78);
 									zephir_array_fast_append(&_39$$18, &_43$$18);
 									ZEPHIR_CALL_METHOD(NULL, dispatcher, "attach", &_44, 0, &event, &_39$$18);
 									zephir_check_call_status();
@@ -366,7 +366,8 @@ PHP_METHOD(Yuga_Events_EventServiceProvider, loadEvents)
 
 zend_object *zephir_init_properties_Yuga_Events_EventServiceProvider(zend_class_entry *class_type)
 {
-		zval _0, _1$$3;
+		zval _1$$3;
+	zval _0;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 		ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1$$3);
@@ -380,7 +381,9 @@ zend_object *zephir_init_properties_Yuga_Events_EventServiceProvider(zend_class_
 		zephir_read_property_ex(&_0, this_ptr, ZEND_STRL("events"), PH_NOISY_CC | PH_READONLY);
 		if (Z_TYPE_P(&_0) == IS_NULL) {
 			ZEPHIR_INIT_VAR(&_1$$3);
-			array_init(&_1$$3);
+			zephir_create_array(&_1$$3, 2, 0);
+			add_assoc_stringl_ex(&_1$$3, SL("on:app-start"), SL("\\Yuga\\EventHandlers\\ApplicationStart"));
+			add_assoc_stringl_ex(&_1$$3, SL("on:app-stop"), SL("\\Yuga\\EventHandlers\\ApplicationStop"));
 			zephir_update_property_zval_ex(this_ptr, ZEND_STRL("events"), &_1$$3);
 		}
 		ZEPHIR_MM_RESTORE();

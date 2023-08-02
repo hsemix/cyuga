@@ -81,7 +81,7 @@ PHP_METHOD(Yuga_Http_Request, __construct)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("uri"), &_3);
 	ZEPHIR_INIT_NVAR(&_1);
 	object_init_ex(&_1, yuga_http_input_input_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 34, this_ptr);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 40, this_ptr);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("input"), &_1);
 	ZEPHIR_INIT_VAR(&_4);
@@ -414,7 +414,7 @@ PHP_METHOD(Yuga_Http_Request, isFormatAccepted)
 		ZVAL_STRING(&_1, "http-accept");
 		ZEPHIR_CALL_METHOD(&_4, this_ptr, "getheader", &_2, 0, &_1);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&_5, "stripos", NULL, 35, &_4, format);
+		ZEPHIR_CALL_FUNCTION(&_5, "stripos", NULL, 41, &_4, format);
 		zephir_check_call_status();
 		_3 = ZEPHIR_GT_LONG(&_5, -1);
 	}

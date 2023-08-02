@@ -93,14 +93,20 @@ yuga/interfaces/application/application.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../ext.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/interfaces/events/dispatcherinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/app.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/application/application.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/autoloader.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/container/support/classnotinstantiableexception.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/eventhandlers/handlerinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/cookie/cookie.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/csrftoken.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/eventhandlers/applicationstart.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/eventhandlers/applicationstop.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/events/dispatcher/dispatcher.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/events/eventserviceprovider.zep.h \
@@ -112,6 +118,7 @@ yuga/interfaces/application/application.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/http/response.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/providers/testprovider.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/0__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/../../../yuga/1__closure.zep.h \

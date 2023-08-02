@@ -65,8 +65,11 @@ class Event implements DispatcherInterface
     public function attach(eventName, callback = null, priority = 1)
     {
         var args = func_get_args();
-        if (eventName instanceof Dispatcher) {
-            let eventName = eventName->getName();
+
+        if !is_string(eventName) {
+            if eventName instanceof Dispatcher {
+                let eventName = eventName->getName();
+            }
         }
 
         if (count(args) == 1) {
@@ -135,7 +138,9 @@ class Event implements DispatcherInterface
      */
     public function dispatch(var event = null, parameters = null, callback = null)
     {
-        var params;
+        var params, eventObject;
+
+        // return event;
         if (count(func_get_args()) == 2) {
             var items = this->getParameters(parameters);
 
@@ -148,13 +153,16 @@ class Event implements DispatcherInterface
         if (!event) {
             let event = this->name;
         }
-            
+
+        let eventObject = event;
         if is_string(event) {
-            let event = new Dispatcher(event, params);
+            let eventObject = new Dispatcher(event, params);
         }
 
-        event->setAttributes(this->attributes);
-        event->setAttribute("dispatcher", this);
+        // return eventObject;
+
+        eventObject->setAttributes(this->attributes);
+        eventObject->setAttribute("dispatcher", this);
         
         var paramValue = [];
 
@@ -162,19 +170,21 @@ class Event implements DispatcherInterface
             let paramValue = params;
         }
 
-        let params = array_merge([event], paramValue);
-        if (false != strpos(event->getName(), ":")) {
-            var eventNamespace = substr(event->getName(), 0, strpos(event->getName(), ":"));
-            if (isset(this->listeners[eventNamespace])) {
-                this->fire(this->listeners[eventNamespace], event, params, callback);
+        let params = array_merge([eventObject], paramValue);
+        if false != strpos(eventObject->getName(), ":") {
+            var eventNamespace = substr(eventObject->getName(), 0, strpos(eventObject->getName(), ":"));
+
+            // return eventNamespace;
+            // return this->listeners[eventNamespace];
+            if isset(this->listeners[eventNamespace]) {
+                return this->fire(this->listeners[eventNamespace], eventObject, params, callback);
             }
         }
 
-        if (isset(this->listeners[event->getName()])) {
-            
-            this->fire(this->listeners[event->getName()], event, params, callback);
+        if isset(this->listeners[eventObject->getName()]) {
+            return this->fire(this->listeners[eventObject->getName()], eventObject, params, callback);
         }
-        return event;
+        // return eventObject;
     }
 
     /**
@@ -187,7 +197,9 @@ class Event implements DispatcherInterface
      */
     public function trigger(event = null, parameters = null, callback = null)
     {
+
         if (count(func_get_args()) == 2) {
+            
             return this->dispatch(event, parameters);
         }
         return this->dispatch(event, parameters, callback);
@@ -214,21 +226,13 @@ class Event implements DispatcherInterface
         return items;
     }
 
-    /**
-     * Fire an Event
-     *
-     * @param  array listeners
-     * @param  Dispatcher event
-     * @param array params
-     * @param callable|null callback
-     *
-     * @return void
-     */
-    protected function fire(listeners, event, array params = [], callback = null)
+    
+    public function fire(listeners, event, array params = [], callback = null)
     {    
         var list, listener;    
         ksort(listeners);
 
+        // return "event";
         for list in listeners {
             for listener in list {
                 var eventParams, eventListener;

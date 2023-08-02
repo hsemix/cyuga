@@ -24,16 +24,22 @@
 
 
 zend_class_entry *yuga_interfaces_providers_serviceproviderinterface_ce;
+zend_class_entry *yuga_eventhandlers_handlerinterface_ce;
 zend_class_entry *yuga_interfaces_http_input_inputiteminterface_ce;
 zend_class_entry *yuga_interfaces_application_application_ce;
 zend_class_entry *yuga_interfaces_events_dispatcherinterface_ce;
-zend_class_entry *yuga_eventhandlers_handlerinterface_ce;
 zend_class_entry *yuga_providers_serviceprovider_ce;
 zend_class_entry *yuga_container_container_ce;
 zend_class_entry *yuga_0__closure_ce;
 zend_class_entry *yuga_1__closure_ce;
+zend_class_entry *yuga_app_ce;
 zend_class_entry *yuga_application_application_ce;
+zend_class_entry *yuga_autoloader_ce;
 zend_class_entry *yuga_container_support_classnotinstantiableexception_ce;
+zend_class_entry *yuga_cookie_cookie_ce;
+zend_class_entry *yuga_csrftoken_ce;
+zend_class_entry *yuga_eventhandlers_applicationstart_ce;
+zend_class_entry *yuga_eventhandlers_applicationstop_ce;
 zend_class_entry *yuga_events_dispatcher_dispatcher_ce;
 zend_class_entry *yuga_events_event_ce;
 zend_class_entry *yuga_events_eventserviceprovider_ce;
@@ -45,6 +51,7 @@ zend_class_entry *yuga_http_redirect_ce;
 zend_class_entry *yuga_http_request_ce;
 zend_class_entry *yuga_http_response_ce;
 zend_class_entry *yuga_providers_testprovider_ce;
+zend_class_entry *yuga_support_helpers_ce;
 zend_class_entry *yuga_support_str_ce;
 
 ZEND_DECLARE_MODULE_GLOBALS(yuga)
@@ -58,14 +65,20 @@ static PHP_MINIT_FUNCTION(yuga)
 	REGISTER_INI_ENTRIES();
 	zephir_module_init();
 	ZEPHIR_INIT(Yuga_Interfaces_Providers_ServiceProviderInterface);
+	ZEPHIR_INIT(Yuga_EventHandlers_HandlerInterface);
 	ZEPHIR_INIT(Yuga_Interfaces_Http_Input_InputItemInterface);
 	ZEPHIR_INIT(Yuga_Interfaces_Application_Application);
 	ZEPHIR_INIT(Yuga_Interfaces_Events_DispatcherInterface);
-	ZEPHIR_INIT(Yuga_EventHandlers_HandlerInterface);
 	ZEPHIR_INIT(Yuga_Providers_ServiceProvider);
 	ZEPHIR_INIT(Yuga_Container_Container);
+	ZEPHIR_INIT(Yuga_App);
 	ZEPHIR_INIT(Yuga_Application_Application);
+	ZEPHIR_INIT(Yuga_AutoLoader);
 	ZEPHIR_INIT(Yuga_Container_Support_ClassNotInstantiableException);
+	ZEPHIR_INIT(Yuga_Cookie_Cookie);
+	ZEPHIR_INIT(Yuga_CsrfToken);
+	ZEPHIR_INIT(Yuga_EventHandlers_ApplicationStart);
+	ZEPHIR_INIT(Yuga_EventHandlers_ApplicationStop);
 	ZEPHIR_INIT(Yuga_Events_Dispatcher_Dispatcher);
 	ZEPHIR_INIT(Yuga_Events_Event);
 	ZEPHIR_INIT(Yuga_Events_EventServiceProvider);
@@ -77,6 +90,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Http_Request);
 	ZEPHIR_INIT(Yuga_Http_Response);
 	ZEPHIR_INIT(Yuga_Providers_TestProvider);
+	ZEPHIR_INIT(Yuga_Support_Helpers);
 	ZEPHIR_INIT(Yuga_Support_Str);
 	ZEPHIR_INIT(yuga_0__closure);
 	ZEPHIR_INIT(yuga_1__closure);

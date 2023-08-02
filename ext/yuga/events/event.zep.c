@@ -167,7 +167,7 @@ PHP_METHOD(Yuga_Events_Event, attach)
 {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *eventName = NULL, eventName_sub, *callback = NULL, callback_sub, *priority = NULL, priority_sub, __$null, args, _0$$3, _1$$5, _3$$5, _4$$5, _2$$6, _5$$7;
+	zval *eventName = NULL, eventName_sub, *callback = NULL, callback_sub, *priority = NULL, priority_sub, __$null, args, _0$$4, _1$$6, _3$$6, _4$$6, _2$$7, _5$$8;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&eventName_sub);
@@ -175,12 +175,12 @@ PHP_METHOD(Yuga_Events_Event, attach)
 	ZVAL_UNDEF(&priority_sub);
 	ZVAL_NULL(&__$null);
 	ZVAL_UNDEF(&args);
-	ZVAL_UNDEF(&_0$$3);
-	ZVAL_UNDEF(&_1$$5);
-	ZVAL_UNDEF(&_3$$5);
-	ZVAL_UNDEF(&_4$$5);
-	ZVAL_UNDEF(&_2$$6);
-	ZVAL_UNDEF(&_5$$7);
+	ZVAL_UNDEF(&_0$$4);
+	ZVAL_UNDEF(&_1$$6);
+	ZVAL_UNDEF(&_3$$6);
+	ZVAL_UNDEF(&_4$$6);
+	ZVAL_UNDEF(&_2$$7);
+	ZVAL_UNDEF(&_5$$8);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 3)
@@ -208,27 +208,29 @@ PHP_METHOD(Yuga_Events_Event, attach)
 
 	ZEPHIR_INIT_VAR(&args);
 	zephir_get_args(&args);
-	if (zephir_instance_of_ev(eventName, yuga_events_dispatcher_dispatcher_ce)) {
-		ZEPHIR_CALL_METHOD(&_0$$3, eventName, "getname", NULL, 0);
-		zephir_check_call_status();
-		ZEPHIR_CPY_WRT(eventName, &_0$$3);
+	if (!(Z_TYPE_P(eventName) == IS_STRING)) {
+		if (zephir_instance_of_ev(eventName, yuga_events_dispatcher_dispatcher_ce)) {
+			ZEPHIR_CALL_METHOD(&_0$$4, eventName, "getname", NULL, 0);
+			zephir_check_call_status();
+			ZEPHIR_CPY_WRT(eventName, &_0$$4);
+		}
 	}
 	if (zephir_fast_count_int(&args) == 1) {
 		ZEPHIR_CALL_METHOD(NULL, this_ptr, "triggerobjecthandlers", NULL, 0, eventName);
 		zephir_check_call_status();
 	} else {
-		zephir_read_property(&_1$$5, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
-		if (!(zephir_array_isset(&_1$$5, eventName))) {
-			ZEPHIR_INIT_VAR(&_2$$6);
-			array_init(&_2$$6);
-			zephir_update_property_array(this_ptr, SL("listeners"), eventName, &_2$$6);
+		zephir_read_property(&_1$$6, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
+		if (!(zephir_array_isset(&_1$$6, eventName))) {
+			ZEPHIR_INIT_VAR(&_2$$7);
+			array_init(&_2$$7);
+			zephir_update_property_array(this_ptr, SL("listeners"), eventName, &_2$$7);
 		}
-		zephir_read_property(&_3$$5, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch(&_4$$5, &_3$$5, eventName, PH_READONLY, "yuga/Events/Event.zep", 78);
-		if (!(zephir_array_isset(&_4$$5, priority))) {
-			ZEPHIR_INIT_VAR(&_5$$7);
-			array_init(&_5$$7);
-			zephir_update_property_array_multi(this_ptr, SL("listeners"), &_5$$7, SL("zz"), 2, eventName, priority);
+		zephir_read_property(&_3$$6, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
+		zephir_array_fetch(&_4$$6, &_3$$6, eventName, PH_READONLY, "yuga/Events/Event.zep", 81);
+		if (!(zephir_array_isset(&_4$$6, priority))) {
+			ZEPHIR_INIT_VAR(&_5$$8);
+			array_init(&_5$$8);
+			zephir_update_property_array_multi(this_ptr, SL("listeners"), &_5$$8, SL("zz"), 2, eventName, priority);
 		}
 		zephir_update_property_array_multi(this_ptr, SL("listeners"), callback, SL("zza"), 3, eventName, priority);
 	}
@@ -335,7 +337,7 @@ PHP_METHOD(Yuga_Events_Event, triggerObjectHandlers)
 
 
 	if (Z_TYPE_P(handlers) == IS_ARRAY) {
-		zephir_is_iterable(handlers, 0, "yuga/Events/Event.zep", 119);
+		zephir_is_iterable(handlers, 0, "yuga/Events/Event.zep", 122);
 		if (Z_TYPE_P(handlers) == IS_ARRAY) {
 			ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(handlers), _0$$3)
 			{
@@ -350,7 +352,7 @@ PHP_METHOD(Yuga_Events_Event, triggerObjectHandlers)
 					ZEPHIR_CONCAT_VS(&_4$$5, &_3$$5, " must implement the `handle` method");
 					ZEPHIR_CALL_METHOD(NULL, &_2$$5, "__construct", &_5, 2, &_4$$5);
 					zephir_check_call_status();
-					zephir_throw_exception_debug(&_2$$5, "yuga/Events/Event.zep", 115);
+					zephir_throw_exception_debug(&_2$$5, "yuga/Events/Event.zep", 118);
 					ZEPHIR_MM_RESTORE();
 					return;
 				}
@@ -384,7 +386,7 @@ PHP_METHOD(Yuga_Events_Event, triggerObjectHandlers)
 						ZEPHIR_CONCAT_VS(&_11$$7, &_10$$7, " must implement the `handle` method");
 						ZEPHIR_CALL_METHOD(NULL, &_9$$7, "__construct", &_5, 2, &_11$$7);
 						zephir_check_call_status();
-						zephir_throw_exception_debug(&_9$$7, "yuga/Events/Event.zep", 115);
+						zephir_throw_exception_debug(&_9$$7, "yuga/Events/Event.zep", 118);
 						ZEPHIR_MM_RESTORE();
 						return;
 					}
@@ -413,7 +415,7 @@ PHP_METHOD(Yuga_Events_Event, triggerObjectHandlers)
 		ZEPHIR_CONCAT_VS(&_17$$8, &_16$$8, " must implement the `handle` method");
 		ZEPHIR_CALL_METHOD(NULL, &_15$$8, "__construct", &_5, 2, &_17$$8);
 		zephir_check_call_status();
-		zephir_throw_exception_debug(&_15$$8, "yuga/Events/Event.zep", 122);
+		zephir_throw_exception_debug(&_15$$8, "yuga/Events/Event.zep", 125);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}
@@ -443,7 +445,7 @@ PHP_METHOD(Yuga_Events_Event, dispatch)
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zephir_fcall_cache_entry *_14 = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *event = NULL, event_sub, *parameters = NULL, parameters_sub, *callback = NULL, callback_sub, __$null, params, _0, _1, _2, paramValue, _4, _5, _15, _16, items$$3, eventNamespace$$8, _6$$8, _7$$8, _8$$8, _9$$8, _10$$8, _11$$8, _12$$9, _13$$9, _17$$10, _18$$10, _19$$10;
+	zval *event = NULL, event_sub, *parameters = NULL, parameters_sub, *callback = NULL, callback_sub, __$null, params, eventObject, _0, _1, _2, paramValue, _4, _5, _15, _16, items$$3, eventNamespace$$8, _6$$8, _7$$8, _8$$8, _9$$8, _10$$8, _11$$8, _12$$9, _13$$9, _17$$10, _18$$10, _19$$10;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&event_sub);
@@ -451,6 +453,7 @@ PHP_METHOD(Yuga_Events_Event, dispatch)
 	ZVAL_UNDEF(&callback_sub);
 	ZVAL_NULL(&__$null);
 	ZVAL_UNDEF(&params);
+	ZVAL_UNDEF(&eventObject);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
@@ -510,9 +513,9 @@ PHP_METHOD(Yuga_Events_Event, dispatch)
 		ZEPHIR_CALL_METHOD(&items$$3, this_ptr, "getparameters", NULL, 0, parameters);
 		zephir_check_call_status();
 		ZEPHIR_OBS_VAR(&params);
-		zephir_array_fetch_string(&params, &items$$3, SL("params"), PH_NOISY, "yuga/Events/Event.zep", 142);
+		zephir_array_fetch_string(&params, &items$$3, SL("params"), PH_NOISY, "yuga/Events/Event.zep", 147);
 		ZEPHIR_OBS_NVAR(callback);
-		zephir_array_fetch_string(callback, &items$$3, SL("callback"), PH_NOISY, "yuga/Events/Event.zep", 143);
+		zephir_array_fetch_string(callback, &items$$3, SL("callback"), PH_NOISY, "yuga/Events/Event.zep", 148);
 	} else {
 		ZEPHIR_CPY_WRT(&params, parameters);
 	}
@@ -520,18 +523,19 @@ PHP_METHOD(Yuga_Events_Event, dispatch)
 		ZEPHIR_OBS_NVAR(event);
 		zephir_read_property(event, this_ptr, ZEND_STRL("name"), PH_NOISY_CC);
 	}
+	ZEPHIR_CPY_WRT(&eventObject, event);
 	if (Z_TYPE_P(event) == IS_STRING) {
-		ZEPHIR_INIT_NVAR(event);
-		object_init_ex(event, yuga_events_dispatcher_dispatcher_ce);
-		ZEPHIR_CALL_METHOD(NULL, event, "__construct", NULL, 12, event, &params);
+		ZEPHIR_INIT_NVAR(&eventObject);
+		object_init_ex(&eventObject, yuga_events_dispatcher_dispatcher_ce);
+		ZEPHIR_CALL_METHOD(NULL, &eventObject, "__construct", NULL, 18, event, &params);
 		zephir_check_call_status();
 	}
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, event, "setattributes", NULL, 13, &_1);
+	ZEPHIR_CALL_METHOD(NULL, &eventObject, "setattributes", NULL, 19, &_1);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "dispatcher");
-	ZEPHIR_CALL_METHOD(NULL, event, "setattribute", NULL, 14, &_2, this_ptr);
+	ZEPHIR_CALL_METHOD(NULL, &eventObject, "setattribute", NULL, 20, &_2, this_ptr);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&paramValue);
 	array_init(&paramValue);
@@ -540,19 +544,19 @@ PHP_METHOD(Yuga_Events_Event, dispatch)
 	}
 	ZEPHIR_INIT_VAR(&_3);
 	zephir_create_array(&_3, 1, 0);
-	zephir_array_fast_append(&_3, event);
+	zephir_array_fast_append(&_3, &eventObject);
 	ZEPHIR_INIT_NVAR(&params);
 	zephir_fast_array_merge(&params, &_3, &paramValue);
-	ZEPHIR_CALL_METHOD(&_4, event, "getname", NULL, 15);
+	ZEPHIR_CALL_METHOD(&_4, &eventObject, "getname", NULL, 21);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_2);
 	ZVAL_STRING(&_2, ":");
 	ZEPHIR_INIT_VAR(&_5);
 	zephir_fast_strpos(&_5, &_4, &_2, 0 );
 	if (!ZEPHIR_IS_FALSE(&_5)) {
-		ZEPHIR_CALL_METHOD(&_6$$8, event, "getname", NULL, 15);
+		ZEPHIR_CALL_METHOD(&_6$$8, &eventObject, "getname", NULL, 21);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(&_7$$8, event, "getname", NULL, 15);
+		ZEPHIR_CALL_METHOD(&_7$$8, &eventObject, "getname", NULL, 21);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_8$$8);
 		ZVAL_STRING(&_8$$8, ":");
@@ -564,24 +568,25 @@ PHP_METHOD(Yuga_Events_Event, dispatch)
 		zephir_read_property(&_11$$8, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
 		if (zephir_array_isset(&_11$$8, &eventNamespace$$8)) {
 			zephir_read_property(&_12$$9, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
-			zephir_array_fetch(&_13$$9, &_12$$9, &eventNamespace$$8, PH_NOISY | PH_READONLY, "yuga/Events/Event.zep", 169);
-			ZEPHIR_CALL_METHOD(NULL, this_ptr, "fire", &_14, 0, &_13$$9, event, &params, callback);
+			zephir_array_fetch(&_13$$9, &_12$$9, &eventNamespace$$8, PH_NOISY | PH_READONLY, "yuga/Events/Event.zep", 180);
+			ZEPHIR_RETURN_CALL_METHOD(this_ptr, "fire", &_14, 0, &_13$$9, &eventObject, &params, callback);
 			zephir_check_call_status();
+			RETURN_MM();
 		}
 	}
 	zephir_read_property(&_15, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(&_16, event, "getname", NULL, 15);
+	ZEPHIR_CALL_METHOD(&_16, &eventObject, "getname", NULL, 21);
 	zephir_check_call_status();
 	if (zephir_array_isset(&_15, &_16)) {
 		zephir_read_property(&_17$$10, this_ptr, ZEND_STRL("listeners"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_METHOD(&_19$$10, event, "getname", NULL, 15);
+		ZEPHIR_CALL_METHOD(&_19$$10, &eventObject, "getname", NULL, 21);
 		zephir_check_call_status();
-		zephir_array_fetch(&_18$$10, &_17$$10, &_19$$10, PH_NOISY | PH_READONLY, "yuga/Events/Event.zep", 175);
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "fire", &_14, 0, &_18$$10, event, &params, callback);
+		zephir_array_fetch(&_18$$10, &_17$$10, &_19$$10, PH_NOISY | PH_READONLY, "yuga/Events/Event.zep", 185);
+		ZEPHIR_RETURN_CALL_METHOD(this_ptr, "fire", &_14, 0, &_18$$10, &eventObject, &params, callback);
 		zephir_check_call_status();
+		RETURN_MM();
 	}
-	RETVAL_ZVAL(event, 1, 0);
-	RETURN_MM();
+	ZEPHIR_MM_RESTORE();
 }
 
 /**
@@ -692,16 +697,6 @@ PHP_METHOD(Yuga_Events_Event, getParameters)
 	RETURN_CCTOR(&items);
 }
 
-/**
- * Fire an Event
- *
- * @param  array listeners
- * @param  Dispatcher event
- * @param array params
- * @param callable|null callback
- *
- * @return void
- */
 PHP_METHOD(Yuga_Events_Event, fire)
 {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
@@ -780,16 +775,16 @@ PHP_METHOD(Yuga_Events_Event, fire)
 
 
 	ZEPHIR_MAKE_REF(listeners);
-	ZEPHIR_CALL_FUNCTION(NULL, "ksort", NULL, 16, listeners);
+	ZEPHIR_CALL_FUNCTION(NULL, "ksort", NULL, 22, listeners);
 	ZEPHIR_UNREF(listeners);
 	zephir_check_call_status();
-	zephir_is_iterable(listeners, 0, "yuga/Events/Event.zep", 258);
+	zephir_is_iterable(listeners, 0, "yuga/Events/Event.zep", 262);
 	if (Z_TYPE_P(listeners) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(listeners), _0)
 		{
 			ZEPHIR_INIT_NVAR(&list);
 			ZVAL_COPY(&list, _0);
-			zephir_is_iterable(&list, 0, "yuga/Events/Event.zep", 257);
+			zephir_is_iterable(&list, 0, "yuga/Events/Event.zep", 261);
 			if (Z_TYPE_P(&list) == IS_ARRAY) {
 				ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&list), _2$$3)
 				{
@@ -827,7 +822,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 					ZEPHIR_CALL_USER_FUNC_ARRAY(&_9$$4, &eventListener$$4, &_10$$4);
 					zephir_check_call_status();
 					if (zephir_is_instance_of(callback, SL("Closure"))) {
-						ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_11, 17, callback, event);
+						ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_11, 23, callback, event);
 						zephir_check_call_status();
 						RETURN_MM();
 					}
@@ -875,7 +870,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 						ZEPHIR_CALL_USER_FUNC_ARRAY(&_16$$11, &eventListener$$11, &_17$$11);
 						zephir_check_call_status();
 						if (zephir_is_instance_of(callback, SL("Closure"))) {
-							ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_11, 17, callback, event);
+							ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_11, 23, callback, event);
 							zephir_check_call_status();
 							RETURN_MM();
 						}
@@ -896,7 +891,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 			}
 			ZEPHIR_CALL_METHOD(&list, listeners, "current", NULL, 0);
 			zephir_check_call_status();
-				zephir_is_iterable(&list, 0, "yuga/Events/Event.zep", 257);
+				zephir_is_iterable(&list, 0, "yuga/Events/Event.zep", 261);
 				if (Z_TYPE_P(&list) == IS_ARRAY) {
 					ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&list), _18$$18)
 					{
@@ -934,7 +929,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 						ZEPHIR_CALL_USER_FUNC_ARRAY(&_24$$19, &eventListener$$19, &_25$$19);
 						zephir_check_call_status();
 						if (zephir_is_instance_of(callback, SL("Closure"))) {
-							ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_11, 17, callback, event);
+							ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_11, 23, callback, event);
 							zephir_check_call_status();
 							RETURN_MM();
 						}
@@ -982,7 +977,7 @@ PHP_METHOD(Yuga_Events_Event, fire)
 							ZEPHIR_CALL_USER_FUNC_ARRAY(&_30$$26, &eventListener$$26, &_31$$26);
 							zephir_check_call_status();
 							if (zephir_is_instance_of(callback, SL("Closure"))) {
-								ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_11, 17, callback, event);
+								ZEPHIR_RETURN_CALL_FUNCTION("call_user_func", &_11, 23, callback, event);
 								zephir_check_call_status();
 								RETURN_MM();
 							}

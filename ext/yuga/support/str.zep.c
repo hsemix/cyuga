@@ -72,7 +72,7 @@ PHP_METHOD(Yuga_Support_Str, contains)
 			ZVAL_COPY(&needle, _1);
 			_3$$3 = !ZEPHIR_IS_STRING_IDENTICAL(&needle, "");
 			if (_3$$3) {
-				ZEPHIR_CALL_FUNCTION(&_4$$3, "mb_strpos", &_5, 39, haystack, &needle);
+				ZEPHIR_CALL_FUNCTION(&_4$$3, "mb_strpos", &_5, 45, haystack, &needle);
 				zephir_check_call_status();
 				_3$$3 = !ZEPHIR_IS_FALSE_IDENTICAL(&_4$$3);
 			}
@@ -93,7 +93,7 @@ PHP_METHOD(Yuga_Support_Str, contains)
 			zephir_check_call_status();
 				_6$$5 = !ZEPHIR_IS_STRING_IDENTICAL(&needle, "");
 				if (_6$$5) {
-					ZEPHIR_CALL_FUNCTION(&_7$$5, "mb_strpos", &_5, 39, haystack, &needle);
+					ZEPHIR_CALL_FUNCTION(&_7$$5, "mb_strpos", &_5, 45, haystack, &needle);
 					zephir_check_call_status();
 					_6$$5 = !ZEPHIR_IS_FALSE_IDENTICAL(&_7$$5);
 				}

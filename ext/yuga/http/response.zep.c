@@ -82,7 +82,7 @@ PHP_METHOD(Yuga_Http_Response, httpCode)
 	zephir_fetch_params(1, 1, 0, &code);
 
 
-	ZEPHIR_CALL_FUNCTION(NULL, "http_response_code", NULL, 31, code);
+	ZEPHIR_CALL_FUNCTION(NULL, "http_response_code", NULL, 37, code);
 	zephir_check_call_status();
 	RETURN_THIS();
 }
@@ -173,6 +173,7 @@ PHP_METHOD(Yuga_Http_Response, viewResponse)
 {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zephir_fcall_cache_entry *_0 = NULL;
 	zval *args = NULL, args_sub, *data = NULL, data_sub, __$null;
 	zval *this_ptr = getThis();
 
@@ -201,7 +202,7 @@ PHP_METHOD(Yuga_Http_Response, viewResponse)
 	}
 
 
-	ZEPHIR_RETURN_CALL_FUNCTION("view", NULL, 0, args, data);
+	ZEPHIR_RETURN_CALL_CE_STATIC(yuga_support_helpers_ce, "view", &_0, 0, args, data);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -371,7 +372,7 @@ PHP_METHOD(Yuga_Http_Response, cache)
 	zephir_array_fast_append(&_0, &_1);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "D, d M Y H:i:s");
-	ZEPHIR_CALL_FUNCTION(&_2, "gmdate", NULL, 36, &_1, lastModified);
+	ZEPHIR_CALL_FUNCTION(&_2, "gmdate", NULL, 42, &_1, lastModified);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_3);
 	ZEPHIR_CONCAT_SVS(&_3, "Last-Modified: ", &_2, " GMT");
@@ -399,7 +400,7 @@ PHP_METHOD(Yuga_Http_Response, cache)
 	if (!(_7)) {
 		_8 = Z_TYPE_P(&httpModified) != IS_NULL;
 		if (_8) {
-			ZEPHIR_CALL_FUNCTION(&_9, "strtotime", NULL, 37, &httpModified);
+			ZEPHIR_CALL_FUNCTION(&_9, "strtotime", NULL, 43, &httpModified);
 			zephir_check_call_status();
 			_8 = ZEPHIR_IS_IDENTICAL(&_9, lastModified);
 		}
@@ -468,12 +469,12 @@ PHP_METHOD(Yuga_Http_Response, json)
 
 	_0 = (zephir_is_instance_of(value, SL("JsonSerializable"))) == 0;
 	if (_0) {
-		ZEPHIR_CALL_FUNCTION(&_1, "\is_array", NULL, 38, value);
+		ZEPHIR_CALL_FUNCTION(&_1, "\is_array", NULL, 44, value);
 		zephir_check_call_status();
 		_0 = ZEPHIR_IS_FALSE_IDENTICAL(&_1);
 	}
 	if (_0) {
-		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "Invalid type for parameter \"value\". Must be of type array or object implementing the \\JsonSerializable interface.", "yuga/Http/Response.zep", 107);
+		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "Invalid type for parameter \"value\". Must be of type array or object implementing the \\JsonSerializable interface.", "yuga/Http/Response.zep", 108);
 		return;
 	}
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "httpcode", NULL, 0, code);
@@ -516,7 +517,7 @@ PHP_METHOD(Yuga_Http_Response, header)
 	zephir_fetch_params(1, 1, 0, &value);
 
 
-	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 32, value);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 38, value);
 	zephir_check_call_status();
 	RETURN_THIS();
 }
@@ -551,7 +552,7 @@ PHP_METHOD(Yuga_Http_Response, headers)
 	zephir_get_arrval(&headers, headers_param);
 
 
-	zephir_is_iterable(&headers, 0, "yuga/Http/Response.zep", 139);
+	zephir_is_iterable(&headers, 0, "yuga/Http/Response.zep", 140);
 	if (Z_TYPE_P(&headers) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&headers), _0)
 		{
