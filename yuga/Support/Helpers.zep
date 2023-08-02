@@ -9,7 +9,7 @@ class Helpers
 
     public static function path(file = null)
     {
-        return _ENV["base_path"] . DIRECTORY_SEPARATOR . file;
+        return self::app()->basePath(DIRECTORY_SEPARATOR . file);
     }
 
     public static function storage(path = null) 
@@ -46,6 +46,6 @@ class Helpers
 
     public static function event(eventName = "yuga.auto.events", params = [])
 	{
-		return self::app()->get("events")->trigger(eventName, params);
+		return self::app()->make("events")->trigger(eventName, params);
 	}
 }

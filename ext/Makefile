@@ -9,7 +9,7 @@ CONFIGURE_OPTIONS = '--enable-yuga'
 SHLIB_SUFFIX_NAME = so
 SHLIB_DL_SUFFIX_NAME = so
 AWK = gawk
-shared_objects_yuga = yuga.lo kernel/main.lo kernel/memory.lo kernel/exception.lo kernel/debug.lo kernel/backtrace.lo kernel/object.lo kernel/array.lo kernel/string.lo kernel/fcall.lo kernel/require.lo kernel/file.lo kernel/operators.lo kernel/math.lo kernel/concat.lo kernel/variables.lo kernel/filter.lo kernel/iterator.lo kernel/time.lo kernel/exit.lo yuga/interfaces/providers/serviceproviderinterface.lo yuga/eventhandlers/handlerinterface.lo yuga/interfaces/http/input/inputiteminterface.lo yuga/providers/serviceprovider.lo yuga/container/container.lo yuga/interfaces/application/application.lo yuga/interfaces/events/dispatcherinterface.lo yuga/app.lo yuga/application/application.lo yuga/autoloader.lo yuga/container/support/classnotinstantiableexception.lo yuga/cookie/cookie.lo yuga/csrftoken.lo yuga/eventhandlers/applicationstart.lo yuga/eventhandlers/applicationstop.lo yuga/events/dispatcher/dispatcher.lo yuga/events/event.lo yuga/events/eventserviceprovider.lo yuga/events/exceptions/eventexception.lo yuga/http/input/input.lo yuga/http/input/inputfile.lo yuga/http/input/inputitem.lo yuga/http/redirect.lo yuga/http/request.lo yuga/http/response.lo yuga/providers/testprovider.lo yuga/support/helpers.lo yuga/support/str.lo yuga/0__closure.lo yuga/1__closure.lo
+shared_objects_yuga = yuga.lo kernel/main.lo kernel/memory.lo kernel/exception.lo kernel/debug.lo kernel/backtrace.lo kernel/object.lo kernel/array.lo kernel/string.lo kernel/fcall.lo kernel/require.lo kernel/file.lo kernel/operators.lo kernel/math.lo kernel/concat.lo kernel/variables.lo kernel/filter.lo kernel/iterator.lo kernel/time.lo kernel/exit.lo yuga/interfaces/providers/serviceproviderinterface.lo yuga/eventhandlers/handlerinterface.lo yuga/interfaces/http/input/inputiteminterface.lo yuga/providers/serviceprovider.lo yuga/container/container.lo yuga/interfaces/application/application.lo yuga/interfaces/events/dispatcherinterface.lo yuga/app.lo yuga/application/application.lo yuga/autoloader.lo yuga/booleantype.lo yuga/container/support/classnotinstantiableexception.lo yuga/cookie/cookie.lo yuga/csrftoken.lo yuga/eventhandlers/applicationstart.lo yuga/eventhandlers/applicationstop.lo yuga/events/dispatcher/dispatcher.lo yuga/events/event.lo yuga/events/eventserviceprovider.lo yuga/events/exceptions/eventexception.lo yuga/guid.lo yuga/http/input/input.lo yuga/http/input/inputfile.lo yuga/http/input/inputitem.lo yuga/http/redirect.lo yuga/http/request.lo yuga/http/response.lo yuga/providers/testprovider.lo yuga/support/helpers.lo yuga/support/str.lo yuga/0__closure.lo yuga/1__closure.lo
 PHP_PECL_EXTENSION = yuga
 YUGA_SHARED_LIBADD =
 PHP_MODULES = $(phplibdir)/yuga.la
@@ -294,6 +294,9 @@ yuga/application/application.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/applica
 -include yuga/autoloader.dep
 yuga/autoloader.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/autoloader.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/autoloader.zep.c -o yuga/autoloader.lo  -MMD -MF yuga/autoloader.dep -MT yuga/autoloader.lo
+-include yuga/booleantype.dep
+yuga/booleantype.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/booleantype.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/booleantype.zep.c -o yuga/booleantype.lo  -MMD -MF yuga/booleantype.dep -MT yuga/booleantype.lo
 -include yuga/container/support/classnotinstantiableexception.dep
 yuga/container/support/classnotinstantiableexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.c -o yuga/container/support/classnotinstantiableexception.lo  -MMD -MF yuga/container/support/classnotinstantiableexception.dep -MT yuga/container/support/classnotinstantiableexception.lo
@@ -321,6 +324,9 @@ yuga/events/eventserviceprovider.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/eve
 -include yuga/events/exceptions/eventexception.dep
 yuga/events/exceptions/eventexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/events/exceptions/eventexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/events/exceptions/eventexception.zep.c -o yuga/events/exceptions/eventexception.lo  -MMD -MF yuga/events/exceptions/eventexception.dep -MT yuga/events/exceptions/eventexception.lo
+-include yuga/guid.dep
+yuga/guid.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/guid.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/guid.zep.c -o yuga/guid.lo  -MMD -MF yuga/guid.dep -MT yuga/guid.lo
 -include yuga/http/input/input.dep
 yuga/http/input/input.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/input.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/input.zep.c -o yuga/http/input/input.lo  -MMD -MF yuga/http/input/input.dep -MT yuga/http/input/input.lo

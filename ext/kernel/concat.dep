@@ -92,19 +92,20 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/interfaces/application/application.zep.h \
  yuga/interfaces/events/dispatcherinterface.zep.h yuga/app.zep.h \
  yuga/application/application.zep.h yuga/autoloader.zep.h \
+ yuga/booleantype.zep.h \
  yuga/container/support/classnotinstantiableexception.zep.h \
  yuga/cookie/cookie.zep.h yuga/csrftoken.zep.h \
  yuga/eventhandlers/applicationstart.zep.h \
  yuga/eventhandlers/applicationstop.zep.h \
  yuga/events/dispatcher/dispatcher.zep.h yuga/events/event.zep.h \
  yuga/events/eventserviceprovider.zep.h \
- yuga/events/exceptions/eventexception.zep.h yuga/http/input/input.zep.h \
- yuga/http/input/inputfile.zep.h yuga/http/input/inputitem.zep.h \
- yuga/http/redirect.zep.h yuga/http/request.zep.h \
- yuga/http/response.zep.h yuga/providers/testprovider.zep.h \
- yuga/support/helpers.zep.h yuga/support/str.zep.h yuga/0__closure.zep.h \
- yuga/1__closure.zep.h kernel/main.h \
- /usr/include/php/20210902/Zend/zend_interfaces.h \
+ yuga/events/exceptions/eventexception.zep.h yuga/guid.zep.h \
+ yuga/http/input/input.zep.h yuga/http/input/inputfile.zep.h \
+ yuga/http/input/inputitem.zep.h yuga/http/redirect.zep.h \
+ yuga/http/request.zep.h yuga/http/response.zep.h \
+ yuga/providers/testprovider.zep.h yuga/support/helpers.zep.h \
+ yuga/support/str.zep.h yuga/0__closure.zep.h yuga/1__closure.zep.h \
+ kernel/main.h /usr/include/php/20210902/Zend/zend_interfaces.h \
  /usr/include/php/20210902/Zend/zend_API.h \
  /usr/include/php/20210902/ext/spl/spl_exceptions.h \
  /usr/include/php/20210902/ext/spl/php_spl.h \

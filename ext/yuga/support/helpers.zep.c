@@ -14,9 +14,9 @@
 #include "kernel/main.h"
 #include "kernel/memory.h"
 #include "kernel/object.h"
+#include "kernel/fcall.h"
 #include "kernel/concat.h"
 #include "kernel/array.h"
-#include "kernel/fcall.h"
 #include "kernel/operators.h"
 
 
@@ -63,13 +63,15 @@ PHP_METHOD(Yuga_Support_Helpers, view)
 
 PHP_METHOD(Yuga_Support_Helpers, path)
 {
-	zval *file = NULL, file_sub, _ENV, __$null, _0;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *file = NULL, file_sub, __$null, _0, _1;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&file_sub);
-	ZVAL_UNDEF(&_ENV);
 	ZVAL_NULL(&__$null);
 	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(0, 1)
@@ -79,17 +81,21 @@ PHP_METHOD(Yuga_Support_Helpers, path)
 #endif
 
 
-	zephir_get_global(&_ENV, SL("_ENV"));
-	zephir_fetch_params_without_memory_grow(0, 1, &file);
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 0, 1, &file);
 	if (!file) {
 		file = &file_sub;
 		file = &__$null;
 	}
 
 
-	zephir_array_fetch_string(&_0, &_ENV, SL("base_path"), PH_NOISY | PH_READONLY, "yuga/Support/Helpers.zep", 12);
-	ZEPHIR_CONCAT_VSV(return_value, &_0, "/", file);
-	return;
+	ZEPHIR_CALL_SELF(&_0, "app", NULL, 0);
+	zephir_check_call_status();
+	ZEPHIR_INIT_VAR(&_1);
+	ZEPHIR_CONCAT_SV(&_1, "/", file);
+	ZEPHIR_RETURN_CALL_METHOD(&_0, "basepath", NULL, 0, &_1);
+	zephir_check_call_status();
+	RETURN_MM();
 }
 
 PHP_METHOD(Yuga_Support_Helpers, storage)
@@ -263,7 +269,7 @@ PHP_METHOD(Yuga_Support_Helpers, event)
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "events");
-	ZEPHIR_CALL_METHOD(&_1, &_0, "get", NULL, 0, &_2);
+	ZEPHIR_CALL_METHOD(&_1, &_0, "make", NULL, 0, &_2);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(&_1, "trigger", NULL, 0, eventName, params);
 	zephir_check_call_status();

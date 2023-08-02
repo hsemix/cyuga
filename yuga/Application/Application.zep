@@ -91,6 +91,8 @@ class Application extends Container implements IApplication
     {
         let this->basePath = root;
         let this->charset = self::CHARSET_UTF8;
+
+        this->registerConfig();
     }
 
     /**
@@ -298,13 +300,13 @@ class Application extends Container implements IApplication
         //     this->setDebugEnabled(env('DEBUG_MODE', false)); 
         //     this->initTracy();  
         // }
-        this->registerConfig();
+        // this->registerConfig();
         if (this->debuggerStarted) {
             // this['events']->dispatch('on:yuga-tracy');
         }
         this->registerBaseBindings(this);
         this->registerDefaultProviders();
-        this["events"]->trigger("on:app-start");
+        this["events"]->dispatch("on:app-start");
         
         // if (!this->runningInConsole()) {
         //     this->make('session')->delete('errors');

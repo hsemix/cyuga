@@ -1,5 +1,6 @@
 namespace Yuga\Events;
 
+use Yuga\Support\Helpers;
 use Yuga\Console\Events\YugaStart;
 use Yuga\Providers\ServiceProvider;
 use Yuga\Interfaces\Application\Application;
@@ -46,6 +47,7 @@ class EventServiceProvider extends ServiceProvider
     public function load(<Application> app)
     {
         app->singleton("events", this->loadEvents(new Event(app)));
+        app->singleton("\\Yuga\\Events\\Event", app->make("events"));
 
         // if (app->runningInConsole()) {
         //     app->singleton('console.events', function () use (app) {
@@ -65,9 +67,10 @@ class EventServiceProvider extends ServiceProvider
     {
         var otherApplicationEvents = [], handlers, event, handles;
 
-        // if (\file_exists(path('config/AppEvents.php'))) {
-        //     let otherApplicationEvents = require path('config/AppEvents.php');
-        // }
+        if (file_exists(Helpers::path("config/AppEvents.php"))) {
+            let otherApplicationEvents = require Helpers::path("config/AppEvents.php");
+        }
+
         let handlers = array_merge(this->events,  otherApplicationEvents);
 
         for event, handles in handlers {

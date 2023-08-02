@@ -102,6 +102,7 @@ yuga/application/application.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/app.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/autoloader.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/booleantype.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/cookie/cookie.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/csrftoken.zep.h \
@@ -111,6 +112,7 @@ yuga/application/application.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/events/eventserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/events/exceptions/eventexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/guid.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/input/inputfile.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/application/../../yuga/http/input/inputitem.zep.h \
@@ -135,6 +137,6 @@ yuga/application/application.lo: \
  /usr/include/php/20210902/Zend/zend.h \
  /usr/include/php/20210902/Zend/zend_constants.h kernel/exception.h \
  kernel/object.h kernel/globals.h kernel/memory.h php_ext.h php_yuga.h \
- kernel/operators.h kernel/concat.h kernel/fcall.h \
- kernel/fcall_internal.h /usr/include/php/20210902/Zend/zend_hash.h \
- kernel/array.h
+ kernel/fcall.h kernel/fcall_internal.h \
+ /usr/include/php/20210902/Zend/zend_hash.h kernel/operators.h \
+ kernel/concat.h kernel/array.h

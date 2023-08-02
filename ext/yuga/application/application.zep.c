@@ -14,9 +14,9 @@
 #include "kernel/main.h"
 #include "kernel/object.h"
 #include "kernel/memory.h"
+#include "kernel/fcall.h"
 #include "kernel/operators.h"
 #include "kernel/concat.h"
-#include "kernel/fcall.h"
 #include "kernel/array.h"
 
 
@@ -96,6 +96,7 @@ ZEPHIR_INIT_CLASS(Yuga_Application_Application)
 PHP_METHOD(Yuga_Application_Application, __construct)
 {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *root = NULL, root_sub, __$null, _0;
 	zval *this_ptr = getThis();
 
@@ -124,6 +125,8 @@ PHP_METHOD(Yuga_Application_Application, __construct)
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "UTF-8");
 	zephir_update_property_zval(this_ptr, ZEND_STRL("charset"), &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerconfig", NULL, 0);
+	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 }
 
@@ -572,8 +575,6 @@ PHP_METHOD(Yuga_Application_Application, run)
 	ZVAL_STRING(&_1, "Yuga\\Support\\Config");
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "singleton", NULL, 0, &_0, &_1);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerconfig", NULL, 0);
-	zephir_check_call_status();
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("debuggerStarted"), PH_NOISY_CC | PH_READONLY);
 	if (zephir_is_true(&_2)) {
 	}
@@ -581,10 +582,10 @@ PHP_METHOD(Yuga_Application_Application, run)
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerdefaultproviders", NULL, 0);
 	zephir_check_call_status();
-	zephir_array_fetch_string(&_3, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 307);
+	zephir_array_fetch_string(&_3, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 309);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "on:app-start");
-	ZEPHIR_CALL_METHOD(NULL, &_3, "trigger", NULL, 0, &_0);
+	ZEPHIR_CALL_METHOD(NULL, &_3, "dispatch", NULL, 0, &_0);
 	zephir_check_call_status();
 	RETURN_THIS();
 }

@@ -102,6 +102,7 @@ yuga/eventhandlers/applicationstop.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/app.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/autoloader.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/booleantype.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/cookie/cookie.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/csrftoken.zep.h \
@@ -111,6 +112,7 @@ yuga/eventhandlers/applicationstop.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/events/eventserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/events/exceptions/eventexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/guid.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/http/input/inputfile.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/http/input/inputitem.zep.h \

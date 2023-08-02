@@ -102,6 +102,7 @@ yuga/csrftoken.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/app.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/autoloader.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/booleantype.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/cookie/cookie.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/csrftoken.zep.h \
@@ -111,6 +112,7 @@ yuga/csrftoken.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/event.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/eventserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/events/exceptions/eventexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/guid.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/input/inputfile.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/input/inputitem.zep.h \

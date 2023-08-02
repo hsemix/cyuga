@@ -17,7 +17,7 @@ if (PHP_YUGA != "no") {
 	ADD_SOURCES(configure_module_dirname + "/yuga/container", "container.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/application", "application.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/events", "dispatcherinterface.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga", "app.zep.c autoloader.zep.c csrftoken.zep.c 0__closure.zep.c 1__closure.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga", "app.zep.c autoloader.zep.c booleantype.zep.c csrftoken.zep.c guid.zep.c 0__closure.zep.c 1__closure.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/application", "application.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/container/support", "classnotinstantiableexception.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/cookie", "cookie.zep.c", "yuga");

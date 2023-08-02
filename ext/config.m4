@@ -19,6 +19,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/app.zep.c
 	yuga/application/application.zep.c
 	yuga/autoloader.zep.c
+	yuga/booleantype.zep.c
 	yuga/container/support/classnotinstantiableexception.zep.c
 	yuga/cookie/cookie.zep.c
 	yuga/csrftoken.zep.c
@@ -28,6 +29,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/events/event.zep.c
 	yuga/events/eventserviceprovider.zep.c
 	yuga/events/exceptions/eventexception.zep.c
+	yuga/guid.zep.c
 	yuga/http/input/input.zep.c
 	yuga/http/input/inputfile.zep.c
 	yuga/http/input/inputitem.zep.c

@@ -57,9 +57,9 @@ PHP_METHOD(Yuga_CsrfToken, generateToken)
 
 	if ((zephir_function_exists_ex(ZEND_STRL("random_bytes")) == SUCCESS)) {
 		ZVAL_LONG(&_0$$3, 32);
-		ZEPHIR_CALL_FUNCTION(&_1$$3, "random_bytes", NULL, 15, &_0$$3);
+		ZEPHIR_CALL_FUNCTION(&_1$$3, "random_bytes", NULL, 16, &_0$$3);
 		zephir_check_call_status();
-		ZEPHIR_RETURN_CALL_FUNCTION("bin2hex", NULL, 16, &_1$$3);
+		ZEPHIR_RETURN_CALL_FUNCTION("bin2hex", NULL, 17, &_1$$3);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
@@ -71,10 +71,10 @@ PHP_METHOD(Yuga_CsrfToken, generateToken)
 		ZVAL_BOOL(&_3, 0);
 	}
 	ZEPHIR_MAKE_REF(&_3);
-	ZEPHIR_CALL_FUNCTION(&_4, "openssl_random_pseudo_bytes", NULL, 17, &_2, &_3);
+	ZEPHIR_CALL_FUNCTION(&_4, "openssl_random_pseudo_bytes", NULL, 18, &_2, &_3);
 	ZEPHIR_UNREF(&_3);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&random, "bin2hex", NULL, 16, &_4);
+	ZEPHIR_CALL_FUNCTION(&random, "bin2hex", NULL, 17, &_4);
 	zephir_check_call_status();
 	_5 = isSourceStrong == 0;
 	if (!(_5)) {

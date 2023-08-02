@@ -88,6 +88,9 @@ yuga/application/application.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/applica
 -include yuga/autoloader.dep
 yuga/autoloader.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/autoloader.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/autoloader.zep.c -o yuga/autoloader.lo  -MMD -MF yuga/autoloader.dep -MT yuga/autoloader.lo
+-include yuga/booleantype.dep
+yuga/booleantype.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/booleantype.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/booleantype.zep.c -o yuga/booleantype.lo  -MMD -MF yuga/booleantype.dep -MT yuga/booleantype.lo
 -include yuga/container/support/classnotinstantiableexception.dep
 yuga/container/support/classnotinstantiableexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.c -o yuga/container/support/classnotinstantiableexception.lo  -MMD -MF yuga/container/support/classnotinstantiableexception.dep -MT yuga/container/support/classnotinstantiableexception.lo
@@ -115,6 +118,9 @@ yuga/events/eventserviceprovider.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/eve
 -include yuga/events/exceptions/eventexception.dep
 yuga/events/exceptions/eventexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/events/exceptions/eventexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/events/exceptions/eventexception.zep.c -o yuga/events/exceptions/eventexception.lo  -MMD -MF yuga/events/exceptions/eventexception.dep -MT yuga/events/exceptions/eventexception.lo
+-include yuga/guid.dep
+yuga/guid.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/guid.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/guid.zep.c -o yuga/guid.lo  -MMD -MF yuga/guid.dep -MT yuga/guid.lo
 -include yuga/http/input/input.dep
 yuga/http/input/input.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/input.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/input.zep.c -o yuga/http/input/input.lo  -MMD -MF yuga/http/input/input.dep -MT yuga/http/input/input.lo

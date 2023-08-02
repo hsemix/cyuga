@@ -57,7 +57,7 @@ PHP_METHOD(yuga_1__closure, __invoke)
 	if (!ZEPHIR_IS_FALSE_IDENTICAL(&_2)) {
 		ZEPHIR_CPY_WRT(&_0, element);
 	} else {
-		ZEPHIR_CALL_FUNCTION(&_0, "urlencode", NULL, 46, element);
+		ZEPHIR_CALL_FUNCTION(&_0, "urlencode", NULL, 58, element);
 		zephir_check_call_status();
 	}
 	RETURN_CCTOR(&_0);
