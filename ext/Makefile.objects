@@ -70,6 +70,9 @@ yuga/route/support/iroute.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/route/supp
 -include yuga/eventhandlers/handlerinterface.dep
 yuga/eventhandlers/handlerinterface.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/handlerinterface.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/handlerinterface.zep.c -o yuga/eventhandlers/handlerinterface.lo  -MMD -MF yuga/eventhandlers/handlerinterface.dep -MT yuga/eventhandlers/handlerinterface.lo
+-include yuga/exceptions/iexception.dep
+yuga/exceptions/iexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/iexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/iexception.zep.c -o yuga/exceptions/iexception.lo  -MMD -MF yuga/exceptions/iexception.dep -MT yuga/exceptions/iexception.lo
 -include yuga/interfaces/http/input/inputiteminterface.dep
 yuga/interfaces/http/input/inputiteminterface.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.c -o yuga/interfaces/http/input/inputiteminterface.lo  -MMD -MF yuga/interfaces/http/input/inputiteminterface.dep -MT yuga/interfaces/http/input/inputiteminterface.lo
@@ -79,6 +82,9 @@ yuga/providers/serviceprovider.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/provi
 -include yuga/container/container.dep
 yuga/container/container.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/container/container.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/container/container.zep.c -o yuga/container/container.lo  -MMD -MF yuga/container/container.dep -MT yuga/container/container.lo
+-include yuga/exceptions/routeexceptionhandler.dep
+yuga/exceptions/routeexceptionhandler.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/routeexceptionhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/routeexceptionhandler.zep.c -o yuga/exceptions/routeexceptionhandler.lo  -MMD -MF yuga/exceptions/routeexceptionhandler.dep -MT yuga/exceptions/routeexceptionhandler.lo
 -include yuga/interfaces/application/application.dep
 yuga/interfaces/application/application.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/application.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/application.zep.c -o yuga/interfaces/application/application.lo  -MMD -MF yuga/interfaces/application/application.dep -MT yuga/interfaces/application/application.lo
@@ -157,6 +163,9 @@ yuga/route/exceptions/notfoundhttpcontrollerexception.lo: /var/www/html/yuga-zep
 -include yuga/route/exceptions/notfoundhttpexception.dep
 yuga/route/exceptions/notfoundhttpexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/notfoundhttpexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/notfoundhttpexception.zep.c -o yuga/route/exceptions/notfoundhttpexception.lo  -MMD -MF yuga/route/exceptions/notfoundhttpexception.dep -MT yuga/route/exceptions/notfoundhttpexception.lo
+-include yuga/route/exceptions/notfoundhttpexceptionhandler.dep
+yuga/route/exceptions/notfoundhttpexceptionhandler.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/notfoundhttpexceptionhandler.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/notfoundhttpexceptionhandler.zep.c -o yuga/route/exceptions/notfoundhttpexceptionhandler.lo  -MMD -MF yuga/route/exceptions/notfoundhttpexceptionhandler.dep -MT yuga/route/exceptions/notfoundhttpexceptionhandler.lo
 -include yuga/route/exceptions/notfoundhttpmethodexception.dep
 yuga/route/exceptions/notfoundhttpmethodexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/notfoundhttpmethodexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/notfoundhttpmethodexception.zep.c -o yuga/route/exceptions/notfoundhttpmethodexception.lo  -MMD -MF yuga/route/exceptions/notfoundhttpmethodexception.dep -MT yuga/route/exceptions/notfoundhttpmethodexception.lo

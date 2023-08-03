@@ -11,9 +11,10 @@ if (PHP_YUGA != "no") {
   }
   
   ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/providers", "serviceproviderinterface.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga/route/exceptions", "httpexception.zep.c annotationparseexception.zep.c annotationtargetexception.zep.c notfoundhttpcontrollerexception.zep.c notfoundhttpexception.zep.c notfoundhttpmethodexception.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/route/exceptions", "httpexception.zep.c annotationparseexception.zep.c annotationtargetexception.zep.c notfoundhttpcontrollerexception.zep.c notfoundhttpexception.zep.c notfoundhttpexceptionhandler.zep.c notfoundhttpmethodexception.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/route/support", "iroute.zep.c icontrollerroute.zep.c igrouproute.zep.c iloadableroute.zep.c irouterbootmanager.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/eventhandlers", "handlerinterface.zep.c applicationstart.zep.c applicationstop.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/exceptions", "iexception.zep.c routeexceptionhandler.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/http/input", "inputiteminterface.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/providers", "serviceprovider.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/container", "container.zep.c", "yuga");

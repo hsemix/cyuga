@@ -26,6 +26,7 @@
 zend_class_entry *yuga_interfaces_providers_serviceproviderinterface_ce;
 zend_class_entry *yuga_route_support_iroute_ce;
 zend_class_entry *yuga_eventhandlers_handlerinterface_ce;
+zend_class_entry *yuga_exceptions_iexception_ce;
 zend_class_entry *yuga_interfaces_http_input_inputiteminterface_ce;
 zend_class_entry *yuga_interfaces_application_application_ce;
 zend_class_entry *yuga_interfaces_events_dispatcherinterface_ce;
@@ -36,6 +37,7 @@ zend_class_entry *yuga_route_support_irouterbootmanager_ce;
 zend_class_entry *yuga_route_exceptions_httpexception_ce;
 zend_class_entry *yuga_providers_serviceprovider_ce;
 zend_class_entry *yuga_container_container_ce;
+zend_class_entry *yuga_exceptions_routeexceptionhandler_ce;
 zend_class_entry *yuga_0__closure_ce;
 zend_class_entry *yuga_1__closure_ce;
 zend_class_entry *yuga_app_ce;
@@ -62,6 +64,7 @@ zend_class_entry *yuga_route_exceptions_annotationparseexception_ce;
 zend_class_entry *yuga_route_exceptions_annotationtargetexception_ce;
 zend_class_entry *yuga_route_exceptions_notfoundhttpcontrollerexception_ce;
 zend_class_entry *yuga_route_exceptions_notfoundhttpexception_ce;
+zend_class_entry *yuga_route_exceptions_notfoundhttpexceptionhandler_ce;
 zend_class_entry *yuga_route_exceptions_notfoundhttpmethodexception_ce;
 zend_class_entry *yuga_route_routeserviceprovider_ce;
 zend_class_entry *yuga_support_helpers_ce;
@@ -80,6 +83,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Interfaces_Providers_ServiceProviderInterface);
 	ZEPHIR_INIT(Yuga_Route_Support_IRoute);
 	ZEPHIR_INIT(Yuga_EventHandlers_HandlerInterface);
+	ZEPHIR_INIT(Yuga_Exceptions_IException);
 	ZEPHIR_INIT(Yuga_Interfaces_Http_Input_InputItemInterface);
 	ZEPHIR_INIT(Yuga_Interfaces_Application_Application);
 	ZEPHIR_INIT(Yuga_Interfaces_Events_DispatcherInterface);
@@ -90,6 +94,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Route_Exceptions_HttpException);
 	ZEPHIR_INIT(Yuga_Providers_ServiceProvider);
 	ZEPHIR_INIT(Yuga_Container_Container);
+	ZEPHIR_INIT(Yuga_Exceptions_RouteExceptionHandler);
 	ZEPHIR_INIT(Yuga_App);
 	ZEPHIR_INIT(Yuga_Application_Application);
 	ZEPHIR_INIT(Yuga_AutoLoader);
@@ -114,6 +119,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Route_Exceptions_AnnotationTargetException);
 	ZEPHIR_INIT(Yuga_Route_Exceptions_NotFoundHttpControllerException);
 	ZEPHIR_INIT(Yuga_Route_Exceptions_NotFoundHttpException);
+	ZEPHIR_INIT(Yuga_Route_Exceptions_NotFoundHttpExceptionHandler);
 	ZEPHIR_INIT(Yuga_Route_Exceptions_NotFoundHttpMethodException);
 	ZEPHIR_INIT(Yuga_Route_RouteServiceProvider);
 	ZEPHIR_INIT(Yuga_Support_Helpers);

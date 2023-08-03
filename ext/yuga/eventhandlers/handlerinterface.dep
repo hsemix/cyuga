@@ -96,9 +96,11 @@ yuga/eventhandlers/handlerinterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/exceptions/httpexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/support/iroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/eventhandlers/handlerinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/exceptions/iexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/container/container.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/exceptions/routeexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/app.zep.h \
@@ -125,6 +127,7 @@ yuga/eventhandlers/handlerinterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/exceptions/annotationtargetexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/exceptions/notfoundhttpexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/exceptions/notfoundhttpexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/exceptions/notfoundhttpmethodexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/routeserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/support/icontrollerroute.zep.h \

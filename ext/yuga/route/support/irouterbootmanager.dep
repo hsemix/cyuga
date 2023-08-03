@@ -96,9 +96,11 @@ yuga/route/support/irouterbootmanager.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/exceptions/httpexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/support/iroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/eventhandlers/handlerinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/exceptions/iexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/container/container.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/exceptions/routeexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/app.zep.h \
@@ -125,6 +127,7 @@ yuga/route/support/irouterbootmanager.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/exceptions/annotationtargetexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/exceptions/notfoundhttpexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/exceptions/notfoundhttpexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/exceptions/notfoundhttpmethodexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/routeserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/../../../yuga/route/support/icontrollerroute.zep.h \

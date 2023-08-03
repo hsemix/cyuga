@@ -96,9 +96,11 @@ yuga/http/request.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/httpexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/support/iroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/eventhandlers/handlerinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/exceptions/iexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/container/container.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/exceptions/routeexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/app.zep.h \
@@ -125,6 +127,7 @@ yuga/http/request.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/annotationtargetexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/notfoundhttpexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/notfoundhttpexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/notfoundhttpmethodexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/routeserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/support/icontrollerroute.zep.h \

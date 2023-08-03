@@ -89,8 +89,10 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/route/exceptions/httpexception.zep.h \
  yuga/route/support/iroute.zep.h \
  yuga/eventhandlers/handlerinterface.zep.h \
+ yuga/exceptions/iexception.zep.h \
  yuga/interfaces/http/input/inputiteminterface.zep.h \
  yuga/providers/serviceprovider.zep.h yuga/container/container.zep.h \
+ yuga/exceptions/routeexceptionhandler.zep.h \
  yuga/interfaces/application/application.zep.h \
  yuga/interfaces/events/dispatcherinterface.zep.h yuga/app.zep.h \
  yuga/application/application.zep.h yuga/autoloader.zep.h \
@@ -109,6 +111,7 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/route/exceptions/annotationtargetexception.zep.h \
  yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
  yuga/route/exceptions/notfoundhttpexception.zep.h \
+ yuga/route/exceptions/notfoundhttpexceptionhandler.zep.h \
  yuga/route/exceptions/notfoundhttpmethodexception.zep.h \
  yuga/route/routeserviceprovider.zep.h \
  yuga/route/support/icontrollerroute.zep.h \

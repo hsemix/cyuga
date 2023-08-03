@@ -13,9 +13,11 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/route/exceptions/httpexception.zep.c
 	yuga/route/support/iroute.zep.c
 	yuga/eventhandlers/handlerinterface.zep.c
+	yuga/exceptions/iexception.zep.c
 	yuga/interfaces/http/input/inputiteminterface.zep.c
 	yuga/providers/serviceprovider.zep.c
 	yuga/container/container.zep.c
+	yuga/exceptions/routeexceptionhandler.zep.c
 	yuga/interfaces/application/application.zep.c
 	yuga/interfaces/events/dispatcherinterface.zep.c
 	yuga/app.zep.c
@@ -42,6 +44,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/route/exceptions/annotationtargetexception.zep.c
 	yuga/route/exceptions/notfoundhttpcontrollerexception.zep.c
 	yuga/route/exceptions/notfoundhttpexception.zep.c
+	yuga/route/exceptions/notfoundhttpexceptionhandler.zep.c
 	yuga/route/exceptions/notfoundhttpmethodexception.zep.c
 	yuga/route/routeserviceprovider.zep.c
 	yuga/route/support/icontrollerroute.zep.c
@@ -54,7 +57,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/1__closure.zep.c "
 	PHP_NEW_EXTENSION(yuga, $yuga_sources, $ext_shared,, )
 	PHP_ADD_BUILD_DIR([$ext_builddir/kernel/])
-	for dir in "yuga yuga/application yuga/container yuga/container/support yuga/cookie yuga/eventhandlers yuga/events yuga/events/dispatcher yuga/events/exceptions yuga/http yuga/http/input yuga/interfaces/application yuga/interfaces/events yuga/interfaces/http/input yuga/interfaces/providers yuga/providers yuga/route yuga/route/exceptions yuga/route/support yuga/support"; do
+	for dir in "yuga yuga/application yuga/container yuga/container/support yuga/cookie yuga/eventhandlers yuga/events yuga/events/dispatcher yuga/events/exceptions yuga/exceptions yuga/http yuga/http/input yuga/interfaces/application yuga/interfaces/events yuga/interfaces/http/input yuga/interfaces/providers yuga/providers yuga/route yuga/route/exceptions yuga/route/support yuga/support"; do
 		PHP_ADD_BUILD_DIR([$ext_builddir/$dir])
 	done
 	PHP_SUBST(YUGA_SHARED_LIBADD)
