@@ -89,9 +89,9 @@ yuga.lo: /var/www/html/yuga-zephir/yuga/ext/yuga.c \
  /var/www/html/yuga-zephir/yuga/ext/php_yuga.h \
  /var/www/html/yuga-zephir/yuga/ext/kernel/globals.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/iroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/serviceproviderinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/httpexception.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/iroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/iexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/inputiteminterface.zep.h \
@@ -127,6 +127,7 @@ yuga.lo: /var/www/html/yuga-zephir/yuga/ext/yuga.c \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/notfoundhttpexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/notfoundhttpmethodexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/routeserviceprovider.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/route/router/route.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/icontrollerroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/igrouproute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/iloadableroute.zep.h \

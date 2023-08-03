@@ -10,9 +10,9 @@ if (PHP_YUGA != "no") {
     AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
   }
   
-  ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/providers", "serviceproviderinterface.zep.c", "yuga");
+  ADD_SOURCES(configure_module_dirname + "/yuga/route/support", "iroute.zep.c icontrollerroute.zep.c igrouproute.zep.c iloadableroute.zep.c irouterbootmanager.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/providers", "serviceproviderinterface.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/route/exceptions", "httpexception.zep.c annotationparseexception.zep.c annotationtargetexception.zep.c notfoundhttpcontrollerexception.zep.c notfoundhttpexception.zep.c notfoundhttpexceptionhandler.zep.c notfoundhttpmethodexception.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga/route/support", "iroute.zep.c icontrollerroute.zep.c igrouproute.zep.c iloadableroute.zep.c irouterbootmanager.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/eventhandlers", "handlerinterface.zep.c applicationstart.zep.c applicationstop.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/exceptions", "iexception.zep.c routeexceptionhandler.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/http/input", "inputiteminterface.zep.c", "yuga");
@@ -30,6 +30,7 @@ if (PHP_YUGA != "no") {
 	ADD_SOURCES(configure_module_dirname + "/yuga/http/input", "input.zep.c inputfile.zep.c inputitem.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/http", "redirect.zep.c request.zep.c response.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/route", "routeserviceprovider.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/route/router", "route.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/support", "helpers.zep.c str.zep.c", "yuga");
   ADD_FLAG("CFLAGS_YUGA", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");

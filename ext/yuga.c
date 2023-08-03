@@ -23,8 +23,8 @@
 
 
 
-zend_class_entry *yuga_interfaces_providers_serviceproviderinterface_ce;
 zend_class_entry *yuga_route_support_iroute_ce;
+zend_class_entry *yuga_interfaces_providers_serviceproviderinterface_ce;
 zend_class_entry *yuga_eventhandlers_handlerinterface_ce;
 zend_class_entry *yuga_exceptions_iexception_ce;
 zend_class_entry *yuga_interfaces_http_input_inputiteminterface_ce;
@@ -66,6 +66,7 @@ zend_class_entry *yuga_route_exceptions_notfoundhttpcontrollerexception_ce;
 zend_class_entry *yuga_route_exceptions_notfoundhttpexception_ce;
 zend_class_entry *yuga_route_exceptions_notfoundhttpexceptionhandler_ce;
 zend_class_entry *yuga_route_exceptions_notfoundhttpmethodexception_ce;
+zend_class_entry *yuga_route_router_route_ce;
 zend_class_entry *yuga_route_routeserviceprovider_ce;
 zend_class_entry *yuga_support_helpers_ce;
 zend_class_entry *yuga_support_str_ce;
@@ -80,8 +81,8 @@ static PHP_MINIT_FUNCTION(yuga)
 {
 	REGISTER_INI_ENTRIES();
 	zephir_module_init();
-	ZEPHIR_INIT(Yuga_Interfaces_Providers_ServiceProviderInterface);
 	ZEPHIR_INIT(Yuga_Route_Support_IRoute);
+	ZEPHIR_INIT(Yuga_Interfaces_Providers_ServiceProviderInterface);
 	ZEPHIR_INIT(Yuga_EventHandlers_HandlerInterface);
 	ZEPHIR_INIT(Yuga_Exceptions_IException);
 	ZEPHIR_INIT(Yuga_Interfaces_Http_Input_InputItemInterface);
@@ -122,6 +123,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Route_Exceptions_NotFoundHttpExceptionHandler);
 	ZEPHIR_INIT(Yuga_Route_Exceptions_NotFoundHttpMethodException);
 	ZEPHIR_INIT(Yuga_Route_RouteServiceProvider);
+	ZEPHIR_INIT(Yuga_Route_Router_Route);
 	ZEPHIR_INIT(Yuga_Support_Helpers);
 	ZEPHIR_INIT(Yuga_Support_Str);
 	ZEPHIR_INIT(yuga_0__closure);
@@ -178,6 +180,7 @@ static PHP_RINIT_FUNCTION(yuga)
 
 		zephir_init_static_properties_Yuga_Providers_ServiceProvider();
 		zephir_init_static_properties_Yuga_Container_Container();
+		zephir_init_static_properties_Yuga_Route_Router_Route();
 	
 	return SUCCESS;
 }

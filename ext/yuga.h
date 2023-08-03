@@ -4,9 +4,9 @@
 #ifndef ZEPHIR_CLASS_ENTRIES_H
 #define ZEPHIR_CLASS_ENTRIES_H
 
+#include "yuga/route/support/iroute.zep.h"
 #include "yuga/interfaces/providers/serviceproviderinterface.zep.h"
 #include "yuga/route/exceptions/httpexception.zep.h"
-#include "yuga/route/support/iroute.zep.h"
 #include "yuga/eventhandlers/handlerinterface.zep.h"
 #include "yuga/exceptions/iexception.zep.h"
 #include "yuga/interfaces/http/input/inputiteminterface.zep.h"
@@ -42,6 +42,7 @@
 #include "yuga/route/exceptions/notfoundhttpexceptionhandler.zep.h"
 #include "yuga/route/exceptions/notfoundhttpmethodexception.zep.h"
 #include "yuga/route/routeserviceprovider.zep.h"
+#include "yuga/route/router/route.zep.h"
 #include "yuga/route/support/icontrollerroute.zep.h"
 #include "yuga/route/support/igrouproute.zep.h"
 #include "yuga/route/support/iloadableroute.zep.h"
