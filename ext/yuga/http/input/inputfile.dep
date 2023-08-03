@@ -93,6 +93,7 @@ yuga/http/input/inputfile.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../ext.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/route/support/iroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/providers/serviceprovider.zep.h \
@@ -119,7 +120,11 @@ yuga/http/input/inputfile.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/response.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/providers/testprovider.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/route/routeserviceprovider.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/route/support/icontrollerroute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/route/support/igrouproute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/route/support/iloadableroute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/route/support/irouterbootmanager.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/0__closure.zep.h \

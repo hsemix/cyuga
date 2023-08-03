@@ -5,6 +5,7 @@
 #define ZEPHIR_CLASS_ENTRIES_H
 
 #include "yuga/interfaces/providers/serviceproviderinterface.zep.h"
+#include "yuga/route/support/iroute.zep.h"
 #include "yuga/eventhandlers/handlerinterface.zep.h"
 #include "yuga/interfaces/http/input/inputiteminterface.zep.h"
 #include "yuga/providers/serviceprovider.zep.h"
@@ -31,7 +32,11 @@
 #include "yuga/http/redirect.zep.h"
 #include "yuga/http/request.zep.h"
 #include "yuga/http/response.zep.h"
-#include "yuga/providers/testprovider.zep.h"
+#include "yuga/route/routeserviceprovider.zep.h"
+#include "yuga/route/support/icontrollerroute.zep.h"
+#include "yuga/route/support/igrouproute.zep.h"
+#include "yuga/route/support/iloadableroute.zep.h"
+#include "yuga/route/support/irouterbootmanager.zep.h"
 #include "yuga/support/helpers.zep.h"
 #include "yuga/support/str.zep.h"
 #include "yuga/0__closure.zep.h"

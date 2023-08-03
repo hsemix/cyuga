@@ -582,7 +582,7 @@ PHP_METHOD(Yuga_Application_Application, run)
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerdefaultproviders", NULL, 0);
 	zephir_check_call_status();
-	zephir_array_fetch_string(&_3, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 309);
+	zephir_array_fetch_string(&_3, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 310);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "on:app-start");
 	ZEPHIR_CALL_METHOD(NULL, &_3, "dispatch", NULL, 0, &_0);
@@ -694,7 +694,7 @@ PHP_METHOD(Yuga_Application_Application, registerDefaultProviders)
 	ZEPHIR_MM_GROW();
 
 	ZEPHIR_INIT_VAR(&_0);
-	object_init_ex(&_0, yuga_providers_testprovider_ce);
+	object_init_ex(&_0, yuga_route_routeserviceprovider_ce);
 	if (zephir_has_constructor(&_0)) {
 		ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 0, this_ptr);
 		zephir_check_call_status();
@@ -716,6 +716,40 @@ PHP_METHOD(Yuga_Application_Application, setRequestForYugaConsole)
 
 
 
+}
+
+/**
+ * Refresh the bound request instance in the container.
+ *
+ * @param  \Yuga\Http\Request  request
+ * @return void
+ */
+PHP_METHOD(Yuga_Application_Application, refreshRequest)
+{
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *request, request_sub, _0;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&request_sub);
+	ZVAL_UNDEF(&_0);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_OBJECT_OF_CLASS(request, zephir_get_internal_ce(SL("yuga\\http\\request")))
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &request);
+
+
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_STRING(&_0, "request");
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "singleton", NULL, 0, &_0, request);
+	zephir_check_call_status();
+	RETURN_MM();
 }
 
 /**

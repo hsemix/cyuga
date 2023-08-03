@@ -11,9 +11,10 @@ if (PHP_YUGA != "no") {
   }
   
   ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/providers", "serviceproviderinterface.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/route/support", "iroute.zep.c icontrollerroute.zep.c igrouproute.zep.c iloadableroute.zep.c irouterbootmanager.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/eventhandlers", "handlerinterface.zep.c applicationstart.zep.c applicationstop.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/http/input", "inputiteminterface.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga/providers", "serviceprovider.zep.c testprovider.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/providers", "serviceprovider.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/container", "container.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/application", "application.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/events", "dispatcherinterface.zep.c", "yuga");
@@ -26,6 +27,7 @@ if (PHP_YUGA != "no") {
 	ADD_SOURCES(configure_module_dirname + "/yuga/events/exceptions", "eventexception.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/http/input", "input.zep.c inputfile.zep.c inputitem.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/http", "redirect.zep.c request.zep.c response.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/route", "routeserviceprovider.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/support", "helpers.zep.c str.zep.c", "yuga");
   ADD_FLAG("CFLAGS_YUGA", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");

@@ -1,0 +1,26 @@
+
+extern zend_class_entry *yuga_route_support_icontrollerroute_ce;
+
+ZEPHIR_INIT_CLASS(Yuga_Route_Support_IControllerRoute);
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_route_support_icontrollerroute_getcontroller, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_route_support_icontrollerroute_setcontroller, 0, 0, 1)
+	ZEND_ARG_INFO(0, controller)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_route_support_icontrollerroute_getmethod, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_route_support_icontrollerroute_setmethod, 0, 0, 1)
+	ZEND_ARG_INFO(0, method)
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(yuga_route_support_icontrollerroute_method_entry) {
+	PHP_ABSTRACT_ME(Yuga_Route_Support_IControllerRoute, getController, arginfo_yuga_route_support_icontrollerroute_getcontroller)
+	PHP_ABSTRACT_ME(Yuga_Route_Support_IControllerRoute, setController, arginfo_yuga_route_support_icontrollerroute_setcontroller)
+	PHP_ABSTRACT_ME(Yuga_Route_Support_IControllerRoute, getMethod, arginfo_yuga_route_support_icontrollerroute_getmethod)
+	PHP_ABSTRACT_ME(Yuga_Route_Support_IControllerRoute, setMethod, arginfo_yuga_route_support_icontrollerroute_setmethod)
+	PHP_FE_END
+};

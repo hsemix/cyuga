@@ -4,6 +4,7 @@ use Yuga\Support\Str;
 use Yuga\Http\Request;
 use Yuga\Support\Helpers;
 use Yuga\Container\Container;
+use Yuga\Route\RouteServiceProvider;
 use Yuga\Events\EventServiceProvider;
 use Yuga\Interfaces\Providers\ServiceProviderInterface;
 use Yuga\Interfaces\Application\Application as IApplication;
@@ -370,12 +371,11 @@ class Application extends Container implements IApplication
      */
     protected function registerDefaultProviders()
     {
-        this->registerProvider(new TestProvider(this));
         // this->registerProvider(new ElegantServiceProvider(this));
 
         // this->registerProvider(new LogServiceProvider(this));
 
-        // this->registerProvider(new RouteServiceProvider(this));
+        this->registerProvider(new RouteServiceProvider(this));
         
         // if (this->runningInConsole()) {
         //     this->registerProvider(new YugaServiceProvider(this));
@@ -397,16 +397,16 @@ class Application extends Container implements IApplication
         // this->refreshRequest(self::onRequest("create", parameters));
     }
 
-    // /**
-    //  * Refresh the bound request instance in the container.
-    //  *
-    //  * @param  \Yuga\Http\Request  request
-    //  * @return void
-    //  */
-    // protected function refreshRequest(<Request> request)
-    // {
-    //     return this->singleton("request", request);
-    // }
+    /**
+     * Refresh the bound request instance in the container.
+     *
+     * @param  \Yuga\Http\Request  request
+     * @return void
+     */
+    protected function refreshRequest(<Request> request)
+    {
+        return this->singleton("request", request);
+    }
 
     /**
      * Call a method on the default request class.

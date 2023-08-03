@@ -24,6 +24,7 @@ PHP_METHOD(Yuga_Application_Application, getEncryptionMethod);
 PHP_METHOD(Yuga_Application_Application, registerConfigProviders);
 PHP_METHOD(Yuga_Application_Application, registerDefaultProviders);
 PHP_METHOD(Yuga_Application_Application, setRequestForYugaConsole);
+PHP_METHOD(Yuga_Application_Application, refreshRequest);
 PHP_METHOD(Yuga_Application_Application, onRequest);
 PHP_METHOD(Yuga_Application_Application, registerProvider);
 PHP_METHOD(Yuga_Application_Application, getProviders);
@@ -101,6 +102,10 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_application_application_registerdefaultprovi
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_application_application_setrequestforyugaconsole, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_application_application_refreshrequest, 0, 0, 1)
+	ZEND_ARG_OBJ_INFO(0, request, Yuga\\Http\\Request, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_application_application_onrequest, 0, 0, 1)
@@ -200,6 +205,7 @@ ZEPHIR_INIT_FUNCS(yuga_application_application_method_entry) {
 #else
 	PHP_ME(Yuga_Application_Application, setRequestForYugaConsole, NULL, ZEND_ACC_PUBLIC)
 #endif
+	PHP_ME(Yuga_Application_Application, refreshRequest, arginfo_yuga_application_application_refreshrequest, ZEND_ACC_PROTECTED)
 	PHP_ME(Yuga_Application_Application, onRequest, arginfo_yuga_application_application_onrequest, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Yuga_Application_Application, registerProvider, arginfo_yuga_application_application_registerprovider, ZEND_ACC_PUBLIC)
 #if PHP_VERSION_ID >= 80000

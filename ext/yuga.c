@@ -24,10 +24,15 @@
 
 
 zend_class_entry *yuga_interfaces_providers_serviceproviderinterface_ce;
+zend_class_entry *yuga_route_support_iroute_ce;
 zend_class_entry *yuga_eventhandlers_handlerinterface_ce;
 zend_class_entry *yuga_interfaces_http_input_inputiteminterface_ce;
 zend_class_entry *yuga_interfaces_application_application_ce;
 zend_class_entry *yuga_interfaces_events_dispatcherinterface_ce;
+zend_class_entry *yuga_route_support_icontrollerroute_ce;
+zend_class_entry *yuga_route_support_igrouproute_ce;
+zend_class_entry *yuga_route_support_iloadableroute_ce;
+zend_class_entry *yuga_route_support_irouterbootmanager_ce;
 zend_class_entry *yuga_providers_serviceprovider_ce;
 zend_class_entry *yuga_container_container_ce;
 zend_class_entry *yuga_0__closure_ce;
@@ -52,7 +57,7 @@ zend_class_entry *yuga_http_input_inputitem_ce;
 zend_class_entry *yuga_http_redirect_ce;
 zend_class_entry *yuga_http_request_ce;
 zend_class_entry *yuga_http_response_ce;
-zend_class_entry *yuga_providers_testprovider_ce;
+zend_class_entry *yuga_route_routeserviceprovider_ce;
 zend_class_entry *yuga_support_helpers_ce;
 zend_class_entry *yuga_support_str_ce;
 
@@ -67,10 +72,15 @@ static PHP_MINIT_FUNCTION(yuga)
 	REGISTER_INI_ENTRIES();
 	zephir_module_init();
 	ZEPHIR_INIT(Yuga_Interfaces_Providers_ServiceProviderInterface);
+	ZEPHIR_INIT(Yuga_Route_Support_IRoute);
 	ZEPHIR_INIT(Yuga_EventHandlers_HandlerInterface);
 	ZEPHIR_INIT(Yuga_Interfaces_Http_Input_InputItemInterface);
 	ZEPHIR_INIT(Yuga_Interfaces_Application_Application);
 	ZEPHIR_INIT(Yuga_Interfaces_Events_DispatcherInterface);
+	ZEPHIR_INIT(Yuga_Route_Support_IControllerRoute);
+	ZEPHIR_INIT(Yuga_Route_Support_IGroupRoute);
+	ZEPHIR_INIT(Yuga_Route_Support_ILoadableRoute);
+	ZEPHIR_INIT(Yuga_Route_Support_IRouterBootManager);
 	ZEPHIR_INIT(Yuga_Providers_ServiceProvider);
 	ZEPHIR_INIT(Yuga_Container_Container);
 	ZEPHIR_INIT(Yuga_App);
@@ -93,7 +103,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Http_Redirect);
 	ZEPHIR_INIT(Yuga_Http_Request);
 	ZEPHIR_INIT(Yuga_Http_Response);
-	ZEPHIR_INIT(Yuga_Providers_TestProvider);
+	ZEPHIR_INIT(Yuga_Route_RouteServiceProvider);
 	ZEPHIR_INIT(Yuga_Support_Helpers);
 	ZEPHIR_INIT(Yuga_Support_Str);
 	ZEPHIR_INIT(yuga_0__closure);
