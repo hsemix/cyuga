@@ -582,7 +582,7 @@ PHP_METHOD(Yuga_Application_Application, run)
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerdefaultproviders", NULL, 0);
 	zephir_check_call_status();
-	zephir_array_fetch_string(&_3, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 310);
+	zephir_array_fetch_string(&_3, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 309);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "on:app-start");
 	ZEPHIR_CALL_METHOD(NULL, &_3, "dispatch", NULL, 0, &_0);

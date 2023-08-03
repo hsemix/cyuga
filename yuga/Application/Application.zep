@@ -8,7 +8,6 @@ use Yuga\Route\RouteServiceProvider;
 use Yuga\Events\EventServiceProvider;
 use Yuga\Interfaces\Providers\ServiceProviderInterface;
 use Yuga\Interfaces\Application\Application as IApplication;
-use Yuga\Providers\TestProvider;
 
 
 class Application extends Container implements IApplication

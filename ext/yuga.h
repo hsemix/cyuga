@@ -5,6 +5,7 @@
 #define ZEPHIR_CLASS_ENTRIES_H
 
 #include "yuga/interfaces/providers/serviceproviderinterface.zep.h"
+#include "yuga/route/exceptions/httpexception.zep.h"
 #include "yuga/route/support/iroute.zep.h"
 #include "yuga/eventhandlers/handlerinterface.zep.h"
 #include "yuga/interfaces/http/input/inputiteminterface.zep.h"
@@ -32,6 +33,11 @@
 #include "yuga/http/redirect.zep.h"
 #include "yuga/http/request.zep.h"
 #include "yuga/http/response.zep.h"
+#include "yuga/route/exceptions/annotationparseexception.zep.h"
+#include "yuga/route/exceptions/annotationtargetexception.zep.h"
+#include "yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h"
+#include "yuga/route/exceptions/notfoundhttpexception.zep.h"
+#include "yuga/route/exceptions/notfoundhttpmethodexception.zep.h"
 #include "yuga/route/routeserviceprovider.zep.h"
 #include "yuga/route/support/icontrollerroute.zep.h"
 #include "yuga/route/support/igrouproute.zep.h"

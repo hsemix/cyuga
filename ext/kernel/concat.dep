@@ -86,6 +86,7 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  /usr/include/php/20210902/main/php_reentrancy.h php_ext.h php_yuga.h \
  kernel/globals.h /usr/include/php/20210902/ext/standard/php_string.h \
  ext.h yuga.h yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ yuga/route/exceptions/httpexception.zep.h \
  yuga/route/support/iroute.zep.h \
  yuga/eventhandlers/handlerinterface.zep.h \
  yuga/interfaces/http/input/inputiteminterface.zep.h \
@@ -104,6 +105,11 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/http/input/input.zep.h yuga/http/input/inputfile.zep.h \
  yuga/http/input/inputitem.zep.h yuga/http/redirect.zep.h \
  yuga/http/request.zep.h yuga/http/response.zep.h \
+ yuga/route/exceptions/annotationparseexception.zep.h \
+ yuga/route/exceptions/annotationtargetexception.zep.h \
+ yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
+ yuga/route/exceptions/notfoundhttpexception.zep.h \
+ yuga/route/exceptions/notfoundhttpmethodexception.zep.h \
  yuga/route/routeserviceprovider.zep.h \
  yuga/route/support/icontrollerroute.zep.h \
  yuga/route/support/igrouproute.zep.h \

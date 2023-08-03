@@ -48,4 +48,59 @@ class Helpers
 	{
 		return self::app()->make("events")->trigger(eventName, params);
 	}
+
+    public static function cookie()
+    {
+        return self::app()->make("cookie");
+    }
+
+    // public static function class_base(var classValue)
+    // {
+    //     var classValue = classValue;
+
+    //     if is_object(classValue) {
+    //         let classValue = get_class(classValue);
+    //     }
+        
+    //     return basename(str_replace("\\", "/", classValue));
+    // }
+
+    // public static function response()
+    // {
+    //     // return Route::response();
+    // }
+
+    // public static function request()
+    // {
+    //     // return Route::request();
+    // }
+
+    // public static function input()
+    // {
+    //     // return request()->getInput();
+    // }
+
+    // public static function redirect(url = null, code = null)
+    // {
+    //     // if (code !== null) {
+    //     //     response()->httpCode(code);
+    //     // }
+        
+    //     // return response()->redirect(url);
+    // }
+
+    // public static function fullHost(value ="")
+    // {
+    //     // return self::host(value);
+    // }
+
+    public static function scheme(value = null)
+    {
+        var scheme = "http";
+        
+        if isset(_SERVER["REQUEST_SCHEME"]) {
+            let scheme = _SERVER["REQUEST_SCHEME"];
+        }
+        return scheme ."://".value;
+    }
 }

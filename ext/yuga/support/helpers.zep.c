@@ -276,3 +276,63 @@ PHP_METHOD(Yuga_Support_Helpers, event)
 	RETURN_MM();
 }
 
+PHP_METHOD(Yuga_Support_Helpers, cookie)
+{
+	zval _0, _1;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+
+
+	ZEPHIR_MM_GROW();
+
+	ZEPHIR_CALL_SELF(&_0, "app", NULL, 0);
+	zephir_check_call_status();
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "cookie");
+	ZEPHIR_RETURN_CALL_METHOD(&_0, "make", NULL, 0, &_1);
+	zephir_check_call_status();
+	RETURN_MM();
+}
+
+PHP_METHOD(Yuga_Support_Helpers, scheme)
+{
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zval *value = NULL, value_sub, _SERVER, __$null, scheme;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&value_sub);
+	ZVAL_UNDEF(&_SERVER);
+	ZVAL_NULL(&__$null);
+	ZVAL_UNDEF(&scheme);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(0, 1)
+		Z_PARAM_OPTIONAL
+		Z_PARAM_ZVAL_OR_NULL(value)
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_get_global(&_SERVER, SL("_SERVER"));
+	zephir_fetch_params(1, 0, 1, &value);
+	if (!value) {
+		value = &value_sub;
+		value = &__$null;
+	}
+
+
+	ZEPHIR_INIT_VAR(&scheme);
+	ZVAL_STRING(&scheme, "http");
+	if (zephir_array_isset_string(&_SERVER, SL("REQUEST_SCHEME"))) {
+		ZEPHIR_OBS_NVAR(&scheme);
+		zephir_array_fetch_string(&scheme, &_SERVER, SL("REQUEST_SCHEME"), PH_NOISY, "yuga/Support/Helpers.zep", 102);
+	}
+	ZEPHIR_CONCAT_VSV(return_value, &scheme, "://", value);
+	RETURN_MM();
+}
+

@@ -9,6 +9,8 @@ PHP_METHOD(Yuga_Support_Helpers, storage);
 PHP_METHOD(Yuga_Support_Helpers, env);
 PHP_METHOD(Yuga_Support_Helpers, app);
 PHP_METHOD(Yuga_Support_Helpers, event);
+PHP_METHOD(Yuga_Support_Helpers, cookie);
+PHP_METHOD(Yuga_Support_Helpers, scheme);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_helpers_view, 0, 0, 0)
 	ZEND_ARG_INFO(0, template)
@@ -37,6 +39,13 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_helpers_event, 0, 0, 0)
 	ZEND_ARG_INFO(0, params)
 ZEND_END_ARG_INFO()
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_helpers_cookie, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_helpers_scheme, 0, 0, 0)
+	ZEND_ARG_INFO(0, value)
+ZEND_END_ARG_INFO()
+
 ZEPHIR_INIT_FUNCS(yuga_support_helpers_method_entry) {
 	PHP_ME(Yuga_Support_Helpers, view, arginfo_yuga_support_helpers_view, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Yuga_Support_Helpers, path, arginfo_yuga_support_helpers_path, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
@@ -44,5 +53,11 @@ ZEPHIR_INIT_FUNCS(yuga_support_helpers_method_entry) {
 	PHP_ME(Yuga_Support_Helpers, env, arginfo_yuga_support_helpers_env, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Yuga_Support_Helpers, app, arginfo_yuga_support_helpers_app, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Yuga_Support_Helpers, event, arginfo_yuga_support_helpers_event, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
+#if PHP_VERSION_ID >= 80000
+	PHP_ME(Yuga_Support_Helpers, cookie, arginfo_yuga_support_helpers_cookie, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
+#else
+	PHP_ME(Yuga_Support_Helpers, cookie, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
+#endif
+	PHP_ME(Yuga_Support_Helpers, scheme, arginfo_yuga_support_helpers_scheme, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_FE_END
 };
