@@ -45,6 +45,10 @@ PHP_METHOD(Yuga_Http_Request, hasFile);
 PHP_METHOD(Yuga_Http_Request, all);
 PHP_METHOD(Yuga_Http_Request, only);
 PHP_METHOD(Yuga_Http_Request, except);
+PHP_METHOD(Yuga_Http_Request, setRewriteRoute);
+PHP_METHOD(Yuga_Http_Request, setRewriteCallback);
+PHP_METHOD(Yuga_Http_Request, getRewriteUrl);
+PHP_METHOD(Yuga_Http_Request, getRouteParams);
 zend_object *zephir_init_properties_Yuga_Http_Request(zend_class_entry *class_type);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request___construct, 0, 0, 0)
@@ -97,7 +101,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request_getloadedroute, 0, 0, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request_setloadedroute, 0, 0, 1)
-	ZEND_ARG_INFO(0, route)
+	ZEND_ARG_OBJ_INFO(0, route, Yuga\\Route\\Support\\ILoadableRoute, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request___isset, 0, 0, 1)
@@ -207,6 +211,21 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request_except, 0, 0, 0)
 #else
 	ZEND_ARG_ARRAY_INFO(0, exceptFields, 0)
 #endif
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request_setrewriteroute, 0, 0, 1)
+	ZEND_ARG_OBJ_INFO(0, route, Yuga\\Route\\Support\\ILoadableRoute, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request_setrewritecallback, 0, 0, 1)
+	ZEND_ARG_INFO(0, callback)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request_getrewriteurl, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request_getrouteparams, 0, 0, 0)
+	ZEND_ARG_INFO(0, key)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_http_request_zephir_init_properties_yuga_http_request, 0, 0, 0)
@@ -343,5 +362,13 @@ ZEPHIR_INIT_FUNCS(yuga_http_request_method_entry) {
 	PHP_ME(Yuga_Http_Request, all, arginfo_yuga_http_request_all, ZEND_ACC_PUBLIC)
 	PHP_ME(Yuga_Http_Request, only, arginfo_yuga_http_request_only, ZEND_ACC_PUBLIC)
 	PHP_ME(Yuga_Http_Request, except, arginfo_yuga_http_request_except, ZEND_ACC_PUBLIC)
+	PHP_ME(Yuga_Http_Request, setRewriteRoute, arginfo_yuga_http_request_setrewriteroute, ZEND_ACC_PUBLIC)
+	PHP_ME(Yuga_Http_Request, setRewriteCallback, arginfo_yuga_http_request_setrewritecallback, ZEND_ACC_PUBLIC)
+#if PHP_VERSION_ID >= 80000
+	PHP_ME(Yuga_Http_Request, getRewriteUrl, arginfo_yuga_http_request_getrewriteurl, ZEND_ACC_PUBLIC)
+#else
+	PHP_ME(Yuga_Http_Request, getRewriteUrl, NULL, ZEND_ACC_PUBLIC)
+#endif
+	PHP_ME(Yuga_Http_Request, getRouteParams, arginfo_yuga_http_request_getrouteparams, ZEND_ACC_PUBLIC)
 	PHP_FE_END
 };

@@ -1,0 +1,5 @@
+
+extern zend_class_entry *yuga_http_exceptions_badformedurlexception_ce;
+
+ZEPHIR_INIT_CLASS(Yuga_Http_Exceptions_BadformedUrlException);
+

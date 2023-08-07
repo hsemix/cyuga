@@ -444,7 +444,7 @@ PHP_METHOD(Yuga_Application_Application, runningInConsole)
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_FUNCTION(&_0, "php_sapi_name", NULL, 8);
+	ZEPHIR_CALL_FUNCTION(&_0, "php_sapi_name", NULL, 19);
 	zephir_check_call_status();
 	RETURN_MM_BOOL(ZEPHIR_IS_STRING(&_0, "cli"));
 }
@@ -669,7 +669,7 @@ PHP_METHOD(Yuga_Application_Application, registerConfigProviders)
 
 	ZEPHIR_INIT_VAR(&_0);
 	object_init_ex(&_0, yuga_events_eventserviceprovider_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 9, this_ptr);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 20, this_ptr);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerprovider", NULL, 0, &_0);
 	zephir_check_call_status();
@@ -794,11 +794,11 @@ PHP_METHOD(Yuga_Application_Application, onRequest)
 	zephir_create_array(&_0, 2, 0);
 	ZEPHIR_INIT_VAR(&_1);
 	object_init_ex(&_1, yuga_http_request_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 10);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 21);
 	zephir_check_call_status();
 	zephir_array_fast_append(&_0, &_1);
 	zephir_array_fast_append(&_0, method);
-	ZEPHIR_RETURN_CALL_FUNCTION("forward_static_call_array", NULL, 11, &_0, parameters);
+	ZEPHIR_RETURN_CALL_FUNCTION("forward_static_call_array", NULL, 22, &_0, parameters);
 	zephir_check_call_status();
 	RETURN_MM();
 }

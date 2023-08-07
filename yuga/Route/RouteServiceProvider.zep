@@ -9,8 +9,8 @@ class RouteServiceProvider extends ServiceProvider
     public function load(<Application> app)
     {
         if (!app->runningInConsole()) {
-            // app->singleton("router", Route::class);
-            // app->resolve("router")->start();
+            app->singleton("router", "\\Yuga\\Route\\Route");
+            app->resolve("router")->start();
         }
     }  
 }

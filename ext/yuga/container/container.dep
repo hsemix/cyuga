@@ -93,16 +93,21 @@ yuga/container/container.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../ext.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/iroute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/route.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/iloadableroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/interfaces/providers/serviceproviderinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/exceptions/httpexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/loadableroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/exceptions/iexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/interfaces/http/input/inputiteminterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/providers/serviceprovider.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/icontrollerroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/exceptions/routeexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/interfaces/events/dispatcherinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/igrouproute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/app.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/autoloader.zep.h \
@@ -117,28 +122,37 @@ yuga/container/container.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/events/eventserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/events/exceptions/eventexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/guid.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/http/exceptions/badformedurlexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/http/input/inputfile.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/http/input/inputitem.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/http/response.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/http/uri.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/exceptions/annotationparseexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/exceptions/annotationtargetexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/exceptions/notfoundhttpexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/exceptions/notfoundhttpexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/exceptions/notfoundhttpmethodexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/route.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/routeserviceprovider.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/route.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/icontrollerroute.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/igrouproute.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/iloadableroute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/routecontroller.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/routegroup.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/routeresource.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/irouterbootmanager.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/0__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/1__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/2__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/3__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/4__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/5__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/6__closure.zep.h \
  /usr/include/php/20210902/Zend/zend_operators.h \
  /usr/include/php/20210902/Zend/zend_exceptions.h \
  /usr/include/php/20210902/Zend/zend_interfaces.h \

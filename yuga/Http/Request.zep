@@ -1,7 +1,12 @@
 namespace Yuga\Http;
 
 use Exception;
+use Yuga\Route\Route;
 use Yuga\Http\Input\Input;
+// use Yuga\Validate\Validate;
+use Yuga\Route\Router\RouteUrl;
+use Yuga\Application\Application;
+use Yuga\Route\Support\ILoadableRoute;
 
 class Request
 {   
@@ -188,7 +193,7 @@ class Request
      * @param ILoadableRoute route
      * @return static
      */
-    public function setLoadedRoute(route)
+    public function setLoadedRoute(<ILoadableRoute> route)
     {
         let this->loadedRoute = route;
 
@@ -428,5 +433,64 @@ class Request
 
        return only;
     }
+
+    /**
+     * Set rewrite route
+     *
+     * @param ILoadableRoute route
+     * @return static
+     */
+    public function setRewriteRoute(<ILoadableRoute> route)
+    {
+        let this->rewriteRoute = route;
+
+        var callback = route->getCallback();
+
+        /* Only add default namespace on relative callbacks */
+        if (callback === null || callback[0] !== "\\") {
+
+            var namespaceValue = Route::getDefaultNamespace();
+
+            if (namespaceValue !== null) {
+
+                if (this->rewriteRoute->getNamespace() !== null) {
+                    let namespaceValue .= "\\" . this->rewriteRoute->getNamespace();
+                }
+
+                this->rewriteRoute->setDefaultNamespace(namespaceValue);
+
+            }
+
+        }
+
+        return this;
+    }
+
+    /**
+     * Set rewrite callback
+     * @param string callback
+     * @return static
+     */
+    public function setRewriteCallback(callback)
+    {
+        return this->setRewriteRoute(new RouteUrl(this->uri, callback));
+    }
+
+    /**
+     * Get rewrite url
+     *
+     * @return string
+     */
+    public function getRewriteUrl()
+    {
+        return this->rewriteUrl;
+    }
+
+    public function getRouteParams(key = null)
+    {   
+        return this->getLoadedRoute()->getParams(key);
+    }
+
+
 
 }

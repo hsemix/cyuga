@@ -72,7 +72,7 @@ PHP_METHOD(Yuga_AutoLoader, getInstance)
 	if (Z_TYPE_P(&_0) == IS_NULL) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, yuga_autoloader_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 12);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 23);
 		zephir_check_call_status();
 		zephir_update_static_property_ce(yuga_autoloader_ce, ZEND_STRL("instance"), &_1$$3);
 	}
@@ -176,7 +176,7 @@ PHP_METHOD(Yuga_AutoLoader, load)
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "includeFile");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_RETURN_CALL_FUNCTION("spl_autoload_register", NULL, 13, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("spl_autoload_register", NULL, 24, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 }

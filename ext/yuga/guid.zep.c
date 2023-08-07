@@ -98,37 +98,37 @@ PHP_METHOD(Yuga_Guid, create)
 	}
 	ZVAL_LONG(&_5, 0);
 	ZVAL_LONG(&_6, 65535);
-	ZEPHIR_CALL_FUNCTION(&_7, "mt_rand", &_8, 25, &_5, &_6);
+	ZEPHIR_CALL_FUNCTION(&_7, "mt_rand", &_8, 36, &_5, &_6);
 	zephir_check_call_status();
 	ZVAL_LONG(&_5, 0);
 	ZVAL_LONG(&_6, 65535);
-	ZEPHIR_CALL_FUNCTION(&_9, "mt_rand", &_8, 25, &_5, &_6);
+	ZEPHIR_CALL_FUNCTION(&_9, "mt_rand", &_8, 36, &_5, &_6);
 	zephir_check_call_status();
 	ZVAL_LONG(&_5, 0);
 	ZVAL_LONG(&_6, 65535);
-	ZEPHIR_CALL_FUNCTION(&_10, "mt_rand", &_8, 25, &_5, &_6);
+	ZEPHIR_CALL_FUNCTION(&_10, "mt_rand", &_8, 36, &_5, &_6);
 	zephir_check_call_status();
 	ZVAL_LONG(&_5, 16384);
 	ZVAL_LONG(&_6, 20479);
-	ZEPHIR_CALL_FUNCTION(&_11, "mt_rand", &_8, 25, &_5, &_6);
+	ZEPHIR_CALL_FUNCTION(&_11, "mt_rand", &_8, 36, &_5, &_6);
 	zephir_check_call_status();
 	ZVAL_LONG(&_5, 32768);
 	ZVAL_LONG(&_6, 49151);
-	ZEPHIR_CALL_FUNCTION(&_12, "mt_rand", &_8, 25, &_5, &_6);
+	ZEPHIR_CALL_FUNCTION(&_12, "mt_rand", &_8, 36, &_5, &_6);
 	zephir_check_call_status();
 	ZVAL_LONG(&_5, 0);
 	ZVAL_LONG(&_6, 65535);
-	ZEPHIR_CALL_FUNCTION(&_13, "mt_rand", &_8, 25, &_5, &_6);
+	ZEPHIR_CALL_FUNCTION(&_13, "mt_rand", &_8, 36, &_5, &_6);
 	zephir_check_call_status();
 	ZVAL_LONG(&_5, 0);
 	ZVAL_LONG(&_6, 65535);
-	ZEPHIR_CALL_FUNCTION(&_14, "mt_rand", &_8, 25, &_5, &_6);
+	ZEPHIR_CALL_FUNCTION(&_14, "mt_rand", &_8, 36, &_5, &_6);
 	zephir_check_call_status();
 	ZVAL_LONG(&_5, 0);
 	ZVAL_LONG(&_6, 65535);
-	ZEPHIR_CALL_FUNCTION(&_15, "mt_rand", &_8, 25, &_5, &_6);
+	ZEPHIR_CALL_FUNCTION(&_15, "mt_rand", &_8, 36, &_5, &_6);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_FUNCTION("sprintf", NULL, 26, &pattern, &_7, &_9, &_10, &_11, &_12, &_13, &_14, &_15);
+	ZEPHIR_RETURN_CALL_FUNCTION("sprintf", NULL, 4, &pattern, &_7, &_9, &_10, &_11, &_12, &_13, &_14, &_15);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -187,25 +187,25 @@ PHP_METHOD(Yuga_Guid, encrypt)
 	}
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "sha256");
-	ZEPHIR_CALL_FUNCTION(&_3, "hash", NULL, 27, &_2, key, &__$true);
+	ZEPHIR_CALL_FUNCTION(&_3, "hash", NULL, 37, &_2, key, &__$true);
 	zephir_check_call_status();
 	ZVAL_LONG(&_4, 0);
 	ZVAL_LONG(&_5, 16);
 	ZEPHIR_INIT_NVAR(key);
 	zephir_substr(key, &_3, 0 , 16 , 0);
-	ZEPHIR_CALL_FUNCTION(&_6, "openssl_cipher_iv_length", NULL, 28, method);
+	ZEPHIR_CALL_FUNCTION(&_6, "openssl_cipher_iv_length", NULL, 38, method);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&iv, "openssl_random_pseudo_bytes", NULL, 18, &_6);
+	ZEPHIR_CALL_FUNCTION(&iv, "openssl_random_pseudo_bytes", NULL, 29, &_6);
 	zephir_check_call_status();
 	ZVAL_LONG(&_7, 0);
-	ZEPHIR_CALL_FUNCTION(&_8, "openssl_encrypt", NULL, 29, data, method, key, &_7, &iv);
+	ZEPHIR_CALL_FUNCTION(&_8, "openssl_encrypt", NULL, 39, data, method, key, &_7, &iv);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(data, &_8);
-	ZEPHIR_CALL_FUNCTION(&_8, "bin2hex", NULL, 17, &iv);
+	ZEPHIR_CALL_FUNCTION(&_8, "bin2hex", NULL, 28, &iv);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_9);
 	ZEPHIR_CONCAT_VSV(&_9, data, "|", &_8);
-	ZEPHIR_RETURN_CALL_FUNCTION("base64_encode", NULL, 30, &_9);
+	ZEPHIR_RETURN_CALL_FUNCTION("base64_encode", NULL, 40, &_9);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -265,13 +265,13 @@ PHP_METHOD(Yuga_Guid, decrypt)
 	}
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "sha256");
-	ZEPHIR_CALL_FUNCTION(&_3, "hash", NULL, 27, &_2, key, &__$true);
+	ZEPHIR_CALL_FUNCTION(&_3, "hash", NULL, 37, &_2, key, &__$true);
 	zephir_check_call_status();
 	ZVAL_LONG(&_4, 0);
 	ZVAL_LONG(&_5, 16);
 	ZEPHIR_INIT_NVAR(key);
 	zephir_substr(key, &_3, 0 , 16 , 0);
-	ZEPHIR_CALL_FUNCTION(&_6, "base64_decode", NULL, 31, data);
+	ZEPHIR_CALL_FUNCTION(&_6, "base64_decode", NULL, 41, data);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&exploded);
 	zephir_fast_explode_str(&exploded, SL("|"), &_6, LONG_MAX);
@@ -279,13 +279,13 @@ PHP_METHOD(Yuga_Guid, decrypt)
 	zephir_array_fetch_long(data, &exploded, 0, PH_NOISY, "yuga/Guid.zep", 54);
 	ZEPHIR_OBS_VAR(&iv);
 	zephir_array_fetch_long(&iv, &exploded, 1, PH_NOISY, "yuga/Guid.zep", 55);
-	ZEPHIR_CALL_FUNCTION(&binary, "hex2bin", NULL, 32, &iv);
+	ZEPHIR_CALL_FUNCTION(&binary, "hex2bin", NULL, 42, &iv);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE(&binary)) {
 		RETURN_MM_BOOL(0);
 	}
 	ZVAL_LONG(&_7, 0);
-	ZEPHIR_CALL_FUNCTION(&_8, "openssl_decrypt", NULL, 33, data, method, key, &_7, &binary);
+	ZEPHIR_CALL_FUNCTION(&_8, "openssl_decrypt", NULL, 43, data, method, key, &_7, &binary);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(data, &_8);
 	RETVAL_ZVAL(data, 1, 0);
@@ -336,13 +336,13 @@ PHP_METHOD(Yuga_Guid, generateSalt)
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_FUNCTION(&_0, "mt_rand", NULL, 25);
+	ZEPHIR_CALL_FUNCTION(&_0, "mt_rand", NULL, 36);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_1, "uniqid", NULL, 34, &_0, &__$true);
+	ZEPHIR_CALL_FUNCTION(&_1, "uniqid", NULL, 44, &_0, &__$true);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "2y");
-	ZEPHIR_RETURN_CALL_FUNCTION("password_hash", NULL, 35, &_1, &_2);
+	ZEPHIR_RETURN_CALL_FUNCTION("password_hash", NULL, 45, &_1, &_2);
 	zephir_check_call_status();
 	RETURN_MM();
 }

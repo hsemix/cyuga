@@ -20,6 +20,7 @@
 #include "kernel/operators.h"
 #include "kernel/exception.h"
 #include "kernel/exit.h"
+#include "kernel/concat.h"
 
 
 ZEPHIR_INIT_CLASS(Yuga_Http_Request)
@@ -81,7 +82,7 @@ PHP_METHOD(Yuga_Http_Request, __construct)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("uri"), &_3);
 	ZEPHIR_INIT_NVAR(&_1);
 	object_init_ex(&_1, yuga_http_input_input_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 52, this_ptr);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 62, this_ptr);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("input"), &_1);
 	ZEPHIR_INIT_VAR(&_4);
@@ -141,7 +142,7 @@ PHP_METHOD(Yuga_Http_Request, parseHeaders)
 	ZEPHIR_INIT_VAR(&_0);
 	array_init(&_0);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("headers"), &_0);
-	zephir_is_iterable(&_SERVER, 0, "yuga/Http/Request.zep", 49);
+	zephir_is_iterable(&_SERVER, 0, "yuga/Http/Request.zep", 54);
 	if (Z_TYPE_P(&_SERVER) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&_SERVER), _3, _4, _1)
 		{
@@ -270,10 +271,10 @@ PHP_METHOD(Yuga_Http_Request, getHeader)
 		zephir_read_property(&_2$$3, this_ptr, ZEND_STRL("headers"), PH_NOISY_CC | PH_READONLY);
 		ZEPHIR_INIT_VAR(&_4$$3);
 		zephir_fast_strtolower(&_4$$3, &name);
-		zephir_array_fetch(&_3$$3, &_2$$3, &_4$$3, PH_NOISY | PH_READONLY, "yuga/Http/Request.zep", 72);
+		zephir_array_fetch(&_3$$3, &_2$$3, &_4$$3, PH_NOISY | PH_READONLY, "yuga/Http/Request.zep", 77);
 		RETURN_CTOR(&_3$$3);
 	}
-	zephir_is_iterable(&_SERVER, 0, "yuga/Http/Request.zep", 81);
+	zephir_is_iterable(&_SERVER, 0, "yuga/Http/Request.zep", 86);
 	if (Z_TYPE_P(&_SERVER) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&_SERVER), _7, _8, _5)
 		{
@@ -352,13 +353,13 @@ PHP_METHOD(Yuga_Http_Request, getBearerToken)
 		ZEPHIR_INIT_VAR(&_4$$3);
 		ZVAL_STRING(&_4$$3, "Access Token Not Found");
 		ZVAL_LONG(&_5$$3, 401);
-		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 2, &_4$$3, &_5$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 5, &_4$$3, &_5$$3);
 		zephir_check_call_status();
-		zephir_throw_exception_debug(&_3$$3, "yuga/Http/Request.zep", 93);
+		zephir_throw_exception_debug(&_3$$3, "yuga/Http/Request.zep", 98);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}
-	zephir_array_fetch_long(&_6, &matches, 1, PH_NOISY | PH_READONLY, "yuga/Http/Request.zep", 96);
+	zephir_array_fetch_long(&_6, &matches, 1, PH_NOISY | PH_READONLY, "yuga/Http/Request.zep", 101);
 	RETURN_CTOR(&_6);
 }
 
@@ -414,7 +415,7 @@ PHP_METHOD(Yuga_Http_Request, isFormatAccepted)
 		ZVAL_STRING(&_1, "http-accept");
 		ZEPHIR_CALL_METHOD(&_4, this_ptr, "getheader", &_2, 0, &_1);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&_5, "stripos", NULL, 53, &_4, format);
+		ZEPHIR_CALL_FUNCTION(&_5, "stripos", NULL, 14, &_4, format);
 		zephir_check_call_status();
 		_3 = ZEPHIR_GT_LONG(&_5, -1);
 	}
@@ -601,7 +602,7 @@ PHP_METHOD(Yuga_Http_Request, setLoadedRoute)
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(route)
+		Z_PARAM_OBJECT_OF_CLASS(route, zephir_get_internal_ce(SL("yuga\\route\\support\\iloadableroute")))
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 
@@ -689,7 +690,7 @@ PHP_METHOD(Yuga_Http_Request, __get)
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("data"), PH_NOISY_CC | PH_READONLY);
 	if (zephir_array_isset(&_1, name)) {
 		zephir_read_property(&_2, this_ptr, ZEND_STRL("data"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch(&_0, &_2, name, PH_NOISY, "yuga/Http/Request.zep", 210);
+		zephir_array_fetch(&_0, &_2, name, PH_NOISY, "yuga/Http/Request.zep", 215);
 	} else {
 		ZVAL_NULL(&_0);
 	}
@@ -814,7 +815,7 @@ PHP_METHOD(Yuga_Http_Request, create)
 	ZEPHIR_MM_GROW();
 
 	object_init_ex(return_value, yuga_http_request_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 10);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 21);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -1365,7 +1366,7 @@ PHP_METHOD(Yuga_Http_Request, only)
 	array_init(&only);
 	ZEPHIR_CALL_METHOD(&_0, this_ptr, "all", NULL, 0);
 	zephir_check_call_status();
-	zephir_is_iterable(&_0, 0, "yuga/Http/Request.zep", 415);
+	zephir_is_iterable(&_0, 0, "yuga/Http/Request.zep", 420);
 	if (Z_TYPE_P(&_0) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&_0), _3, _4, _1)
 		{
@@ -1445,7 +1446,7 @@ PHP_METHOD(Yuga_Http_Request, except)
 	array_init(&only);
 	ZEPHIR_CALL_METHOD(&_0, this_ptr, "all", NULL, 0);
 	zephir_check_call_status();
-	zephir_is_iterable(&_0, 0, "yuga/Http/Request.zep", 429);
+	zephir_is_iterable(&_0, 0, "yuga/Http/Request.zep", 434);
 	if (Z_TYPE_P(&_0) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&_0), _3, _4, _1)
 		{
@@ -1484,6 +1485,159 @@ PHP_METHOD(Yuga_Http_Request, except)
 	ZEPHIR_INIT_NVAR(&value);
 	ZEPHIR_INIT_NVAR(&field);
 	RETURN_CCTOR(&only);
+}
+
+/**
+ * Set rewrite route
+ *
+ * @param ILoadableRoute route
+ * @return static
+ */
+PHP_METHOD(Yuga_Http_Request, setRewriteRoute)
+{
+	zend_bool _0;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zephir_fcall_cache_entry *_2 = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *route, route_sub, callback, _1, namespaceValue$$3, _3$$4, _4$$4, _8$$4, _5$$5, _6$$5, _7$$5;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&route_sub);
+	ZVAL_UNDEF(&callback);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&namespaceValue$$3);
+	ZVAL_UNDEF(&_3$$4);
+	ZVAL_UNDEF(&_4$$4);
+	ZVAL_UNDEF(&_8$$4);
+	ZVAL_UNDEF(&_5$$5);
+	ZVAL_UNDEF(&_6$$5);
+	ZVAL_UNDEF(&_7$$5);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_OBJECT_OF_CLASS(route, zephir_get_internal_ce(SL("yuga\\route\\support\\iloadableroute")))
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &route);
+
+
+	zephir_update_property_zval(this_ptr, ZEND_STRL("rewriteRoute"), route);
+	ZEPHIR_CALL_METHOD(&callback, route, "getcallback", NULL, 0);
+	zephir_check_call_status();
+	_0 = Z_TYPE_P(&callback) == IS_NULL;
+	if (!(_0)) {
+		zephir_array_fetch_long(&_1, &callback, 0, PH_NOISY | PH_READONLY, "yuga/Http/Request.zep", 450);
+		_0 = !ZEPHIR_IS_STRING_IDENTICAL(&_1, "\\");
+	}
+	if (_0) {
+		ZEPHIR_CALL_CE_STATIC(&namespaceValue$$3, yuga_route_route_ce, "getdefaultnamespace", &_2, 0);
+		zephir_check_call_status();
+		if (Z_TYPE_P(&namespaceValue$$3) != IS_NULL) {
+			zephir_read_property(&_3$$4, this_ptr, ZEND_STRL("rewriteRoute"), PH_NOISY_CC | PH_READONLY);
+			ZEPHIR_CALL_METHOD(&_4$$4, &_3$$4, "getnamespace", NULL, 0);
+			zephir_check_call_status();
+			if (Z_TYPE_P(&_4$$4) != IS_NULL) {
+				zephir_read_property(&_5$$5, this_ptr, ZEND_STRL("rewriteRoute"), PH_NOISY_CC | PH_READONLY);
+				ZEPHIR_CALL_METHOD(&_6$$5, &_5$$5, "getnamespace", NULL, 0);
+				zephir_check_call_status();
+				ZEPHIR_INIT_VAR(&_7$$5);
+				ZEPHIR_CONCAT_SV(&_7$$5, "\\", &_6$$5);
+				zephir_concat_self(&namespaceValue$$3, &_7$$5);
+			}
+			zephir_read_property(&_8$$4, this_ptr, ZEND_STRL("rewriteRoute"), PH_NOISY_CC | PH_READONLY);
+			ZEPHIR_CALL_METHOD(NULL, &_8$$4, "setdefaultnamespace", NULL, 0, &namespaceValue$$3);
+			zephir_check_call_status();
+		}
+	}
+	RETURN_THIS();
+}
+
+/**
+ * Set rewrite callback
+ * @param string callback
+ * @return static
+ */
+PHP_METHOD(Yuga_Http_Request, setRewriteCallback)
+{
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *callback, callback_sub, _0, _1;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&callback_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_ZVAL(callback)
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &callback);
+
+
+	ZEPHIR_INIT_VAR(&_0);
+	object_init_ex(&_0, yuga_route_router_routeurl_ce);
+	zephir_read_property(&_1, this_ptr, ZEND_STRL("uri"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 63, &_1, callback);
+	zephir_check_call_status();
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "setrewriteroute", NULL, 0, &_0);
+	zephir_check_call_status();
+	RETURN_MM();
+}
+
+/**
+ * Get rewrite url
+ *
+ * @return string
+ */
+PHP_METHOD(Yuga_Http_Request, getRewriteUrl)
+{
+	zval *this_ptr = getThis();
+
+
+
+	RETURN_MEMBER(getThis(), "rewriteUrl");
+}
+
+PHP_METHOD(Yuga_Http_Request, getRouteParams)
+{
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *key = NULL, key_sub, __$null, _0;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&key_sub);
+	ZVAL_NULL(&__$null);
+	ZVAL_UNDEF(&_0);
+#if PHP_VERSION_ID >= 80000
+	bool is_null_true = 1;
+	ZEND_PARSE_PARAMETERS_START(0, 1)
+		Z_PARAM_OPTIONAL
+		Z_PARAM_ZVAL_OR_NULL(key)
+	ZEND_PARSE_PARAMETERS_END();
+#endif
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 0, 1, &key);
+	if (!key) {
+		key = &key_sub;
+		key = &__$null;
+	}
+
+
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getloadedroute", NULL, 0);
+	zephir_check_call_status();
+	ZEPHIR_RETURN_CALL_METHOD(&_0, "getparams", NULL, 0, key);
+	zephir_check_call_status();
+	RETURN_MM();
 }
 
 zend_object *zephir_init_properties_Yuga_Http_Request(zend_class_entry *class_type)

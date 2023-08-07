@@ -29,11 +29,14 @@ PHP_METHOD(Yuga_Route_RouteServiceProvider, load)
 {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *app, app_sub, _0;
+	zval *app, app_sub, _0, _1$$3, _2$$3, _3$$3;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&app_sub);
 	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1$$3);
+	ZVAL_UNDEF(&_2$$3);
+	ZVAL_UNDEF(&_3$$3);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
@@ -49,6 +52,18 @@ PHP_METHOD(Yuga_Route_RouteServiceProvider, load)
 	ZEPHIR_CALL_METHOD(&_0, app, "runninginconsole", NULL, 0);
 	zephir_check_call_status();
 	if (!zephir_is_true(&_0)) {
+		ZEPHIR_INIT_VAR(&_1$$3);
+		ZVAL_STRING(&_1$$3, "router");
+		ZEPHIR_INIT_VAR(&_2$$3);
+		ZVAL_STRING(&_2$$3, "\\Yuga\\Route\\Route");
+		ZEPHIR_CALL_METHOD(NULL, app, "singleton", NULL, 0, &_1$$3, &_2$$3);
+		zephir_check_call_status();
+		ZEPHIR_INIT_NVAR(&_1$$3);
+		ZVAL_STRING(&_1$$3, "router");
+		ZEPHIR_CALL_METHOD(&_3$$3, app, "resolve", NULL, 0, &_1$$3);
+		zephir_check_call_status();
+		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "start", NULL, 0);
+		zephir_check_call_status();
 	}
 	ZEPHIR_MM_RESTORE();
 }

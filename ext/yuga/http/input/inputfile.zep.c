@@ -137,10 +137,10 @@ PHP_METHOD(Yuga_Http_Input_InputFile, createFromArray)
 	ZEPHIR_INIT_VAR(&_2);
 	object_init_ex(&_2, yuga_http_input_inputfile_ce);
 	zephir_array_fetch_string(&_3, &values, SL("index"), PH_NOISY | PH_READONLY, "yuga/Http/Input/InputFile.zep", 46);
-	ZEPHIR_CALL_METHOD(NULL, &_2, "__construct", NULL, 43, &_3);
+	ZEPHIR_CALL_METHOD(NULL, &_2, "__construct", NULL, 53, &_3);
 	zephir_check_call_status();
 	zephir_array_fetch_string(&_5, &values, SL("size"), PH_NOISY | PH_READONLY, "yuga/Http/Input/InputFile.zep", 47);
-	ZEPHIR_CALL_METHOD(&_4, &_2, "setsize", NULL, 44, &_5);
+	ZEPHIR_CALL_METHOD(&_4, &_2, "setsize", NULL, 54, &_5);
 	zephir_check_call_status();
 	zephir_array_fetch_string(&_7, &values, SL("error"), PH_NOISY | PH_READONLY, "yuga/Http/Input/InputFile.zep", 48);
 	ZEPHIR_CALL_METHOD(&_6, &_4, "seterror", NULL, 0, &_7);
@@ -319,7 +319,7 @@ PHP_METHOD(Yuga_Http_Input_InputFile, getExtension)
 	ZEPHIR_INIT_VAR(&file);
 	zephir_fast_explode(&file, &_2, &_0, LONG_MAX);
 	ZEPHIR_MAKE_REF(&file);
-	ZEPHIR_RETURN_CALL_FUNCTION("end", NULL, 45, &file);
+	ZEPHIR_RETURN_CALL_FUNCTION("end", NULL, 55, &file);
 	ZEPHIR_UNREF(&file);
 	zephir_check_call_status();
 	RETURN_MM();
@@ -441,17 +441,17 @@ PHP_METHOD(Yuga_Http_Input_InputFile, move)
 	zephir_fetch_params(1, 2, 0, &destination, &newFilename);
 
 
-	ZEPHIR_CALL_FUNCTION(&_0, "is_dir", NULL, 46, destination);
+	ZEPHIR_CALL_FUNCTION(&_0, "is_dir", NULL, 56, destination);
 	zephir_check_call_status();
 	if (!zephir_is_true(&_0)) {
 		ZVAL_LONG(&_1$$3, 0777);
-		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 47, destination, &_1$$3, &__$true);
+		ZEPHIR_CALL_FUNCTION(NULL, "mkdir", NULL, 57, destination, &_1$$3, &__$true);
 		zephir_check_call_status();
 	}
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("tmpName"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&_3);
 	ZEPHIR_CONCAT_VSV(&_3, destination, "/", newFilename);
-	ZEPHIR_RETURN_CALL_FUNCTION("move_uploaded_file", NULL, 48, &_2, &_3);
+	ZEPHIR_RETURN_CALL_FUNCTION("move_uploaded_file", NULL, 58, &_2, &_3);
 	zephir_check_call_status();
 	RETURN_MM();
 }

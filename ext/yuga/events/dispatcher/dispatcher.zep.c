@@ -148,7 +148,7 @@ PHP_METHOD(Yuga_Events_Dispatcher_Dispatcher, setParams)
 		zephir_gettype(&_1$$3, params);
 		ZEPHIR_INIT_VAR(&_2$$3);
 		ZEPHIR_CONCAT_SVS(&_2$$3, "Event parameters must be an array; received `", &_1$$3, "`");
-		ZEPHIR_CALL_METHOD(NULL, &_0$$3, "__construct", NULL, 2, &_2$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_0$$3, "__construct", NULL, 5, &_2$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_0$$3, "yuga/Events/Dispatcher/Dispatcher.zep", 68);
 		ZEPHIR_MM_RESTORE();

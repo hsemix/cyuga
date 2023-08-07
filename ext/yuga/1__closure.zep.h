@@ -6,7 +6,8 @@ ZEPHIR_INIT_CLASS(yuga_1__closure);
 PHP_METHOD(yuga_1__closure, __invoke);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_1__closure___invoke, 0, 0, 1)
-	ZEND_ARG_INFO(0, element)
+	ZEND_ARG_INFO(0, key)
+	ZEND_ARG_INFO(0, property)
 ZEND_END_ARG_INFO()
 
 ZEPHIR_INIT_FUNCS(yuga_1__closure_method_entry) {
