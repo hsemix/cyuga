@@ -1,5 +1,5 @@
-yuga/support/helpers.lo: \
- /var/www/html/yuga-zephir/yuga/ext/yuga/support/helpers.zep.c \
+yuga/support/config.lo: \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/support/config.zep.c \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../ext_config.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/support/../../config.h \
  /usr/include/php/20210902/main/php.h \
@@ -166,7 +166,8 @@ yuga/support/helpers.lo: \
  /usr/include/php/20210902/Zend/zend_string.h \
  /usr/include/php/20210902/Zend/zend.h \
  /usr/include/php/20210902/Zend/zend_constants.h kernel/exception.h \
- kernel/memory.h php_ext.h php_yuga.h kernel/globals.h kernel/object.h \
- kernel/fcall.h kernel/fcall_internal.h \
- /usr/include/php/20210902/Zend/zend_hash.h kernel/concat.h \
- kernel/array.h kernel/operators.h
+ kernel/memory.h php_ext.h php_yuga.h kernel/globals.h kernel/string.h \
+ /usr/include/php/20210902/Zend/zend_smart_str.h kernel/fcall.h \
+ kernel/fcall_internal.h /usr/include/php/20210902/Zend/zend_hash.h \
+ kernel/concat.h kernel/require.h kernel/operators.h kernel/object.h \
+ kernel/array.h

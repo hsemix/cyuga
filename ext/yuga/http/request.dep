@@ -144,6 +144,7 @@ yuga/http/request.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/0__closure.zep.h \

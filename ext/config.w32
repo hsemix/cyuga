@@ -32,7 +32,7 @@ if (PHP_YUGA != "no") {
 	ADD_SOURCES(configure_module_dirname + "/yuga/http/input", "input.zep.c inputfile.zep.c inputitem.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/http", "redirect.zep.c request.zep.c response.zep.c uri.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/route", "route.zep.c routeserviceprovider.zep.c router.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga/support", "helpers.zep.c str.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/support", "config.zep.c helpers.zep.c str.zep.c", "yuga");
   ADD_FLAG("CFLAGS_YUGA", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("LDFLAGS", "/LTCG");

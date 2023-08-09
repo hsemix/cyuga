@@ -144,6 +144,7 @@ yuga/exceptions/iexception.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/0__closure.zep.h \

@@ -61,6 +61,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/route/router/routeresource.zep.c
 	yuga/route/router/routeurl.zep.c
 	yuga/route/support/irouterbootmanager.zep.c
+	yuga/support/config.zep.c
 	yuga/support/helpers.zep.c
 	yuga/support/str.zep.c
 	yuga/0__closure.zep.c

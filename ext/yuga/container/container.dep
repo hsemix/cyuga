@@ -144,6 +144,7 @@ yuga/container/container.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/../../yuga/0__closure.zep.h \

@@ -7,6 +7,8 @@ PHP_METHOD(Yuga_Support_Config, load);
 PHP_METHOD(Yuga_Support_Config, get);
 PHP_METHOD(Yuga_Support_Config, exists);
 PHP_METHOD(Yuga_Support_Config, getAll);
+PHP_METHOD(Yuga_Support_Config, set);
+PHP_METHOD(Yuga_Support_Config, delete);
 PHP_METHOD(Yuga_Support_Config, toJson);
 PHP_METHOD(Yuga_Support_Config, offsetExists);
 PHP_METHOD(Yuga_Support_Config, offsetGet);
@@ -31,6 +33,15 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_config_exists, 0, 0, 1)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_config_getall, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_config_set, 0, 0, 1)
+	ZEND_ARG_INFO(0, key)
+	ZEND_ARG_INFO(0, value)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_config_delete, 0, 0, 1)
+	ZEND_ARG_INFO(0, keys)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_support_config_tojson, 0, 0, 0)
@@ -74,6 +85,8 @@ ZEPHIR_INIT_FUNCS(yuga_support_config_method_entry) {
 #else
 	PHP_ME(Yuga_Support_Config, getAll, NULL, ZEND_ACC_PUBLIC)
 #endif
+	PHP_ME(Yuga_Support_Config, set, arginfo_yuga_support_config_set, ZEND_ACC_PUBLIC)
+	PHP_ME(Yuga_Support_Config, delete, arginfo_yuga_support_config_delete, ZEND_ACC_PUBLIC)
 	PHP_ME(Yuga_Support_Config, toJson, arginfo_yuga_support_config_tojson, ZEND_ACC_PUBLIC)
 	PHP_ME(Yuga_Support_Config, offsetExists, arginfo_yuga_support_config_offsetexists, ZEND_ACC_PUBLIC)
 	PHP_ME(Yuga_Support_Config, offsetGet, arginfo_yuga_support_config_offsetget, ZEND_ACC_PUBLIC)

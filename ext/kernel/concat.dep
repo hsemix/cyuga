@@ -122,11 +122,11 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/route/router.zep.h yuga/route/router/routecontroller.zep.h \
  yuga/route/router/routegroup.zep.h yuga/route/router/routeresource.zep.h \
  yuga/route/router/routeurl.zep.h \
- yuga/route/support/irouterbootmanager.zep.h yuga/support/helpers.zep.h \
- yuga/support/str.zep.h yuga/0__closure.zep.h yuga/1__closure.zep.h \
- yuga/2__closure.zep.h yuga/3__closure.zep.h yuga/4__closure.zep.h \
- yuga/5__closure.zep.h yuga/6__closure.zep.h kernel/main.h \
- /usr/include/php/20210902/Zend/zend_interfaces.h \
+ yuga/route/support/irouterbootmanager.zep.h yuga/support/config.zep.h \
+ yuga/support/helpers.zep.h yuga/support/str.zep.h yuga/0__closure.zep.h \
+ yuga/1__closure.zep.h yuga/2__closure.zep.h yuga/3__closure.zep.h \
+ yuga/4__closure.zep.h yuga/5__closure.zep.h yuga/6__closure.zep.h \
+ kernel/main.h /usr/include/php/20210902/Zend/zend_interfaces.h \
  /usr/include/php/20210902/Zend/zend_API.h \
  /usr/include/php/20210902/ext/spl/spl_exceptions.h \
  /usr/include/php/20210902/ext/spl/php_spl.h \

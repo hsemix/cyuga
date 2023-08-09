@@ -144,6 +144,7 @@ yuga/route/exceptions/notfoundhttpexceptionhandler.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/../../../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/../../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/../../../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/../../../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/../../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/../../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/../../../yuga/0__closure.zep.h \

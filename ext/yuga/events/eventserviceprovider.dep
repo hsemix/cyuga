@@ -144,6 +144,7 @@ yuga/events/eventserviceprovider.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/0__closure.zep.h \

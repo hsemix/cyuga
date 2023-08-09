@@ -144,6 +144,7 @@ yuga/interfaces/http/input/inputiteminterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/0__closure.zep.h \

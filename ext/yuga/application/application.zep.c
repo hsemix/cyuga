@@ -125,7 +125,7 @@ PHP_METHOD(Yuga_Application_Application, __construct)
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "UTF-8");
 	zephir_update_property_zval(this_ptr, ZEND_STRL("charset"), &_0);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerconfig", NULL, 0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerconfigproviders", NULL, 0);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 }
@@ -532,22 +532,82 @@ PHP_METHOD(Yuga_Application_Application, registerBaseBindings)
  */
 PHP_METHOD(Yuga_Application_Application, registerConfig)
 {
-	zval _0;
+	zend_string *_6;
+	zend_ulong _5;
+	zval name, provider, providers, _0, _1, configProviders, _2, *_3, _4;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zephir_fcall_cache_entry *_7 = NULL, *_8 = NULL, *_9 = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
 
+	ZVAL_UNDEF(&name);
+	ZVAL_UNDEF(&provider);
+	ZVAL_UNDEF(&providers);
 	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&configProviders);
+	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_4);
 
 
 	ZEPHIR_MM_GROW();
 
-	zephir_read_static_property_ce(&_0, yuga_application_application_ce, SL("app"), PH_NOISY_CC | PH_READONLY);
-	if (!zephir_is_true(&_0)) {
-		zephir_update_static_property_ce(yuga_application_application_ce, ZEND_STRL("app"), this_ptr);
-	}
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerconfigproviders", NULL, 0);
+	zephir_read_property(&_0, this_ptr, ZEND_STRL("config"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "config.ServiceProviders");
+	ZEPHIR_CALL_METHOD(&providers, &_0, "load", NULL, 0, &_1);
 	zephir_check_call_status();
+	zephir_read_property(&_2, this_ptr, ZEND_STRL("config"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_CALL_METHOD(&configProviders, &_2, "getall", NULL, 0);
+	zephir_check_call_status();
+	zephir_is_iterable(&configProviders, 0, "yuga/Application/Application.zep", 290);
+	if (Z_TYPE_P(&configProviders) == IS_ARRAY) {
+		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&configProviders), _5, _6, _3)
+		{
+			ZEPHIR_INIT_NVAR(&name);
+			if (_6 != NULL) { 
+				ZVAL_STR_COPY(&name, _6);
+			} else {
+				ZVAL_LONG(&name, _5);
+			}
+			ZEPHIR_INIT_NVAR(&provider);
+			ZVAL_COPY(&provider, _3);
+			if (zephir_class_exists(&provider, 1)) {
+				ZEPHIR_CALL_METHOD(NULL, this_ptr, "singleton", &_7, 0, &name, &provider);
+				zephir_check_call_status();
+				ZEPHIR_CALL_METHOD(&provider, this_ptr, "resolve", &_8, 0, &name);
+				zephir_check_call_status();
+				ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerprovider", &_9, 0, &provider);
+				zephir_check_call_status();
+			}
+		} ZEND_HASH_FOREACH_END();
+	} else {
+		ZEPHIR_CALL_METHOD(NULL, &configProviders, "rewind", NULL, 0);
+		zephir_check_call_status();
+		while (1) {
+			ZEPHIR_CALL_METHOD(&_4, &configProviders, "valid", NULL, 0);
+			zephir_check_call_status();
+			if (!zend_is_true(&_4)) {
+				break;
+			}
+			ZEPHIR_CALL_METHOD(&name, &configProviders, "key", NULL, 0);
+			zephir_check_call_status();
+			ZEPHIR_CALL_METHOD(&provider, &configProviders, "current", NULL, 0);
+			zephir_check_call_status();
+				if (zephir_class_exists(&provider, 1)) {
+					ZEPHIR_CALL_METHOD(NULL, this_ptr, "singleton", &_7, 0, &name, &provider);
+					zephir_check_call_status();
+					ZEPHIR_CALL_METHOD(&provider, this_ptr, "resolve", &_8, 0, &name);
+					zephir_check_call_status();
+					ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerprovider", &_9, 0, &provider);
+					zephir_check_call_status();
+				}
+			ZEPHIR_CALL_METHOD(NULL, &configProviders, "next", NULL, 0);
+			zephir_check_call_status();
+		}
+	}
+	ZEPHIR_INIT_NVAR(&provider);
+	ZEPHIR_INIT_NVAR(&name);
 	ZEPHIR_MM_RESTORE();
 }
 
@@ -556,7 +616,7 @@ PHP_METHOD(Yuga_Application_Application, registerConfig)
  */
 PHP_METHOD(Yuga_Application_Application, run)
 {
-	zval _0, _1, _2, _3;
+	zval _0, _1, _2, _3, _4;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
@@ -565,6 +625,7 @@ PHP_METHOD(Yuga_Application_Application, run)
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
 	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4);
 
 
 	ZEPHIR_MM_GROW();
@@ -575,17 +636,24 @@ PHP_METHOD(Yuga_Application_Application, run)
 	ZVAL_STRING(&_1, "Yuga\\Support\\Config");
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "singleton", NULL, 0, &_0, &_1);
 	zephir_check_call_status();
-	zephir_read_property(&_2, this_ptr, ZEND_STRL("debuggerStarted"), PH_NOISY_CC | PH_READONLY);
-	if (zephir_is_true(&_2)) {
+	ZEPHIR_INIT_NVAR(&_0);
+	ZVAL_STRING(&_0, "config");
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "get", NULL, 0, &_0);
+	zephir_check_call_status();
+	zephir_update_property_zval(this_ptr, ZEND_STRL("config"), &_2);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerconfig", NULL, 0);
+	zephir_check_call_status();
+	zephir_read_property(&_3, this_ptr, ZEND_STRL("debuggerStarted"), PH_NOISY_CC | PH_READONLY);
+	if (zephir_is_true(&_3)) {
 	}
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerbasebindings", NULL, 0, this_ptr);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerdefaultproviders", NULL, 0);
 	zephir_check_call_status();
-	zephir_array_fetch_string(&_3, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 309);
+	zephir_array_fetch_string(&_4, this_ptr, SL("events"), PH_NOISY | PH_READONLY, "yuga/Application/Application.zep", 311);
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "on:app-start");
-	ZEPHIR_CALL_METHOD(NULL, &_3, "dispatch", NULL, 0, &_0);
+	ZEPHIR_CALL_METHOD(NULL, &_4, "dispatch", NULL, 0, &_0);
 	zephir_check_call_status();
 	RETURN_THIS();
 }
@@ -657,21 +725,26 @@ PHP_METHOD(Yuga_Application_Application, getEncryptionMethod)
  */
 PHP_METHOD(Yuga_Application_Application, registerConfigProviders)
 {
-	zval _0;
+	zval _0, _1;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
 
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_INIT_VAR(&_0);
-	object_init_ex(&_0, yuga_events_eventserviceprovider_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 20, this_ptr);
+	zephir_read_static_property_ce(&_0, yuga_application_application_ce, SL("app"), PH_NOISY_CC | PH_READONLY);
+	if (!zephir_is_true(&_0)) {
+		zephir_update_static_property_ce(yuga_application_application_ce, ZEND_STRL("app"), this_ptr);
+	}
+	ZEPHIR_INIT_VAR(&_1);
+	object_init_ex(&_1, yuga_events_eventserviceprovider_ce);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 20, this_ptr);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerprovider", NULL, 0, &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "registerprovider", NULL, 0, &_1);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 }

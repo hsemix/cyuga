@@ -214,6 +214,9 @@ yuga/route/router/routeurl.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/route/rou
 -include yuga/route/support/irouterbootmanager.dep
 yuga/route/support/irouterbootmanager.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/irouterbootmanager.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/irouterbootmanager.zep.c -o yuga/route/support/irouterbootmanager.lo  -MMD -MF yuga/route/support/irouterbootmanager.dep -MT yuga/route/support/irouterbootmanager.lo
+-include yuga/support/config.dep
+yuga/support/config.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/support/config.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/support/config.zep.c -o yuga/support/config.lo  -MMD -MF yuga/support/config.dep -MT yuga/support/config.lo
 -include yuga/support/helpers.dep
 yuga/support/helpers.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/support/helpers.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/support/helpers.zep.c -o yuga/support/helpers.lo  -MMD -MF yuga/support/helpers.dep -MT yuga/support/helpers.lo

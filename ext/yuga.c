@@ -82,6 +82,7 @@ zend_class_entry *yuga_route_router_routegroup_ce;
 zend_class_entry *yuga_route_router_routeresource_ce;
 zend_class_entry *yuga_route_router_routeurl_ce;
 zend_class_entry *yuga_route_routeserviceprovider_ce;
+zend_class_entry *yuga_support_config_ce;
 zend_class_entry *yuga_support_helpers_ce;
 zend_class_entry *yuga_support_str_ce;
 
@@ -147,6 +148,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Route_Router_RouteGroup);
 	ZEPHIR_INIT(Yuga_Route_Router_RouteResource);
 	ZEPHIR_INIT(Yuga_Route_Router_RouteUrl);
+	ZEPHIR_INIT(Yuga_Support_Config);
 	ZEPHIR_INIT(Yuga_Support_Helpers);
 	ZEPHIR_INIT(Yuga_Support_Str);
 	ZEPHIR_INIT(yuga_0__closure);

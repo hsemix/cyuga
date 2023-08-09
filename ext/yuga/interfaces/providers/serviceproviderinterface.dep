@@ -144,6 +144,7 @@ yuga/interfaces/providers/serviceproviderinterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/support/str.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/0__closure.zep.h \

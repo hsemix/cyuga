@@ -92,7 +92,8 @@ class Application extends Container implements IApplication
         let this->basePath = root;
         let this->charset = self::CHARSET_UTF8;
 
-        this->registerConfig();
+        // this->registerConfig();
+        this->registerConfigProviders();
     }
 
     /**
@@ -251,21 +252,22 @@ class Application extends Container implements IApplication
      */
     protected function registerConfig()
     {
+        var name, provider;
         
-        if (!self::app) {
-            let self::app = this;
+        
+        
+        var providers = this->config->load("config.ServiceProviders");
+        // this->registerConfigProviders();
+
+        var configProviders = this->config->getAll();
+
+        for name, provider in configProviders {
+            if class_exists(provider) {
+                this->singleton(name, provider);
+                let provider = this->resolve(name);
+                this->registerProvider(provider);
+            }
         }
-        // providers = this->config->load('config.ServiceProviders');
-        this->registerConfigProviders();
-        
-        // foreach (this->config->getAll() as name => provider) {
-        //     if (class_exists(provider)) {
-        //         this->singleton(name, provider);
-        //         provider = this->resolve(name);
-        //         this->registerProvider(provider);
-        //     }
-        // }
-        
         
         // if (env('ROUTER_BOOTED', false)) {
         //     if (env('ENABLE_MVP_ROUTES', false)) {
@@ -293,14 +295,14 @@ class Application extends Container implements IApplication
     public function run()
     {
         this->singleton("config", "Yuga\\Support\\Config");
-        // this->config = this->get('config');
+        let this->config = this->get("config");
         // load default class alias here
         // this->setVendorDir(this->basePath.DIRECTORY_SEPARATOR.'vendor');
         // if (!this->runningInConsole()) {
         //     this->setDebugEnabled(env('DEBUG_MODE', false)); 
         //     this->initTracy();  
         // }
-        // this->registerConfig();
+        this->registerConfig();
         if (this->debuggerStarted) {
             // this['events']->dispatch('on:yuga-tracy');
         }
@@ -360,6 +362,9 @@ class Application extends Container implements IApplication
      */
     protected function registerConfigProviders()
     {
+        if (!self::app) {
+            let self::app = this;
+        }
         this->registerProvider(new EventServiceProvider(this));
     }
 

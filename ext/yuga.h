@@ -56,6 +56,7 @@
 #include "yuga/route/router/routeresource.zep.h"
 #include "yuga/route/router/routeurl.zep.h"
 #include "yuga/route/support/irouterbootmanager.zep.h"
+#include "yuga/support/config.zep.h"
 #include "yuga/support/helpers.zep.h"
 #include "yuga/support/str.zep.h"
 #include "yuga/0__closure.zep.h"
