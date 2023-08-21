@@ -237,6 +237,10 @@ class Route
             route->setSettings(settings);
         }
 
+        // echo "<pre>";
+        // print_r(route);
+        // return route;
+        // exit();
         self::router()->addRoute(route);
 
         return route;
@@ -365,17 +369,18 @@ class Route
 
     public static function getUrl(name = null, parameters = null, getParams = null)
     {
-        return self::router()->getUrl(name, parameters, getParams);
-        // try {
-        //     return self::router()->getUrl(name, parameters, getParams);
-        // } catch (\Exception e) {
-        //     try {
-        //         return new Uri("/");
-        //     } catch (BadFormedUrlException e) {
+        var e, exce;
+        // return self::router()->getUrl(name, parameters, getParams);
+        try {
+            return self::router()->getUrl(name, parameters, getParams);
+        } catch \Exception, e {
+            try {
+                return new Uri("/");
+            } catch BadFormedUrlException, exce {
 
-        //     }
-        // }
-        // return null;
+            }
+        }
+        return null;
     }
 
     /**

@@ -12,6 +12,7 @@
 #include <Zend/zend_interfaces.h>
 
 #include "kernel/main.h"
+#include "ext/json/php_json.h"
 #include "kernel/memory.h"
 #include "kernel/string.h"
 #include "kernel/fcall.h"
@@ -20,6 +21,7 @@
 #include "kernel/operators.h"
 #include "kernel/object.h"
 #include "kernel/array.h"
+#include "ext/spl/spl_array.h"
 
 
 ZEPHIR_INIT_CLASS(Yuga_Support_Config)
@@ -28,6 +30,10 @@ ZEPHIR_INIT_CLASS(Yuga_Support_Config)
 
 	zend_declare_property_null(yuga_support_config_ce, SL("data"), ZEND_ACC_PROTECTED);
 	zend_declare_property_null(yuga_support_config_ce, SL("defaultValue"), ZEND_ACC_PROTECTED);
+	zend_class_implements(yuga_support_config_ce, 1, zend_ce_arrayaccess);
+	zend_class_implements(yuga_support_config_ce, 1, zend_ce_countable);
+	zend_class_implements(yuga_support_config_ce, 1, zend_ce_aggregate);
+	zend_class_implements(yuga_support_config_ce, 1, php_json_serializable_ce);
 	return SUCCESS;
 }
 
@@ -137,14 +143,14 @@ PHP_METHOD(Yuga_Support_Config, get)
 	zephir_fast_explode(&segments, &_0, key, LONG_MAX);
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("data"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_CPY_WRT(&data, &_1);
-	zephir_is_iterable(&segments, 0, "yuga/Support/Config.zep", 47);
+	zephir_is_iterable(&segments, 0, "yuga/Support/Config.zep", 48);
 	if (Z_TYPE_P(&segments) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&segments), _2)
 		{
 			ZEPHIR_INIT_NVAR(&segment);
 			ZVAL_COPY(&segment, _2);
 			if (zephir_array_isset(&data, &segment)) {
-				zephir_array_fetch(&_4$$5, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 40);
+				zephir_array_fetch(&_4$$5, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 41);
 				ZEPHIR_CPY_WRT(&data, &_4$$5);
 			} else {
 				ZEPHIR_OBS_NVAR(&data);
@@ -164,7 +170,7 @@ PHP_METHOD(Yuga_Support_Config, get)
 			ZEPHIR_CALL_METHOD(&segment, &segments, "current", NULL, 0);
 			zephir_check_call_status();
 				if (zephir_array_isset(&data, &segment)) {
-					zephir_array_fetch(&_5$$8, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 40);
+					zephir_array_fetch(&_5$$8, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 41);
 					ZEPHIR_CPY_WRT(&data, &_5$$8);
 				} else {
 					ZEPHIR_OBS_NVAR(&data);
@@ -264,7 +270,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 
 
 	if (Z_TYPE_P(key) == IS_ARRAY) {
-		zephir_is_iterable(key, 0, "yuga/Support/Config.zep", 69);
+		zephir_is_iterable(key, 0, "yuga/Support/Config.zep", 70);
 		if (Z_TYPE_P(key) == IS_ARRAY) {
 			ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(key), _2$$3, _3$$3, _0$$3)
 			{
@@ -276,7 +282,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 				}
 				ZEPHIR_INIT_NVAR(&valueItem);
 				ZVAL_COPY(&valueItem, _0$$3);
-				ZEPHIR_CALL_METHOD(NULL, this_ptr, "set", &_4, 91, &keyItem, &valueItem);
+				ZEPHIR_CALL_METHOD(NULL, this_ptr, "set", &_4, 92, &keyItem, &valueItem);
 				zephir_check_call_status();
 			} ZEND_HASH_FOREACH_END();
 		} else {
@@ -292,7 +298,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 				zephir_check_call_status();
 				ZEPHIR_CALL_METHOD(&valueItem, key, "current", NULL, 0);
 				zephir_check_call_status();
-					ZEPHIR_CALL_METHOD(NULL, this_ptr, "set", &_4, 91, &keyItem, &valueItem);
+					ZEPHIR_CALL_METHOD(NULL, this_ptr, "set", &_4, 92, &keyItem, &valueItem);
 					zephir_check_call_status();
 				ZEPHIR_CALL_METHOD(NULL, key, "next", NULL, 0);
 				zephir_check_call_status();
@@ -308,7 +314,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 	ZEPHIR_INIT_VAR(&_7);
 	ZVAL_STRING(&_7, ".");
 	zephir_fast_explode(&_6, &_7, key, LONG_MAX);
-	zephir_is_iterable(&_6, 0, "yuga/Support/Config.zep", 83);
+	zephir_is_iterable(&_6, 0, "yuga/Support/Config.zep", 84);
 	if (Z_TYPE_P(&_6) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_6), _8)
 		{
@@ -316,7 +322,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 			ZVAL_COPY(&segment, _8);
 			_10$$6 = !(zephir_array_isset(&data, &segment));
 			if (!(_10$$6)) {
-				zephir_array_fetch(&_11$$6, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 76);
+				zephir_array_fetch(&_11$$6, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 77);
 				_10$$6 = !(Z_TYPE_P(&_11$$6) == IS_ARRAY);
 			}
 			if (_10$$6) {
@@ -324,7 +330,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 				array_init(&_12$$7);
 				zephir_array_update_zval(&data, &segment, &_12$$7, PH_COPY | PH_SEPARATE);
 			}
-			zephir_array_fetch(&_13$$6, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 80);
+			zephir_array_fetch(&_13$$6, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 81);
 			ZEPHIR_CPY_WRT(&data, &_13$$6);
 		} ZEND_HASH_FOREACH_END();
 	} else {
@@ -340,7 +346,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 			zephir_check_call_status();
 				_14$$8 = !(zephir_array_isset(&data, &segment));
 				if (!(_14$$8)) {
-					zephir_array_fetch(&_15$$8, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 76);
+					zephir_array_fetch(&_15$$8, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 77);
 					_14$$8 = !(Z_TYPE_P(&_15$$8) == IS_ARRAY);
 				}
 				if (_14$$8) {
@@ -348,7 +354,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 					array_init(&_16$$9);
 					zephir_array_update_zval(&data, &segment, &_16$$9, PH_COPY | PH_SEPARATE);
 				}
-				zephir_array_fetch(&_17$$8, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 80);
+				zephir_array_fetch(&_17$$8, &data, &segment, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 81);
 				ZEPHIR_CPY_WRT(&data, &_17$$8);
 			ZEPHIR_CALL_METHOD(NULL, &_6, "next", NULL, 0);
 			zephir_check_call_status();
@@ -417,7 +423,7 @@ PHP_METHOD(Yuga_Support_Config, delete)
 
 	zephir_get_arrval(&_0, keys);
 	ZEPHIR_CPY_WRT(keys, &_0);
-	zephir_is_iterable(keys, 0, "yuga/Support/Config.zep", 120);
+	zephir_is_iterable(keys, 0, "yuga/Support/Config.zep", 121);
 	if (Z_TYPE_P(keys) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(keys), _1)
 		{
@@ -438,10 +444,10 @@ PHP_METHOD(Yuga_Support_Config, delete)
 			ZEPHIR_INIT_NVAR(&segments$$3);
 			zephir_fast_explode(&segments$$3, &_6$$3, &key, LONG_MAX);
 			ZEPHIR_MAKE_REF(&segments$$3);
-			ZEPHIR_CALL_FUNCTION(&lastSegment$$3, "array_pop", &_7, 92, &segments$$3);
+			ZEPHIR_CALL_FUNCTION(&lastSegment$$3, "array_pop", &_7, 93, &segments$$3);
 			ZEPHIR_UNREF(&segments$$3);
 			zephir_check_call_status();
-			zephir_is_iterable(&segment$$3, 0, "yuga/Support/Config.zep", 117);
+			zephir_is_iterable(&segment$$3, 0, "yuga/Support/Config.zep", 118);
 			if (Z_TYPE_P(&segment$$3) == IS_ARRAY) {
 				ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&segment$$3), _8$$3)
 				{
@@ -449,13 +455,13 @@ PHP_METHOD(Yuga_Support_Config, delete)
 					ZVAL_COPY(&segment$$3, _8$$3);
 					_10$$5 = !(zephir_array_isset(&items$$3, &segment$$3));
 					if (!(_10$$5)) {
-						zephir_array_fetch(&_11$$5, &items$$3, &segment$$3, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 110);
+						zephir_array_fetch(&_11$$5, &items$$3, &segment$$3, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 111);
 						_10$$5 = !(Z_TYPE_P(&_11$$5) == IS_ARRAY);
 					}
 					if (_10$$5) {
 						continue;
 					}
-					zephir_array_fetch(&_12$$5, &items$$3, &segment$$3, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 114);
+					zephir_array_fetch(&_12$$5, &items$$3, &segment$$3, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 115);
 					ZEPHIR_CPY_WRT(&items$$3, &_12$$5);
 				} ZEND_HASH_FOREACH_END();
 			} else {
@@ -471,13 +477,13 @@ PHP_METHOD(Yuga_Support_Config, delete)
 					zephir_check_call_status();
 						_13$$7 = !(zephir_array_isset(&items$$3, &segment$$3));
 						if (!(_13$$7)) {
-							zephir_array_fetch(&_14$$7, &items$$3, &segment$$3, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 110);
+							zephir_array_fetch(&_14$$7, &items$$3, &segment$$3, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 111);
 							_13$$7 = !(Z_TYPE_P(&_14$$7) == IS_ARRAY);
 						}
 						if (_13$$7) {
 							continue;
 						}
-						zephir_array_fetch(&_15$$7, &items$$3, &segment$$3, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 114);
+						zephir_array_fetch(&_15$$7, &items$$3, &segment$$3, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 115);
 						ZEPHIR_CPY_WRT(&items$$3, &_15$$7);
 					ZEPHIR_CALL_METHOD(NULL, &segment$$3, "next", NULL, 0);
 					zephir_check_call_status();
@@ -512,10 +518,10 @@ PHP_METHOD(Yuga_Support_Config, delete)
 				ZEPHIR_INIT_NVAR(&segments$$9);
 				zephir_fast_explode(&segments$$9, &_18$$9, &key, LONG_MAX);
 				ZEPHIR_MAKE_REF(&segments$$9);
-				ZEPHIR_CALL_FUNCTION(&lastSegment$$9, "array_pop", &_7, 92, &segments$$9);
+				ZEPHIR_CALL_FUNCTION(&lastSegment$$9, "array_pop", &_7, 93, &segments$$9);
 				ZEPHIR_UNREF(&segments$$9);
 				zephir_check_call_status();
-				zephir_is_iterable(&segment$$9, 0, "yuga/Support/Config.zep", 117);
+				zephir_is_iterable(&segment$$9, 0, "yuga/Support/Config.zep", 118);
 				if (Z_TYPE_P(&segment$$9) == IS_ARRAY) {
 					ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&segment$$9), _19$$9)
 					{
@@ -523,13 +529,13 @@ PHP_METHOD(Yuga_Support_Config, delete)
 						ZVAL_COPY(&segment$$9, _19$$9);
 						_21$$11 = !(zephir_array_isset(&items$$9, &segment$$9));
 						if (!(_21$$11)) {
-							zephir_array_fetch(&_22$$11, &items$$9, &segment$$9, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 110);
+							zephir_array_fetch(&_22$$11, &items$$9, &segment$$9, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 111);
 							_21$$11 = !(Z_TYPE_P(&_22$$11) == IS_ARRAY);
 						}
 						if (_21$$11) {
 							continue;
 						}
-						zephir_array_fetch(&_23$$11, &items$$9, &segment$$9, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 114);
+						zephir_array_fetch(&_23$$11, &items$$9, &segment$$9, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 115);
 						ZEPHIR_CPY_WRT(&items$$9, &_23$$11);
 					} ZEND_HASH_FOREACH_END();
 				} else {
@@ -545,13 +551,13 @@ PHP_METHOD(Yuga_Support_Config, delete)
 						zephir_check_call_status();
 							_24$$13 = !(zephir_array_isset(&items$$9, &segment$$9));
 							if (!(_24$$13)) {
-								zephir_array_fetch(&_25$$13, &items$$9, &segment$$9, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 110);
+								zephir_array_fetch(&_25$$13, &items$$9, &segment$$9, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 111);
 								_24$$13 = !(Z_TYPE_P(&_25$$13) == IS_ARRAY);
 							}
 							if (_24$$13) {
 								continue;
 							}
-							zephir_array_fetch(&_26$$13, &items$$9, &segment$$9, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 114);
+							zephir_array_fetch(&_26$$13, &items$$9, &segment$$9, PH_NOISY | PH_READONLY, "yuga/Support/Config.zep", 115);
 							ZEPHIR_CPY_WRT(&items$$9, &_26$$13);
 						ZEPHIR_CALL_METHOD(NULL, &segment$$9, "next", NULL, 0);
 						zephir_check_call_status();
@@ -796,27 +802,20 @@ PHP_METHOD(Yuga_Support_Config, count)
  */
 PHP_METHOD(Yuga_Support_Config, getIterator)
 {
-	zval _1;
-	zend_class_entry *_0 = NULL;
+	zval _0;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
 
-	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_0);
 
 
 	ZEPHIR_MM_GROW();
 
-	if (!_0) {
-	_0 = zephir_fetch_class_str_ex(SL("Yuga\\Support\\ArrayIterator"), ZEND_FETCH_CLASS_AUTO);
-	}
-	object_init_ex(return_value, _0);
-	if (zephir_has_constructor(return_value)) {
-		zephir_read_property(&_1, this_ptr, ZEND_STRL("data"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 0, &_1);
-		zephir_check_call_status();
-	}
-
+	object_init_ex(return_value, spl_ce_ArrayIterator);
+	zephir_read_property(&_0, this_ptr, ZEND_STRL("data"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 94, &_0);
+	zephir_check_call_status();
 	RETURN_MM();
 }
 

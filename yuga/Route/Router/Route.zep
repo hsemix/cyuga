@@ -50,7 +50,8 @@ abstract class Route implements IRoute
      */
     protected filterEmptyParams = false;
     protected defaultParameterRegex = null;
-    protected paramModifiers = "{}";
+    // protected paramModifiers = "{}";
+    protected paramModifiers = ["{", "}"];
     protected paramOptionalSymbol = "?";
     protected group;
     protected parent;
@@ -68,15 +69,15 @@ abstract class Route implements IRoute
     protected function loadClass(name)
     {
         // exception = NotFoundHttpException::class;
-        // if (env('DEBUG_MODE_SETTINGS', '{"controller_missing": true, "method_missing": true}') != null) {
+        // if (env('DEBUG_MODE_SETTINGS', '{"controller_missing": true, "method_missing": true}') !== null) {
         //     debugSettings = json_decode(env('DEBUG_MODE_SETTINGS', '{"controller_missing": true, "method_missing": true}'), true);
         //     if (isset(debugSettings['controller_missing'])) {
-        //         if (debugSettings['controller_missing'] === true) {
+        //         if (debugSettings['controller_missing'] == true) {
         //             exception = NotFoundHttpControllerException::class;
         //         }  
         //     }
         // }
-        // if (class_exists(name) === false) {
+        // if (class_exists(name) == false) {
         //     throw new exception(sprintf('Class "%s" does not exist', name), 404);
         // }
         return Application::getInstance()->resolve(name);
@@ -122,12 +123,12 @@ abstract class Route implements IRoute
 
     protected function runMiddleware(<Request> request, middleware)
     { 
-        // if (is_object(middleware) === false) {
+        // if (is_object(middleware) == false) {
         //     routeMiddleware = this->loadClass(RouteMiddleware);
         //     wares = array_merge(routeMiddleware->routerMiddleWare, require path('config/AppMiddleWare.php'));
         //     routeMiddlewares = [];
         //     middlewares = middleware;
-        //     if (is_string(middleware) === true) {
+        //     if (is_string(middleware) == true) {
         //         middlewares = [middleware];
         //     }
         //     foreach (middlewares as ware) {
@@ -176,14 +177,21 @@ abstract class Route implements IRoute
             let method = callback[1];
         }
 
+        // if (is_string(callback) === true) {
+
+        //     echo callback;
+        //     exit();
+        // }
+
         /* Render callback function */
-        if (is_callable(callback) === true) {
+        if (is_callable(callback) == true) {
 
             /* When the callback is a function */
-            let result = call_user_func_array(callback, this->instantiated(callback, request));
-
+            // let result = call_user_func_array(callback, this->instantiated(callback, request));
+            // echo "hrere!!!!!";
+            return call_user_func_array(callback, this->instantiated(callback, request));
             // if (result instanceof ViewModel || is_string(result) || is_scalar(result) || result instanceof View) {
-                echo result;
+                // echo result;
             // } elseif (result instanceof Redirect) {
             //     if (result->getPath() !== null) {
             //         result->header('Location: ' . result->getPath());
@@ -196,6 +204,9 @@ abstract class Route implements IRoute
 
         }
 
+        // echo "hereeeee";
+
+        // exit();
         if (is_object(callback) === true) {
             // if (callback instanceof ViewModel) {
             //     echo callback;
@@ -236,11 +247,11 @@ abstract class Route implements IRoute
         
         if (method_exists(classValue, method) === false) {
             // exception = NotFoundHttpException::class;
-            // if (env('DEBUG_MODE_SETTINGS', '{"controller_missing": true, "method_missing": true}') != null) {
+            // if (env('DEBUG_MODE_SETTINGS', '{"controller_missing": true, "method_missing": true}') !== null) {
             //     debugSettings = json_decode(env('DEBUG_MODE_SETTINGS', '{"controller_missing": true, "method_missing": true}'), true);
                 
             //     if (isset(debugSettings['method_missing'])) {
-            //         if (debugSettings['method_missing'] === true) {
+            //         if (debugSettings['method_missing'] == true) {
             //             exception = NotFoundHttpMethodException::class;
             //         } 
             //     }
@@ -326,7 +337,7 @@ abstract class Route implements IRoute
                         var modelBindingSettings = this->processBindings(request);
                         var field = dependencyObject->getPrimaryKey();
 
-                        if (dependencyObject->getRouteKeyName() !== null && dependencyObject->getRouteKeyName() != "") {
+                        if (dependencyObject->getRouteKeyName() !== null && dependencyObject->getRouteKeyName() !== "") {
                             let field = dependencyObject->getRouteKeyName();
                         }
 

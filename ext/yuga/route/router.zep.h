@@ -35,7 +35,7 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_route_router_processroutes, 0, 0, 1)
 	ZEND_ARG_ARRAY_INFO(0, routes, 0)
 	ZEND_ARG_OBJ_INFO(0, group, Yuga\\Route\\Support\\IGroupRoute, 1)
-	ZEND_ARG_OBJ_INFO(0, parent, Yuga\\Route\\Support\\IRoute, 1)
+	ZEND_ARG_OBJ_INFO(0, parentRoute, Yuga\\Route\\Support\\IRoute, 1)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_yuga_route_router_loadroutes, 0, 0, 0)

@@ -49,15 +49,17 @@ PATH: /mnt/c/WINDOWS/
 PATH: /mnt/c/WINDOWS/System32/Wbem/
 PATH: /mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/
 PATH: /mnt/c/WINDOWS/System32/OpenSSH/
-PATH: /mnt/c/xamppp/php/
+PATH: /mnt/c/xampppp/php/
 PATH: /mnt/c/composer/
 PATH: /mnt/c/Program Files/Git/cmd/
+PATH: /mnt/c/Program Files/dotnet/
 PATH: /mnt/c/Users/hsemi/AppData/Local/Programs/Python/Python311/Scripts/
 PATH: /mnt/c/Users/hsemi/AppData/Local/Programs/Python/Python311/
 PATH: /mnt/c/Users/hsemi/AppData/Local/Microsoft/WindowsApps/
 PATH: /mnt/c/Users/hsemi/AppData/Local/Programs/Microsoft VS Code/bin/
 PATH: /mnt/c/Users/hsemi/AppData/Roaming/Composer/vendor/bin/
 PATH: /mnt/c/Program Files/JetBrains/PhpStorm 2021.1.2/bin/
+PATH: /mnt/c/Users/hsemi/.dotnet/tools/
 PATH: /snap/bin/
 
 

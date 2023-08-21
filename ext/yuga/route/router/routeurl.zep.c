@@ -63,7 +63,7 @@ PHP_METHOD(Yuga_Route_Router_RouteUrl, matchRoute)
 	zend_bool _5;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *url = NULL, url_sub, *request, request_sub, _0, _1, _2, _3, _4, regexMatch, parameters;
+	zval *url = NULL, url_sub, *request, request_sub, _0, _1, _2, _3, _4, regexMatch, parameters, _7;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&url_sub);
@@ -75,6 +75,7 @@ PHP_METHOD(Yuga_Route_Router_RouteUrl, matchRoute)
 	ZVAL_UNDEF(&_4);
 	ZVAL_UNDEF(&regexMatch);
 	ZVAL_UNDEF(&parameters);
+	ZVAL_UNDEF(&_7);
 	ZVAL_UNDEF(&_6);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
@@ -90,7 +91,7 @@ PHP_METHOD(Yuga_Route_Router_RouteUrl, matchRoute)
 	ZEPHIR_SEPARATE_PARAM(url);
 
 
-	ZEPHIR_CALL_FUNCTION(&_0, "urldecode", NULL, 90, url);
+	ZEPHIR_CALL_FUNCTION(&_0, "urldecode", NULL, 91, url);
 	zephir_check_call_status();
 	ZVAL_LONG(&_1, 5);
 	ZEPHIR_CALL_FUNCTION(url, "parse_url", NULL, 70, &_0, &_1);
@@ -120,7 +121,11 @@ PHP_METHOD(Yuga_Route_Router_RouteUrl, matchRoute)
 	zephir_get_arrval(&_6, &parameters);
 	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setparameters", NULL, 0, &_6);
 	zephir_check_call_status();
-	RETURN_MM_BOOL(1);
+	zephir_read_property(&_7, this_ptr, ZEND_STRL("url"), PH_NOISY_CC | PH_READONLY);
+	if (ZEPHIR_IS_IDENTICAL(&_7, url)) {
+		RETURN_MM_BOOL(1);
+	}
+	RETURN_MM_BOOL(0);
 }
 
 PHP_METHOD(Yuga_Route_Router_RouteUrl, getParams)
@@ -150,7 +155,7 @@ PHP_METHOD(Yuga_Route_Router_RouteUrl, getParams)
 
 	if (Z_TYPE_P(key) != IS_NULL) {
 		zephir_read_property(&_0$$3, this_ptr, ZEND_STRL("parameters"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch(&_1$$3, &_0$$3, key, PH_NOISY | PH_READONLY, "yuga/Route/Router/RouteUrl.zep", 42);
+		zephir_array_fetch(&_1$$3, &_0$$3, key, PH_NOISY | PH_READONLY, "yuga/Route/Router/RouteUrl.zep", 55);
 		RETURN_CTORW(&_1$$3);
 	}
 	RETURN_MEMBER(getThis(), "parameters");

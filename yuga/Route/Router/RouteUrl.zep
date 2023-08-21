@@ -12,7 +12,7 @@ class RouteUrl extends LoadableRoute
 
     public function matchRoute(url, <Request> request)
     {
-
+        // return true;
         let url = parse_url(urldecode(url), PHP_URL_PATH);
         let url = rtrim(url, "/") . "/";
         /* Match global regular-expression for route */
@@ -21,6 +21,16 @@ class RouteUrl extends LoadableRoute
         if (regexMatch === false) {
             return false;
         }
+
+
+        // echo "<pre>";
+        // echo "in";
+        
+        // print_r(this->url);
+        // echo "out";
+
+        // print_r(url);
+        // exit();
 
         /* Parse parameters from current route */
         var parameters = this->parseParameters(this->url, url);
@@ -33,12 +43,15 @@ class RouteUrl extends LoadableRoute
         /* Set the parameters */
         this->setParameters((array)parameters);
 
-        return true;
+        if (this->url === url) {
+            return true;
+        }
+        return false;
     }
 
     public function getParams(key = null)
     {
-        if key != null {
+        if key !== null {
             return this->parameters[key];
         }
 

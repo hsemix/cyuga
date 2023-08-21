@@ -262,9 +262,9 @@ class Request
      */
     public function getUri(trim = false)
     {
-        if (trim) {
+        // if (trim) {
             return this->uri;
-        }
+        // }
         // return "/" . ltrim(str_replace(this->processHost(), "", this->uri), "/");
     }
 

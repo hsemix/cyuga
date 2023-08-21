@@ -905,9 +905,7 @@ PHP_METHOD(Yuga_Http_Request, getUri)
 	}
 
 
-	if (zephir_is_true(trim)) {
-		RETURN_MEMBER(getThis(), "uri");
-	}
+	RETURN_MEMBER(getThis(), "uri");
 }
 
 PHP_METHOD(Yuga_Http_Request, formatUrl)

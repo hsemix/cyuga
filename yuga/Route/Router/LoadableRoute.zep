@@ -37,7 +37,7 @@ abstract class LoadableRoute extends Route implements ILoadableRoute
 
         //         var middleware = this->getMiddlewares()[i];
 
-        //         if (is_object(middleware) === false) {
+        //         if (is_object(middleware) == false) {
         //             routeMiddleware = this->loadClass(RouteMiddleware::class);
         //             wares = array_merge(routeMiddleware->routerMiddleWare, require path("config/AppMiddleWare.php"));
         //             if (isset(wares[middleware])) {
@@ -47,7 +47,7 @@ abstract class LoadableRoute extends Route implements ILoadableRoute
         //             }
         //         }
 
-        //         if ((middleware instanceof IMiddleware) === false) {
+        //         if ((middleware instanceof IMiddleware) == false) {
         //             throw new HttpException(middleware . " must inherit the IMiddleware interface");
         //         }
 
@@ -77,20 +77,22 @@ abstract class LoadableRoute extends Route implements ILoadableRoute
      */
     public function setUrl(url)
     {
-        let this->url = "/" . trim(url, "/") . "/";
+        let this->url = (url === "/") ? "/" : "/" . trim(url, "/") . "/";
         
-        if (url === "/") {
-            let this->url = "/";
-        }
-
         if (strpos(this->url, this->paramModifiers[0]) !== false) {
-
-            var regex = sprintf(self::PARAMETERS_REGEX_FORMAT, this->paramModifiers[0], this->paramOptionalSymbol, this->paramModifiers[1]), matches;
+            var matches;
+            var regex = sprintf(
+                self::PARAMETERS_REGEX_FORMAT, 
+                this->paramModifiers[0], 
+                this->paramOptionalSymbol, 
+                this->paramModifiers[1]
+            );
 
             if (preg_match_all("/" . regex . "/", this->url, matches)) {
                 let this->parameters = array_fill_keys(matches[1], null);
             }
         }
+
 
         return this;
     }

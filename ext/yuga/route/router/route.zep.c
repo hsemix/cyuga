@@ -36,7 +36,7 @@ ZEPHIR_INIT_CLASS(Yuga_Route_Router_Route)
 	 */
 	zend_declare_property_bool(yuga_route_router_route_ce, SL("filterEmptyParams"), 0, ZEND_ACC_PROTECTED);
 	zend_declare_property_null(yuga_route_router_route_ce, SL("defaultParameterRegex"), ZEND_ACC_PROTECTED);
-	zend_declare_property_string(yuga_route_router_route_ce, SL("paramModifiers"), "{}", ZEND_ACC_PROTECTED);
+	zend_declare_property_null(yuga_route_router_route_ce, SL("paramModifiers"), ZEND_ACC_PROTECTED);
 	zend_declare_property_string(yuga_route_router_route_ce, SL("paramOptionalSymbol"), "?", ZEND_ACC_PROTECTED);
 	zend_declare_property_null(yuga_route_router_route_ce, SL("group"), ZEND_ACC_PROTECTED);
 	zend_declare_property_null(yuga_route_router_route_ce, SL("parent"), ZEND_ACC_PROTECTED);
@@ -171,7 +171,7 @@ PHP_METHOD(Yuga_Route_Router_Route, instantiated)
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_1, &reflection, "getparameters", NULL, 2);
 	zephir_check_call_status();
-	zephir_is_iterable(&_1, 0, "yuga/Route/Router/Route.zep", 109);
+	zephir_is_iterable(&_1, 0, "yuga/Route/Router/Route.zep", 110);
 	if (Z_TYPE_P(&_1) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_1), _2)
 		{
@@ -208,7 +208,7 @@ PHP_METHOD(Yuga_Route_Router_Route, instantiated)
 					zephir_check_call_status();
 					ZEPHIR_OBS_NVAR(&_16$$8);
 					zephir_read_property(&_16$$8, &param, ZEND_STRL("name"), PH_NOISY_CC);
-					zephir_array_fetch(&_15$$8, &_14$$8, &_16$$8, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 104);
+					zephir_array_fetch(&_15$$8, &_14$$8, &_16$$8, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 105);
 					ZEPHIR_OBS_NVAR(&_17$$8);
 					zephir_read_property(&_17$$8, &param, ZEND_STRL("name"), PH_NOISY_CC);
 					zephir_array_update_zval(&classes, &_17$$8, &_15$$8, PH_COPY | PH_SEPARATE);
@@ -257,7 +257,7 @@ PHP_METHOD(Yuga_Route_Router_Route, instantiated)
 						zephir_check_call_status();
 						ZEPHIR_OBS_NVAR(&_28$$14);
 						zephir_read_property(&_28$$14, &param, ZEND_STRL("name"), PH_NOISY_CC);
-						zephir_array_fetch(&_27$$14, &_26$$14, &_28$$14, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 104);
+						zephir_array_fetch(&_27$$14, &_26$$14, &_28$$14, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 105);
 						ZEPHIR_OBS_NVAR(&_29$$14);
 						zephir_read_property(&_29$$14, &param, ZEND_STRL("name"), PH_NOISY_CC);
 						zephir_array_update_zval(&classes, &_29$$14, &_27$$14, PH_COPY | PH_SEPARATE);
@@ -303,7 +303,7 @@ PHP_METHOD(Yuga_Route_Router_Route, isSingleton)
 	zephir_check_call_status();
 	ZEPHIR_CALL_FUNCTION(&_1, "array_values", NULL, 3, &_0);
 	zephir_check_call_status();
-	zephir_is_iterable(&_1, 0, "yuga/Route/Router/Route.zep", 120);
+	zephir_is_iterable(&_1, 0, "yuga/Route/Router/Route.zep", 121);
 	if (Z_TYPE_P(&_1) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_1), _2)
 		{
@@ -426,26 +426,25 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 	if (Z_TYPE_P(&callback) == IS_ARRAY == 1) {
 		if (zephir_array_isset_string(&callback, SL("middleware"))) {
 			ZEPHIR_OBS_VAR(&middleware$$5);
-			zephir_array_fetch_string(&middleware$$5, &callback, SL("middleware"), PH_NOISY, "yuga/Route/Router/Route.zep", 169);
-			zephir_array_fetch_long(&_0$$5, &callback, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 170);
+			zephir_array_fetch_string(&middleware$$5, &callback, SL("middleware"), PH_NOISY, "yuga/Route/Router/Route.zep", 170);
+			zephir_array_fetch_long(&_0$$5, &callback, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 171);
 			ZEPHIR_CPY_WRT(&callback, &_0$$5);
 			ZEPHIR_CALL_METHOD(NULL, this_ptr, "runmiddleware", NULL, 0, request, &middleware$$5);
 			zephir_check_call_status();
 		}
 		ZEPHIR_OBS_VAR(&controller);
-		zephir_array_fetch_long(&controller, &callback, 0, PH_NOISY, "yuga/Route/Router/Route.zep", 174);
+		zephir_array_fetch_long(&controller, &callback, 0, PH_NOISY, "yuga/Route/Router/Route.zep", 175);
 		ZEPHIR_CALL_METHOD(&classValue, this_ptr, "loadclass", &_1, 0, &controller);
 		zephir_check_call_status();
 		ZEPHIR_OBS_VAR(&method);
-		zephir_array_fetch_long(&method, &callback, 1, PH_NOISY, "yuga/Route/Router/Route.zep", 176);
+		zephir_array_fetch_long(&method, &callback, 1, PH_NOISY, "yuga/Route/Router/Route.zep", 177);
 	}
 	if (zephir_is_callable(&callback) == 1) {
 		ZEPHIR_CALL_METHOD(&_2$$6, this_ptr, "instantiated", NULL, 0, &callback, request);
 		zephir_check_call_status();
-		ZEPHIR_INIT_VAR(&result);
-		ZEPHIR_CALL_USER_FUNC_ARRAY(&result, &callback, &_2$$6);
+		ZEPHIR_CALL_USER_FUNC_ARRAY(return_value, &callback, &_2$$6);
 		zephir_check_call_status();
-		zend_print_zval(&result, 0);
+		RETURN_MM();
 		RETURN_MM_NULL();
 	}
 	if (Z_TYPE_P(&callback) == IS_OBJECT == 1) {
@@ -458,7 +457,7 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 		ZEPHIR_CALL_METHOD(&namespaceValue$$7, this_ptr, "getnamespace", NULL, 0);
 		zephir_check_call_status();
 		if (zephir_fast_count_int(&controller$$7) == 1) {
-			zephir_array_fetch_long(&_4$$8, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 213);
+			zephir_array_fetch_long(&_4$$8, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 224);
 			ZEPHIR_CALL_METHOD(&viewModel$$8, this_ptr, "loadclass", &_1, 0, &_4$$8);
 			zephir_check_call_status();
 			if (zephir_is_instance_of(&viewModel$$8, SL("Yuga\\View\\ViewModel"))) {
@@ -466,15 +465,15 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 				RETURN_MM_NULL();
 			} else {
 				ZEPHIR_OBS_VAR(&className);
-				zephir_array_fetch_long(&className, &controller$$7, 0, PH_NOISY, "yuga/Route/Router/Route.zep", 218);
+				zephir_array_fetch_long(&className, &controller$$7, 0, PH_NOISY, "yuga/Route/Router/Route.zep", 229);
 				_5$$10 = Z_TYPE_P(&namespaceValue$$7) != IS_NULL;
 				if (_5$$10) {
-					zephir_array_fetch_long(&_6$$10, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 219);
-					zephir_array_fetch_long(&_7$$10, &_6$$10, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 219);
+					zephir_array_fetch_long(&_6$$10, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 230);
+					zephir_array_fetch_long(&_7$$10, &_6$$10, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 230);
 					_5$$10 = !ZEPHIR_IS_STRING_IDENTICAL(&_7$$10, "\\");
 				}
 				if (_5$$10) {
-					zephir_array_fetch_long(&_8$$11, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 220);
+					zephir_array_fetch_long(&_8$$11, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 231);
 					ZEPHIR_INIT_NVAR(&className);
 					ZEPHIR_CONCAT_VSV(&className, &namespaceValue$$7, "\\", &_8$$11);
 				}
@@ -487,28 +486,28 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 				ZVAL_LONG(&_13$$10, 404);
 				ZEPHIR_CALL_METHOD(NULL, &_9$$10, "__construct", NULL, 5, &_11$$10, &_13$$10);
 				zephir_check_call_status();
-				zephir_throw_exception_debug(&_9$$10, "yuga/Route/Router/Route.zep", 222);
+				zephir_throw_exception_debug(&_9$$10, "yuga/Route/Router/Route.zep", 233);
 				ZEPHIR_MM_RESTORE();
 				return;
 			}
 		}
 		ZEPHIR_OBS_NVAR(&className);
-		zephir_array_fetch_long(&className, &controller$$7, 0, PH_NOISY, "yuga/Route/Router/Route.zep", 226);
+		zephir_array_fetch_long(&className, &controller$$7, 0, PH_NOISY, "yuga/Route/Router/Route.zep", 237);
 		_14$$7 = Z_TYPE_P(&namespaceValue$$7) != IS_NULL;
 		if (_14$$7) {
-			zephir_array_fetch_long(&_15$$7, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 228);
-			zephir_array_fetch_long(&_16$$7, &_15$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 228);
+			zephir_array_fetch_long(&_15$$7, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 239);
+			zephir_array_fetch_long(&_16$$7, &_15$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 239);
 			_14$$7 = !ZEPHIR_IS_STRING_IDENTICAL(&_16$$7, "\\");
 		}
 		if (_14$$7) {
-			zephir_array_fetch_long(&_17$$12, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 229);
+			zephir_array_fetch_long(&_17$$12, &controller$$7, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 240);
 			ZEPHIR_INIT_NVAR(&className);
 			ZEPHIR_CONCAT_VSV(&className, &namespaceValue$$7, "\\", &_17$$12);
 		}
 		ZEPHIR_CALL_METHOD(&classValue, this_ptr, "loadclass", &_1, 0, &className);
 		zephir_check_call_status();
 		ZEPHIR_OBS_NVAR(&method);
-		zephir_array_fetch_long(&method, &controller$$7, 1, PH_NOISY, "yuga/Route/Router/Route.zep", 233);
+		zephir_array_fetch_long(&method, &controller$$7, 1, PH_NOISY, "yuga/Route/Router/Route.zep", 244);
 	}
 	if ((zephir_method_exists(&classValue, &method)  == SUCCESS) == 0) {
 		ZEPHIR_INIT_VAR(&_18$$13);
@@ -526,7 +525,7 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 			zephir_check_call_status();
 		}
 
-		zephir_throw_exception_debug(&_18$$13, "yuga/Route/Router/Route.zep", 248);
+		zephir_throw_exception_debug(&_18$$13, "yuga/Route/Router/Route.zep", 259);
 		ZEPHIR_MM_RESTORE();
 		return;
 	}
@@ -547,7 +546,7 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 	zephir_array_fast_append(&_26, &method);
 	ZEPHIR_CALL_METHOD(&_27, this_ptr, "methodinjection", NULL, 0, &classValue, &method, &parameters, request);
 	zephir_check_call_status();
-	ZEPHIR_INIT_NVAR(&result);
+	ZEPHIR_INIT_VAR(&result);
 	ZEPHIR_CALL_USER_FUNC_ARRAY(&result, &_26, &_27);
 	zephir_check_call_status();
 	zend_print_zval(&result, 0);
@@ -664,7 +663,7 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 	if (zephir_fast_count_int(&modelBindingSettings) > 0) {
 		ZEPHIR_INIT_VAR(&routeBindings$$4);
 		array_init(&routeBindings$$4);
-		zephir_is_iterable(&modelBindingSettings, 0, "yuga/Route/Router/Route.zep", 300);
+		zephir_is_iterable(&modelBindingSettings, 0, "yuga/Route/Router/Route.zep", 311);
 		if (Z_TYPE_P(&modelBindingSettings) == IS_ARRAY) {
 			ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&modelBindingSettings), _9$$4, _10$$4, _7$$4)
 			{
@@ -692,10 +691,10 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 				zephir_fast_explode_str(&_14$$5, SL("/"), &_15$$5, LONG_MAX);
 				if (zephir_fast_count_int(&_11$$5) == zephir_fast_count_int(&_14$$5)) {
 					zephir_read_property(&_19$$6, this_ptr, ZEND_STRL("paramModifiers"), PH_NOISY_CC | PH_READONLY);
-					zephir_array_fetch_long(&_20$$6, &_19$$6, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 290);
+					zephir_array_fetch_long(&_20$$6, &_19$$6, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 301);
 					zephir_read_property(&_21$$6, this_ptr, ZEND_STRL("paramOptionalSymbol"), PH_NOISY_CC | PH_READONLY);
 					zephir_read_property(&_22$$6, this_ptr, ZEND_STRL("paramModifiers"), PH_NOISY_CC | PH_READONLY);
-					zephir_array_fetch_long(&_23$$6, &_22$$6, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 290);
+					zephir_array_fetch_long(&_23$$6, &_22$$6, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 301);
 					ZEPHIR_INIT_NVAR(&_24$$6);
 					ZVAL_STRING(&_24$$6, "%s([\\w]+)(\\%s?)%s");
 					ZEPHIR_CALL_FUNCTION(&regex$$6, "sprintf", &_25, 4, &_24$$6, &_20$$6, &_21$$6, &_23$$6);
@@ -707,7 +706,7 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 					if (zephir_is_true(&_24$$6)) {
 						ZEPHIR_INIT_NVAR(&_27$$7);
 						zephir_fast_explode_str(&_27$$7, SL(","), &fields$$4, LONG_MAX);
-						zephir_is_iterable(&_27$$7, 0, "yuga/Route/Router/Route.zep", 297);
+						zephir_is_iterable(&_27$$7, 0, "yuga/Route/Router/Route.zep", 308);
 						if (Z_TYPE_P(&_27$$7) == IS_ARRAY) {
 							ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&_27$$7), _30$$7, _31$$7, _28$$7)
 							{
@@ -719,9 +718,9 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 								}
 								ZEPHIR_INIT_NVAR(&field$$7);
 								ZVAL_COPY(&field$$7, _28$$7);
-								zephir_array_fetch_long(&_32$$8, &parameters$$6, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 295);
+								zephir_array_fetch_long(&_32$$8, &parameters$$6, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 306);
 								ZEPHIR_OBS_NVAR(&_33$$8);
-								zephir_array_fetch(&_33$$8, &_32$$8, &index$$7, PH_NOISY, "yuga/Route/Router/Route.zep", 295);
+								zephir_array_fetch(&_33$$8, &_32$$8, &index$$7, PH_NOISY, "yuga/Route/Router/Route.zep", 306);
 								zephir_array_update_zval(&routeBindings$$4, &_33$$8, &field$$7, PH_COPY | PH_SEPARATE);
 							} ZEND_HASH_FOREACH_END();
 						} else {
@@ -737,9 +736,9 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 								zephir_check_call_status();
 								ZEPHIR_CALL_METHOD(&field$$7, &_27$$7, "current", NULL, 0);
 								zephir_check_call_status();
-									zephir_array_fetch_long(&_34$$9, &parameters$$6, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 295);
+									zephir_array_fetch_long(&_34$$9, &parameters$$6, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 306);
 									ZEPHIR_OBS_NVAR(&_35$$9);
-									zephir_array_fetch(&_35$$9, &_34$$9, &index$$7, PH_NOISY, "yuga/Route/Router/Route.zep", 295);
+									zephir_array_fetch(&_35$$9, &_34$$9, &index$$7, PH_NOISY, "yuga/Route/Router/Route.zep", 306);
 									zephir_array_update_zval(&routeBindings$$4, &_35$$9, &field$$7, PH_COPY | PH_SEPARATE);
 								ZEPHIR_CALL_METHOD(NULL, &_27$$7, "next", NULL, 0);
 								zephir_check_call_status();
@@ -779,10 +778,10 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 					zephir_fast_explode_str(&_39$$10, SL("/"), &_40$$10, LONG_MAX);
 					if (zephir_fast_count_int(&_36$$10) == zephir_fast_count_int(&_39$$10)) {
 						zephir_read_property(&_44$$11, this_ptr, ZEND_STRL("paramModifiers"), PH_NOISY_CC | PH_READONLY);
-						zephir_array_fetch_long(&_45$$11, &_44$$11, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 290);
+						zephir_array_fetch_long(&_45$$11, &_44$$11, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 301);
 						zephir_read_property(&_46$$11, this_ptr, ZEND_STRL("paramOptionalSymbol"), PH_NOISY_CC | PH_READONLY);
 						zephir_read_property(&_47$$11, this_ptr, ZEND_STRL("paramModifiers"), PH_NOISY_CC | PH_READONLY);
-						zephir_array_fetch_long(&_48$$11, &_47$$11, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 290);
+						zephir_array_fetch_long(&_48$$11, &_47$$11, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 301);
 						ZEPHIR_INIT_NVAR(&_49$$11);
 						ZVAL_STRING(&_49$$11, "%s([\\w]+)(\\%s?)%s");
 						ZEPHIR_CALL_FUNCTION(&regex$$11, "sprintf", &_25, 4, &_49$$11, &_45$$11, &_46$$11, &_48$$11);
@@ -794,7 +793,7 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 						if (zephir_is_true(&_49$$11)) {
 							ZEPHIR_INIT_NVAR(&_51$$12);
 							zephir_fast_explode_str(&_51$$12, SL(","), &fields$$4, LONG_MAX);
-							zephir_is_iterable(&_51$$12, 0, "yuga/Route/Router/Route.zep", 297);
+							zephir_is_iterable(&_51$$12, 0, "yuga/Route/Router/Route.zep", 308);
 							if (Z_TYPE_P(&_51$$12) == IS_ARRAY) {
 								ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&_51$$12), _54$$12, _55$$12, _52$$12)
 								{
@@ -806,9 +805,9 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 									}
 									ZEPHIR_INIT_NVAR(&field$$12);
 									ZVAL_COPY(&field$$12, _52$$12);
-									zephir_array_fetch_long(&_56$$13, &parameters$$11, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 295);
+									zephir_array_fetch_long(&_56$$13, &parameters$$11, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 306);
 									ZEPHIR_OBS_NVAR(&_57$$13);
-									zephir_array_fetch(&_57$$13, &_56$$13, &index$$12, PH_NOISY, "yuga/Route/Router/Route.zep", 295);
+									zephir_array_fetch(&_57$$13, &_56$$13, &index$$12, PH_NOISY, "yuga/Route/Router/Route.zep", 306);
 									zephir_array_update_zval(&routeBindings$$4, &_57$$13, &field$$12, PH_COPY | PH_SEPARATE);
 								} ZEND_HASH_FOREACH_END();
 							} else {
@@ -824,9 +823,9 @@ PHP_METHOD(Yuga_Route_Router_Route, processBindings)
 									zephir_check_call_status();
 									ZEPHIR_CALL_METHOD(&field$$12, &_51$$12, "current", NULL, 0);
 									zephir_check_call_status();
-										zephir_array_fetch_long(&_58$$14, &parameters$$11, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 295);
+										zephir_array_fetch_long(&_58$$14, &parameters$$11, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 306);
 										ZEPHIR_OBS_NVAR(&_59$$14);
-										zephir_array_fetch(&_59$$14, &_58$$14, &index$$12, PH_NOISY, "yuga/Route/Router/Route.zep", 295);
+										zephir_array_fetch(&_59$$14, &_58$$14, &index$$12, PH_NOISY, "yuga/Route/Router/Route.zep", 306);
 										zephir_array_update_zval(&routeBindings$$4, &_59$$14, &field$$12, PH_COPY | PH_SEPARATE);
 									ZEPHIR_CALL_METHOD(NULL, &_51$$12, "next", NULL, 0);
 									zephir_check_call_status();
@@ -994,7 +993,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 		zephir_check_call_status();
 		ZEPHIR_CALL_METHOD(&reflectionParameters$$3, &reflectionMethod$$3, "getparameters", NULL, 0);
 		zephir_check_call_status();
-		zephir_is_iterable(&reflectionParameters$$3, 0, "yuga/Route/Router/Route.zep", 370);
+		zephir_is_iterable(&reflectionParameters$$3, 0, "yuga/Route/Router/Route.zep", 381);
 		if (Z_TYPE_P(&reflectionParameters$$3) == IS_ARRAY) {
 			ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&reflectionParameters$$3), _2$$3)
 			{
@@ -1039,7 +1038,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 						if (_20$$6) {
 							ZEPHIR_CALL_METHOD(&_21$$6, &dependencyObject$$6, "getroutekeyname", &_22, 0);
 							zephir_check_call_status();
-							_20$$6 = !ZEPHIR_IS_STRING(&_21$$6, "");
+							_20$$6 = !ZEPHIR_IS_STRING_IDENTICAL(&_21$$6, "");
 						}
 						if (_20$$6) {
 							ZEPHIR_CALL_METHOD(&field$$6, &dependencyObject$$6, "getroutekeyname", &_23, 0);
@@ -1052,12 +1051,12 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 							ZEPHIR_OBS_NVAR(&field$$6);
 							ZEPHIR_OBS_NVAR(&_26$$8);
 							zephir_read_property(&_26$$8, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-							zephir_array_fetch(&field$$6, &modelBindingSettings$$6, &_26$$8, PH_NOISY, "yuga/Route/Router/Route.zep", 334);
+							zephir_array_fetch(&field$$6, &modelBindingSettings$$6, &_26$$8, PH_NOISY, "yuga/Route/Router/Route.zep", 345);
 						}
 						ZEPHIR_OBS_NVAR(&value$$6);
 						ZEPHIR_OBS_NVAR(&_27$$6);
 						zephir_read_property(&_27$$6, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-						zephir_array_fetch(&value$$6, params, &_27$$6, PH_NOISY, "yuga/Route/Router/Route.zep", 337);
+						zephir_array_fetch(&value$$6, params, &_27$$6, PH_NOISY, "yuga/Route/Router/Route.zep", 348);
 						ZEPHIR_CALL_METHOD(&_28$$6, &dependencyObject$$6, "where", &_29, 0, &field$$6, &value$$6);
 						zephir_check_call_status();
 						ZEPHIR_CALL_METHOD(&modelBound$$6, &_28$$6, "first", NULL, 0);
@@ -1074,7 +1073,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 							if (zephir_is_true(&_31$$9)) {
 								ZEPHIR_OBS_NVAR(&_36$$10);
 								zephir_read_property(&_36$$10, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-								zephir_array_fetch(&_35$$10, params, &_36$$10, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 343);
+								zephir_array_fetch(&_35$$10, params, &_36$$10, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 354);
 								zephir_read_property(&_37$$10, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC | PH_READONLY);
 								ZEPHIR_INIT_NVAR(&_38$$10);
 								ZEPHIR_CONCAT_VS(&_38$$10, &_37$$10, "_var");
@@ -1093,7 +1092,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 								zephir_check_call_status();
 							}
 
-							zephir_throw_exception_debug(&_39$$11, "yuga/Route/Router/Route.zep", 347);
+							zephir_throw_exception_debug(&_39$$11, "yuga/Route/Router/Route.zep", 358);
 							ZEPHIR_MM_RESTORE();
 							return;
 						}
@@ -1119,7 +1118,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 						} else {
 							ZEPHIR_OBS_NVAR(&_51$$16);
 							zephir_read_property(&_51$$16, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-							zephir_array_fetch(&_50$$16, params, &_51$$16, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 358);
+							zephir_array_fetch(&_50$$16, params, &_51$$16, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 369);
 							ZEPHIR_OBS_NVAR(&_52$$16);
 							zephir_read_property(&_52$$16, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
 							zephir_array_update_zval(&dependecies, &_52$$16, &_50$$16, PH_COPY | PH_SEPARATE);
@@ -1130,7 +1129,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 					if (zephir_array_key_exists(params, &_53$$17)) {
 						ZEPHIR_OBS_NVAR(&_55$$18);
 						zephir_read_property(&_55$$18, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-						zephir_array_fetch(&_54$$18, params, &_55$$18, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 363);
+						zephir_array_fetch(&_54$$18, params, &_55$$18, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 374);
 						ZEPHIR_OBS_NVAR(&_56$$18);
 						zephir_read_property(&_56$$18, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
 						zephir_array_update_zval(&dependecies, &_56$$18, &_54$$18, PH_COPY | PH_SEPARATE);
@@ -1187,7 +1186,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 							if (_72$$21) {
 								ZEPHIR_CALL_METHOD(&_73$$21, &dependencyObject$$21, "getroutekeyname", &_74, 0);
 								zephir_check_call_status();
-								_72$$21 = !ZEPHIR_IS_STRING(&_73$$21, "");
+								_72$$21 = !ZEPHIR_IS_STRING_IDENTICAL(&_73$$21, "");
 							}
 							if (_72$$21) {
 								ZEPHIR_CALL_METHOD(&field$$21, &dependencyObject$$21, "getroutekeyname", &_75, 0);
@@ -1200,12 +1199,12 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 								ZEPHIR_OBS_NVAR(&field$$21);
 								ZEPHIR_OBS_NVAR(&_78$$23);
 								zephir_read_property(&_78$$23, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-								zephir_array_fetch(&field$$21, &modelBindingSettings$$21, &_78$$23, PH_NOISY, "yuga/Route/Router/Route.zep", 334);
+								zephir_array_fetch(&field$$21, &modelBindingSettings$$21, &_78$$23, PH_NOISY, "yuga/Route/Router/Route.zep", 345);
 							}
 							ZEPHIR_OBS_NVAR(&value$$21);
 							ZEPHIR_OBS_NVAR(&_79$$21);
 							zephir_read_property(&_79$$21, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-							zephir_array_fetch(&value$$21, params, &_79$$21, PH_NOISY, "yuga/Route/Router/Route.zep", 337);
+							zephir_array_fetch(&value$$21, params, &_79$$21, PH_NOISY, "yuga/Route/Router/Route.zep", 348);
 							ZEPHIR_CALL_METHOD(&_80$$21, &dependencyObject$$21, "where", &_81, 0, &field$$21, &value$$21);
 							zephir_check_call_status();
 							ZEPHIR_CALL_METHOD(&modelBound$$21, &_80$$21, "first", NULL, 0);
@@ -1222,7 +1221,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 								if (zephir_is_true(&_83$$24)) {
 									ZEPHIR_OBS_NVAR(&_87$$25);
 									zephir_read_property(&_87$$25, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-									zephir_array_fetch(&_86$$25, params, &_87$$25, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 343);
+									zephir_array_fetch(&_86$$25, params, &_87$$25, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 354);
 									zephir_read_property(&_88$$25, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC | PH_READONLY);
 									ZEPHIR_INIT_NVAR(&_89$$25);
 									ZEPHIR_CONCAT_VS(&_89$$25, &_88$$25, "_var");
@@ -1241,7 +1240,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 									zephir_check_call_status();
 								}
 
-								zephir_throw_exception_debug(&_90$$26, "yuga/Route/Router/Route.zep", 347);
+								zephir_throw_exception_debug(&_90$$26, "yuga/Route/Router/Route.zep", 358);
 								ZEPHIR_MM_RESTORE();
 								return;
 							}
@@ -1267,7 +1266,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 							} else {
 								ZEPHIR_OBS_NVAR(&_101$$31);
 								zephir_read_property(&_101$$31, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-								zephir_array_fetch(&_100$$31, params, &_101$$31, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 358);
+								zephir_array_fetch(&_100$$31, params, &_101$$31, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 369);
 								ZEPHIR_OBS_NVAR(&_102$$31);
 								zephir_read_property(&_102$$31, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
 								zephir_array_update_zval(&dependecies, &_102$$31, &_100$$31, PH_COPY | PH_SEPARATE);
@@ -1278,7 +1277,7 @@ PHP_METHOD(Yuga_Route_Router_Route, methodInjection)
 						if (zephir_array_key_exists(params, &_103$$32)) {
 							ZEPHIR_OBS_NVAR(&_105$$33);
 							zephir_read_property(&_105$$33, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
-							zephir_array_fetch(&_104$$33, params, &_105$$33, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 363);
+							zephir_array_fetch(&_104$$33, params, &_105$$33, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 374);
 							ZEPHIR_OBS_NVAR(&_106$$33);
 							zephir_read_property(&_106$$33, &parameter$$3, ZEND_STRL("name"), PH_NOISY_CC);
 							zephir_array_update_zval(&dependecies, &_106$$33, &_104$$33, PH_COPY | PH_SEPARATE);
@@ -1386,10 +1385,10 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 
 
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("paramModifiers"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch_long(&_1, &_0, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 378);
+	zephir_array_fetch_long(&_1, &_0, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 389);
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("paramOptionalSymbol"), PH_NOISY_CC | PH_READONLY);
 	zephir_read_property(&_3, this_ptr, ZEND_STRL("paramModifiers"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch_long(&_4, &_3, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 378);
+	zephir_array_fetch_long(&_4, &_3, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 389);
 	ZEPHIR_INIT_VAR(&_5);
 	ZVAL_STRING(&_5, "%s([\\w]+)(\\%s?)%s");
 	ZEPHIR_CALL_FUNCTION(&regex, "sprintf", NULL, 4, &_5, &_1, &_2, &_4);
@@ -1413,7 +1412,7 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 		ZVAL_STRING(&_9$$3, "/((\\-?\\/?)\\{[^}]+\\})/");
 		ZEPHIR_CALL_FUNCTION(&urlParts$$3, "preg_split", NULL, 12, &_9$$3, &_7$$3);
 		zephir_check_call_status();
-		zephir_is_iterable(&urlParts$$3, 0, "yuga/Route/Router/Route.zep", 416);
+		zephir_is_iterable(&urlParts$$3, 0, "yuga/Route/Router/Route.zep", 427);
 		if (Z_TYPE_P(&urlParts$$3) == IS_ARRAY) {
 			ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&urlParts$$3), _12$$3, _13$$3, _10$$3)
 			{
@@ -1427,16 +1426,16 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 				ZVAL_COPY(&t$$3, _10$$3);
 				ZEPHIR_INIT_NVAR(&regex$$4);
 				ZVAL_STRING(&regex$$4, "");
-				zephir_array_fetch_long(&_14$$4, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 392);
+				zephir_array_fetch_long(&_14$$4, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 403);
 				if (ZEPHIR_LT_LONG(&key$$3, zephir_fast_count_int(&_14$$4))) {
-					zephir_array_fetch_long(&_15$$5, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 394);
+					zephir_array_fetch_long(&_15$$5, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 405);
 					ZEPHIR_OBS_NVAR(&name$$5);
-					zephir_array_fetch(&name$$5, &_15$$5, &key$$3, PH_NOISY, "yuga/Route/Router/Route.zep", 394);
+					zephir_array_fetch(&name$$5, &_15$$5, &key$$3, PH_NOISY, "yuga/Route/Router/Route.zep", 405);
 					zephir_read_property(&_16$$5, this_ptr, ZEND_STRL("where"), PH_NOISY_CC | PH_READONLY);
 					if (zephir_array_isset(&_16$$5, &name$$5) == 1) {
 						zephir_read_property(&_17$$6, this_ptr, ZEND_STRL("where"), PH_NOISY_CC | PH_READONLY);
 						ZEPHIR_OBS_NVAR(&regex$$4);
-						zephir_array_fetch(&regex$$4, &_17$$6, &name$$5, PH_NOISY, "yuga/Route/Router/Route.zep", 398);
+						zephir_array_fetch(&regex$$4, &_17$$6, &name$$5, PH_NOISY, "yuga/Route/Router/Route.zep", 409);
 					} else {
 						if (Z_TYPE_P(parameterRegex) != IS_NULL) {
 							ZEPHIR_CPY_WRT(&regex$$4, parameterRegex);
@@ -1455,8 +1454,8 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 					ZVAL_STRING(&_19$$5, "\\-?\\/?(?P<%s>%s)");
 					ZEPHIR_CALL_FUNCTION(&_20$$5, "sprintf", &_21, 4, &_19$$5, &name$$5, &regex$$4);
 					zephir_check_call_status();
-					zephir_array_fetch_long(&_22$$5, &parameters, 2, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 409);
-					zephir_array_fetch(&_23$$5, &_22$$5, &key$$3, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 409);
+					zephir_array_fetch_long(&_22$$5, &parameters, 2, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 420);
+					zephir_array_fetch(&_23$$5, &_22$$5, &key$$3, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 420);
 					ZEPHIR_INIT_NVAR(&_24$$5);
 					ZEPHIR_CONCAT_VV(&_24$$5, &_20$$5, &_23$$5);
 					ZEPHIR_CPY_WRT(&regex$$4, &_24$$5);
@@ -1484,16 +1483,16 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 				zephir_check_call_status();
 					ZEPHIR_INIT_NVAR(&regex$$10);
 					ZVAL_STRING(&regex$$10, "");
-					zephir_array_fetch_long(&_29$$10, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 392);
+					zephir_array_fetch_long(&_29$$10, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 403);
 					if (ZEPHIR_LT_LONG(&key$$3, zephir_fast_count_int(&_29$$10))) {
-						zephir_array_fetch_long(&_30$$11, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 394);
+						zephir_array_fetch_long(&_30$$11, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 405);
 						ZEPHIR_OBS_NVAR(&name$$11);
-						zephir_array_fetch(&name$$11, &_30$$11, &key$$3, PH_NOISY, "yuga/Route/Router/Route.zep", 394);
+						zephir_array_fetch(&name$$11, &_30$$11, &key$$3, PH_NOISY, "yuga/Route/Router/Route.zep", 405);
 						zephir_read_property(&_31$$11, this_ptr, ZEND_STRL("where"), PH_NOISY_CC | PH_READONLY);
 						if (zephir_array_isset(&_31$$11, &name$$11) == 1) {
 							zephir_read_property(&_32$$12, this_ptr, ZEND_STRL("where"), PH_NOISY_CC | PH_READONLY);
 							ZEPHIR_OBS_NVAR(&regex$$10);
-							zephir_array_fetch(&regex$$10, &_32$$12, &name$$11, PH_NOISY, "yuga/Route/Router/Route.zep", 398);
+							zephir_array_fetch(&regex$$10, &_32$$12, &name$$11, PH_NOISY, "yuga/Route/Router/Route.zep", 409);
 						} else {
 							if (Z_TYPE_P(parameterRegex) != IS_NULL) {
 								ZEPHIR_CPY_WRT(&regex$$10, parameterRegex);
@@ -1512,8 +1511,8 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 						ZVAL_STRING(&_34$$11, "\\-?\\/?(?P<%s>%s)");
 						ZEPHIR_CALL_FUNCTION(&_35$$11, "sprintf", &_21, 4, &_34$$11, &name$$11, &regex$$10);
 						zephir_check_call_status();
-						zephir_array_fetch_long(&_36$$11, &parameters, 2, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 409);
-						zephir_array_fetch(&_37$$11, &_36$$11, &key$$3, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 409);
+						zephir_array_fetch_long(&_36$$11, &parameters, 2, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 420);
+						zephir_array_fetch(&_37$$11, &_36$$11, &key$$3, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 420);
 						ZEPHIR_INIT_NVAR(&_38$$11);
 						ZEPHIR_CONCAT_VV(&_38$$11, &_35$$11, &_37$$11);
 						ZEPHIR_CPY_WRT(&regex$$10, &_38$$11);
@@ -1542,8 +1541,8 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 		ZEPHIR_INIT_VAR(&values$$16);
 		array_init(&values$$16);
 		if (zephir_array_isset_long(&parameters, 1) == 1) {
-			zephir_array_fetch_long(&_44$$17, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 427);
-			zephir_is_iterable(&_44$$17, 0, "yuga/Route/Router/Route.zep", 435);
+			zephir_array_fetch_long(&_44$$17, &parameters, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 438);
+			zephir_is_iterable(&_44$$17, 0, "yuga/Route/Router/Route.zep", 446);
 			if (Z_TYPE_P(&_44$$17) == IS_ARRAY) {
 				ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_44$$17), _45$$17)
 				{
@@ -1552,11 +1551,11 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 					zephir_array_update_zval(&values$$16, &name$$17, &__$null, PH_COPY | PH_SEPARATE);
 					_47$$18 = zephir_array_isset(&matches, &name$$17);
 					if (_47$$18) {
-						zephir_array_fetch(&_48$$18, &matches, &name$$17, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 431);
+						zephir_array_fetch(&_48$$18, &matches, &name$$17, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 442);
 						_47$$18 = !ZEPHIR_IS_STRING_IDENTICAL(&_48$$18, "");
 					}
 					if (_47$$18) {
-						zephir_array_fetch(&_49$$19, &matches, &name$$17, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 432);
+						zephir_array_fetch(&_49$$19, &matches, &name$$17, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 443);
 						zephir_array_update_zval(&values$$16, &name$$17, &_49$$19, PH_COPY | PH_SEPARATE);
 					}
 				} ZEND_HASH_FOREACH_END();
@@ -1574,11 +1573,11 @@ PHP_METHOD(Yuga_Route_Router_Route, parseParameters)
 						zephir_array_update_zval(&values$$16, &name$$17, &__$null, PH_COPY | PH_SEPARATE);
 						_50$$20 = zephir_array_isset(&matches, &name$$17);
 						if (_50$$20) {
-							zephir_array_fetch(&_51$$20, &matches, &name$$17, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 431);
+							zephir_array_fetch(&_51$$20, &matches, &name$$17, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 442);
 							_50$$20 = !ZEPHIR_IS_STRING_IDENTICAL(&_51$$20, "");
 						}
 						if (_50$$20) {
-							zephir_array_fetch(&_52$$21, &matches, &name$$17, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 432);
+							zephir_array_fetch(&_52$$21, &matches, &name$$17, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 443);
 							zephir_array_update_zval(&values$$16, &name$$17, &_52$$21, PH_COPY | PH_SEPARATE);
 						}
 					ZEPHIR_CALL_METHOD(NULL, &_44$$17, "next", NULL, 0);
@@ -1835,7 +1834,7 @@ PHP_METHOD(Yuga_Route_Router_Route, getMethod)
 		ZVAL_STRING(&_6$$3, "@");
 		ZEPHIR_INIT_VAR(&tmp$$3);
 		zephir_fast_explode(&tmp$$3, &_6$$3, &_5$$3, LONG_MAX);
-		zephir_array_fetch_long(&_7$$3, &tmp$$3, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 552);
+		zephir_array_fetch_long(&_7$$3, &tmp$$3, 1, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 563);
 		RETURN_CTOR(&_7$$3);
 	}
 	RETURN_MM_NULL();
@@ -1876,7 +1875,7 @@ PHP_METHOD(Yuga_Route_Router_Route, getClass)
 		ZVAL_STRING(&_6$$3, "@");
 		ZEPHIR_INIT_VAR(&tmp$$3);
 		zephir_fast_explode(&tmp$$3, &_6$$3, &_5$$3, LONG_MAX);
-		zephir_array_fetch_long(&_7$$3, &tmp$$3, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 563);
+		zephir_array_fetch_long(&_7$$3, &tmp$$3, 0, PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 574);
 		RETURN_CTOR(&_7$$3);
 	}
 	RETURN_MM_NULL();
@@ -2145,7 +2144,7 @@ PHP_METHOD(Yuga_Route_Router_Route, setSettings)
 		_1 = zephir_array_isset_string(&values, SL("namespace"));
 	}
 	if (_1) {
-		zephir_array_fetch_string(&_2$$3, &values, SL("namespace"), PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 664);
+		zephir_array_fetch_string(&_2$$3, &values, SL("namespace"), PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 675);
 		ZEPHIR_CALL_METHOD(NULL, this_ptr, "setnamespace", NULL, 0, &_2$$3);
 		zephir_check_call_status();
 	}
@@ -2153,7 +2152,7 @@ PHP_METHOD(Yuga_Route_Router_Route, setSettings)
 		ZEPHIR_INIT_VAR(&_3$$4);
 		zephir_read_property(&_4$$4, this_ptr, ZEND_STRL("requestMethods"), PH_NOISY_CC | PH_READONLY);
 		ZEPHIR_OBS_VAR(&_5$$4);
-		zephir_array_fetch_string(&_5$$4, &values, SL("method"), PH_NOISY, "yuga/Route/Router/Route.zep", 668);
+		zephir_array_fetch_string(&_5$$4, &values, SL("method"), PH_NOISY, "yuga/Route/Router/Route.zep", 679);
 		zephir_get_arrval(&_6$$4, &_5$$4);
 		zephir_fast_array_merge(&_3$$4, &_4$$4, &_6$$4);
 		ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequestmethods", NULL, 0, &_3$$4);
@@ -2163,7 +2162,7 @@ PHP_METHOD(Yuga_Route_Router_Route, setSettings)
 		ZEPHIR_INIT_VAR(&_7$$5);
 		zephir_read_property(&_8$$5, this_ptr, ZEND_STRL("where"), PH_NOISY_CC | PH_READONLY);
 		ZEPHIR_OBS_VAR(&_9$$5);
-		zephir_array_fetch_string(&_9$$5, &values, SL("where"), PH_NOISY, "yuga/Route/Router/Route.zep", 672);
+		zephir_array_fetch_string(&_9$$5, &values, SL("where"), PH_NOISY, "yuga/Route/Router/Route.zep", 683);
 		zephir_get_arrval(&_10$$5, &_9$$5);
 		zephir_fast_array_merge(&_7$$5, &_8$$5, &_10$$5);
 		ZEPHIR_CALL_METHOD(NULL, this_ptr, "setwhere", NULL, 0, &_7$$5);
@@ -2173,7 +2172,7 @@ PHP_METHOD(Yuga_Route_Router_Route, setSettings)
 		ZEPHIR_INIT_VAR(&_11$$6);
 		zephir_read_property(&_12$$6, this_ptr, ZEND_STRL("parameters"), PH_NOISY_CC | PH_READONLY);
 		ZEPHIR_OBS_VAR(&_13$$6);
-		zephir_array_fetch_string(&_13$$6, &values, SL("parameters"), PH_NOISY, "yuga/Route/Router/Route.zep", 676);
+		zephir_array_fetch_string(&_13$$6, &values, SL("parameters"), PH_NOISY, "yuga/Route/Router/Route.zep", 687);
 		zephir_get_arrval(&_14$$6, &_13$$6);
 		zephir_fast_array_merge(&_11$$6, &_12$$6, &_14$$6);
 		ZEPHIR_CALL_METHOD(NULL, this_ptr, "setparameters", NULL, 0, &_11$$6);
@@ -2182,7 +2181,7 @@ PHP_METHOD(Yuga_Route_Router_Route, setSettings)
 	if (zephir_array_isset_string(&values, SL("middleware"))) {
 		ZEPHIR_INIT_VAR(&_15$$7);
 		ZEPHIR_OBS_VAR(&_16$$7);
-		zephir_array_fetch_string(&_16$$7, &values, SL("middleware"), PH_NOISY, "yuga/Route/Router/Route.zep", 681);
+		zephir_array_fetch_string(&_16$$7, &values, SL("middleware"), PH_NOISY, "yuga/Route/Router/Route.zep", 692);
 		zephir_get_arrval(&_17$$7, &_16$$7);
 		zephir_read_property(&_18$$7, this_ptr, ZEND_STRL("middlewares"), PH_NOISY_CC | PH_READONLY);
 		zephir_fast_array_merge(&_15$$7, &_17$$7, &_18$$7);
@@ -2190,7 +2189,7 @@ PHP_METHOD(Yuga_Route_Router_Route, setSettings)
 		zephir_check_call_status();
 	}
 	if (zephir_array_isset_string(&values, SL("defaultParameterRegex"))) {
-		zephir_array_fetch_string(&_19$$8, &values, SL("defaultParameterRegex"), PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 685);
+		zephir_array_fetch_string(&_19$$8, &values, SL("defaultParameterRegex"), PH_NOISY | PH_READONLY, "yuga/Route/Router/Route.zep", 696);
 		ZEPHIR_CALL_METHOD(NULL, this_ptr, "setdefaultparameterregex", NULL, 0, &_19$$8);
 		zephir_check_call_status();
 	}
@@ -2530,18 +2529,22 @@ void zephir_init_static_properties_Yuga_Route_Router_Route()
 
 zend_object *zephir_init_properties_Yuga_Route_Router_Route(zend_class_entry *class_type)
 {
-		zval _0, _2, _4, _6, _8, _1$$3, _3$$4, _5$$5, _7$$6, _9$$7;
+		zval _11$$8;
+	zval _0, _2, _4, _6, _8, _10, _1$$3, _3$$4, _5$$5, _7$$6, _9$$7, _12$$8;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 		ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
 	ZVAL_UNDEF(&_4);
 	ZVAL_UNDEF(&_6);
 	ZVAL_UNDEF(&_8);
+	ZVAL_UNDEF(&_10);
 	ZVAL_UNDEF(&_1$$3);
 	ZVAL_UNDEF(&_3$$4);
 	ZVAL_UNDEF(&_5$$5);
 	ZVAL_UNDEF(&_7$$6);
 	ZVAL_UNDEF(&_9$$7);
+	ZVAL_UNDEF(&_12$$8);
+	ZVAL_UNDEF(&_11$$8);
 	
 
 		ZEPHIR_MM_GROW();
@@ -2578,6 +2581,18 @@ zend_object *zephir_init_properties_Yuga_Route_Router_Route(zend_class_entry *cl
 			ZEPHIR_INIT_VAR(&_9$$7);
 			array_init(&_9$$7);
 			zephir_update_property_zval_ex(this_ptr, ZEND_STRL("requestMethods"), &_9$$7);
+		}
+		zephir_read_property_ex(&_10, this_ptr, ZEND_STRL("paramModifiers"), PH_NOISY_CC | PH_READONLY);
+		if (Z_TYPE_P(&_10) == IS_NULL) {
+			ZEPHIR_INIT_VAR(&_11$$8);
+			zephir_create_array(&_11$$8, 2, 0);
+			ZEPHIR_INIT_VAR(&_12$$8);
+			ZVAL_STRING(&_12$$8, "{");
+			zephir_array_fast_append(&_11$$8, &_12$$8);
+			ZEPHIR_INIT_NVAR(&_12$$8);
+			ZVAL_STRING(&_12$$8, "}");
+			zephir_array_fast_append(&_11$$8, &_12$$8);
+			zephir_update_property_zval_ex(this_ptr, ZEND_STRL("paramModifiers"), &_11$$8);
 		}
 		ZEPHIR_MM_RESTORE();
 		return Z_OBJ_P(this_ptr);

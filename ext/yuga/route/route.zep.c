@@ -984,14 +984,19 @@ PHP_METHOD(Yuga_Route_Route, getUrl)
 {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *name = NULL, name_sub, *parameters = NULL, parameters_sub, *getParams = NULL, getParams_sub, __$null, _0;
+	zval *name = NULL, name_sub, *parameters = NULL, parameters_sub, *getParams = NULL, getParams_sub, __$null, e, exce, _1, _0$$3, _2$$5, _3$$4;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&name_sub);
 	ZVAL_UNDEF(&parameters_sub);
 	ZVAL_UNDEF(&getParams_sub);
 	ZVAL_NULL(&__$null);
-	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&e);
+	ZVAL_UNDEF(&exce);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_0$$3);
+	ZVAL_UNDEF(&_2$$5);
+	ZVAL_UNDEF(&_3$$4);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(0, 3)
@@ -1019,11 +1024,48 @@ PHP_METHOD(Yuga_Route_Route, getUrl)
 	}
 
 
-	ZEPHIR_CALL_SELF(&_0, "router", NULL, 0);
-	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_METHOD(&_0, "geturl", NULL, 0, name, parameters, getParams);
-	zephir_check_call_status();
-	RETURN_MM();
+
+	/* try_start_1: */
+
+		ZEPHIR_CALL_SELF(&_0$$3, "router", NULL, 0);
+		zephir_check_call_status_or_jump(try_end_1);
+		ZEPHIR_RETURN_CALL_METHOD(&_0$$3, "geturl", NULL, 0, name, parameters, getParams);
+		zephir_check_call_status_or_jump(try_end_1);
+		RETURN_MM();
+
+	try_end_1:
+
+	if (EG(exception)) {
+		ZEPHIR_INIT_VAR(&_1);
+		ZVAL_OBJ(&_1, EG(exception));
+		Z_ADDREF_P(&_1);
+		if (zephir_is_instance_of(&_1, SL("Exception"))) {
+			zend_clear_exception();
+			ZEPHIR_CPY_WRT(&e, &_1);
+
+			/* try_start_2: */
+
+				object_init_ex(return_value, yuga_http_uri_ce);
+				ZEPHIR_INIT_VAR(&_2$$5);
+				ZVAL_STRING(&_2$$5, "/");
+				ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 83, &_2$$5);
+				zephir_check_call_status_or_jump(try_end_2);
+				RETURN_MM();
+
+			try_end_2:
+
+			if (EG(exception)) {
+				ZEPHIR_INIT_VAR(&_3$$4);
+				ZVAL_OBJ(&_3$$4, EG(exception));
+				Z_ADDREF_P(&_3$$4);
+				if (zephir_instance_of_ev(&_3$$4, yuga_http_exceptions_badformedurlexception_ce)) {
+					zend_clear_exception();
+					ZEPHIR_CPY_WRT(&exce, &_3$$4);
+				}
+			}
+		}
+	}
+	RETURN_MM_NULL();
 }
 
 /**
@@ -1082,9 +1124,9 @@ PHP_METHOD(Yuga_Route_Route, response)
 		object_init_ex(&_3$$3, yuga_http_redirect_ce);
 		ZEPHIR_CALL_SELF(&_4$$3, "request", NULL, 0);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 83, &_4$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 84, &_4$$3);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 84, &_2$$3, &_3$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 85, &_2$$3, &_3$$3);
 		zephir_check_call_status();
 		zephir_update_static_property_ce(yuga_route_route_ce, ZEND_STRL("response"), &_1$$3);
 	}

@@ -3,10 +3,11 @@ namespace Yuga\Support;
 use Countable;
 use ArrayAccess;
 use Traversable;
+use ArrayIterator;
 use JsonSerializable;
 use IteratorAggregate;
 
-class Config //implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
+class Config implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
     protected data;
     protected defaultValue = null;

@@ -516,7 +516,8 @@ PHP_METHOD(Yuga_Route_Router_RouteGroup, toArray)
 
 zend_object *zephir_init_properties_Yuga_Route_Router_RouteGroup(zend_class_entry *class_type)
 {
-		zval _0, _2, _4, _6, _8, _10, _12, _1$$3, _3$$4, _5$$5, _7$$6, _9$$7, _11$$8, _13$$9;
+		zval _13$$9;
+	zval _0, _2, _4, _6, _8, _10, _12, _15, _1$$3, _3$$4, _5$$5, _7$$6, _9$$7, _11$$8, _14$$9, _16$$10;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 		ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
@@ -525,12 +526,15 @@ zend_object *zephir_init_properties_Yuga_Route_Router_RouteGroup(zend_class_entr
 	ZVAL_UNDEF(&_8);
 	ZVAL_UNDEF(&_10);
 	ZVAL_UNDEF(&_12);
+	ZVAL_UNDEF(&_15);
 	ZVAL_UNDEF(&_1$$3);
 	ZVAL_UNDEF(&_3$$4);
 	ZVAL_UNDEF(&_5$$5);
 	ZVAL_UNDEF(&_7$$6);
 	ZVAL_UNDEF(&_9$$7);
 	ZVAL_UNDEF(&_11$$8);
+	ZVAL_UNDEF(&_14$$9);
+	ZVAL_UNDEF(&_16$$10);
 	ZVAL_UNDEF(&_13$$9);
 	
 
@@ -575,11 +579,23 @@ zend_object *zephir_init_properties_Yuga_Route_Router_RouteGroup(zend_class_entr
 			array_init(&_11$$8);
 			zephir_update_property_zval_ex(this_ptr, ZEND_STRL("requestMethods"), &_11$$8);
 		}
-		zephir_read_property_ex(&_12, this_ptr, ZEND_STRL("domains"), PH_NOISY_CC | PH_READONLY);
+		zephir_read_property_ex(&_12, this_ptr, ZEND_STRL("paramModifiers"), PH_NOISY_CC | PH_READONLY);
 		if (Z_TYPE_P(&_12) == IS_NULL) {
 			ZEPHIR_INIT_VAR(&_13$$9);
-			array_init(&_13$$9);
-			zephir_update_property_zval_ex(this_ptr, ZEND_STRL("domains"), &_13$$9);
+			zephir_create_array(&_13$$9, 2, 0);
+			ZEPHIR_INIT_VAR(&_14$$9);
+			ZVAL_STRING(&_14$$9, "{");
+			zephir_array_fast_append(&_13$$9, &_14$$9);
+			ZEPHIR_INIT_NVAR(&_14$$9);
+			ZVAL_STRING(&_14$$9, "}");
+			zephir_array_fast_append(&_13$$9, &_14$$9);
+			zephir_update_property_zval_ex(this_ptr, ZEND_STRL("paramModifiers"), &_13$$9);
+		}
+		zephir_read_property_ex(&_15, this_ptr, ZEND_STRL("domains"), PH_NOISY_CC | PH_READONLY);
+		if (Z_TYPE_P(&_15) == IS_NULL) {
+			ZEPHIR_INIT_VAR(&_16$$10);
+			array_init(&_16$$10);
+			zephir_update_property_zval_ex(this_ptr, ZEND_STRL("domains"), &_16$$10);
 		}
 		ZEPHIR_MM_RESTORE();
 		return Z_OBJ_P(this_ptr);

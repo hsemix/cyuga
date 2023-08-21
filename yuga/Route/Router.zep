@@ -129,7 +129,7 @@ class Router
          * route being added are rendered from the parent routes callback,
          * so we add them to the stack instead.
          */
-        if (this->processingRoute === true) {
+        if (this->processingRoute == true) {
             let this->routeStack[] = route;
         } else {
             let this->routes[] = route;
@@ -146,7 +146,7 @@ class Router
      * @param IRoute|null parent
      * @throws NotFoundHttpException
      */
-    protected function processRoutes(array routes, <IGroupRoute> group = null, <IRoute> parent = null)
+    protected function processRoutes(array routes, <IGroupRoute> group = null, <IRoute> parentRoute = null)
     {
         // Loop through each route-request
         // max = count(routes) - 1;
@@ -154,6 +154,12 @@ class Router
         var exceptionHandlers = [], route, url;
 
         let url = (this->request->getRewriteUrl() !== null) ? this->request->getRewriteUrl() : this->request->getUri();
+
+        // echo "<pre>";
+        
+        // print_r(routes);
+        // exit();
+        // exit();
         /* @var route IRoute */
         // for (i = max; i >= 0; i--) {
         for (route in routes) {
@@ -181,17 +187,17 @@ class Router
 
             if (group !== null) {
 
-                /* Add the parent group */
+                /* Add the parentRoute group */
                 route->setGroup(group);
             }
 
-            if (parent !== null) {
+            if (parentRoute !== null) {
 
-                /* Add the parent route */
-                route->setParent(parent);
+                /* Add the parentRoute route */
+                route->setParent(parentRoute);
 
-                /* Add/merge parent settings with child */
-                route->setSettings(parent->toArray(), true);
+                /* Add/merge parentRoute settings with child */
+                route->setSettings(parentRoute->toArray(), true);
 
             }
 
@@ -201,6 +207,10 @@ class Router
                 let this->processedRoutes[] = route;
             }
 
+            // echo "<pre>";
+            // print_r(parentRoute);
+
+            // exit();
             if (count(this->routeStack) > 0) {
 
                 /* Pop and grab the routes added when executing group callback earlier */
@@ -264,7 +274,12 @@ class Router
 
             /* @var route ILoadableRoute */
             var i, route, processedRoutes = this->processedRoutes;
-            // for (i = max; i >= 0; i--) {
+            // for (i = 4; i >= 0; i--) {
+            // }
+
+            // echo "<pre>";
+
+            // print_r(processedRoutes);
             for i, route in processedRoutes {
 
                 // route = this->processedRoutes[i];
@@ -272,6 +287,9 @@ class Router
                 /* If the route matches */
                 if (route->matchRoute(url, this->request) === true) {
 
+                    // echo "<pre>";
+                    // print_r(route->matchRoute(url, this->request));
+                    // exit();
                     /* Check if request method matches */
                     if (count(route->getRequestMethods()) > 0 && in_array(this->request->getMethod(), route->getRequestMethods(), false) === false) {
                         let routeNotAllowed = true;
@@ -282,8 +300,9 @@ class Router
 
                     var rewriteRoute = this->request->getRewriteRoute();
 
-                    if (rewriteRoute !== null) {
+                    if (rewriteRoute != null) {
                         rewriteRoute->loadMiddleware(this->request);
+
                         rewriteRoute->renderRoute(this->request);
 
                         return;
@@ -293,8 +312,8 @@ class Router
                     let rewriteUrl = this->request->getRewriteUrl();
 
                     if (rewriteUrl !== null && rewriteUrl !== url) {
-                        unset(this->processedRoutes[i]);
-                        let this->processedRoutes = array_values(this->processedRoutes);
+                        unset(processedRoutes[i]);
+                        let this->processedRoutes = array_values(processedRoutes);
                         this->routeRequest(true);
 
                         return;
@@ -303,11 +322,20 @@ class Router
                     /* Render route */
                     let routeNotAllowed = false;
                     this->request->setLoadedRoute(route);
+
+                    // echo "<pre>";
+                    // print_r(route);
+                    // exit();
+
                     route->renderRoute(this->request);
 
                     break;
                 }
             }
+
+            // echo "<pre>";
+            // print_r(this->request->getLoadedRoute());
+            // exit();
 
         } catch Exception, e {
             this->handleException(e);
@@ -339,7 +367,7 @@ class Router
     // protected function matchRoutesToControllers(Request request)
     // {
     //     url = explode("/", filter_var(trim((strpos(request->getHost(), ":") !== false) ? request->getUri(true) : request->getUri(), "/"), FILTER_SANITIZE_URL));
-    //     if (url[0] != "" && url[0] != "/") {
+    //     if (url[0] !== "" && url[0] !== "/") {
     //         this->defaultRouteCollection["controller"] = ucfirst(Str::camelize(str_replace("-", "_", url[0])));
     //         unset(url[0]);
     //     }
@@ -486,7 +514,7 @@ class Router
             }
 
             /* Check if callback matches (if it"s not a function) */
-            if (is_string(name) === true && is_string(route->getCallback()) && strpos(name, "@") != false && strpos(route->getCallback(), "@") !== false && is_callable(route->getCallback()) === false) {
+            if (is_string(name) === true && is_string(route->getCallback()) && strpos(name, "@") !== false && strpos(route->getCallback(), "@") !== false && is_callable(route->getCallback()) === false) {
 
                 /* Check if the entire callback is matching */
                 if (strpos(route->getCallback(), name) === 0 || strtolower(route->getCallback()) === strtolower(name)) {
@@ -523,7 +551,7 @@ class Router
      */
     public function getUrl(name = null, parameters = null, getParams = null)
     {
-        if (getParams !== null && is_array(getParams) === false) {
+        if (getParams !== null && is_array(getParams) == false) {
             throw new \InvalidArgumentException("Invalid type for getParams. Must be array or null");
         }
 

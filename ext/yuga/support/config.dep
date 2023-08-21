@@ -166,8 +166,10 @@ yuga/support/config.lo: \
  /usr/include/php/20210902/Zend/zend_string.h \
  /usr/include/php/20210902/Zend/zend.h \
  /usr/include/php/20210902/Zend/zend_constants.h kernel/exception.h \
- kernel/memory.h php_ext.h php_yuga.h kernel/globals.h kernel/string.h \
+ /usr/include/php/20210902/ext/json/php_json.h kernel/memory.h php_ext.h \
+ php_yuga.h kernel/globals.h kernel/string.h \
  /usr/include/php/20210902/Zend/zend_smart_str.h kernel/fcall.h \
  kernel/fcall_internal.h /usr/include/php/20210902/Zend/zend_hash.h \
  kernel/concat.h kernel/require.h kernel/operators.h kernel/object.h \
- kernel/array.h
+ kernel/array.h /usr/include/php/20210902/ext/spl/spl_array.h \
+ /usr/include/php/20210902/ext/spl/spl_iterators.h
