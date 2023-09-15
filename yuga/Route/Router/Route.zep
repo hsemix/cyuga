@@ -246,7 +246,7 @@ abstract class Route implements IRoute
         
         
         if (method_exists(classValue, method) === false) {
-            // exception = NotFoundHttpException::class;
+            var exceptionClass = "Yuga\\Route\\Exceptions\\NotFoundHttpException";
             // if (env('DEBUG_MODE_SETTINGS', '{"controller_missing": true, "method_missing": true}') !== null) {
             //     debugSettings = json_decode(env('DEBUG_MODE_SETTINGS', '{"controller_missing": true, "method_missing": true}'), true);
                 
@@ -256,7 +256,7 @@ abstract class Route implements IRoute
             //         } 
             //     }
             // }
-            throw new exception(sprintf("Method '%s' does not exist in class '%s'", method, className), 404);
+            throw new {exceptionClass}(sprintf("Method '%s' does not exist in class '%s'", method, className), 404);
         }
 
         var parameters = this->getParameters();

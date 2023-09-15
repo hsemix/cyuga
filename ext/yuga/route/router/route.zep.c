@@ -362,13 +362,13 @@ PHP_METHOD(Yuga_Route_Router_Route, runMiddleware)
 
 PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 {
-	zend_class_entry *_19$$13 = NULL;
+	zend_class_entry *_20$$13;
 	zend_bool _14$$7, _5$$10;
-	zval _26;
+	zval _27;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zephir_fcall_cache_entry *_1 = NULL, *_12 = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *request, request_sub, callback, classValue, result, controller, method, className, parameters, _23, _27, middleware$$5, _0$$5, _2$$6, controller$$7, _3$$7, namespaceValue$$7, _15$$7, _16$$7, viewModel$$8, _4$$8, _6$$10, _7$$10, _9$$10, _10$$10, _11$$10, _13$$10, _8$$11, _17$$12, _18$$13, _20$$13, _21$$13, _22$$13, _24$$14, _25$$14;
+	zval *request, request_sub, callback, classValue, result, controller, method, className, parameters, _24, _28, middleware$$5, _0$$5, _2$$6, controller$$7, _3$$7, namespaceValue$$7, _15$$7, _16$$7, viewModel$$8, _4$$8, _6$$10, _7$$10, _9$$10, _10$$10, _11$$10, _13$$10, _8$$11, _17$$12, exceptionClass$$13, _18$$13, _19$$13, _21$$13, _22$$13, _23$$13, _25$$14, _26$$14;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&request_sub);
@@ -379,8 +379,8 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 	ZVAL_UNDEF(&method);
 	ZVAL_UNDEF(&className);
 	ZVAL_UNDEF(&parameters);
-	ZVAL_UNDEF(&_23);
-	ZVAL_UNDEF(&_27);
+	ZVAL_UNDEF(&_24);
+	ZVAL_UNDEF(&_28);
 	ZVAL_UNDEF(&middleware$$5);
 	ZVAL_UNDEF(&_0$$5);
 	ZVAL_UNDEF(&_2$$6);
@@ -399,13 +399,15 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 	ZVAL_UNDEF(&_13$$10);
 	ZVAL_UNDEF(&_8$$11);
 	ZVAL_UNDEF(&_17$$12);
+	ZVAL_UNDEF(&exceptionClass$$13);
 	ZVAL_UNDEF(&_18$$13);
-	ZVAL_UNDEF(&_20$$13);
+	ZVAL_UNDEF(&_19$$13);
 	ZVAL_UNDEF(&_21$$13);
 	ZVAL_UNDEF(&_22$$13);
-	ZVAL_UNDEF(&_24$$14);
+	ZVAL_UNDEF(&_23$$13);
 	ZVAL_UNDEF(&_25$$14);
-	ZVAL_UNDEF(&_26);
+	ZVAL_UNDEF(&_26$$14);
+	ZVAL_UNDEF(&_27);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
@@ -510,18 +512,22 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 		zephir_array_fetch_long(&method, &controller$$7, 1, PH_NOISY, "yuga/Route/Router/Route.zep", 244);
 	}
 	if ((zephir_method_exists(&classValue, &method)  == SUCCESS) == 0) {
+		ZEPHIR_INIT_VAR(&exceptionClass$$13);
+		ZVAL_STRING(&exceptionClass$$13, "Yuga\\Route\\Exceptions\\NotFoundHttpException");
 		ZEPHIR_INIT_VAR(&_18$$13);
-		if (!_19$$13) {
-		_19$$13 = zephir_fetch_class_str_ex(SL("Yuga\\Route\\Router\\exception"), ZEND_FETCH_CLASS_AUTO);
+		zephir_fetch_safe_class(&_19$$13, &exceptionClass$$13);
+		_20$$13 = zephir_fetch_class_str_ex(Z_STRVAL_P(&_19$$13), Z_STRLEN_P(&_19$$13), ZEND_FETCH_CLASS_AUTO);
+		if(!_20$$13) {
+			RETURN_MM_NULL();
 		}
-		object_init_ex(&_18$$13, _19$$13);
+		object_init_ex(&_18$$13, _20$$13);
 		if (zephir_has_constructor(&_18$$13)) {
-			ZEPHIR_INIT_VAR(&_20$$13);
-			ZVAL_STRING(&_20$$13, "Method '%s' does not exist in class '%s'");
-			ZEPHIR_CALL_FUNCTION(&_21$$13, "sprintf", &_12, 4, &_20$$13, &method, &className);
+			ZEPHIR_INIT_VAR(&_21$$13);
+			ZVAL_STRING(&_21$$13, "Method '%s' does not exist in class '%s'");
+			ZEPHIR_CALL_FUNCTION(&_22$$13, "sprintf", &_12, 4, &_21$$13, &method, &className);
 			zephir_check_call_status();
-			ZVAL_LONG(&_22$$13, 404);
-			ZEPHIR_CALL_METHOD(NULL, &_18$$13, "__construct", NULL, 0, &_21$$13, &_22$$13);
+			ZVAL_LONG(&_23$$13, 404);
+			ZEPHIR_CALL_METHOD(NULL, &_18$$13, "__construct", NULL, 0, &_22$$13, &_23$$13);
 			zephir_check_call_status();
 		}
 
@@ -531,23 +537,23 @@ PHP_METHOD(Yuga_Route_Router_Route, renderRoute)
 	}
 	ZEPHIR_CALL_METHOD(&parameters, this_ptr, "getparameters", NULL, 0);
 	zephir_check_call_status();
-	zephir_read_property(&_23, this_ptr, ZEND_STRL("filterEmptyParams"), PH_NOISY_CC | PH_READONLY);
-	if (ZEPHIR_IS_TRUE_IDENTICAL(&_23)) {
-		ZEPHIR_INIT_VAR(&_24$$14);
-		ZEPHIR_INIT_NVAR(&_24$$14);
-		zephir_create_closure_ex(&_24$$14, NULL, yuga_0__closure_ce, SL("__invoke"));
-		ZEPHIR_CALL_FUNCTION(&_25$$14, "array_filter", NULL, 6, &parameters, &_24$$14);
+	zephir_read_property(&_24, this_ptr, ZEND_STRL("filterEmptyParams"), PH_NOISY_CC | PH_READONLY);
+	if (ZEPHIR_IS_TRUE_IDENTICAL(&_24)) {
+		ZEPHIR_INIT_VAR(&_25$$14);
+		ZEPHIR_INIT_NVAR(&_25$$14);
+		zephir_create_closure_ex(&_25$$14, NULL, yuga_0__closure_ce, SL("__invoke"));
+		ZEPHIR_CALL_FUNCTION(&_26$$14, "array_filter", NULL, 6, &parameters, &_25$$14);
 		zephir_check_call_status();
-		ZEPHIR_CPY_WRT(&parameters, &_25$$14);
+		ZEPHIR_CPY_WRT(&parameters, &_26$$14);
 	}
-	ZEPHIR_INIT_VAR(&_26);
-	zephir_create_array(&_26, 2, 0);
-	zephir_array_fast_append(&_26, &classValue);
-	zephir_array_fast_append(&_26, &method);
-	ZEPHIR_CALL_METHOD(&_27, this_ptr, "methodinjection", NULL, 0, &classValue, &method, &parameters, request);
+	ZEPHIR_INIT_VAR(&_27);
+	zephir_create_array(&_27, 2, 0);
+	zephir_array_fast_append(&_27, &classValue);
+	zephir_array_fast_append(&_27, &method);
+	ZEPHIR_CALL_METHOD(&_28, this_ptr, "methodinjection", NULL, 0, &classValue, &method, &parameters, request);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&result);
-	ZEPHIR_CALL_USER_FUNC_ARRAY(&result, &_26, &_27);
+	ZEPHIR_CALL_USER_FUNC_ARRAY(&result, &_27, &_28);
 	zephir_check_call_status();
 	zend_print_zval(&result, 0);
 	ZEPHIR_MM_RESTORE();

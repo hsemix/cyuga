@@ -24,22 +24,24 @@
 
 
 zend_class_entry *yuga_route_support_iroute_ce;
-zend_class_entry *yuga_route_support_iloadableroute_ce;
 zend_class_entry *yuga_interfaces_providers_serviceproviderinterface_ce;
+zend_class_entry *yuga_route_support_iloadableroute_ce;
 zend_class_entry *yuga_eventhandlers_handlerinterface_ce;
 zend_class_entry *yuga_exceptions_iexception_ce;
 zend_class_entry *yuga_interfaces_http_input_inputiteminterface_ce;
+zend_class_entry *yuga_interfaces_session_isession_ce;
 zend_class_entry *yuga_route_support_icontrollerroute_ce;
 zend_class_entry *yuga_interfaces_application_application_ce;
 zend_class_entry *yuga_interfaces_events_dispatcherinterface_ce;
 zend_class_entry *yuga_route_support_igrouproute_ce;
 zend_class_entry *yuga_route_support_irouterbootmanager_ce;
 zend_class_entry *yuga_route_router_route_ce;
+zend_class_entry *yuga_providers_serviceprovider_ce;
 zend_class_entry *yuga_route_exceptions_httpexception_ce;
 zend_class_entry *yuga_route_router_loadableroute_ce;
-zend_class_entry *yuga_providers_serviceprovider_ce;
 zend_class_entry *yuga_container_container_ce;
 zend_class_entry *yuga_exceptions_routeexceptionhandler_ce;
+zend_class_entry *yuga_session_session_ce;
 zend_class_entry *yuga_0__closure_ce;
 zend_class_entry *yuga_10__closure_ce;
 zend_class_entry *yuga_1__closure_ce;
@@ -88,6 +90,8 @@ zend_class_entry *yuga_route_router_routegroup_ce;
 zend_class_entry *yuga_route_router_routeresource_ce;
 zend_class_entry *yuga_route_router_routeurl_ce;
 zend_class_entry *yuga_route_routeserviceprovider_ce;
+zend_class_entry *yuga_session_messagebag_ce;
+zend_class_entry *yuga_session_sessionserviceprovider_ce;
 zend_class_entry *yuga_support_config_ce;
 zend_class_entry *yuga_support_helpers_ce;
 zend_class_entry *yuga_support_str_ce;
@@ -103,22 +107,24 @@ static PHP_MINIT_FUNCTION(yuga)
 	REGISTER_INI_ENTRIES();
 	zephir_module_init();
 	ZEPHIR_INIT(Yuga_Route_Support_IRoute);
-	ZEPHIR_INIT(Yuga_Route_Support_ILoadableRoute);
 	ZEPHIR_INIT(Yuga_Interfaces_Providers_ServiceProviderInterface);
+	ZEPHIR_INIT(Yuga_Route_Support_ILoadableRoute);
 	ZEPHIR_INIT(Yuga_EventHandlers_HandlerInterface);
 	ZEPHIR_INIT(Yuga_Exceptions_IException);
 	ZEPHIR_INIT(Yuga_Interfaces_Http_Input_InputItemInterface);
+	ZEPHIR_INIT(Yuga_Interfaces_Session_ISession);
 	ZEPHIR_INIT(Yuga_Route_Support_IControllerRoute);
 	ZEPHIR_INIT(Yuga_Interfaces_Application_Application);
 	ZEPHIR_INIT(Yuga_Interfaces_Events_DispatcherInterface);
 	ZEPHIR_INIT(Yuga_Route_Support_IGroupRoute);
 	ZEPHIR_INIT(Yuga_Route_Support_IRouterBootManager);
 	ZEPHIR_INIT(Yuga_Route_Router_Route);
+	ZEPHIR_INIT(Yuga_Providers_ServiceProvider);
 	ZEPHIR_INIT(Yuga_Route_Exceptions_HttpException);
 	ZEPHIR_INIT(Yuga_Route_Router_LoadableRoute);
-	ZEPHIR_INIT(Yuga_Providers_ServiceProvider);
 	ZEPHIR_INIT(Yuga_Container_Container);
 	ZEPHIR_INIT(Yuga_Exceptions_RouteExceptionHandler);
+	ZEPHIR_INIT(Yuga_Session_Session);
 	ZEPHIR_INIT(Yuga_App);
 	ZEPHIR_INIT(Yuga_Application_Application);
 	ZEPHIR_INIT(Yuga_AutoLoader);
@@ -156,6 +162,8 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Route_Router_RouteGroup);
 	ZEPHIR_INIT(Yuga_Route_Router_RouteResource);
 	ZEPHIR_INIT(Yuga_Route_Router_RouteUrl);
+	ZEPHIR_INIT(Yuga_Session_MessageBag);
+	ZEPHIR_INIT(Yuga_Session_SessionServiceProvider);
 	ZEPHIR_INIT(Yuga_Support_Config);
 	ZEPHIR_INIT(Yuga_Support_Helpers);
 	ZEPHIR_INIT(Yuga_Support_Str);
@@ -223,6 +231,7 @@ static PHP_RINIT_FUNCTION(yuga)
 		zephir_init_static_properties_Yuga_Route_Router_Route();
 		zephir_init_static_properties_Yuga_Providers_ServiceProvider();
 		zephir_init_static_properties_Yuga_Container_Container();
+		zephir_init_static_properties_Yuga_Session_Session();
 	
 	return SUCCESS;
 }

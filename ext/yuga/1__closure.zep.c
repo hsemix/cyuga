@@ -38,7 +38,7 @@ PHP_METHOD(yuga_1__closure, __invoke)
 	ZEPHIR_MM_GROW();
 	zephir_read_static_property_ce(&carbon, yuga_1__closure_ce, SL("carbon"), PH_NOISY_CC);
 
-	ZEPHIR_RETURN_CALL_FUNCTION("get_object_vars", NULL, 102, &carbon);
+	ZEPHIR_RETURN_CALL_FUNCTION("get_object_vars", NULL, 106, &carbon);
 	zephir_check_call_status();
 	RETURN_MM();
 }

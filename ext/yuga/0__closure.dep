@@ -94,20 +94,22 @@ yuga/0__closure.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/support/iroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/router/route.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/support/iloadableroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/support/iloadableroute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/exceptions/httpexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/router/loadableroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/exceptions/iexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/http/input/inputiteminterface.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/providers/serviceprovider.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/session/isession.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/support/icontrollerroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/exceptions/routeexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/support/igrouproute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/session/session.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/app.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/autoloader.zep.h \
@@ -146,6 +148,8 @@ yuga/0__closure.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/session/messagebag.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/session/sessionserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/support/str.zep.h \

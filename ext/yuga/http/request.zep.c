@@ -82,7 +82,7 @@ PHP_METHOD(Yuga_Http_Request, __construct)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("uri"), &_3);
 	ZEPHIR_INIT_NVAR(&_1);
 	object_init_ex(&_1, yuga_http_input_input_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 67, this_ptr);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 71, this_ptr);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("input"), &_1);
 	ZEPHIR_INIT_VAR(&_4);
@@ -815,7 +815,7 @@ PHP_METHOD(Yuga_Http_Request, create)
 	ZEPHIR_MM_GROW();
 
 	object_init_ex(return_value, yuga_http_request_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 21);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 26);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -1583,7 +1583,7 @@ PHP_METHOD(Yuga_Http_Request, setRewriteCallback)
 	ZEPHIR_INIT_VAR(&_0);
 	object_init_ex(&_0, yuga_route_router_routeurl_ce);
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("uri"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 68, &_1, callback);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 72, &_1, callback);
 	zephir_check_call_status();
 	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "setrewriteroute", NULL, 0, &_0);
 	zephir_check_call_status();

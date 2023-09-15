@@ -278,7 +278,7 @@ PHP_METHOD(Yuga_Carbon_Carbon, safeCreateDateTimeZone)
 
 	if (Z_TYPE_P(objectVal) == IS_NULL) {
 		object_init_ex(return_value, php_date_get_timezone_ce());
-		ZEPHIR_CALL_FUNCTION(&_0$$3, "date_default_timezone_get", NULL, 26);
+		ZEPHIR_CALL_FUNCTION(&_0$$3, "date_default_timezone_get", NULL, 31);
 		zephir_check_call_status();
 		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 0, &_0$$3);
 		zephir_check_call_status();
@@ -290,14 +290,14 @@ PHP_METHOD(Yuga_Carbon_Carbon, safeCreateDateTimeZone)
 	}
 	if (zephir_is_numeric(objectVal)) {
 		ZVAL_LONG(&_1$$5, (zephir_get_numberval(objectVal) * 3600));
-		ZEPHIR_CALL_FUNCTION(&tzName$$5, "timezone_name_from_abbr", NULL, 27, &__$null, &_1$$5, &__$true);
+		ZEPHIR_CALL_FUNCTION(&tzName$$5, "timezone_name_from_abbr", NULL, 32, &__$null, &_1$$5, &__$true);
 		zephir_check_call_status();
 		if (ZEPHIR_IS_FALSE_IDENTICAL(&tzName$$5)) {
 			ZEPHIR_INIT_VAR(&_2$$6);
 			object_init_ex(&_2$$6, spl_ce_InvalidArgumentException);
 			ZEPHIR_INIT_VAR(&_3$$6);
 			ZEPHIR_CONCAT_SVS(&_3$$6, "Unknown or bad timezone (", objectVal, ")");
-			ZEPHIR_CALL_METHOD(NULL, &_2$$6, "__construct", NULL, 28, &_3$$6);
+			ZEPHIR_CALL_METHOD(NULL, &_2$$6, "__construct", NULL, 33, &_3$$6);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_2$$6, "yuga/Carbon/Carbon.zep", 102);
 			ZEPHIR_MM_RESTORE();
@@ -306,14 +306,14 @@ PHP_METHOD(Yuga_Carbon_Carbon, safeCreateDateTimeZone)
 		ZEPHIR_CPY_WRT(objectVal, &tzName$$5);
 	}
 	zephir_cast_to_string(&_4, objectVal);
-	ZEPHIR_CALL_FUNCTION(&tz, "timezone_open", NULL, 29, &_4);
+	ZEPHIR_CALL_FUNCTION(&tz, "timezone_open", NULL, 34, &_4);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&tz)) {
 		ZEPHIR_INIT_VAR(&_5$$7);
 		object_init_ex(&_5$$7, spl_ce_InvalidArgumentException);
 		ZEPHIR_INIT_VAR(&_6$$7);
 		ZEPHIR_CONCAT_SVS(&_6$$7, "Unknown or bad timezone (", objectVal, ")");
-		ZEPHIR_CALL_METHOD(NULL, &_5$$7, "__construct", NULL, 28, &_6$$7);
+		ZEPHIR_CALL_METHOD(NULL, &_5$$7, "__construct", NULL, 33, &_6$$7);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_5$$7, "yuga/Carbon/Carbon.zep", 111);
 		ZEPHIR_MM_RESTORE();
@@ -358,7 +358,7 @@ PHP_METHOD(Yuga_Carbon_Carbon, now)
 
 	object_init_ex(return_value, yuga_carbon_carbon_ce);
 	ZVAL_NULL(&_0);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 30, &_0, tz);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 35, &_0, tz);
 	zephir_check_call_status();
 	RETURN_MM();
 }

@@ -86,20 +86,22 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  /usr/include/php/20210902/main/php_reentrancy.h php_ext.h php_yuga.h \
  kernel/globals.h /usr/include/php/20210902/ext/standard/php_string.h \
  ext.h yuga.h yuga/route/support/iroute.zep.h \
- yuga/route/router/route.zep.h yuga/route/support/iloadableroute.zep.h \
+ yuga/route/router/route.zep.h \
  yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ yuga/route/support/iloadableroute.zep.h \
+ yuga/providers/serviceprovider.zep.h \
  yuga/route/exceptions/httpexception.zep.h \
  yuga/route/router/loadableroute.zep.h \
  yuga/eventhandlers/handlerinterface.zep.h \
  yuga/exceptions/iexception.zep.h \
  yuga/interfaces/http/input/inputiteminterface.zep.h \
- yuga/providers/serviceprovider.zep.h \
+ yuga/interfaces/session/isession.zep.h \
  yuga/route/support/icontrollerroute.zep.h yuga/container/container.zep.h \
  yuga/exceptions/routeexceptionhandler.zep.h \
  yuga/interfaces/application/application.zep.h \
  yuga/interfaces/events/dispatcherinterface.zep.h \
- yuga/route/support/igrouproute.zep.h yuga/app.zep.h \
- yuga/application/application.zep.h yuga/autoloader.zep.h \
+ yuga/route/support/igrouproute.zep.h yuga/session/session.zep.h \
+ yuga/app.zep.h yuga/application/application.zep.h yuga/autoloader.zep.h \
  yuga/booleantype.zep.h yuga/carbon/carbon.zep.h \
  yuga/container/support/classnotinstantiableexception.zep.h \
  yuga/cookie/cookie.zep.h yuga/csrftoken.zep.h \
@@ -123,13 +125,14 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/route/router.zep.h yuga/route/router/routecontroller.zep.h \
  yuga/route/router/routegroup.zep.h yuga/route/router/routeresource.zep.h \
  yuga/route/router/routeurl.zep.h \
- yuga/route/support/irouterbootmanager.zep.h yuga/support/config.zep.h \
- yuga/support/helpers.zep.h yuga/support/str.zep.h yuga/0__closure.zep.h \
- yuga/1__closure.zep.h yuga/2__closure.zep.h yuga/3__closure.zep.h \
- yuga/4__closure.zep.h yuga/5__closure.zep.h yuga/6__closure.zep.h \
- yuga/7__closure.zep.h yuga/8__closure.zep.h yuga/9__closure.zep.h \
- yuga/10__closure.zep.h kernel/main.h \
- /usr/include/php/20210902/Zend/zend_interfaces.h \
+ yuga/route/support/irouterbootmanager.zep.h \
+ yuga/session/messagebag.zep.h yuga/session/sessionserviceprovider.zep.h \
+ yuga/support/config.zep.h yuga/support/helpers.zep.h \
+ yuga/support/str.zep.h yuga/0__closure.zep.h yuga/1__closure.zep.h \
+ yuga/2__closure.zep.h yuga/3__closure.zep.h yuga/4__closure.zep.h \
+ yuga/5__closure.zep.h yuga/6__closure.zep.h yuga/7__closure.zep.h \
+ yuga/8__closure.zep.h yuga/9__closure.zep.h yuga/10__closure.zep.h \
+ kernel/main.h /usr/include/php/20210902/Zend/zend_interfaces.h \
  /usr/include/php/20210902/Zend/zend_API.h \
  /usr/include/php/20210902/ext/spl/spl_exceptions.h \
  /usr/include/php/20210902/ext/spl/php_spl.h \

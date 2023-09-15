@@ -58,7 +58,7 @@ PHP_METHOD(Yuga_BooleanType, parse)
 
 	ZVAL_LONG(&_0, 258);
 	ZVAL_LONG(&_1, 134217728);
-	ZEPHIR_CALL_FUNCTION(&boolValue, "filter_var", NULL, 25, str, &_0, &_1);
+	ZEPHIR_CALL_FUNCTION(&boolValue, "filter_var", NULL, 30, str, &_0, &_1);
 	zephir_check_call_status();
 	if (Z_TYPE_P(&boolValue) != IS_NULL) {
 		RETURN_CCTOR(&boolValue);

@@ -210,7 +210,7 @@ PHP_METHOD(Yuga_Cookie_Cookie, create)
 		if (ZEPHIR_GT_LONG(expiry, 0)) {
 			ZEPHIR_CPY_WRT(&expiryValue$$3, expiry);
 		}
-		ZEPHIR_RETURN_CALL_FUNCTION("setcookie", NULL, 31, name, value, &expiryValue$$3, path, domain, secure);
+		ZEPHIR_RETURN_CALL_FUNCTION("setcookie", NULL, 36, name, value, &expiryValue$$3, path, domain, secure);
 		zephir_check_call_status();
 		RETURN_MM();
 	}

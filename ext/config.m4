@@ -11,20 +11,22 @@ if test "$PHP_YUGA" = "yes"; then
 	AC_DEFINE(HAVE_YUGA, 1, [Whether you have Yuga])
 	yuga_sources="yuga.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c yuga/route/support/iroute.zep.c
 	yuga/route/router/route.zep.c
-	yuga/route/support/iloadableroute.zep.c
 	yuga/interfaces/providers/serviceproviderinterface.zep.c
+	yuga/route/support/iloadableroute.zep.c
+	yuga/providers/serviceprovider.zep.c
 	yuga/route/exceptions/httpexception.zep.c
 	yuga/route/router/loadableroute.zep.c
 	yuga/eventhandlers/handlerinterface.zep.c
 	yuga/exceptions/iexception.zep.c
 	yuga/interfaces/http/input/inputiteminterface.zep.c
-	yuga/providers/serviceprovider.zep.c
+	yuga/interfaces/session/isession.zep.c
 	yuga/route/support/icontrollerroute.zep.c
 	yuga/container/container.zep.c
 	yuga/exceptions/routeexceptionhandler.zep.c
 	yuga/interfaces/application/application.zep.c
 	yuga/interfaces/events/dispatcherinterface.zep.c
 	yuga/route/support/igrouproute.zep.c
+	yuga/session/session.zep.c
 	yuga/app.zep.c
 	yuga/application/application.zep.c
 	yuga/autoloader.zep.c
@@ -63,6 +65,8 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/route/router/routeresource.zep.c
 	yuga/route/router/routeurl.zep.c
 	yuga/route/support/irouterbootmanager.zep.c
+	yuga/session/messagebag.zep.c
+	yuga/session/sessionserviceprovider.zep.c
 	yuga/support/config.zep.c
 	yuga/support/helpers.zep.c
 	yuga/support/str.zep.c
@@ -79,7 +83,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/10__closure.zep.c "
 	PHP_NEW_EXTENSION(yuga, $yuga_sources, $ext_shared,, )
 	PHP_ADD_BUILD_DIR([$ext_builddir/kernel/])
-	for dir in "yuga yuga/application yuga/carbon yuga/container yuga/container/support yuga/cookie yuga/eventhandlers yuga/events yuga/events/dispatcher yuga/events/exceptions yuga/exceptions yuga/http yuga/http/exceptions yuga/http/input yuga/interfaces/application yuga/interfaces/events yuga/interfaces/http/input yuga/interfaces/providers yuga/pipeline yuga/providers yuga/route yuga/route/exceptions yuga/route/router yuga/route/support yuga/support"; do
+	for dir in "yuga yuga/application yuga/carbon yuga/container yuga/container/support yuga/cookie yuga/eventhandlers yuga/events yuga/events/dispatcher yuga/events/exceptions yuga/exceptions yuga/http yuga/http/exceptions yuga/http/input yuga/interfaces/application yuga/interfaces/events yuga/interfaces/http/input yuga/interfaces/providers yuga/interfaces/session yuga/pipeline yuga/providers yuga/route yuga/route/exceptions yuga/route/router yuga/route/support yuga/session yuga/support"; do
 		PHP_ADD_BUILD_DIR([$ext_builddir/$dir])
 	done
 	PHP_SUBST(YUGA_SHARED_LIBADD)

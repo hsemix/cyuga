@@ -94,20 +94,22 @@ yuga/eventhandlers/applicationstart.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/support/iroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/router/route.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/support/iloadableroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/interfaces/providers/serviceproviderinterface.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/support/iloadableroute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/providers/serviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/exceptions/httpexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/router/loadableroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/eventhandlers/handlerinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/exceptions/iexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/interfaces/http/input/inputiteminterface.zep.h \
- /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/providers/serviceprovider.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/interfaces/session/isession.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/support/icontrollerroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/exceptions/routeexceptionhandler.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/support/igrouproute.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/session/session.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/app.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/autoloader.zep.h \
@@ -146,6 +148,8 @@ yuga/eventhandlers/applicationstart.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/router/routeresource.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/router/routeurl.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/route/support/irouterbootmanager.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/session/messagebag.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/session/sessionserviceprovider.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/support/config.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/support/helpers.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/eventhandlers/../../yuga/support/str.zep.h \

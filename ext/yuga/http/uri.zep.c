@@ -124,7 +124,7 @@ PHP_METHOD(Yuga_Http_Uri, __construct)
 			array_init(&params$$11);
 			zephir_array_fetch_string(&_8$$11, &data$$3, SL("query"), PH_NOISY | PH_READONLY, "yuga/Http/Uri.zep", 67);
 			ZEPHIR_MAKE_REF(&params$$11);
-			ZEPHIR_CALL_FUNCTION(NULL, "parse_str", NULL, 53, &_8$$11, &params$$11);
+			ZEPHIR_CALL_FUNCTION(NULL, "parse_str", NULL, 58, &_8$$11, &params$$11);
 			ZEPHIR_UNREF(&params$$11);
 			zephir_check_call_status();
 			ZEPHIR_CALL_METHOD(NULL, this_ptr, "setparams", NULL, 0, &params$$11);
@@ -716,7 +716,7 @@ PHP_METHOD(Yuga_Http_Uri, hasParam)
 
 	ZEPHIR_CALL_METHOD(&_0, this_ptr, "getparams", NULL, 0);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_FUNCTION("\in_array", NULL, 72, name, &_0, &__$true);
+	ZEPHIR_RETURN_CALL_FUNCTION("\in_array", NULL, 76, name, &_0, &__$true);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -755,7 +755,7 @@ PHP_METHOD(Yuga_Http_Uri, removeParam)
 	if (ZEPHIR_IS_TRUE_IDENTICAL(&_0)) {
 		ZEPHIR_CALL_METHOD(&params$$3, this_ptr, "getparams", NULL, 0);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&key$$3, "\array_search", NULL, 73, name, &params$$3, &__$true);
+		ZEPHIR_CALL_FUNCTION(&key$$3, "\array_search", NULL, 77, name, &params$$3, &__$true);
 		zephir_check_call_status();
 		if (ZEPHIR_IS_TRUE_IDENTICAL(&key$$3)) {
 			zephir_array_unset(&params$$3, &key$$3, PH_SEPARATE);
@@ -814,7 +814,7 @@ PHP_METHOD(Yuga_Http_Uri, getParam)
 	if (ZEPHIR_IS_TRUE_IDENTICAL(&_0)) {
 		ZEPHIR_CALL_METHOD(&params$$3, this_ptr, "getparams", NULL, 0);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&key$$3, "\array_search", NULL, 73, name, &params$$3, &__$true);
+		ZEPHIR_CALL_FUNCTION(&key$$3, "\array_search", NULL, 77, name, &params$$3, &__$true);
 		zephir_check_call_status();
 		if (ZEPHIR_IS_TRUE_IDENTICAL(&key$$3)) {
 			ZEPHIR_OBS_NVAR(&output);
@@ -875,9 +875,9 @@ PHP_METHOD(Yuga_Http_Uri, parseUrl)
 	zephir_create_closure_ex(&_0, NULL, yuga_4__closure_ce, SL("__invoke"));
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "/[^:\\/@?&=#]+/u");
-	ZEPHIR_CALL_FUNCTION(&encodedUrl, "preg_replace_callback", NULL, 74, &_1, &_0, url);
+	ZEPHIR_CALL_FUNCTION(&encodedUrl, "preg_replace_callback", NULL, 78, &_1, &_0, url);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&parts, "parse_url", NULL, 75, &encodedUrl, component);
+	ZEPHIR_CALL_FUNCTION(&parts, "parse_url", NULL, 79, &encodedUrl, component);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&parts)) {
 		ZEPHIR_INIT_VAR(&_2$$3);
@@ -894,7 +894,7 @@ PHP_METHOD(Yuga_Http_Uri, parseUrl)
 	}
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "urldecode");
-	ZEPHIR_RETURN_CALL_FUNCTION("array_map", NULL, 66, &_1, &parts);
+	ZEPHIR_RETURN_CALL_FUNCTION("array_map", NULL, 70, &_1, &parts);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -951,7 +951,7 @@ PHP_METHOD(Yuga_Http_Uri, arrayToParams)
 			zephir_check_call_status();
 			ZEPHIR_CPY_WRT(&getParams, &_1$$4);
 		}
-		ZEPHIR_RETURN_CALL_FUNCTION("http_build_query", NULL, 76, &getParams);
+		ZEPHIR_RETURN_CALL_FUNCTION("http_build_query", NULL, 80, &getParams);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
