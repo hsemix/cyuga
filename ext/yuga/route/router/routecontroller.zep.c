@@ -134,20 +134,20 @@ PHP_METHOD(Yuga_Route_Router_RouteController, hasName)
 	if (!ZEPHIR_IS_FALSE_IDENTICAL(&_2)) {
 		ZEPHIR_INIT_VAR(&_3$$4);
 		ZVAL_STRING(&_3$$4, ".");
-		ZEPHIR_CALL_FUNCTION(&_4$$4, "strrpos", &_5, 88, name, &_3$$4);
+		ZEPHIR_CALL_FUNCTION(&_4$$4, "strrpos", &_5, 94, name, &_3$$4);
 		zephir_check_call_status();
 		ZVAL_LONG(&_6$$4, (zephir_get_numberval(&_4$$4) + 1));
 		ZEPHIR_INIT_VAR(&method$$4);
 		zephir_substr(&method$$4, name, zephir_get_intval(&_6$$4), 0, ZEPHIR_SUBSTR_NO_LENGTH);
 		ZEPHIR_INIT_NVAR(&_3$$4);
 		ZVAL_STRING(&_3$$4, ".");
-		ZEPHIR_CALL_FUNCTION(&_7$$4, "strrpos", &_5, 88, name, &_3$$4);
+		ZEPHIR_CALL_FUNCTION(&_7$$4, "strrpos", &_5, 94, name, &_3$$4);
 		zephir_check_call_status();
 		ZVAL_LONG(&_8$$4, 0);
 		ZEPHIR_INIT_VAR(&newName$$4);
 		zephir_substr(&newName$$4, name, 0 , zephir_get_intval(&_7$$4), 0);
 		zephir_read_property(&_9$$4, this_ptr, ZEND_STRL("names"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&_10$$4, "in_array", NULL, 47, &method$$4, &_9$$4, &__$false);
+		ZEPHIR_CALL_FUNCTION(&_10$$4, "in_array", NULL, 52, &method$$4, &_9$$4, &__$false);
 		zephir_check_call_status();
 		_11$$4 = ZEPHIR_IS_TRUE_IDENTICAL(&_10$$4);
 		if (_11$$4) {
@@ -262,13 +262,13 @@ PHP_METHOD(Yuga_Route_Router_RouteController, findUrl)
 	if (!ZEPHIR_IS_FALSE_IDENTICAL(&_1)) {
 		ZEPHIR_INIT_VAR(&_2$$3);
 		ZVAL_STRING(&_2$$3, ".");
-		ZEPHIR_CALL_FUNCTION(&_3$$3, "strrpos", NULL, 88, name, &_2$$3);
+		ZEPHIR_CALL_FUNCTION(&_3$$3, "strrpos", NULL, 94, name, &_2$$3);
 		zephir_check_call_status();
 		ZVAL_LONG(&_4$$3, (zephir_get_numberval(&_3$$3) + 1));
 		ZEPHIR_INIT_NVAR(&_2$$3);
 		zephir_substr(&_2$$3, name, zephir_get_intval(&_4$$3), 0, ZEPHIR_SUBSTR_NO_LENGTH);
 		zephir_read_property(&_5$$3, this_ptr, ZEND_STRL("names"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&found$$3, "array_search", NULL, 89, &_2$$3, &_5$$3, &__$false);
+		ZEPHIR_CALL_FUNCTION(&found$$3, "array_search", NULL, 95, &_2$$3, &_5$$3, &__$false);
 		zephir_check_call_status();
 		if (!ZEPHIR_IS_FALSE_IDENTICAL(&found$$3)) {
 			zephir_cast_to_string(&_6$$4, &found$$3);
@@ -464,7 +464,7 @@ PHP_METHOD(Yuga_Route_Router_RouteController, matchRoute)
 		ZEPHIR_CONCAT_VV(&_15$$4, &_13$$4, &_14$$4);
 		zephir_update_property_zval(this_ptr, ZEND_STRL("method"), &_15$$4);
 		ZVAL_LONG(&_16$$4, 1);
-		ZEPHIR_CALL_FUNCTION(&_17$$4, "array_slice", NULL, 90, &path, &_16$$4);
+		ZEPHIR_CALL_FUNCTION(&_17$$4, "array_slice", NULL, 96, &path, &_16$$4);
 		zephir_check_call_status();
 		zephir_update_property_zval(this_ptr, ZEND_STRL("parameters"), &_17$$4);
 		zephir_read_property(&_16$$4, this_ptr, ZEND_STRL("controller"), PH_NOISY_CC | PH_READONLY);

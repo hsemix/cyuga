@@ -24,6 +24,7 @@
 #include "yuga/application/application.zep.h"
 #include "yuga/autoloader.zep.h"
 #include "yuga/booleantype.zep.h"
+#include "yuga/carbon/carbon.zep.h"
 #include "yuga/container/support/classnotinstantiableexception.zep.h"
 #include "yuga/cookie/cookie.zep.h"
 #include "yuga/csrftoken.zep.h"
@@ -42,6 +43,7 @@
 #include "yuga/http/request.zep.h"
 #include "yuga/http/response.zep.h"
 #include "yuga/http/uri.zep.h"
+#include "yuga/pipeline/pipeline.zep.h"
 #include "yuga/route/exceptions/annotationparseexception.zep.h"
 #include "yuga/route/exceptions/annotationtargetexception.zep.h"
 #include "yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h"
@@ -66,5 +68,9 @@
 #include "yuga/4__closure.zep.h"
 #include "yuga/5__closure.zep.h"
 #include "yuga/6__closure.zep.h"
+#include "yuga/7__closure.zep.h"
+#include "yuga/8__closure.zep.h"
+#include "yuga/9__closure.zep.h"
+#include "yuga/10__closure.zep.h"
 
 #endif

@@ -91,10 +91,10 @@ PHP_METHOD(Yuga_Route_Router_RouteUrl, matchRoute)
 	ZEPHIR_SEPARATE_PARAM(url);
 
 
-	ZEPHIR_CALL_FUNCTION(&_0, "urldecode", NULL, 91, url);
+	ZEPHIR_CALL_FUNCTION(&_0, "urldecode", NULL, 97, url);
 	zephir_check_call_status();
 	ZVAL_LONG(&_1, 5);
-	ZEPHIR_CALL_FUNCTION(url, "parse_url", NULL, 70, &_0, &_1);
+	ZEPHIR_CALL_FUNCTION(url, "parse_url", NULL, 75, &_0, &_1);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	ZEPHIR_INIT_VAR(&_3);

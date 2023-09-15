@@ -111,6 +111,7 @@ yuga/http/uri.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/uri.zep.c \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/autoloader.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/booleantype.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/carbon/carbon.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/cookie/cookie.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/csrftoken.zep.h \
@@ -129,6 +130,7 @@ yuga/http/uri.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/uri.zep.c \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/http/response.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/http/uri.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/pipeline/pipeline.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/annotationparseexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/annotationtargetexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
@@ -153,6 +155,10 @@ yuga/http/uri.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/uri.zep.c \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/4__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/5__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/6__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/7__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/8__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/9__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/../../yuga/10__closure.zep.h \
  /usr/include/php/20210902/Zend/zend_operators.h \
  /usr/include/php/20210902/Zend/zend_exceptions.h \
  /usr/include/php/20210902/Zend/zend_interfaces.h \

@@ -118,6 +118,9 @@ yuga/autoloader.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/autoloader.zep.c
 -include yuga/booleantype.dep
 yuga/booleantype.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/booleantype.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/booleantype.zep.c -o yuga/booleantype.lo  -MMD -MF yuga/booleantype.dep -MT yuga/booleantype.lo
+-include yuga/carbon/carbon.dep
+yuga/carbon/carbon.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/carbon/carbon.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/carbon/carbon.zep.c -o yuga/carbon/carbon.lo  -MMD -MF yuga/carbon/carbon.dep -MT yuga/carbon/carbon.lo
 -include yuga/container/support/classnotinstantiableexception.dep
 yuga/container/support/classnotinstantiableexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/container/support/classnotinstantiableexception.zep.c -o yuga/container/support/classnotinstantiableexception.lo  -MMD -MF yuga/container/support/classnotinstantiableexception.dep -MT yuga/container/support/classnotinstantiableexception.lo
@@ -172,6 +175,9 @@ yuga/http/response.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/response.zep
 -include yuga/http/uri.dep
 yuga/http/uri.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/uri.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/uri.zep.c -o yuga/http/uri.lo  -MMD -MF yuga/http/uri.dep -MT yuga/http/uri.lo
+-include yuga/pipeline/pipeline.dep
+yuga/pipeline/pipeline.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/pipeline/pipeline.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/pipeline/pipeline.zep.c -o yuga/pipeline/pipeline.lo  -MMD -MF yuga/pipeline/pipeline.dep -MT yuga/pipeline/pipeline.lo
 -include yuga/route/exceptions/annotationparseexception.dep
 yuga/route/exceptions/annotationparseexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/annotationparseexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/route/exceptions/annotationparseexception.zep.c -o yuga/route/exceptions/annotationparseexception.lo  -MMD -MF yuga/route/exceptions/annotationparseexception.dep -MT yuga/route/exceptions/annotationparseexception.lo
@@ -244,6 +250,18 @@ yuga/5__closure.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/5__closure.zep.c
 -include yuga/6__closure.dep
 yuga/6__closure.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/6__closure.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/6__closure.zep.c -o yuga/6__closure.lo  -MMD -MF yuga/6__closure.dep -MT yuga/6__closure.lo
+-include yuga/7__closure.dep
+yuga/7__closure.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/7__closure.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/7__closure.zep.c -o yuga/7__closure.lo  -MMD -MF yuga/7__closure.dep -MT yuga/7__closure.lo
+-include yuga/8__closure.dep
+yuga/8__closure.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/8__closure.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/8__closure.zep.c -o yuga/8__closure.lo  -MMD -MF yuga/8__closure.dep -MT yuga/8__closure.lo
+-include yuga/9__closure.dep
+yuga/9__closure.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/9__closure.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/9__closure.zep.c -o yuga/9__closure.lo  -MMD -MF yuga/9__closure.dep -MT yuga/9__closure.lo
+-include yuga/10__closure.dep
+yuga/10__closure.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/10__closure.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/10__closure.zep.c -o yuga/10__closure.lo  -MMD -MF yuga/10__closure.dep -MT yuga/10__closure.lo
 $(phplibdir)/yuga.la: ./yuga.la
 	$(LIBTOOL) --mode=install cp ./yuga.la $(phplibdir)
 

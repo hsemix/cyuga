@@ -13,8 +13,6 @@
 
 #include "kernel/main.h"
 #include "kernel/memory.h"
-#include "kernel/string.h"
-#include "kernel/operators.h"
 #include "kernel/object.h"
 
 
@@ -27,26 +25,22 @@ ZEPHIR_INIT_CLASS(yuga_6__closure)
 
 PHP_METHOD(yuga_6__closure, __invoke)
 {
-	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zval *item, item_sub, _0;
+	zval *passable, passable_sub;
 	zval *this_ptr = getThis();
 
-	ZVAL_UNDEF(&item_sub);
-	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&passable_sub);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(item)
+		Z_PARAM_ZVAL(passable)
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 
 
-	ZEPHIR_MM_GROW();
-	zephir_fetch_params(1, 1, 0, &item);
+	zephir_fetch_params_without_memory_grow(1, 0, &passable);
 
 
-	ZEPHIR_INIT_VAR(&_0);
-	zephir_fast_trim(&_0, item, NULL , ZEPHIR_TRIM_BOTH);
-	RETURN_MM_BOOL(!ZEPHIR_IS_STRING_IDENTICAL(&_0, ""));
+	RETVAL_ZVAL(passable, 1, 0);
+	return;
 }
 

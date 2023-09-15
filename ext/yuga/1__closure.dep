@@ -112,6 +112,7 @@ yuga/1__closure.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/autoloader.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/booleantype.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/carbon/carbon.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/cookie/cookie.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/csrftoken.zep.h \
@@ -130,6 +131,7 @@ yuga/1__closure.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/response.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/http/uri.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/pipeline/pipeline.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/exceptions/annotationparseexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/exceptions/annotationtargetexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
@@ -154,6 +156,10 @@ yuga/1__closure.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/4__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/5__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/6__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/7__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/8__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/9__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/../yuga/10__closure.zep.h \
  /usr/include/php/20210902/Zend/zend_operators.h \
  /usr/include/php/20210902/Zend/zend_exceptions.h \
  /usr/include/php/20210902/Zend/zend_interfaces.h \
@@ -166,6 +172,6 @@ yuga/1__closure.lo: \
  /usr/include/php/20210902/Zend/zend_string.h \
  /usr/include/php/20210902/Zend/zend.h \
  /usr/include/php/20210902/Zend/zend_constants.h kernel/exception.h \
- kernel/memory.h php_ext.h php_yuga.h kernel/globals.h kernel/array.h \
- kernel/fcall.h kernel/fcall_internal.h \
- /usr/include/php/20210902/Zend/zend_hash.h kernel/object.h
+ kernel/fcall.h php_ext.h php_yuga.h kernel/memory.h kernel/globals.h \
+ kernel/fcall_internal.h /usr/include/php/20210902/Zend/zend_hash.h \
+ kernel/object.h

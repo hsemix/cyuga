@@ -112,6 +112,7 @@ yuga/interfaces/providers/serviceproviderinterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/autoloader.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/booleantype.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/carbon/carbon.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/container/support/classnotinstantiableexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/cookie/cookie.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/csrftoken.zep.h \
@@ -130,6 +131,7 @@ yuga/interfaces/providers/serviceproviderinterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/http/response.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/http/uri.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/pipeline/pipeline.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/route/exceptions/annotationparseexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/route/exceptions/annotationtargetexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/route/exceptions/notfoundhttpcontrollerexception.zep.h \
@@ -154,6 +156,10 @@ yuga/interfaces/providers/serviceproviderinterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/4__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/5__closure.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/6__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/7__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/8__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/9__closure.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/providers/../../../yuga/10__closure.zep.h \
  /usr/include/php/20210902/Zend/zend_exceptions.h kernel/main.h \
  /usr/include/php/20210902/Zend/zend_interfaces.h \
  /usr/include/php/20210902/Zend/zend_API.h \

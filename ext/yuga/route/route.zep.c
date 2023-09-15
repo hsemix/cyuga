@@ -502,9 +502,9 @@ PHP_METHOD(Yuga_Route_Route, group)
 		zephir_check_call_status();
 	}
 
-	ZEPHIR_CALL_METHOD(NULL, &group, "setcallback", NULL, 72, callback);
+	ZEPHIR_CALL_METHOD(NULL, &group, "setcallback", NULL, 78, callback);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &group, "setsettings", NULL, 73, &settings);
+	ZEPHIR_CALL_METHOD(NULL, &group, "setsettings", NULL, 79, &settings);
 	zephir_check_call_status();
 	if (zephir_is_callable(callback) == 0) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "Invalid callback provided. Only functions or methods supported", "yuga/Route/Route.zep", 183);
@@ -675,15 +675,15 @@ PHP_METHOD(Yuga_Route_Route, match)
 
 	ZEPHIR_INIT_VAR(&route);
 	object_init_ex(&route, yuga_route_router_routeurl_ce);
-	ZEPHIR_CALL_METHOD(NULL, &route, "__construct", NULL, 63, url, callback);
+	ZEPHIR_CALL_METHOD(NULL, &route, "__construct", NULL, 68, url, callback);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &route, "setrequestmethods", NULL, 74, &requestMethods);
+	ZEPHIR_CALL_METHOD(NULL, &route, "setrequestmethods", NULL, 80, &requestMethods);
 	zephir_check_call_status();
 	ZEPHIR_CALL_SELF(&_0, "adddefaultnamespace", NULL, 0, &route);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&route, &_0);
 	if (!ZEPHIR_IS_NULL(&settings)) {
-		ZEPHIR_CALL_METHOD(NULL, &route, "setsettings", NULL, 75, &settings);
+		ZEPHIR_CALL_METHOD(NULL, &route, "setsettings", NULL, 81, &settings);
 		zephir_check_call_status();
 	}
 	ZEPHIR_CALL_SELF(&_0, "router", NULL, 0);
@@ -736,13 +736,13 @@ PHP_METHOD(Yuga_Route_Route, all)
 
 	ZEPHIR_INIT_VAR(&route);
 	object_init_ex(&route, yuga_route_router_routeurl_ce);
-	ZEPHIR_CALL_METHOD(NULL, &route, "__construct", NULL, 63, url, callback);
+	ZEPHIR_CALL_METHOD(NULL, &route, "__construct", NULL, 68, url, callback);
 	zephir_check_call_status();
 	ZEPHIR_CALL_SELF(&_0, "adddefaultnamespace", NULL, 0, &route);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&route, &_0);
 	if (!ZEPHIR_IS_NULL(&settings)) {
-		ZEPHIR_CALL_METHOD(NULL, &route, "setsettings", NULL, 75, &settings);
+		ZEPHIR_CALL_METHOD(NULL, &route, "setsettings", NULL, 81, &settings);
 		zephir_check_call_status();
 	}
 	ZEPHIR_CALL_SELF(&_0, "router", NULL, 0);
@@ -795,13 +795,13 @@ PHP_METHOD(Yuga_Route_Route, controller)
 
 	ZEPHIR_INIT_VAR(&route);
 	object_init_ex(&route, yuga_route_router_routecontroller_ce);
-	ZEPHIR_CALL_METHOD(NULL, &route, "__construct", NULL, 76, url, controller);
+	ZEPHIR_CALL_METHOD(NULL, &route, "__construct", NULL, 82, url, controller);
 	zephir_check_call_status();
 	ZEPHIR_CALL_SELF(&_0, "adddefaultnamespace", NULL, 0, &route);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&route, &_0);
 	if (!ZEPHIR_IS_NULL(&settings)) {
-		ZEPHIR_CALL_METHOD(NULL, &route, "setsettings", NULL, 77, &settings);
+		ZEPHIR_CALL_METHOD(NULL, &route, "setsettings", NULL, 83, &settings);
 		zephir_check_call_status();
 	}
 	ZEPHIR_CALL_SELF(&_0, "router", NULL, 0);
@@ -864,10 +864,10 @@ PHP_METHOD(Yuga_Route_Route, error)
 		zephir_check_call_status();
 	}
 
-	ZEPHIR_CALL_METHOD(NULL, &group, "addexceptionhandler", NULL, 78, &callbackException);
+	ZEPHIR_CALL_METHOD(NULL, &group, "addexceptionhandler", NULL, 84, &callbackException);
 	zephir_check_call_status();
 	ZEPHIR_MAKE_REF(&routes);
-	ZEPHIR_CALL_FUNCTION(NULL, "array_unshift", NULL, 79, &routes, &group);
+	ZEPHIR_CALL_FUNCTION(NULL, "array_unshift", NULL, 85, &routes, &group);
 	ZEPHIR_UNREF(&routes);
 	zephir_check_call_status();
 	ZEPHIR_CALL_SELF(&_2, "router", NULL, 0);
@@ -933,13 +933,13 @@ PHP_METHOD(Yuga_Route_Route, resources)
 
 	ZEPHIR_INIT_VAR(&route);
 	object_init_ex(&route, yuga_route_router_routeresource_ce);
-	ZEPHIR_CALL_METHOD(NULL, &route, "__construct", NULL, 80, url, controller);
+	ZEPHIR_CALL_METHOD(NULL, &route, "__construct", NULL, 86, url, controller);
 	zephir_check_call_status();
 	ZEPHIR_CALL_SELF(&_0, "adddefaultnamespace", NULL, 0, &route);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&route, &_0);
 	if (!ZEPHIR_IS_NULL(&settings)) {
-		ZEPHIR_CALL_METHOD(NULL, &route, "setsettings", NULL, 81, &settings);
+		ZEPHIR_CALL_METHOD(NULL, &route, "setsettings", NULL, 87, &settings);
 		zephir_check_call_status();
 	}
 	ZEPHIR_CALL_SELF(&_0, "router", NULL, 0);
@@ -972,7 +972,7 @@ PHP_METHOD(Yuga_Route_Route, router)
 	if (Z_TYPE_P(&_0) == IS_NULL) {
 		ZEPHIR_INIT_VAR(&_1$$3);
 		object_init_ex(&_1$$3, yuga_route_router_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 82);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 88);
 		zephir_check_call_status();
 		zephir_update_static_property_ce(yuga_route_route_ce, ZEND_STRL("router"), &_1$$3);
 	}
@@ -1048,7 +1048,7 @@ PHP_METHOD(Yuga_Route_Route, getUrl)
 				object_init_ex(return_value, yuga_http_uri_ce);
 				ZEPHIR_INIT_VAR(&_2$$5);
 				ZVAL_STRING(&_2$$5, "/");
-				ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 83, &_2$$5);
+				ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 89, &_2$$5);
 				zephir_check_call_status_or_jump(try_end_2);
 				RETURN_MM();
 
@@ -1124,9 +1124,9 @@ PHP_METHOD(Yuga_Route_Route, response)
 		object_init_ex(&_3$$3, yuga_http_redirect_ce);
 		ZEPHIR_CALL_SELF(&_4$$3, "request", NULL, 0);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 84, &_4$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_3$$3, "__construct", NULL, 90, &_4$$3);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 85, &_2$$3, &_3$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 91, &_2$$3, &_3$$3);
 		zephir_check_call_status();
 		zephir_update_static_property_ce(yuga_route_route_ce, ZEND_STRL("response"), &_1$$3);
 	}

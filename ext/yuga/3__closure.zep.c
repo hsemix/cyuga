@@ -12,9 +12,10 @@
 #include <Zend/zend_interfaces.h>
 
 #include "kernel/main.h"
-#include "kernel/array.h"
-#include "kernel/fcall.h"
 #include "kernel/memory.h"
+#include "kernel/string.h"
+#include "kernel/operators.h"
+#include "kernel/fcall.h"
 #include "kernel/object.h"
 
 
@@ -29,26 +30,36 @@ PHP_METHOD(yuga_3__closure, __invoke)
 {
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *matches, matches_sub, _0;
+	zval *element, element_sub, _0, _1, _2;
 	zval *this_ptr = getThis();
 
-	ZVAL_UNDEF(&matches_sub);
+	ZVAL_UNDEF(&element_sub);
 	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(matches)
+		Z_PARAM_ZVAL(element)
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 
 
 	ZEPHIR_MM_GROW();
-	zephir_fetch_params(1, 1, 0, &matches);
+	zephir_fetch_params(1, 1, 0, &element);
 
 
-	zephir_array_fetch_long(&_0, matches, 0, PH_NOISY | PH_READONLY, "yuga/Http/Uri.zep", 412);
-	ZEPHIR_RETURN_CALL_FUNCTION("urlencode", NULL, 96, &_0);
-	zephir_check_call_status();
-	RETURN_MM();
+	ZEPHIR_INIT_VAR(&_0);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, ":");
+	ZEPHIR_INIT_VAR(&_2);
+	zephir_fast_strpos(&_2, element, &_1, 0 );
+	if (!ZEPHIR_IS_FALSE_IDENTICAL(&_2)) {
+		ZEPHIR_CPY_WRT(&_0, element);
+	} else {
+		ZEPHIR_CALL_FUNCTION(&_0, "urlencode", NULL, 103, element);
+		zephir_check_call_status();
+	}
+	RETURN_CCTOR(&_0);
 }
 
