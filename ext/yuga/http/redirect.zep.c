@@ -116,7 +116,7 @@ PHP_METHOD(Yuga_Http_Redirect, httpCode)
 	zephir_fetch_params(1, 1, 0, &code);
 
 
-	ZEPHIR_CALL_FUNCTION(NULL, "http_response_code", NULL, 68, code);
+	ZEPHIR_CALL_FUNCTION(NULL, "http_response_code", NULL, 69, code);
 	zephir_check_call_status();
 	RETURN_THIS();
 }
@@ -192,7 +192,7 @@ PHP_METHOD(Yuga_Http_Redirect, header)
 	zephir_fetch_params(1, 1, 0, &value);
 
 
-	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 69, value);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", NULL, 70, value);
 	zephir_check_call_status();
 	RETURN_THIS();
 }
@@ -211,7 +211,7 @@ PHP_METHOD(Yuga_Http_Redirect, refresh)
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "Refresh:0");
-	ZEPHIR_RETURN_CALL_FUNCTION("header", NULL, 69, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("header", NULL, 70, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 }
@@ -348,7 +348,7 @@ PHP_METHOD(Yuga_Http_Redirect, cleanUrl)
 	ZEPHIR_INIT_VAR(&_1);
 	ZEPHIR_INIT_NVAR(&_1);
 	zephir_create_closure_ex(&_1, NULL, yuga_3__closure_ce, SL("__invoke"));
-	ZEPHIR_CALL_FUNCTION(&url, "array_map", NULL, 70, &_1, &secondSection);
+	ZEPHIR_CALL_FUNCTION(&url, "array_map", NULL, 71, &_1, &secondSection);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	zephir_fast_join_str(&_2, SL("/"), &url);
@@ -384,13 +384,13 @@ PHP_METHOD(Yuga_Http_Redirect, httpUrl)
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "HTTP/1.1 301 Moved Permanently");
-	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 69, &_0);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 70, &_0);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&cleanUrl, this_ptr, "cleanurl", NULL, 0, &url);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	ZEPHIR_CONCAT_SV(&_2, "Location: ", &cleanUrl);
-	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 69, &_2);
+	ZEPHIR_CALL_FUNCTION(NULL, "header", &_1, 70, &_2);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 	zephir_exit_empty();

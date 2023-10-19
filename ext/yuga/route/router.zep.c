@@ -329,7 +329,7 @@ PHP_METHOD(Yuga_Route_Router, processRoutes)
 				ZEPHIR_INIT_NVAR(&_14$$10);
 				array_init(&_14$$10);
 				zephir_update_property_zval(this_ptr, ZEND_STRL("routeStack"), &_14$$10);
-				ZEPHIR_CALL_METHOD(NULL, this_ptr, "processroutes", &_15, 96, &stack$$10, &route, group);
+				ZEPHIR_CALL_METHOD(NULL, this_ptr, "processroutes", &_15, 97, &stack$$10, &route, group);
 				zephir_check_call_status();
 			}
 		} ZEND_HASH_FOREACH_END();
@@ -395,7 +395,7 @@ PHP_METHOD(Yuga_Route_Router, processRoutes)
 					ZEPHIR_INIT_NVAR(&_24$$18);
 					array_init(&_24$$18);
 					zephir_update_property_zval(this_ptr, ZEND_STRL("routeStack"), &_24$$18);
-					ZEPHIR_CALL_METHOD(NULL, this_ptr, "processroutes", &_15, 96, &stack$$18, &route, group);
+					ZEPHIR_CALL_METHOD(NULL, this_ptr, "processroutes", &_15, 97, &stack$$18, &route, group);
 					zephir_check_call_status();
 				}
 			ZEPHIR_CALL_METHOD(NULL, &routes, "next", NULL, 0);
@@ -659,7 +659,7 @@ PHP_METHOD(Yuga_Route_Router, routeRequest)
 						zephir_check_call_status_or_jump(try_end_1);
 						zephir_update_property_zval(this_ptr, ZEND_STRL("processedRoutes"), &_34$$10);
 						ZVAL_BOOL(&_36$$10, 1);
-						ZEPHIR_CALL_METHOD(NULL, this_ptr, "routerequest", &_37, 97, &_36$$10);
+						ZEPHIR_CALL_METHOD(NULL, this_ptr, "routerequest", &_37, 98, &_36$$10);
 						zephir_check_call_status_or_jump(try_end_1);
 						RETURN_MM_NULL();
 					}
@@ -735,7 +735,7 @@ PHP_METHOD(Yuga_Route_Router, routeRequest)
 							zephir_check_call_status_or_jump(try_end_1);
 							zephir_update_property_zval(this_ptr, ZEND_STRL("processedRoutes"), &_61$$15);
 							ZVAL_BOOL(&_62$$15, 1);
-							ZEPHIR_CALL_METHOD(NULL, this_ptr, "routerequest", &_37, 97, &_62$$15);
+							ZEPHIR_CALL_METHOD(NULL, this_ptr, "routerequest", &_37, 98, &_62$$15);
 							zephir_check_call_status_or_jump(try_end_1);
 							RETURN_MM_NULL();
 						}
@@ -1032,7 +1032,7 @@ PHP_METHOD(Yuga_Route_Router, handleException)
 						zephir_check_call_status();
 						zephir_update_property_zval(this_ptr, ZEND_STRL("exceptionHandlers"), &_46$$14);
 						ZVAL_BOOL(&_47$$14, 1);
-						ZEPHIR_CALL_METHOD(NULL, this_ptr, "routerequest", &_29, 97, &_47$$14);
+						ZEPHIR_CALL_METHOD(NULL, this_ptr, "routerequest", &_29, 98, &_47$$14);
 						zephir_check_call_status();
 						RETURN_MM_NULL();
 					}
@@ -1095,7 +1095,7 @@ PHP_METHOD(Yuga_Route_Router, arrayToParams)
 			zephir_check_call_status();
 			ZEPHIR_CPY_WRT(&getParams, &_1$$4);
 		}
-		ZEPHIR_CALL_FUNCTION(&_2$$3, "http_build_query", NULL, 80, &getParams);
+		ZEPHIR_CALL_FUNCTION(&_2$$3, "http_build_query", NULL, 81, &getParams);
 		zephir_check_call_status();
 		ZEPHIR_CONCAT_SV(return_value, "?", &_2$$3);
 		RETURN_MM();
@@ -1231,7 +1231,7 @@ PHP_METHOD(Yuga_Route_Router, findRoute)
 				zephir_fast_explode_str(&_10$$6, SL("@"), name, LONG_MAX);
 				ZEPHIR_INIT_NVAR(&_11$$6);
 				ZVAL_STRING(&_11$$6, "strtolower");
-				ZEPHIR_CALL_FUNCTION(&filteredControllerMethod$$6, "array_map", &_12, 70, &_11$$6, &_10$$6);
+				ZEPHIR_CALL_FUNCTION(&filteredControllerMethod$$6, "array_map", &_12, 71, &_11$$6, &_10$$6);
 				zephir_check_call_status();
 				ZEPHIR_OBS_NVAR(&controller$$6);
 				zephir_array_fetch_long(&controller$$6, &filteredControllerMethod$$6, 0, PH_NOISY, "yuga/Route/Router.zep", 508);
@@ -1354,7 +1354,7 @@ PHP_METHOD(Yuga_Route_Router, findRoute)
 					zephir_fast_explode_str(&_45$$14, SL("@"), name, LONG_MAX);
 					ZEPHIR_INIT_NVAR(&_46$$14);
 					ZVAL_STRING(&_46$$14, "strtolower");
-					ZEPHIR_CALL_FUNCTION(&filteredControllerMethod$$14, "array_map", &_12, 70, &_46$$14, &_45$$14);
+					ZEPHIR_CALL_FUNCTION(&filteredControllerMethod$$14, "array_map", &_12, 71, &_46$$14, &_45$$14);
 					zephir_check_call_status();
 					ZEPHIR_OBS_NVAR(&controller$$14);
 					zephir_array_fetch_long(&controller$$14, &filteredControllerMethod$$14, 0, PH_NOISY, "yuga/Route/Router.zep", 508);
@@ -1586,7 +1586,7 @@ PHP_METHOD(Yuga_Route_Router, getUrl)
 		ZEPHIR_CALL_METHOD(&_6$$6, &_5$$6, "geturi", NULL, 0);
 		zephir_check_call_status();
 		ZVAL_LONG(&_7$$6, 5);
-		ZEPHIR_CALL_FUNCTION(&_8$$6, "parse_url", NULL, 79, &_6$$6, &_7$$6);
+		ZEPHIR_CALL_FUNCTION(&_8$$6, "parse_url", NULL, 80, &_6$$6, &_7$$6);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_9$$6);
 		ZVAL_STRING(&_9$$6, "/");

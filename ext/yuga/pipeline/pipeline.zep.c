@@ -113,7 +113,7 @@ PHP_METHOD(Yuga_Pipeline_Pipeline, then)
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("pipes"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_CALL_METHOD(&_1, this_ptr, "carry", NULL, 0);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&pipeline, "array_reduce", NULL, 81, &_0, &_1);
+	ZEPHIR_CALL_FUNCTION(&pipeline, "array_reduce", NULL, 82, &_0, &_1);
 	zephir_check_call_status();
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("passable"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_RETURN_CALL_ZVAL_FUNCTION(&pipeline, NULL, 0, &_2);

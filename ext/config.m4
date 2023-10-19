@@ -23,6 +23,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/route/support/icontrollerroute.zep.c
 	yuga/container/container.zep.c
 	yuga/exceptions/routeexceptionhandler.zep.c
+	yuga/http/middleware/imiddleware.zep.c
 	yuga/interfaces/application/application.zep.c
 	yuga/interfaces/events/dispatcherinterface.zep.c
 	yuga/route/support/igrouproute.zep.c
@@ -46,6 +47,8 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/http/input/input.zep.c
 	yuga/http/input/inputfile.zep.c
 	yuga/http/input/inputitem.zep.c
+	yuga/http/middleware/basecsrfverifier.zep.c
+	yuga/http/middleware/exceptions/tokenmismatchexception.zep.c
 	yuga/http/redirect.zep.c
 	yuga/http/request.zep.c
 	yuga/http/response.zep.c
@@ -83,7 +86,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/10__closure.zep.c "
 	PHP_NEW_EXTENSION(yuga, $yuga_sources, $ext_shared,, )
 	PHP_ADD_BUILD_DIR([$ext_builddir/kernel/])
-	for dir in "yuga yuga/application yuga/carbon yuga/container yuga/container/support yuga/cookie yuga/eventhandlers yuga/events yuga/events/dispatcher yuga/events/exceptions yuga/exceptions yuga/http yuga/http/exceptions yuga/http/input yuga/interfaces/application yuga/interfaces/events yuga/interfaces/http/input yuga/interfaces/providers yuga/interfaces/session yuga/pipeline yuga/providers yuga/route yuga/route/exceptions yuga/route/router yuga/route/support yuga/session yuga/support"; do
+	for dir in "yuga yuga/application yuga/carbon yuga/container yuga/container/support yuga/cookie yuga/eventhandlers yuga/events yuga/events/dispatcher yuga/events/exceptions yuga/exceptions yuga/http yuga/http/exceptions yuga/http/input yuga/http/middleware yuga/http/middleware/exceptions yuga/interfaces/application yuga/interfaces/events yuga/interfaces/http/input yuga/interfaces/providers yuga/interfaces/session yuga/pipeline yuga/providers yuga/route yuga/route/exceptions yuga/route/router yuga/route/support yuga/session yuga/support"; do
 		PHP_ADD_BUILD_DIR([$ext_builddir/$dir])
 	done
 	PHP_SUBST(YUGA_SHARED_LIBADD)

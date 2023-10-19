@@ -282,7 +282,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 				}
 				ZEPHIR_INIT_NVAR(&valueItem);
 				ZVAL_COPY(&valueItem, _0$$3);
-				ZEPHIR_CALL_METHOD(NULL, this_ptr, "set", &_4, 102, &keyItem, &valueItem);
+				ZEPHIR_CALL_METHOD(NULL, this_ptr, "set", &_4, 103, &keyItem, &valueItem);
 				zephir_check_call_status();
 			} ZEND_HASH_FOREACH_END();
 		} else {
@@ -298,7 +298,7 @@ PHP_METHOD(Yuga_Support_Config, set)
 				zephir_check_call_status();
 				ZEPHIR_CALL_METHOD(&valueItem, key, "current", NULL, 0);
 				zephir_check_call_status();
-					ZEPHIR_CALL_METHOD(NULL, this_ptr, "set", &_4, 102, &keyItem, &valueItem);
+					ZEPHIR_CALL_METHOD(NULL, this_ptr, "set", &_4, 103, &keyItem, &valueItem);
 					zephir_check_call_status();
 				ZEPHIR_CALL_METHOD(NULL, key, "next", NULL, 0);
 				zephir_check_call_status();
@@ -444,7 +444,7 @@ PHP_METHOD(Yuga_Support_Config, delete)
 			ZEPHIR_INIT_NVAR(&segments$$3);
 			zephir_fast_explode(&segments$$3, &_6$$3, &key, LONG_MAX);
 			ZEPHIR_MAKE_REF(&segments$$3);
-			ZEPHIR_CALL_FUNCTION(&lastSegment$$3, "array_pop", &_7, 103, &segments$$3);
+			ZEPHIR_CALL_FUNCTION(&lastSegment$$3, "array_pop", &_7, 104, &segments$$3);
 			ZEPHIR_UNREF(&segments$$3);
 			zephir_check_call_status();
 			zephir_is_iterable(&segment$$3, 0, "yuga/Support/Config.zep", 118);
@@ -518,7 +518,7 @@ PHP_METHOD(Yuga_Support_Config, delete)
 				ZEPHIR_INIT_NVAR(&segments$$9);
 				zephir_fast_explode(&segments$$9, &_18$$9, &key, LONG_MAX);
 				ZEPHIR_MAKE_REF(&segments$$9);
-				ZEPHIR_CALL_FUNCTION(&lastSegment$$9, "array_pop", &_7, 103, &segments$$9);
+				ZEPHIR_CALL_FUNCTION(&lastSegment$$9, "array_pop", &_7, 104, &segments$$9);
 				ZEPHIR_UNREF(&segments$$9);
 				zephir_check_call_status();
 				zephir_is_iterable(&segment$$9, 0, "yuga/Support/Config.zep", 118);
@@ -814,7 +814,7 @@ PHP_METHOD(Yuga_Support_Config, getIterator)
 
 	object_init_ex(return_value, spl_ce_ArrayIterator);
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("data"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 104, &_0);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 105, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 }

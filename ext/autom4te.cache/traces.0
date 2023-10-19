@@ -175,8 +175,6 @@ m4trace:configure.ac:22: -1- m4_pattern_allow([^EGREP$])
 m4trace:configure.ac:22: -1- AC_SUBST([SED])
 m4trace:configure.ac:22: -1- AC_SUBST_TRACE([SED])
 m4trace:configure.ac:22: -1- m4_pattern_allow([^SED$])
-m4trace:configure.ac:22: -1- _m4_warn([obsolete], [$as_echo is obsolete; use AS_ECHO(["message"]) instead], [build/php.m4:2111: PHP_CONFIG_NICE is expanded from...
-configure.ac:22: the top level])
 m4trace:configure.ac:22: -1- AC_SUBST([CONFIGURE_COMMAND])
 m4trace:configure.ac:22: -1- AC_SUBST_TRACE([CONFIGURE_COMMAND])
 m4trace:configure.ac:22: -1- m4_pattern_allow([^CONFIGURE_COMMAND$])
@@ -289,25 +287,25 @@ m4trace:config.m4:11: -1- AC_DEFINE_TRACE_LITERAL([HAVE_YUGA])
 m4trace:config.m4:11: -1- m4_pattern_allow([^HAVE_YUGA$])
 m4trace:config.m4:11: -1- AH_OUTPUT([HAVE_YUGA], [/* Whether you have Yuga */
 @%:@undef HAVE_YUGA])
-m4trace:config.m4:84: -1- AC_DEFINE_TRACE_LITERAL([COMPILE_DL_YUGA])
-m4trace:config.m4:84: -1- m4_pattern_allow([^COMPILE_DL_YUGA$])
-m4trace:config.m4:84: -1- AH_OUTPUT([COMPILE_DL_YUGA], [/* Whether to build yuga as dynamic module */
+m4trace:config.m4:87: -1- AC_DEFINE_TRACE_LITERAL([COMPILE_DL_YUGA])
+m4trace:config.m4:87: -1- m4_pattern_allow([^COMPILE_DL_YUGA$])
+m4trace:config.m4:87: -1- AH_OUTPUT([COMPILE_DL_YUGA], [/* Whether to build yuga as dynamic module */
 @%:@undef COMPILE_DL_YUGA])
-m4trace:config.m4:94: -1- AH_OUTPUT([HAVE_EXT_PCRE_PHP_PCRE_H], [/* Define to 1 if you have the <ext/pcre/php_pcre.h> header file. */
+m4trace:config.m4:97: -1- AH_OUTPUT([HAVE_EXT_PCRE_PHP_PCRE_H], [/* Define to 1 if you have the <ext/pcre/php_pcre.h> header file. */
 @%:@undef HAVE_EXT_PCRE_PHP_PCRE_H])
-m4trace:config.m4:94: -1- AC_DEFINE_TRACE_LITERAL([HAVE_EXT_PCRE_PHP_PCRE_H])
-m4trace:config.m4:94: -1- m4_pattern_allow([^HAVE_EXT_PCRE_PHP_PCRE_H$])
-m4trace:config.m4:94: -1- AC_DEFINE_TRACE_LITERAL([ZEPHIR_USE_PHP_PCRE])
-m4trace:config.m4:94: -1- m4_pattern_allow([^ZEPHIR_USE_PHP_PCRE$])
-m4trace:config.m4:94: -1- AH_OUTPUT([ZEPHIR_USE_PHP_PCRE], [/* Whether PHP pcre extension is present at compile time */
+m4trace:config.m4:97: -1- AC_DEFINE_TRACE_LITERAL([HAVE_EXT_PCRE_PHP_PCRE_H])
+m4trace:config.m4:97: -1- m4_pattern_allow([^HAVE_EXT_PCRE_PHP_PCRE_H$])
+m4trace:config.m4:97: -1- AC_DEFINE_TRACE_LITERAL([ZEPHIR_USE_PHP_PCRE])
+m4trace:config.m4:97: -1- m4_pattern_allow([^ZEPHIR_USE_PHP_PCRE$])
+m4trace:config.m4:97: -1- AH_OUTPUT([ZEPHIR_USE_PHP_PCRE], [/* Whether PHP pcre extension is present at compile time */
 @%:@undef ZEPHIR_USE_PHP_PCRE])
-m4trace:config.m4:111: -1- AH_OUTPUT([HAVE_EXT_JSON_PHP_JSON_H], [/* Define to 1 if you have the <ext/json/php_json.h> header file. */
+m4trace:config.m4:114: -1- AH_OUTPUT([HAVE_EXT_JSON_PHP_JSON_H], [/* Define to 1 if you have the <ext/json/php_json.h> header file. */
 @%:@undef HAVE_EXT_JSON_PHP_JSON_H])
-m4trace:config.m4:111: -1- AC_DEFINE_TRACE_LITERAL([HAVE_EXT_JSON_PHP_JSON_H])
-m4trace:config.m4:111: -1- m4_pattern_allow([^HAVE_EXT_JSON_PHP_JSON_H$])
-m4trace:config.m4:111: -1- AC_DEFINE_TRACE_LITERAL([ZEPHIR_USE_PHP_JSON])
-m4trace:config.m4:111: -1- m4_pattern_allow([^ZEPHIR_USE_PHP_JSON$])
-m4trace:config.m4:111: -1- AH_OUTPUT([ZEPHIR_USE_PHP_JSON], [/* Whether PHP json extension is present at compile time */
+m4trace:config.m4:114: -1- AC_DEFINE_TRACE_LITERAL([HAVE_EXT_JSON_PHP_JSON_H])
+m4trace:config.m4:114: -1- m4_pattern_allow([^HAVE_EXT_JSON_PHP_JSON_H$])
+m4trace:config.m4:114: -1- AC_DEFINE_TRACE_LITERAL([ZEPHIR_USE_PHP_JSON])
+m4trace:config.m4:114: -1- m4_pattern_allow([^ZEPHIR_USE_PHP_JSON$])
+m4trace:config.m4:114: -1- AH_OUTPUT([ZEPHIR_USE_PHP_JSON], [/* Whether PHP json extension is present at compile time */
 @%:@undef ZEPHIR_USE_PHP_JSON])
 m4trace:configure.ac:165: -1- AC_PROG_LIBTOOL
 m4trace:configure.ac:165: -1- _m4_warn([obsolete], [The macro `AC_PROG_LIBTOOL' is obsolete.

@@ -100,6 +100,9 @@ yuga/container/container.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/container/c
 -include yuga/exceptions/routeexceptionhandler.dep
 yuga/exceptions/routeexceptionhandler.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/routeexceptionhandler.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/routeexceptionhandler.zep.c -o yuga/exceptions/routeexceptionhandler.lo  -MMD -MF yuga/exceptions/routeexceptionhandler.dep -MT yuga/exceptions/routeexceptionhandler.lo
+-include yuga/http/middleware/imiddleware.dep
+yuga/http/middleware/imiddleware.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/imiddleware.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/imiddleware.zep.c -o yuga/http/middleware/imiddleware.lo  -MMD -MF yuga/http/middleware/imiddleware.dep -MT yuga/http/middleware/imiddleware.lo
 -include yuga/interfaces/application/application.dep
 yuga/interfaces/application/application.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/application.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/application.zep.c -o yuga/interfaces/application/application.lo  -MMD -MF yuga/interfaces/application/application.dep -MT yuga/interfaces/application/application.lo
@@ -169,6 +172,12 @@ yuga/http/input/inputfile.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/input
 -include yuga/http/input/inputitem.dep
 yuga/http/input/inputitem.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/inputitem.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/inputitem.zep.c -o yuga/http/input/inputitem.lo  -MMD -MF yuga/http/input/inputitem.dep -MT yuga/http/input/inputitem.lo
+-include yuga/http/middleware/basecsrfverifier.dep
+yuga/http/middleware/basecsrfverifier.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/basecsrfverifier.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/basecsrfverifier.zep.c -o yuga/http/middleware/basecsrfverifier.lo  -MMD -MF yuga/http/middleware/basecsrfverifier.dep -MT yuga/http/middleware/basecsrfverifier.lo
+-include yuga/http/middleware/exceptions/tokenmismatchexception.dep
+yuga/http/middleware/exceptions/tokenmismatchexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/exceptions/tokenmismatchexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/exceptions/tokenmismatchexception.zep.c -o yuga/http/middleware/exceptions/tokenmismatchexception.lo  -MMD -MF yuga/http/middleware/exceptions/tokenmismatchexception.dep -MT yuga/http/middleware/exceptions/tokenmismatchexception.lo
 -include yuga/http/redirect.dep
 yuga/http/redirect.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/redirect.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/redirect.zep.c -o yuga/http/redirect.lo  -MMD -MF yuga/http/redirect.dep -MT yuga/http/redirect.lo

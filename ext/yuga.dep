@@ -103,6 +103,7 @@ yuga.lo: /var/www/html/yuga-zephir/yuga/ext/yuga.c \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/icontrollerroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/routeexceptionhandler.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/imiddleware.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/support/igrouproute.zep.h \
@@ -126,6 +127,8 @@ yuga.lo: /var/www/html/yuga-zephir/yuga/ext/yuga.c \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/inputfile.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/inputitem.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/basecsrfverifier.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/response.zep.h \

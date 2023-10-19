@@ -106,6 +106,7 @@ yuga/interfaces/http/input/inputiteminterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/route/support/icontrollerroute.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/container/container.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/exceptions/routeexceptionhandler.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/middleware/imiddleware.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/interfaces/application/application.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/interfaces/events/dispatcherinterface.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/route/support/igrouproute.zep.h \
@@ -129,6 +130,8 @@ yuga/interfaces/http/input/inputiteminterface.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/input/input.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/input/inputfile.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/input/inputitem.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/middleware/basecsrfverifier.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/interfaces/http/input/../../../../yuga/http/response.zep.h \

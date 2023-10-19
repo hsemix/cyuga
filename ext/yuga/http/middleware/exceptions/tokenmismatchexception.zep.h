@@ -1,0 +1,5 @@
+
+extern zend_class_entry *yuga_http_middleware_exceptions_tokenmismatchexception_ce;
+
+ZEPHIR_INIT_CLASS(Yuga_Http_Middleware_Exceptions_TokenMismatchException);
+

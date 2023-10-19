@@ -98,6 +98,7 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/interfaces/session/isession.zep.h \
  yuga/route/support/icontrollerroute.zep.h yuga/container/container.zep.h \
  yuga/exceptions/routeexceptionhandler.zep.h \
+ yuga/http/middleware/imiddleware.zep.h \
  yuga/interfaces/application/application.zep.h \
  yuga/interfaces/events/dispatcherinterface.zep.h \
  yuga/route/support/igrouproute.zep.h yuga/session/session.zep.h \
@@ -112,8 +113,11 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/events/exceptions/eventexception.zep.h yuga/guid.zep.h \
  yuga/http/exceptions/badformedurlexception.zep.h \
  yuga/http/input/input.zep.h yuga/http/input/inputfile.zep.h \
- yuga/http/input/inputitem.zep.h yuga/http/redirect.zep.h \
- yuga/http/request.zep.h yuga/http/response.zep.h yuga/http/uri.zep.h \
+ yuga/http/input/inputitem.zep.h \
+ yuga/http/middleware/basecsrfverifier.zep.h \
+ yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
+ yuga/http/redirect.zep.h yuga/http/request.zep.h \
+ yuga/http/response.zep.h yuga/http/uri.zep.h \
  yuga/pipeline/pipeline.zep.h \
  yuga/route/exceptions/annotationparseexception.zep.h \
  yuga/route/exceptions/annotationtargetexception.zep.h \
