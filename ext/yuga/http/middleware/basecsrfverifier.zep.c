@@ -139,7 +139,7 @@ PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, skip)
 	}
 	ZEPHIR_OBS_VAR(&excepts);
 	zephir_read_property(&excepts, this_ptr, ZEND_STRL("except"), PH_NOISY_CC);
-	zephir_is_iterable(&excepts, 0, "yuga/Http/Middleware/BaseCsrfVerifier.zep", 58);
+	zephir_is_iterable(&excepts, 0, "yuga/Http/Middleware/BaseCsrfVerifier.zep", 55);
 	if (Z_TYPE_P(&excepts) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&excepts), _3)
 		{
@@ -150,7 +150,7 @@ PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, skip)
 			ZVAL_STRING(&_6$$4, "/");
 			zephir_fast_trim(&_5$$4, &url, &_6$$4, ZEPHIR_TRIM_RIGHT);
 			ZEPHIR_CPY_WRT(&url, &_5$$4);
-			zephir_array_fetch_long(&_7$$4, &url, (zephir_fast_strlen_ev(&url) - 1), PH_NOISY | PH_READONLY, "yuga/Http/Middleware/BaseCsrfVerifier.zep", 46);
+			zephir_array_fetch_long(&_7$$4, &url, (zephir_fast_strlen_ev(&url) - 1), PH_NOISY | PH_READONLY, "yuga/Http/Middleware/BaseCsrfVerifier.zep", 43);
 			if (ZEPHIR_IS_STRING_IDENTICAL(&_7$$4, "*")) {
 				ZEPHIR_INIT_NVAR(&_8$$5);
 				ZEPHIR_INIT_NVAR(&_9$$5);
@@ -191,7 +191,7 @@ PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, skip)
 				ZVAL_STRING(&_18$$8, "/");
 				zephir_fast_trim(&_17$$8, &url, &_18$$8, ZEPHIR_TRIM_RIGHT);
 				ZEPHIR_CPY_WRT(&url, &_17$$8);
-				zephir_array_fetch_long(&_19$$8, &url, (zephir_fast_strlen_ev(&url) - 1), PH_NOISY | PH_READONLY, "yuga/Http/Middleware/BaseCsrfVerifier.zep", 46);
+				zephir_array_fetch_long(&_19$$8, &url, (zephir_fast_strlen_ev(&url) - 1), PH_NOISY | PH_READONLY, "yuga/Http/Middleware/BaseCsrfVerifier.zep", 43);
 				if (ZEPHIR_IS_STRING_IDENTICAL(&_19$$8, "*")) {
 					ZEPHIR_INIT_NVAR(&_20$$9);
 					ZEPHIR_INIT_NVAR(&_21$$9);
@@ -315,7 +315,7 @@ PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, run)
 			zephir_check_call_status();
 		}
 		if (Z_TYPE_P(&token$$3) == IS_NULL) {
-			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Invalid form, Add csrf-token.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 74);
+			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Invalid form, Add csrf-token.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 71);
 			return;
 		}
 		zephir_read_property(&_11$$3, this_ptr, ZEND_STRL("csrfToken"), PH_NOISY_CC | PH_READONLY);
@@ -327,13 +327,13 @@ PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, run)
 			ZEPHIR_CALL_METHOD(&_17$$6, &_15$$6, "getdebugenabled", NULL, 0);
 			zephir_check_call_status();
 			if (ZEPHIR_IS_TRUE_IDENTICAL(&_17$$6)) {
-				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Invalid csrf-token.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 79);
+				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Invalid csrf-token.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 76);
 				return;
 			} else {
 				ZEPHIR_CALL_METHOD(&_18$$8, request, "isajax", NULL, 0);
 				zephir_check_call_status();
 				if (zephir_is_true(&_18$$8)) {
-					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Your form has expired, please refresh the page and try again.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 82);
+					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Your form has expired, please refresh the page and try again.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 79);
 					return;
 				} else {
 					ZEPHIR_INIT_VAR(&_19$$10);

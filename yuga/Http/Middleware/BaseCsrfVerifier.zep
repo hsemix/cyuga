@@ -35,12 +35,9 @@ class BaseCsrfVerifier implements IMiddleware
             return false;
         }
 
-        // let max = count(this->except) - 1;
         var excepts = this->except;
 
-        // for (i = max; i >= 0; i--) {
         for url in excepts {
-            // url = this->except[i];
 
             let url = rtrim(url, "/");
             if (url[strlen(url) - 1] === "*") {
@@ -81,7 +78,7 @@ class BaseCsrfVerifier implements IMiddleware
                     if (request->isAjax()) {
                         throw new TokenMismatchException("Your form has expired, please refresh the page and try again.");
                     } else {
-                        request->setRewriteCallback("Yuga\Controllers\PageController@formExpired");
+                        request->setRewriteCallback("Yuga\\Controllers\\PageController@formExpired");
                         return request;
                     }
                 }
