@@ -58,7 +58,7 @@ class BaseCsrfVerifier implements IMiddleware
     public function run(<Request> request, <Closure> next)
     {
 
-        if (this->skip(request) === false && in_array(request->getMethod(), ["post", "put", "delete"], false) === true && env("CSRF_PROTECT", true) === true) {
+        if (this->skip(request) === false && in_array(request->getMethod(), ["post", "put", "delete"], false) === true && Helpers::env("CSRF_PROTECT", true) === true) {
 
             var token = request->getInput()->get(self::POST_KEY, null, "post");
 

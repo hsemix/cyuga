@@ -225,13 +225,13 @@ PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, skip)
 
 PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, run)
 {
-	zval _13$$4;
+	zval _14$$4;
 	zval _3;
 	zend_bool _1, _6;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zephir_fcall_cache_entry *_16 = NULL;
+	zephir_fcall_cache_entry *_8 = NULL, *_17 = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *request, request_sub, *next, next_sub, __$false, _0, _2, _4, _5, _7, _8, token$$3, _9$$3, _10$$3, _11$$3, _12$$3, _14$$3, _15$$6, _17$$6, _18$$8, _19$$10;
+	zval *request, request_sub, *next, next_sub, __$false, _0, _2, _4, _5, _7, _9, token$$3, _10$$3, _11$$3, _12$$3, _13$$3, _15$$3, _16$$6, _18$$6, _19$$8, _20$$10;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&request_sub);
@@ -242,19 +242,19 @@ PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, run)
 	ZVAL_UNDEF(&_4);
 	ZVAL_UNDEF(&_5);
 	ZVAL_UNDEF(&_7);
-	ZVAL_UNDEF(&_8);
+	ZVAL_UNDEF(&_9);
 	ZVAL_UNDEF(&token$$3);
-	ZVAL_UNDEF(&_9$$3);
 	ZVAL_UNDEF(&_10$$3);
 	ZVAL_UNDEF(&_11$$3);
 	ZVAL_UNDEF(&_12$$3);
-	ZVAL_UNDEF(&_14$$3);
-	ZVAL_UNDEF(&_15$$6);
-	ZVAL_UNDEF(&_17$$6);
-	ZVAL_UNDEF(&_18$$8);
-	ZVAL_UNDEF(&_19$$10);
+	ZVAL_UNDEF(&_13$$3);
+	ZVAL_UNDEF(&_15$$3);
+	ZVAL_UNDEF(&_16$$6);
+	ZVAL_UNDEF(&_18$$6);
+	ZVAL_UNDEF(&_19$$8);
+	ZVAL_UNDEF(&_20$$10);
 	ZVAL_UNDEF(&_3);
-	ZVAL_UNDEF(&_13$$4);
+	ZVAL_UNDEF(&_14$$4);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(2, 2)
@@ -293,52 +293,52 @@ PHP_METHOD(Yuga_Http_Middleware_BaseCsrfVerifier, run)
 	if (_6) {
 		ZEPHIR_INIT_NVAR(&_4);
 		ZVAL_STRING(&_4, "CSRF_PROTECT");
-		ZVAL_BOOL(&_7, 1);
-		ZEPHIR_CALL_FUNCTION(&_8, "env", NULL, 0, &_4, &_7);
+		ZVAL_BOOL(&_9, 1);
+		ZEPHIR_CALL_CE_STATIC(&_7, yuga_support_helpers_ce, "env", &_8, 0, &_4, &_9);
 		zephir_check_call_status();
-		_6 = ZEPHIR_IS_TRUE_IDENTICAL(&_8);
+		_6 = ZEPHIR_IS_TRUE_IDENTICAL(&_7);
 	}
 	if (_6) {
-		ZEPHIR_CALL_METHOD(&_9$$3, request, "getinput", NULL, 0);
+		ZEPHIR_CALL_METHOD(&_10$$3, request, "getinput", NULL, 0);
 		zephir_check_call_status();
-		ZEPHIR_INIT_VAR(&_10$$3);
-		ZVAL_STRING(&_10$$3, "_token");
-		ZVAL_NULL(&_11$$3);
-		ZEPHIR_INIT_VAR(&_12$$3);
-		ZVAL_STRING(&_12$$3, "post");
-		ZEPHIR_CALL_METHOD(&token$$3, &_9$$3, "get", NULL, 0, &_10$$3, &_11$$3, &_12$$3);
+		ZEPHIR_INIT_VAR(&_11$$3);
+		ZVAL_STRING(&_11$$3, "_token");
+		ZVAL_NULL(&_12$$3);
+		ZEPHIR_INIT_VAR(&_13$$3);
+		ZVAL_STRING(&_13$$3, "post");
+		ZEPHIR_CALL_METHOD(&token$$3, &_10$$3, "get", NULL, 0, &_11$$3, &_12$$3, &_13$$3);
 		zephir_check_call_status();
 		if (Z_TYPE_P(&token$$3) == IS_NULL) {
-			ZEPHIR_INIT_VAR(&_13$$4);
-			ZEPHIR_CONCAT_SS(&_13$$4, "http-", "X-CSRF-TOKEN");
-			ZEPHIR_CALL_METHOD(&token$$3, request, "getheader", NULL, 0, &_13$$4);
+			ZEPHIR_INIT_VAR(&_14$$4);
+			ZEPHIR_CONCAT_SS(&_14$$4, "http-", "X-CSRF-TOKEN");
+			ZEPHIR_CALL_METHOD(&token$$3, request, "getheader", NULL, 0, &_14$$4);
 			zephir_check_call_status();
 		}
 		if (Z_TYPE_P(&token$$3) == IS_NULL) {
 			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Invalid form, Add csrf-token.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 71);
 			return;
 		}
-		zephir_read_property(&_11$$3, this_ptr, ZEND_STRL("csrfToken"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_METHOD(&_14$$3, &_11$$3, "validate", NULL, 0, &token$$3);
+		zephir_read_property(&_12$$3, this_ptr, ZEND_STRL("csrfToken"), PH_NOISY_CC | PH_READONLY);
+		ZEPHIR_CALL_METHOD(&_15$$3, &_12$$3, "validate", NULL, 0, &token$$3);
 		zephir_check_call_status();
-		if (ZEPHIR_IS_FALSE_IDENTICAL(&_14$$3)) {
-			ZEPHIR_CALL_CE_STATIC(&_15$$6, yuga_support_helpers_ce, "app", &_16, 0);
+		if (ZEPHIR_IS_FALSE_IDENTICAL(&_15$$3)) {
+			ZEPHIR_CALL_CE_STATIC(&_16$$6, yuga_support_helpers_ce, "app", &_17, 0);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(&_17$$6, &_15$$6, "getdebugenabled", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_18$$6, &_16$$6, "getdebugenabled", NULL, 0);
 			zephir_check_call_status();
-			if (ZEPHIR_IS_TRUE_IDENTICAL(&_17$$6)) {
+			if (ZEPHIR_IS_TRUE_IDENTICAL(&_18$$6)) {
 				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Invalid csrf-token.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 76);
 				return;
 			} else {
-				ZEPHIR_CALL_METHOD(&_18$$8, request, "isajax", NULL, 0);
+				ZEPHIR_CALL_METHOD(&_19$$8, request, "isajax", NULL, 0);
 				zephir_check_call_status();
-				if (zephir_is_true(&_18$$8)) {
+				if (zephir_is_true(&_19$$8)) {
 					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(yuga_http_middleware_exceptions_tokenmismatchexception_ce, "Your form has expired, please refresh the page and try again.", "yuga/Http/Middleware/BaseCsrfVerifier.zep", 79);
 					return;
 				} else {
-					ZEPHIR_INIT_VAR(&_19$$10);
-					ZVAL_STRING(&_19$$10, "Yuga\\Controllers\\PageController@formExpired");
-					ZEPHIR_CALL_METHOD(NULL, request, "setrewritecallback", NULL, 0, &_19$$10);
+					ZEPHIR_INIT_VAR(&_20$$10);
+					ZVAL_STRING(&_20$$10, "Yuga\\Controllers\\PageController@formExpired");
+					ZEPHIR_CALL_METHOD(NULL, request, "setrewritecallback", NULL, 0, &_20$$10);
 					zephir_check_call_status();
 					RETVAL_ZVAL(request, 1, 0);
 					RETURN_MM();
