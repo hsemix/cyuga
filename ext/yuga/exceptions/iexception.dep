@@ -132,6 +132,7 @@ yuga/exceptions/iexception.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/http/input/inputitem.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/http/middleware/basecsrfverifier.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/http/middleware/middleware.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/exceptions/../../yuga/http/response.zep.h \

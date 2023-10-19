@@ -132,6 +132,7 @@ yuga/http/input/input.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/input/inputitem.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/middleware/basecsrfverifier.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/middleware/middleware.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/http/input/../../../yuga/http/response.zep.h \

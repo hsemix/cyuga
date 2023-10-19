@@ -116,8 +116,8 @@ kernel/concat.lo: /var/www/html/yuga-zephir/yuga/ext/kernel/concat.c \
  yuga/http/input/inputitem.zep.h \
  yuga/http/middleware/basecsrfverifier.zep.h \
  yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
- yuga/http/redirect.zep.h yuga/http/request.zep.h \
- yuga/http/response.zep.h yuga/http/uri.zep.h \
+ yuga/http/middleware/middleware.zep.h yuga/http/redirect.zep.h \
+ yuga/http/request.zep.h yuga/http/response.zep.h yuga/http/uri.zep.h \
  yuga/pipeline/pipeline.zep.h \
  yuga/route/exceptions/annotationparseexception.zep.h \
  yuga/route/exceptions/annotationtargetexception.zep.h \

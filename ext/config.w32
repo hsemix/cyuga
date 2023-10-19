@@ -20,7 +20,7 @@ if (PHP_YUGA != "no") {
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/http/input", "inputiteminterface.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/session", "isession.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/container", "container.zep.c", "yuga");
-	ADD_SOURCES(configure_module_dirname + "/yuga/http/middleware", "imiddleware.zep.c basecsrfverifier.zep.c", "yuga");
+	ADD_SOURCES(configure_module_dirname + "/yuga/http/middleware", "imiddleware.zep.c basecsrfverifier.zep.c middleware.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/application", "application.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/interfaces/events", "dispatcherinterface.zep.c", "yuga");
 	ADD_SOURCES(configure_module_dirname + "/yuga/session", "session.zep.c messagebag.zep.c sessionserviceprovider.zep.c", "yuga");

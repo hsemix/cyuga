@@ -178,6 +178,9 @@ yuga/http/middleware/basecsrfverifier.lo: /var/www/html/yuga-zephir/yuga/ext/yug
 -include yuga/http/middleware/exceptions/tokenmismatchexception.dep
 yuga/http/middleware/exceptions/tokenmismatchexception.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/exceptions/tokenmismatchexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/exceptions/tokenmismatchexception.zep.c -o yuga/http/middleware/exceptions/tokenmismatchexception.lo  -MMD -MF yuga/http/middleware/exceptions/tokenmismatchexception.dep -MT yuga/http/middleware/exceptions/tokenmismatchexception.lo
+-include yuga/http/middleware/middleware.dep
+yuga/http/middleware/middleware.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/middleware.zep.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/middleware/middleware.zep.c -o yuga/http/middleware/middleware.lo  -MMD -MF yuga/http/middleware/middleware.dep -MT yuga/http/middleware/middleware.lo
 -include yuga/http/redirect.dep
 yuga/http/redirect.lo: /var/www/html/yuga-zephir/yuga/ext/yuga/http/redirect.zep.c
 	$(LIBTOOL) --mode=compile $(CC) -I. -I/var/www/html/yuga-zephir/yuga/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)   -DZEND_COMPILE_DL_EXT=1 -c /var/www/html/yuga-zephir/yuga/ext/yuga/http/redirect.zep.c -o yuga/http/redirect.lo  -MMD -MF yuga/http/redirect.dep -MT yuga/http/redirect.lo

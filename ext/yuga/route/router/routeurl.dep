@@ -132,6 +132,7 @@ yuga/route/router/routeurl.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/router/../../../yuga/http/input/inputitem.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/router/../../../yuga/http/middleware/basecsrfverifier.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/router/../../../yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/route/router/../../../yuga/http/middleware/middleware.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/router/../../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/router/../../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/route/router/../../../yuga/http/response.zep.h \

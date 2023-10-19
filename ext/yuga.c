@@ -75,6 +75,7 @@ zend_class_entry *yuga_http_input_inputfile_ce;
 zend_class_entry *yuga_http_input_inputitem_ce;
 zend_class_entry *yuga_http_middleware_basecsrfverifier_ce;
 zend_class_entry *yuga_http_middleware_exceptions_tokenmismatchexception_ce;
+zend_class_entry *yuga_http_middleware_middleware_ce;
 zend_class_entry *yuga_http_redirect_ce;
 zend_class_entry *yuga_http_request_ce;
 zend_class_entry *yuga_http_response_ce;
@@ -150,6 +151,7 @@ static PHP_MINIT_FUNCTION(yuga)
 	ZEPHIR_INIT(Yuga_Http_Input_InputItem);
 	ZEPHIR_INIT(Yuga_Http_Middleware_BaseCsrfVerifier);
 	ZEPHIR_INIT(Yuga_Http_Middleware_Exceptions_TokenMismatchException);
+	ZEPHIR_INIT(Yuga_Http_Middleware_MiddleWare);
 	ZEPHIR_INIT(Yuga_Http_Redirect);
 	ZEPHIR_INIT(Yuga_Http_Request);
 	ZEPHIR_INIT(Yuga_Http_Response);

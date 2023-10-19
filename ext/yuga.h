@@ -44,6 +44,7 @@
 #include "yuga/http/input/inputitem.zep.h"
 #include "yuga/http/middleware/basecsrfverifier.zep.h"
 #include "yuga/http/middleware/exceptions/tokenmismatchexception.zep.h"
+#include "yuga/http/middleware/middleware.zep.h"
 #include "yuga/http/redirect.zep.h"
 #include "yuga/http/request.zep.h"
 #include "yuga/http/response.zep.h"

@@ -49,6 +49,7 @@ if test "$PHP_YUGA" = "yes"; then
 	yuga/http/input/inputitem.zep.c
 	yuga/http/middleware/basecsrfverifier.zep.c
 	yuga/http/middleware/exceptions/tokenmismatchexception.zep.c
+	yuga/http/middleware/middleware.zep.c
 	yuga/http/redirect.zep.c
 	yuga/http/request.zep.c
 	yuga/http/response.zep.c

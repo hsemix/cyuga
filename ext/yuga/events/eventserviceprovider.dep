@@ -132,6 +132,7 @@ yuga/events/eventserviceprovider.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/http/input/inputitem.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/http/middleware/basecsrfverifier.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/http/middleware/middleware.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/events/../../yuga/http/response.zep.h \

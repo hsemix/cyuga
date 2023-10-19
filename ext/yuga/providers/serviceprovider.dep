@@ -132,6 +132,7 @@ yuga/providers/serviceprovider.lo: \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/input/inputitem.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/middleware/basecsrfverifier.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/middleware/exceptions/tokenmismatchexception.zep.h \
+ /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/middleware/middleware.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/redirect.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/request.zep.h \
  /var/www/html/yuga-zephir/yuga/ext/yuga/providers/../../yuga/http/response.zep.h \
